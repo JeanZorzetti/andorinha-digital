@@ -159,7 +159,7 @@ const DesignGrafico = () => {
   return (
     <>
       <SEO
-        title="Design Gráfico | Criação de Peças | A partir de R$ 350"
+        title="Design Gráfico | Peças a partir de R$ 350 | Andorinha Marketing"
         description="Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis."
         keywords="design gráfico, criação de posts, design para redes sociais, material gráfico, banner, folder, cartão de visita"
         url="https://andorinhamarketing.com.br/servicos/design-grafico"

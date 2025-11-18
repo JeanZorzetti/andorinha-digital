@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, Linkedin, Instagram, CheckCircle2 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 import { useToast } from "@/hooks/use-toast";
 
 const Contato = () => {
@@ -49,8 +50,14 @@ const Contato = () => {
 
   return (
     <div className="min-h-screen">
+      <SEO
+        title="Contato | Agende Diagnóstico Gratuito | Andorinha Marketing"
+        description="Entre em contato com a Andorinha Marketing. Agende seu diagnóstico gratuito e descubra como podemos ajudar seu negócio a crescer."
+        keywords="contato agência marketing, diagnóstico gratuito, orçamento marketing, consultoria marketing PME"
+        url="https://andorinhamarketing.com.br/contato"
+      />
       <Header />
-      
+
       {/* Hero */}
       <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-primary-dark to-accent-blue text-primary-foreground">
         <div className="container mx-auto text-center">
