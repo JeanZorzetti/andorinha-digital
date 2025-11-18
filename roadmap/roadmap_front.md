@@ -1846,31 +1846,15 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 **Tarefas:**
 
 #### 8.5.1 Botões
-- [ ] Revisar estilos de botões seguindo o manual:
-  ```css
-  /* Botão Primário */
-  .btn-primary {
-    background: #FF6B35;
-    color: white;
-    border-radius: 8px;
-    font-family: 'Onest', sans-serif;
-    font-weight: 600;
-  }
-
-  /* Botão Secundário */
-  .btn-secondary {
-    background: transparent;
-    border: 2px solid #00072D;
-    color: #00072D;
-  }
-
-  /* Botão Ghost (fundos escuros) */
-  .btn-ghost {
-    background: transparent;
-    border: 2px solid white;
-    color: white;
-  }
-  ```
+- [x] Revisar estilos de botões seguindo o manual:
+  - [x] Botão Primário (default): Laranja #FF6B35, hover effects, shadow
+  - [x] Botão Secundário: Outline azul marinho para fundos claros
+  - [x] Botão Ghost: Outline branco para fundos escuros (WCAG AAA)
+  - [x] Botão Outline: Border laranja (compatibilidade)
+  - [x] Adicionado tamanho xl (h-14, px-12, text-lg) para CTAs
+  - [x] Removidos inline overrides de Home.tsx
+  - [x] Aplicado font-semibold e rounded-lg conforme manual
+  - [x] Transições suaves (300ms) e hover:scale em botões primários
 
 #### 8.5.2 Cards
 - [ ] Padronizar cards com visual do manual:
@@ -1886,10 +1870,11 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
   - Erros: Vermelho com ícone
 
 #### 8.5.4 Navegação
-- [ ] Atualizar Header e Footer:
-  - Cores corretas
-  - Logo oficial
-  - Hover states com cores da marca
+- [x] Atualizar Header e Footer:
+  - [x] Logo oficial em Header (logo-principal.svg)
+  - [x] Logo oficial em Footer (logo-principal-branco.svg)
+  - [x] Hover states com opacity transition
+  - [x] Dimensões h-12 (48px) para boa visibilidade
 
 #### 8.5.5 Tipografia aplicada
 - [ ] Revisar hierarquia em todas as páginas:
