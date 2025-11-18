@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
@@ -156,7 +157,15 @@ const Rebranding = () => {
         description="Reposicionamento e renovação completa da sua marca. Pesquisa, estratégia, nova identidade visual e plano de transição. Projetos de 45 a 60 dias."
         keywords="rebranding, quanto custa rebranding, reposicionamento de marca, renovação de marca, reformulação de identidade visual"
         url="https://andorinhamarketing.com.br/servicos/rebranding"
+        image="https://andorinhamarketing.com.br/og/og-rebranding.png"
       />
+      <SchemaService
+        name="Rebranding Completo"
+        description="Reposicionamento e renovação completa da sua marca. Pesquisa, estratégia, nova identidade visual e plano de transição. Projetos de 45 a 60 dias."
+        price="15000"
+        url="https://andorinhamarketing.com.br/servicos/rebranding"
+      />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

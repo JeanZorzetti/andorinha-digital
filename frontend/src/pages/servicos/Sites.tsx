@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
@@ -155,7 +156,15 @@ const Sites = () => {
         description="Sites institucionais e landing pages que convertem. Design responsivo, SEO otimizado e CMS para você gerenciar. Entrega em 15 a 45 dias."
         keywords="criação de sites, quanto custa criar site, site institucional, landing page, desenvolvimento web, site responsivo"
         url="https://andorinhamarketing.com.br/servicos/sites"
+        image="https://andorinhamarketing.com.br/og/og-sites.png"
       />
+      <SchemaService
+        name="Criação de Sites e Landing Pages"
+        description="Sites institucionais e landing pages que convertem. Design responsivo, SEO otimizado e CMS para você gerenciar. Entrega em 15 a 45 dias."
+        price="3500"
+        url="https://andorinhamarketing.com.br/servicos/sites"
+      />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

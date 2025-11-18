@@ -104,6 +104,7 @@ const Cases = () => {
         description="Conheça nossos cases de sucesso em branding, sites, vídeos e design. Resultados reais de clientes reais com métricas comprovadas."
         keywords="cases de sucesso, portfolio, projetos de marketing, resultados, branding cases, cases sites"
         url="https://andorinhamarketing.com.br/cases"
+        image="https://andorinhamarketing.com.br/og/og-cases.png"
       />
 
       <Header />

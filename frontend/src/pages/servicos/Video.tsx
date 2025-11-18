@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
@@ -155,7 +156,15 @@ const Video = () => {
         description="Vídeos institucionais que contam a história da sua empresa. Roteiro, filmagem profissional, edição e trilha sonora licenciada. Entrega em 30-45 dias."
         keywords="vídeo institucional, quanto custa vídeo institucional, produtora de vídeo, vídeo corporativo, vídeo empresarial"
         url="https://andorinhamarketing.com.br/servicos/video"
+        image="https://andorinhamarketing.com.br/og/og-video.png"
       />
+      <SchemaService
+        name="Vídeo Institucional Profissional"
+        description="Vídeos institucionais que contam a história da sua empresa. Roteiro, filmagem profissional, edição e trilha sonora licenciada. Entrega em 30-45 dias."
+        price="8000"
+        url="https://andorinhamarketing.com.br/servicos/video"
+      />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

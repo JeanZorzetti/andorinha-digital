@@ -14,7 +14,7 @@ const SEO = ({
   title,
   description,
   keywords,
-  image = 'https://andorinhamarketing.com.br/og-image.png',
+  image = 'https://andorinhamarketing.com.br/og/og-home.png',
   url = 'https://andorinhamarketing.com.br',
   type = 'website',
   author = 'Andorinha Marketing'

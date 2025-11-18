@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaFAQPage } from "@/components/SchemaOrg";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -199,7 +200,9 @@ const Precos = () => {
         description="Tabela completa de preços dos serviços de marketing: branding, sites, vídeos e design gráfico. Investimento transparente com condições de pagamento flexíveis."
         keywords="preços marketing, quanto custa branding, preço site institucional, valores identidade visual, orçamento marketing"
         url="https://andorinhamarketing.com.br/precos"
+        image="https://andorinhamarketing.com.br/og/og-precos.png"
       />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

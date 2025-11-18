@@ -9,6 +9,7 @@ import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Analytics from "./components/Analytics";
+import { SchemaOrganization } from "./components/SchemaOrg";
 
 // Páginas de Serviços
 import Branding from "./pages/servicos/Branding";
@@ -35,6 +36,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <WhatsAppButton />
+        <SchemaOrganization />
         <BrowserRouter>
           <Analytics />
           <Routes>

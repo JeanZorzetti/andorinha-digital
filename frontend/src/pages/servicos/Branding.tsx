@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
@@ -164,7 +165,15 @@ const Branding = () => {
         description="Criação de identidade visual completa: logo, paleta de cores, tipografia e manual de marca. Projetos de 21 a 40 dias com 3 rodadas de revisão incluídas."
         keywords="branding, identidade visual, criação de logo, preço identidade visual, quanto custa branding, manual de marca"
         url="https://andorinhamarketing.com.br/servicos/branding"
+        image="https://andorinhamarketing.com.br/og/og-branding.png"
       />
+      <SchemaService
+        name="Branding e Identidade Visual"
+        description="Criação de identidade visual completa: logo, paleta de cores, tipografia e manual de marca. Projetos de 21 a 40 dias com 3 rodadas de revisão incluídas."
+        price="6000"
+        url="https://andorinhamarketing.com.br/servicos/branding"
+      />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

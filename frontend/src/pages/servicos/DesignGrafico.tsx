@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
@@ -163,7 +164,15 @@ const DesignGrafico = () => {
         description="Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis."
         keywords="design gráfico, criação de posts, design para redes sociais, material gráfico, banner, folder, cartão de visita"
         url="https://andorinhamarketing.com.br/servicos/design-grafico"
+        image="https://andorinhamarketing.com.br/og/og-design-grafico.png"
       />
+      <SchemaService
+        name="Design Gráfico"
+        description="Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis."
+        price="350"
+        url="https://andorinhamarketing.com.br/servicos/design-grafico"
+      />
+      <SchemaFAQPage faqs={faqItems} />
 
       <Header />
 

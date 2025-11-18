@@ -1,0 +1,42 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f7931e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1100" cy="100" r="150" fill="#ff6b35" opacity="0.1"/>
+  <circle cx="100" cy="530" r="100" fill="#f7931e" opacity="0.1"/>
+
+  <!-- Logo area -->
+  <text x="80" y="120" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ff6b35">ANDORINHA</text>
+  <text x="80" y="150" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" opacity="0.7">MARKETING</text>
+
+  <!-- Service badge -->
+  <rect x="80" y="200" width="120" height="30" rx="15" fill="url(#accent)"/>
+  <text x="105" y="221" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ffffff">SERVIÇO</text>
+
+  <!-- Main title -->
+  <text x="80" y="320" font-family="Arial, sans-serif" font-size="64" font-weight="bold" fill="#ffffff">Branding</text>
+
+  <!-- Subtitle -->
+  <text x="80" y="380" font-family="Arial, sans-serif" font-size="28" fill="#ffffff" opacity="0.8">Identidade Visual Completa</text>
+
+  <!-- Price highlight -->
+  <text x="80" y="460" font-family="Arial, sans-serif" font-size="20" fill="#ff6b35">A partir de R$ 3.500</text>
+
+  <!-- Features -->
+  <text x="80" y="520" font-family="Arial, sans-serif" font-size="16" fill="#ffffff" opacity="0.6">Logo • Paleta de Cores • Tipografia • Manual de Marca</text>
+
+  <!-- CTA -->
+  <rect x="80" y="550" width="200" height="40" rx="20" fill="url(#accent)"/>
+  <text x="120" y="577" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Ver Detalhes</text>
+</svg>

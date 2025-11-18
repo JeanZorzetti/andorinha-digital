@@ -130,6 +130,7 @@ const Sobre = () => {
         description="Conheça a Andorinha Marketing: agência especializada em PMEs com 15 anos de experiência. Transparência, estratégia e resultados reais."
         keywords="sobre andorinha marketing, quem somos, agência de marketing, história, valores, equipe"
         url="https://andorinhamarketing.com.br/sobre"
+        image="https://andorinhamarketing.com.br/og/og-sobre.png"
       />
 
       <Header />
