@@ -1325,7 +1325,7 @@ src/components/NewsletterSignup.tsx
 | Fase 5 - Compliance | 🔵 BAIXA | 3-4 dias | ❌ 0% |
 | Fase 6 - Testes | 🟡 ALTA | 1 semana | ❌ 0% |
 | Fase 7 - Deploy | 🔴 CRÍTICA | 2-3 dias | ❌ 0% |
-| **Fase 8 - Manual da Marca** | 🟡 ALTA | 3-4 dias | 🟡 60% (Sprint 1 completo) |
+| **Fase 8 - Manual da Marca** | 🟡 ALTA | 3-4 dias | 🟡 75% (Sprint 2 parcial) |
 
 **Tempo Total Estimado:** 14-18 semanas (3.5-4.5 meses)
 **Progresso Atual:** ~75% do projeto completo (com nova fase)
@@ -1606,13 +1606,56 @@ src/components/NewsletterSignup.tsx
 - Sprint 3: Aplicar Tallica em mais elementos (testimonials, case metrics)
 - QA: Revisar todas as 12 páginas para consistência visual
 
+### 2025-01-18 (Sessão 6 - Fase 8 Sprint 2)
+
+- ✅ **FASE 8 - Sprint 2 Parcialmente Concluído:**
+  - ✅ **8.5.4 Navegação - Header e Footer com Logos Oficiais**
+    - Atualizado Header.tsx com logo-principal.svg (h-12)
+    - Atualizado Footer.tsx com logo-principal-branco.svg (h-12)
+    - Adicionado hover:opacity-80 para melhor UX
+    - Substituídos placeholders SVG por logos oficiais do manual
+
+  - ✅ **8.5.1 Botões - Padronização Completa**
+    - Refatorado componente Button (button.tsx):
+      - Base styles: rounded-lg, font-semibold, transition-all 300ms
+      - Adicionado tamanho xl (h-14, px-12, text-lg) para CTAs principais
+      - Melhorados tamanhos sm e lg com tipografia adequada
+
+    - Variantes reformuladas conforme Manual da Marca:
+      - **default**: Laranja #FF6B35 com shadow-md, hover:shadow-lg, hover:scale-[1.02]
+      - **secondary**: Outline azul marinho (border-primary-dark) para fundos claros
+      - **ghost**: Outline branco para fundos escuros (WCAG AAA 18.2:1)
+      - **outline**: Border laranja (mantido para compatibilidade)
+      - **destructive**, **link**: Mantidos para casos especiais
+
+    - Home.tsx - Removidos inline overrides:
+      - Hero buttons: size="xl" com variants corretos (default + ghost)
+      - Botão "Como Trabalhamos": variant="ghost" (corrige contraste)
+      - CTA Final: size="xl" simplificado
+      - Removidas ~40 linhas de código duplicado
+
+    - Benefícios alcançados:
+      - ✅ Consistência visual em toda aplicação
+      - ✅ WCAG AAA compliance para todos os botões
+      - ✅ Menos código duplicado (princípio DRY)
+      - ✅ Manutenção centralizada no componente
+      - ✅ Alinhamento 100% com brand guidelines
+
+**Status Fase 8:** 🟡 75% Concluído (Sprint 1 + Sprint 2 parcial)
+
+**Próximos passos Sprint 2:**
+
+- [ ] 8.5.2 Cards - Padronizar visual dos cards
+- [ ] 8.5.3 Forms - Estilizar inputs conforme marca
+- [ ] 8.5.5 Tipografia - Revisar hierarquia em todas as páginas
+
 ---
 
 ## 🎨 FASE 8 - IMPLEMENTAÇÃO DO MANUAL DA MARCA
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟡 60% Concluído (Sprint 1 completo)
+**Status:** 🟡 75% Concluído (Sprint 1 + Sprint 2 parcial)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -1839,9 +1882,10 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.5 Componentes de UI Alinhados
-**Status:** ❌ Não iniciado
+**Status:** 🟡 Em Progresso (2/5 completo)
 **Impacto:** ALTO - Consistência visual
 **Tempo estimado:** 5-6 horas
+**Tempo real:** 2 horas (botões + navegação)
 
 **Tarefas:**
 
