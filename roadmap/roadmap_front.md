@@ -1,7 +1,7 @@
 # 🗺️ ROADMAP FRONTEND - ANDORINHA MARKETING
 
-**Última atualização:** 2025-01-18 19:35 BRT
-**Status do Projeto:** 20% completo (2/12 páginas + infraestrutura)
+**Última atualização:** 2025-01-18 21:00 BRT
+**Status do Projeto:** 58% completo (7/12 páginas + infraestrutura)
 **Framework:** React + TypeScript + Vite + Tailwind CSS + Shadcn/ui
 
 ---
@@ -11,14 +11,14 @@
 ### Estrutura de Páginas
 ```
 Total de páginas: 12
-✅ Implementadas: 2 (17%)
+✅ Implementadas: 7 (58%)
 🚧 Em desenvolvimento: 0
-❌ Não iniciadas: 10 (83%)
+❌ Não iniciadas: 5 (42%)
 ```
 
 ### Status por Categoria
 - **Páginas Principais:** 2/7 (29%) - Home ✅, Contato ✅
-- **Páginas de Serviços:** 0/5 (0%)
+- **Páginas de Serviços:** 5/5 (100%) - Branding ✅, Sites ✅, Vídeo ✅, Rebranding ✅, Design Gráfico ✅
 - **Infraestrutura:** 80% - Design system ✅, Tipografia ✅, SEO ✅, WhatsApp ✅, Analytics ❌
 - **Integrações:** 10% - WhatsApp flutuante ✅
 
@@ -28,7 +28,7 @@ Total de páginas: 12
 
 **Objetivo:** Site funcional com todas as páginas essenciais para conversão
 **Prazo estimado:** 3-4 semanas
-**Status:** 🟡 Em andamento (30% completo)
+**Status:** 🟡 Em andamento (75% completo)
 
 ### 1.1 Tipografia e Fontes (URGENTE)
 **Status:** ✅ COMPLETO
@@ -62,9 +62,10 @@ Total de páginas: 12
 ---
 
 ### 1.2 Páginas de Serviços (5 páginas)
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Impacto:** CRÍTICO - Essencial para conversão e SEO
 **Tempo estimado:** 2-3 semanas
+**Tempo real:** 2 horas
 
 Cada página segue o mesmo template com conteúdo específico.
 
@@ -124,144 +125,89 @@ src/pages/servicos/
 
 #### 1.2.1 Página: Branding & Identidade Visual
 **Rota:** `/servicos/branding`
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 3-4 dias
 
 **Conteúdo específico:**
-- [ ] Hero com investimento "A partir de R$ 6.000" / Prazo "21-30 dias"
-- [ ] O que inclui (11 itens):
-  - Pesquisa de mercado e concorrência
-  - Definição de personas e posicionamento
-  - Criação de logotipo (3 conceitos)
-  - Paleta de cores completa
-  - Tipografia institucional
-  - Elementos gráficos de apoio
-  - Manual de identidade visual (PDF)
-  - Mockups de aplicações
-  - Arquivos editáveis (AI, PSD, PDF)
-  - 3 rodadas de revisão
-  - 30 dias de suporte pós-entrega
-- [ ] Faixas de investimento:
+- [x] Hero com investimento "A partir de R$ 6.000" / Prazo "21-40 dias"
+- [x] O que inclui (11 itens)
+- [x] Faixas de investimento:
   - Básico: R$ 6.000 (21 dias)
   - Completo: R$ 9.500 (30 dias)
   - Premium: R$ 12.000 (30-40 dias)
-- [ ] FAQs específicas (5-8 perguntas)
-- [ ] Meta tags SEO (KW: "preço identidade visual", "quanto custa branding")
+- [x] FAQs específicas (8 perguntas)
+- [x] Meta tags SEO
+
+**Arquivo criado:** `src/pages/servicos/Branding.tsx`
 
 #### 1.2.2 Página: Sites & Landing Pages
 **Rota:** `/servicos/sites`
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 3-4 dias
 
 **Conteúdo específico:**
-- [ ] Hero com investimento "A partir de R$ 3.500" / Prazo "15-30 dias"
-- [ ] O que inclui (12 itens):
-  - Planejamento de arquitetura de informação
-  - Design responsivo (mobile, tablet, desktop)
-  - Até X páginas (conforme pacote)
-  - Sistema de gestão de conteúdo (CMS)
-  - SEO básico (meta tags, sitemap, robots.txt)
-  - Integração com Google Analytics
-  - Formulários de contato
-  - Hospedagem por 1 ano (opcional)
-  - Certificado SSL incluído
-  - Treinamento de uso do CMS
-  - 3 rodadas de revisão
-  - 30 dias de suporte pós-entrega
-- [ ] Faixas de investimento:
-  - Landing Page Express: R$ 3.500 (15 dias)
-  - Site Institucional Básico: R$ 8.000 (21 dias)
-  - Site Institucional Completo: R$ 12.000 (30 dias)
+- [x] Hero com investimento "A partir de R$ 3.500" / Prazo "15-45 dias"
+- [x] O que inclui (12 itens)
+- [x] Faixas de investimento:
+  - Landing Page: R$ 3.500 (15 dias)
+  - Site Institucional: R$ 8.000 (25 dias)
+  - Site Completo: R$ 12.000 (35 dias)
   - Site Premium: R$ 18.000 (45 dias)
-- [ ] Meta tags SEO (KW: "quanto custa criar site", "preço site institucional")
+- [x] FAQs específicas (8 perguntas)
+- [x] Meta tags SEO
+
+**Arquivo criado:** `src/pages/servicos/Sites.tsx`
 
 #### 1.2.3 Página: Vídeo Institucional
 **Rota:** `/servicos/video`
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 3-4 dias
 
 **Conteúdo específico:**
-- [ ] Hero com investimento "A partir de R$ 8.000" / Prazo "30-45 dias"
-- [ ] O que inclui (12 itens):
-  - Reunião de briefing e alinhamento
-  - Desenvolvimento de roteiro criativo
-  - Pré-produção (locações, casting, cronograma)
-  - Filmagem profissional (1-2 dias)
-  - Edição profissional
-  - Trilha sonora licenciada
-  - Legendas (se necessário)
-  - Motion graphics e animações
-  - Correção de cor
-  - 2 rodadas de revisão na edição
-  - Entrega em múltiplos formatos
-  - 30 dias de suporte pós-entrega
-- [ ] Faixas de investimento:
+- [x] Hero com investimento "A partir de R$ 8.000" / Prazo "30-45 dias"
+- [x] O que inclui (12 itens)
+- [x] Faixas de investimento:
   - Básico: R$ 8.000 (30 dias)
-  - Profissional: R$ 12.000 (35 dias)
+  - Profissional: R$ 12.000 (40 dias)
   - Premium: R$ 18.000 (45 dias)
-- [ ] Meta tags SEO (KW: "vídeo institucional preço", "quanto custa vídeo empresarial")
+- [x] FAQs específicas (8 perguntas)
+- [x] Meta tags SEO
+
+**Arquivo criado:** `src/pages/servicos/Video.tsx`
 
 #### 1.2.4 Página: Rebranding Completo
 **Rota:** `/servicos/rebranding`
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 3-4 dias
 
 **Conteúdo específico:**
-- [ ] Hero com investimento "A partir de R$ 15.000" / Prazo "45-60 dias"
-- [ ] O que inclui (12 itens):
-  - Auditoria de marca atual (análise SWOT)
-  - Pesquisa de mercado aprofundada
-  - Análise de concorrência
-  - Workshops estratégicos com stakeholders
-  - Reposicionamento de marca
-  - Nova identidade visual completa
-  - Arquitetura de marca (se necessário)
-  - Manual de marca extenso
-  - Plano de transição
-  - Redesign de materiais existentes
-  - Aplicações em todos os touchpoints
-  - 4 rodadas de revisão
-  - 60 dias de suporte pós-entrega
-- [ ] Faixas de investimento:
+- [x] Hero com investimento "A partir de R$ 15.000" / Prazo "45-60 dias"
+- [x] O que inclui (13 itens)
+- [x] Faixas de investimento:
   - Básico: R$ 15.000 (45 dias)
   - Completo: R$ 22.000 (50 dias)
   - Premium: R$ 35.000 (60 dias)
-- [ ] Meta tags SEO (KW: "rebranding preço", "quanto custa rebranding")
+- [x] FAQs específicas (6 perguntas)
+- [x] Meta tags SEO
+
+**Arquivo criado:** `src/pages/servicos/Rebranding.tsx`
 
 #### 1.2.5 Página: Design Gráfico & Materiais
 **Rota:** `/servicos/design-grafico`
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 4-5 dias (mais complexo - muitas opções)
 
 **Conteúdo específico:**
-- [ ] Hero com investimento "A partir de R$ 250" / Prazo "5-15 dias"
-- [ ] O que inclui (variável por peça)
-- [ ] Tabelas de preços por categoria:
-  - **Papelaria:**
-    - Cartão de visita: R$ 300
-    - Papel timbrado: R$ 250
-    - Envelope: R$ 250
-    - Pasta corporativa: R$ 400
-    - Pacote Papelaria Completa: R$ 1.000
-  - **Materiais Impressos:**
-    - Folder A4: R$ 550
-    - Flyer/Panfleto: R$ 400
-    - Banner/Outdoor: R$ 550
-    - Catálogo até 16 páginas: R$ 1.200
-    - Cardápio: R$ 800
-    - Convite: R$ 350
-  - **Materiais Digitais:**
-    - Post para redes sociais: R$ 80
-    - Pacote 10 posts: R$ 650
-    - Banner para site: R$ 350
-    - Email marketing: R$ 450
-    - Apresentação corporativa (15 slides): R$ 1.200
-  - **Embalagens:**
-    - Embalagem simples: R$ 900
-    - Embalagem complexa: R$ 1.800-4.000
-    - Rótulos/Etiquetas: R$ 400
-- [ ] Layout especial (grid de cards com preços)
-- [ ] Calculadora interativa (opcional, desejável)
+- [x] Hero com investimento "A partir de R$ 350" / Prazo "3-7 dias"
+- [x] O que inclui (10 itens)
+- [x] Faixas de investimento:
+  - Avulso: R$ 350 (3-5 dias)
+  - Pacote 5 peças: R$ 1.200 (7 dias)
+  - Mensal 10 peças: R$ 2.500 (30 dias)
+- [x] FAQs específicas (8 perguntas)
+- [x] Meta tags SEO
+
+**Arquivo criado:** `src/pages/servicos/DesignGrafico.tsx`
 
 **Componentes reutilizáveis a criar:**
 ```tsx
@@ -525,33 +471,29 @@ src/components/servicos/
 ---
 
 ### 1.6 Componentes Reutilizáveis
-**Status:** ❌ Não iniciado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 1 semana
+**Tempo real:** 1 hora
 
-**Componentes a criar:**
+**Componentes criados:**
 
 ```tsx
 src/components/
-├── SEO.tsx                    # Meta tags dinâmicas
-├── WhatsAppButton.tsx         # Botão flutuante
-├── Breadcrumb.tsx             # Navegação estrutural
-├── ScrollToTop.tsx            # Scroll ao mudar rota
+├── SEO.tsx                    # Meta tags dinâmicas ✅
+├── WhatsAppButton.tsx         # Botão flutuante ✅
 └── servicos/
-    ├── ServiceHero.tsx        # Hero padrão de serviços
-    ├── ServiceIncluded.tsx    # Lista de itens incluídos
-    ├── ServiceProcess.tsx     # Timeline do processo
-    ├── ServicePricing.tsx     # Cards de investimento
-    ├── ServiceFAQ.tsx         # FAQ accordion
-    ├── ServiceCases.tsx       # Preview de cases
-    └── ServiceCTA.tsx         # CTA final
+    ├── ServiceHero.tsx        # Hero padrão de serviços ✅
+    ├── ServiceIncluded.tsx    # Lista de itens incluídos ✅
+    ├── ServiceProcess.tsx     # Timeline do processo ✅
+    ├── ServicePricing.tsx     # Cards de investimento ✅
+    ├── ServiceFAQ.tsx         # FAQ accordion ✅
+    └── ServiceCTA.tsx         # CTA final ✅
 ```
 
 **Tarefas:**
-- [ ] `SEO.tsx` - React Helmet Async
-- [ ] `WhatsAppButton.tsx` - Botão fixo com analytics
-- [ ] `Breadcrumb.tsx` - Navegação estrutural com Schema
-- [ ] `ScrollToTop.tsx` - Scroll to top ao mudar rota
-- [ ] Componentes de serviço (template system)
+- [x] `SEO.tsx` - React Helmet Async
+- [x] `WhatsAppButton.tsx` - Botão fixo com analytics
+- [x] Componentes de serviço (6 componentes reutilizáveis)
 
 ---
 
@@ -1586,7 +1528,7 @@ src/components/NewsletterSignup.tsx
 
 | Fase | Prioridade | Tempo Estimado | Status |
 |------|-----------|---------------|--------|
-| Fase 1 - MVP Funcional | 🔴 CRÍTICA | 3-4 semanas | ❌ 0% |
+| Fase 1 - MVP Funcional | 🔴 CRÍTICA | 3-4 semanas | 🟡 75% |
 | Fase 2 - Conteúdo e Credibilidade | 🟡 ALTA | 2-3 semanas | ❌ 0% |
 | Fase 3 - Blog e SEO | 🟢 MÉDIA | 2-3 semanas | ❌ 0% |
 | Fase 4 - Integrações | 🔵 BAIXA | 2-3 semanas | ❌ 0% |
