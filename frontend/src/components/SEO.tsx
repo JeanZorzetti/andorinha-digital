@@ -14,8 +14,8 @@ const SEO = ({
   title,
   description,
   keywords,
-  image = 'https://andorinhamarketing.com.br/og/og-home.png',
-  url = 'https://andorinhamarketing.com.br',
+  image = 'https://andorinha.roilabs.com.br/og/og-home.png',
+  url = 'https://andorinha.roilabs.com.br',
   type = 'website',
   author = 'Andorinha Marketing'
 }: SEOProps) => {

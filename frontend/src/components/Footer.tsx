@@ -123,9 +123,9 @@ const Footer = () => {
             <h3 className="font-semibold text-lg text-background mb-4">Contato</h3>
             <ul className="space-y-3 mb-6">
               <li>
-                <a href="mailto:contato@andorinhamarketing.com.br" className="flex items-start gap-2 text-sm text-background/70 hover:text-primary transition-colors group">
+                <a href="mailto:contato@andorinha.roilabs.com.br" className="flex items-start gap-2 text-sm text-background/70 hover:text-primary transition-colors group">
                   <Mail className="w-4 h-4 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" />
-                  <span className="break-all">contato@andorinhamarketing.com.br</span>
+                  <span className="break-all">contato@andorinha.roilabs.com.br</span>
                 </a>
               </li>
               <li>

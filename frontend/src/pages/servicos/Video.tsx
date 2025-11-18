@@ -155,14 +155,14 @@ const Video = () => {
         title="Vídeo Institucional Profissional | A partir de R$ 8.000"
         description="Vídeos institucionais que contam a história da sua empresa. Roteiro, filmagem profissional, edição e trilha sonora licenciada. Entrega em 30-45 dias."
         keywords="vídeo institucional, quanto custa vídeo institucional, produtora de vídeo, vídeo corporativo, vídeo empresarial"
-        url="https://andorinhamarketing.com.br/servicos/video"
-        image="https://andorinhamarketing.com.br/og/og-video.png"
+        url="https://andorinha.roilabs.com.br/servicos/video"
+        image="https://andorinha.roilabs.com.br/og/og-video.png"
       />
       <SchemaService
         name="Vídeo Institucional Profissional"
         description="Vídeos institucionais que contam a história da sua empresa. Roteiro, filmagem profissional, edição e trilha sonora licenciada. Entrega em 30-45 dias."
         price="8000"
-        url="https://andorinhamarketing.com.br/servicos/video"
+        url="https://andorinha.roilabs.com.br/servicos/video"
       />
       <SchemaFAQPage faqs={faqItems} />
 

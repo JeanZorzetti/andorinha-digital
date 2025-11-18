@@ -13,8 +13,8 @@ const Home = () => {
         title="Andorinha Marketing | Marketing Estratégico para PMEs"
         description="Agência de marketing estratégico com projetos pontuais para PMEs. Branding, Sites, Vídeo e Rebranding com transparência total. Diagnóstico gratuito."
         keywords="agência marketing digital, branding preço, quanto custa criar site, marketing estratégico PMEs, vídeo institucional"
-        url="https://andorinhamarketing.com.br"
-        image="https://andorinhamarketing.com.br/og/og-home.png"
+        url="https://andorinha.roilabs.com.br"
+        image="https://andorinha.roilabs.com.br/og/og-home.png"
       />
       <Header />
       

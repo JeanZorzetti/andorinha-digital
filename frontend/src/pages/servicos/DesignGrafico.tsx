@@ -163,14 +163,14 @@ const DesignGrafico = () => {
         title="Design Gráfico | Peças a partir de R$ 350 | Andorinha Marketing"
         description="Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis."
         keywords="design gráfico, criação de posts, design para redes sociais, material gráfico, banner, folder, cartão de visita"
-        url="https://andorinhamarketing.com.br/servicos/design-grafico"
-        image="https://andorinhamarketing.com.br/og/og-design-grafico.png"
+        url="https://andorinha.roilabs.com.br/servicos/design-grafico"
+        image="https://andorinha.roilabs.com.br/og/og-design-grafico.png"
       />
       <SchemaService
         name="Design Gráfico"
         description="Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis."
         price="350"
-        url="https://andorinhamarketing.com.br/servicos/design-grafico"
+        url="https://andorinha.roilabs.com.br/servicos/design-grafico"
       />
       <SchemaFAQPage faqs={faqItems} />
 

@@ -181,8 +181,8 @@ const Processo = () => {
         title="Nosso Processo | Como Trabalhamos"
         description="Conheça nosso processo de trabalho: do diagnóstico gratuito à entrega final. Metodologia clara, transparente e colaborativa em 5 etapas."
         keywords="processo de trabalho, metodologia, como funciona, etapas do projeto, diagnóstico gratuito"
-        url="https://andorinhamarketing.com.br/processo"
-        image="https://andorinhamarketing.com.br/og/og-processo.png"
+        url="https://andorinha.roilabs.com.br/processo"
+        image="https://andorinha.roilabs.com.br/og/og-processo.png"
       />
 
       <Header />

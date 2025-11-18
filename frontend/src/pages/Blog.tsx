@@ -107,8 +107,8 @@ const Blog = () => {
         title="Blog | Conteúdo de Marketing para PMEs"
         description="Artigos, dicas e estratégias de marketing para pequenas e médias empresas. Aprenda sobre branding, sites, SEO e muito mais."
         keywords="blog marketing, dicas marketing, estratégia marketing pme, branding, seo, sites"
-        url="https://andorinhamarketing.com.br/blog"
-        image="https://andorinhamarketing.com.br/og/og-blog.png"
+        url="https://andorinha.roilabs.com.br/blog"
+        image="https://andorinha.roilabs.com.br/og/og-blog.png"
       />
 
       <Header />

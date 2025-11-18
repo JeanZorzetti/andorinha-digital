@@ -6,8 +6,8 @@ export const SchemaOrganization = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Andorinha Marketing",
-    "url": "https://andorinhamarketing.com.br",
-    "logo": "https://andorinhamarketing.com.br/logo.png",
+    "url": "https://andorinha.roilabs.com.br",
+    "logo": "https://andorinha.roilabs.com.br/logo.png",
     "description": "Agência de marketing estratégico com projetos pontuais para PMEs. Branding, Sites, Vídeo e Rebranding com transparência total.",
     "address": {
       "@type": "PostalAddress",
@@ -59,7 +59,7 @@ export const SchemaService = ({
     "provider": {
       "@type": "Organization",
       "name": "Andorinha Marketing",
-      "url": "https://andorinhamarketing.com.br"
+      "url": "https://andorinha.roilabs.com.br"
     },
     "url": url,
     "offers": {
@@ -150,7 +150,7 @@ export const SchemaArticle = ({
       "name": "Andorinha Marketing",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://andorinhamarketing.com.br/logo.png"
+        "url": "https://andorinha.roilabs.com.br/logo.png"
       }
     },
     "datePublished": datePublished,
@@ -177,8 +177,8 @@ export const SchemaLocalBusiness = () => {
     "@context": "https://schema.org",
     "@type": "MarketingAgency",
     "name": "Andorinha Marketing",
-    "url": "https://andorinhamarketing.com.br",
-    "logo": "https://andorinhamarketing.com.br/logo.png",
+    "url": "https://andorinha.roilabs.com.br",
+    "logo": "https://andorinha.roilabs.com.br/logo.png",
     "description": "Agência de marketing estratégico com projetos pontuais para PMEs.",
     "address": {
       "@type": "PostalAddress",

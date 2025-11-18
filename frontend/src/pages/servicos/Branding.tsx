@@ -164,14 +164,14 @@ const Branding = () => {
         title="Branding e Identidade Visual | Preços a partir de R$ 6.000"
         description="Criação de identidade visual completa: logo, paleta de cores, tipografia e manual de marca. Projetos de 21 a 40 dias com 3 rodadas de revisão incluídas."
         keywords="branding, identidade visual, criação de logo, preço identidade visual, quanto custa branding, manual de marca"
-        url="https://andorinhamarketing.com.br/servicos/branding"
-        image="https://andorinhamarketing.com.br/og/og-branding.png"
+        url="https://andorinha.roilabs.com.br/servicos/branding"
+        image="https://andorinha.roilabs.com.br/og/og-branding.png"
       />
       <SchemaService
         name="Branding e Identidade Visual"
         description="Criação de identidade visual completa: logo, paleta de cores, tipografia e manual de marca. Projetos de 21 a 40 dias com 3 rodadas de revisão incluídas."
         price="6000"
-        url="https://andorinhamarketing.com.br/servicos/branding"
+        url="https://andorinha.roilabs.com.br/servicos/branding"
       />
       <SchemaFAQPage faqs={faqItems} />
 

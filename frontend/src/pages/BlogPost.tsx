@@ -591,7 +591,7 @@ const BlogPost = () => {
         title={`${post.title} | Blog`}
         description={post.excerpt}
         keywords={`${post.category.toLowerCase()}, marketing, pme, ${post.title.toLowerCase().split(' ').slice(0, 3).join(', ')}`}
-        url={`https://andorinhamarketing.com.br/blog/${id}`}
+        url={`https://andorinha.roilabs.com.br/blog/${id}`}
       />
 
       <Header />
@@ -694,7 +694,7 @@ const BlogPost = () => {
                     Compartilhar:
                   </span>
                   <a
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://andorinhamarketing.com.br/blog/${id}`)}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://andorinha.roilabs.com.br/blog/${id}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-[#0077B5]"
@@ -702,7 +702,7 @@ const BlogPost = () => {
                     LinkedIn
                   </a>
                   <a
-                    href={`https://wa.me/?text=${encodeURIComponent(`${post.title} - https://andorinhamarketing.com.br/blog/${id}`)}`}
+                    href={`https://wa.me/?text=${encodeURIComponent(`${post.title} - https://andorinha.roilabs.com.br/blog/${id}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-500 hover:text-[#25D366]"

@@ -224,7 +224,7 @@ const CaseDetail = () => {
         title={`${caseData.title} | Case de Sucesso`}
         description={caseData.challenge}
         keywords={`case ${caseData.category.toLowerCase()}, ${caseData.client}, projeto de marketing`}
-        url={`https://andorinhamarketing.com.br/cases/${id}`}
+        url={`https://andorinha.roilabs.com.br/cases/${id}`}
       />
 
       <Header />

@@ -155,14 +155,14 @@ const Sites = () => {
         title="Criação de Sites | A partir de R$ 3.500 | Andorinha Marketing"
         description="Sites institucionais e landing pages que convertem. Design responsivo, SEO otimizado e CMS para você gerenciar. Entrega em 15 a 45 dias."
         keywords="criação de sites, quanto custa criar site, site institucional, landing page, desenvolvimento web, site responsivo"
-        url="https://andorinhamarketing.com.br/servicos/sites"
-        image="https://andorinhamarketing.com.br/og/og-sites.png"
+        url="https://andorinha.roilabs.com.br/servicos/sites"
+        image="https://andorinha.roilabs.com.br/og/og-sites.png"
       />
       <SchemaService
         name="Criação de Sites e Landing Pages"
         description="Sites institucionais e landing pages que convertem. Design responsivo, SEO otimizado e CMS para você gerenciar. Entrega em 15 a 45 dias."
         price="3500"
-        url="https://andorinhamarketing.com.br/servicos/sites"
+        url="https://andorinha.roilabs.com.br/servicos/sites"
       />
       <SchemaFAQPage faqs={faqItems} />
 

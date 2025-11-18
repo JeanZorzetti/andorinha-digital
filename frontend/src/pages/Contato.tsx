@@ -54,8 +54,8 @@ const Contato = () => {
         title="Contato | Agende Diagnóstico Gratuito | Andorinha Marketing"
         description="Entre em contato com a Andorinha Marketing. Agende seu diagnóstico gratuito e descubra como podemos ajudar seu negócio a crescer."
         keywords="contato agência marketing, diagnóstico gratuito, orçamento marketing, consultoria marketing PME"
-        url="https://andorinhamarketing.com.br/contato"
-        image="https://andorinhamarketing.com.br/og/og-contato.png"
+        url="https://andorinha.roilabs.com.br/contato"
+        image="https://andorinha.roilabs.com.br/og/og-contato.png"
       />
       <Header />
 
@@ -242,7 +242,7 @@ const Contato = () => {
                 <h3 className="font-semibold text-lg text-foreground mb-4">Contato</h3>
                 <div className="space-y-4">
                   <a
-                    href="mailto:contato@andorinhamarketing.com.br"
+                    href="mailto:contato@andorinha.roilabs.com.br"
                     className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">

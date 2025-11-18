@@ -1,5 +1,5 @@
 # Robots.txt para Andorinha Marketing
-# https://andorinhamarketing.com.br
+# https://andorinha.roilabs.com.br
 
 User-agent: Googlebot
 Allow: /
@@ -20,7 +20,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://andorinhamarketing.com.br/sitemap.xml
+Sitemap: https://andorinha.roilabs.com.br/sitemap.xml
 
 # Bloquear páginas de desenvolvimento/teste
 Disallow: /api/

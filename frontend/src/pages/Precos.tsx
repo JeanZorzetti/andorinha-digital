@@ -199,8 +199,8 @@ const Precos = () => {
         title="Tabela de Preços | Investimentos Transparentes | Andorinha Marketing"
         description="Tabela completa de preços dos serviços de marketing: branding, sites, vídeos e design gráfico. Investimento transparente com condições de pagamento flexíveis."
         keywords="preços marketing, quanto custa branding, preço site institucional, valores identidade visual, orçamento marketing"
-        url="https://andorinhamarketing.com.br/precos"
-        image="https://andorinhamarketing.com.br/og/og-precos.png"
+        url="https://andorinha.roilabs.com.br/precos"
+        image="https://andorinha.roilabs.com.br/og/og-precos.png"
       />
       <SchemaFAQPage faqs={faqItems} />
 
