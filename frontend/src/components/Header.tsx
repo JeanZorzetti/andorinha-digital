@@ -16,7 +16,7 @@ const Header = () => {
             <img
               src="/images/logo/logo-principal.svg"
               alt="Andorinha Marketing"
-              className="h-12 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
