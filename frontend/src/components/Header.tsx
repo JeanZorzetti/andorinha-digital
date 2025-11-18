@@ -12,18 +12,12 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-            <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-              <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                <path
-                  d="M12 3C8 3 5 6 5 10c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"
-                  fill="white"
-                  stroke="white"
-                  strokeWidth="1"
-                />
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-foreground">Andorinha</span>
+          <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
+            <img
+              src="/images/logo/logo-principal.svg"
+              alt="Andorinha Marketing"
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}

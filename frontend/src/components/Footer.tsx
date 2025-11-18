@@ -11,14 +11,13 @@ const Footer = () => {
           
           {/* Coluna 1 - Logo & Tagline */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
-                <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-                  <path d="M12 3C8 3 5 6 5 10c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z" fill="white" stroke="white" strokeWidth="1" />
-                </svg>
-              </div>
-              <span className="text-xl font-bold text-background">Andorinha</span>
-            </div>
+            <Link to="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
+              <img
+                src="/images/logo/logo-principal-branco.svg"
+                alt="Andorinha Marketing"
+                className="h-12 w-auto"
+              />
+            </Link>
             
             <p className="text-lg font-semibold text-background mb-3">
               Voe certo. Voe alto.
