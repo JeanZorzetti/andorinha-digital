@@ -1,0 +1,23 @@
+{
+  "name": "Andorinha Marketing",
+  "short_name": "Andorinha",
+  "description": "Marketing estratégico para PMEs. Voe Certo. Voe Alto.",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#FF6B35",
+  "background_color": "#FAFAFB",
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/"
+}
