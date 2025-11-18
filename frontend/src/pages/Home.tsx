@@ -31,10 +31,10 @@ const Home = () => {
               Transformamos seu marketing em resultados reais. Estratégia + Execução + Transparência para PMEs que pensam grande.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 hover-glow">
+              <Button asChild size="xl" className="hover-glow">
                 <Link to="/contato">Agende Diagnóstico Gratuito</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white border-2 border-white text-[#00072D] hover:bg-white/90 font-semibold text-lg px-8 py-6">
+              <Button asChild size="xl" variant="ghost">
                 <Link to="/precos">Ver Pacotes e Preços</Link>
               </Button>
             </div>
@@ -325,7 +325,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" variant="outline" className="bg-white border-2 border-white text-[#00072D] hover:bg-white/90 font-semibold">
+            <Button asChild size="lg" variant="ghost">
               <Link to="/processo">Conheça o Processo Completo →</Link>
             </Button>
           </div>
@@ -503,7 +503,7 @@ const Home = () => {
           <p className="text-xl mb-8 text-white/90">
             Agende 30 minutos de diagnóstico gratuito e descubra como podemos transformar seu marketing em resultados reais
           </p>
-          <Button asChild size="lg" className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-12 py-6 hover-glow">
+          <Button asChild size="xl" className="hover-glow">
             <Link to="/contato">Agendar Diagnóstico Gratuito</Link>
           </Button>
           <p className="mt-6 text-sm text-white/80">
