@@ -2,63 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* ========================================
+   ANDORINHA MARKETING - DESIGN SYSTEM
+   Baseado no Manual da Marca Oficial
+   ======================================== */
+
+/* Fonte Tallica - Display font para destaques
+   Copie o arquivo Tallica-Variable.ttf para /public/fonts/
 */
+@font-face {
+  font-family: 'Tallica';
+  src: url('/fonts/Tallica-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
 
 @layer base {
   :root {
-    /* Andorinha Brand Colors */
-    --primary: 14 100% 65%; /* Laranja Vibrante #FF6B35 */
-    --primary-foreground: 240 14% 98%; /* Branco para contraste */
-    
-    --primary-dark: 231 100% 9%; /* Azul Marinho Profundo #00072D */
-    --primary-blue: 228 85% 25%; /* Azul Escuro #092473 */
-    --accent-blue: 207 49% 44%; /* Azul Médio #3870A4 */
-    --accent-blue-light: 198 87% 74%; /* Azul Claro #84D2F6 */
-    --accent-peach: 26 85% 77%; /* Pêssego Claro #F7C59F */
-    
+    /* ======================================
+       PALETA DE CORES OFICIAL
+       Conforme Manual da Marca Andorinha
+       ====================================== */
+
+    /* Cores Principais */
+    --azul-marinho: 227 100% 9%;      /* #00072D - Cor principal */
+    --azul-escuro: 227 89% 24%;       /* #092473 - Gradientes */
+    --azul-medio: 210 48% 43%;        /* #3870A4 - Hover states */
+    --azul-claro: 197 88% 74%;        /* #84D2F6 - Destaques */
+    --laranja: 18 100% 60%;           /* #FF6B35 - CTAs, acentos */
+    --pessego: 30 80% 80%;            /* #F7C59F - Backgrounds suaves */
+
+    /* Cores Neutras */
+    --cinza-escuro: 210 11% 15%;      /* #212529 - Textos principais */
+    --cinza-medio: 208 7% 46%;        /* #6C757D - Textos secundários */
+    --cinza-claro: 210 16% 93%;       /* #E9ECEF - Borders */
+    --off-white: 240 20% 98%;         /* #FAFAFB - Backgrounds */
+
+    /* Mapeamento para Sistema de Design */
+    --primary: 18 100% 60%; /* Laranja #FF6B35 */
+    --primary-foreground: 0 0% 100%; /* Branco para contraste */
+
+    --primary-dark: 227 100% 9%; /* Azul Marinho #00072D */
+    --primary-blue: 227 89% 24%; /* Azul Escuro #092473 */
+    --accent-blue: 210 48% 43%; /* Azul Médio #3870A4 */
+    --accent-blue-light: 197 88% 74%; /* Azul Claro #84D2F6 */
+    --accent-peach: 30 80% 80%; /* Pêssego #F7C59F */
+
     /* Semantic Colors */
-    --background: 240 14% 98%; /* Branco #FAFAFB */
-    --foreground: 231 100% 9%; /* Azul Marinho para texto */
-    
+    --background: 240 20% 98%; /* Off-White #FAFAFB */
+    --foreground: 210 11% 15%; /* Cinza Escuro #212529 */
+
     --card: 0 0% 100%;
-    --card-foreground: 231 100% 9%;
-    
+    --card-foreground: 210 11% 15%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 231 100% 9%;
-    
-    --secondary: 198 87% 74%; /* Azul Claro */
-    --secondary-foreground: 231 100% 9%;
-    
-    --muted: 240 3% 97%;
-    --muted-foreground: 0 2% 71%; /* Cinza Médio */
-    
-    --accent: 14 100% 65%; /* Laranja */
-    --accent-foreground: 240 14% 98%;
-    
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 240 14% 98%;
-    
-    --border: 300 3% 80%; /* Cinza Claro */
-    --input: 300 3% 80%;
-    --ring: 14 100% 65%;
-    
-    --radius: 0.75rem;
-    
-    /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(231 100% 9%), hsl(207 49% 44%));
-    --gradient-cta: linear-gradient(135deg, hsl(14 100% 65%), hsl(14 100% 55%));
-    
+    --popover-foreground: 210 11% 15%;
+
+    --secondary: 197 88% 74%; /* Azul Claro */
+    --secondary-foreground: 227 100% 9%;
+
+    --muted: 210 16% 93%; /* Cinza Claro */
+    --muted-foreground: 208 7% 46%; /* Cinza Médio */
+
+    --accent: 18 100% 60%; /* Laranja */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 16% 93%; /* Cinza Claro */
+    --input: 210 16% 93%;
+    --ring: 18 100% 60%; /* Laranja */
+
+    --radius: 0.5rem;
+
+    /* Gradientes Oficiais */
+    --gradient-hero: linear-gradient(135deg, hsl(227 100% 9%), hsl(227 89% 24%), hsl(210 48% 43%));
+    --gradient-cta: linear-gradient(135deg, hsl(18 100% 60%), hsl(18 100% 50%));
+    --gradient-suave: linear-gradient(135deg, hsl(197 88% 74%), hsl(30 80% 80%));
+
     /* Shadows */
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
+    --shadow-sm: 0 1px 3px rgba(0, 7, 45, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 7, 45, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 7, 45, 0.15);
     --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.3);
-    
+
     /* Transitions */
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
@@ -69,33 +100,33 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 231 100% 9%;
-    --foreground: 240 14% 98%;
-    
-    --card: 228 85% 25%;
-    --card-foreground: 240 14% 98%;
-    
-    --popover: 228 85% 25%;
-    --popover-foreground: 240 14% 98%;
-    
-    --primary: 14 100% 65%;
-    --primary-foreground: 240 14% 98%;
-    
-    --secondary: 207 49% 44%;
-    --secondary-foreground: 240 14% 98%;
-    
-    --muted: 228 85% 20%;
-    --muted-foreground: 0 2% 71%;
-    
-    --accent: 14 100% 65%;
-    --accent-foreground: 240 14% 98%;
-    
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 240 14% 98%;
-    
-    --border: 228 85% 20%;
-    --input: 228 85% 20%;
-    --ring: 14 100% 65%;
+    --background: 227 100% 9%; /* Azul Marinho */
+    --foreground: 240 20% 98%; /* Off-White */
+
+    --card: 227 89% 24%; /* Azul Escuro */
+    --card-foreground: 240 20% 98%;
+
+    --popover: 227 89% 24%;
+    --popover-foreground: 240 20% 98%;
+
+    --primary: 18 100% 60%; /* Laranja */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 48% 43%; /* Azul Médio */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 227 89% 20%;
+    --muted-foreground: 208 7% 70%;
+
+    --accent: 18 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 227 89% 20%;
+    --input: 227 89% 20%;
+    --ring: 18 100% 60%;
   }
 }
 
@@ -190,7 +221,82 @@ All colors MUST be HSL.
     }
   }
   
+  /* Patterns do Manual da Marca */
+  .pattern-andorinha-01 {
+    background-image: url('/images/patterns/pattern-01.svg');
+    background-repeat: repeat;
+    background-size: 100px;
+    opacity: 0.05;
+  }
+
+  .pattern-andorinha-02 {
+    background-image: url('/images/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 120px;
+    opacity: 0.05;
+  }
+
+  .pattern-andorinha-03 {
+    background-image: url('/images/patterns/pattern-03.svg');
+    background-repeat: repeat;
+    background-size: 80px;
+    opacity: 0.05;
+  }
+
+  .pattern-andorinha-04 {
+    background-image: url('/images/patterns/pattern-04.svg');
+    background-repeat: repeat;
+    background-size: 100px;
+    opacity: 0.05;
+  }
+
+  /* Classe genérica (usa pattern-01) */
   .pattern-andorinha {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 Q 20 20 30 30 Q 40 20 30 10' fill='%23ffffff' opacity='0.05'/%3E%3C/svg%3E");
+    background-image: url('/images/patterns/pattern-01.svg');
+    background-repeat: repeat;
+    background-size: 100px;
+    opacity: 0.05;
+  }
+
+  /* Backgrounds decorativos */
+  .bg-decorativo {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-decorativo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width: 50%;
+    height: 100%;
+    background-image: url('/images/backgrounds/bg-01.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Utilitário para fonte Tallica */
+  .font-tallica {
+    font-family: 'Tallica', 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Aplicações específicas da fonte Tallica */
+  .slogan-hero {
+    font-family: 'Tallica', 'Onest', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .metric-number {
+    font-family: 'Tallica', 'Onest', sans-serif;
+    font-weight: 700;
+  }
+
+  .testimonial-quote {
+    font-family: 'Tallica', 'Onest', sans-serif;
+    font-style: italic;
   }
 }

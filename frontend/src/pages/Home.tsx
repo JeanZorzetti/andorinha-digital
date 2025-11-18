@@ -22,7 +22,7 @@ const Home = () => {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in slogan-hero">
               Voe Certo. Voe Alto com Marketing Estratégico
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up">
@@ -59,17 +59,17 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary">50+</div>
+              <div className="text-3xl font-bold text-primary metric-number">50+</div>
               <div className="text-sm text-muted-foreground">Projetos Entregues</div>
             </div>
             <div className="hidden md:block w-px h-12 bg-border"></div>
             <div>
-              <div className="text-3xl font-bold text-primary">98%</div>
+              <div className="text-3xl font-bold text-primary metric-number">98%</div>
               <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
             </div>
             <div className="hidden md:block w-px h-12 bg-border"></div>
             <div>
-              <div className="text-3xl font-bold text-primary">15 anos</div>
+              <div className="text-3xl font-bold text-primary metric-number">15 anos</div>
               <div className="text-sm text-muted-foreground">De Experiência</div>
             </div>
           </div>

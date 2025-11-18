@@ -15,6 +15,7 @@ export default {
     extend: {
       fontFamily: {
         'heading': ['Onest', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+        'display': ['Tallica', 'Onest', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         'body': ['Work Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
         'sans': ['Work Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
       },
@@ -24,6 +25,17 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Cores do Manual da Marca
+        'azul-marinho': "hsl(var(--azul-marinho))",
+        'azul-escuro': "hsl(var(--azul-escuro))",
+        'azul-medio': "hsl(var(--azul-medio))",
+        'azul-claro': "hsl(var(--azul-claro))",
+        'laranja': "hsl(var(--laranja))",
+        'pessego': "hsl(var(--pessego))",
+        'cinza-escuro': "hsl(var(--cinza-escuro))",
+        'cinza-medio': "hsl(var(--cinza-medio))",
+        'cinza-claro': "hsl(var(--cinza-claro))",
+        'off-white': "hsl(var(--off-white))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
