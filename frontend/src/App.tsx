@@ -16,6 +16,11 @@ import Video from "./pages/servicos/Video";
 import Rebranding from "./pages/servicos/Rebranding";
 import DesignGrafico from "./pages/servicos/DesignGrafico";
 
+// Outras Páginas
+import Precos from "./pages/Precos";
+import Processo from "./pages/Processo";
+import Sobre from "./pages/Sobre";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -29,6 +34,9 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/precos" element={<Precos />} />
+            <Route path="/processo" element={<Processo />} />
+            <Route path="/sobre" element={<Sobre />} />
 
             {/* Páginas de Serviços */}
             <Route path="/servicos/branding" element={<Branding />} />
