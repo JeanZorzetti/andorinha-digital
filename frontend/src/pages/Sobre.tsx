@@ -228,22 +228,27 @@ const Sobre = () => {
               </div>
             </div>
 
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
               Nossos Valores
             </h2>
-            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-5xl mx-auto">
+            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+              Os princípios que guiam cada projeto e decisão
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center"
+                  className="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 min-w-[280px] max-w-[320px]"
                 >
-                  <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <value.icon className="w-6 h-6 text-[#FF6B35]" />
+                  <div className="w-10 h-10 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <value.icon className="w-5 h-5 text-[#FF6B35]" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    {value.title}
-                  </h3>
-                  <p className="text-sm text-gray-600">{value.description}</p>
+                  <div>
+                    <h3 className="font-semibold text-gray-900 text-sm">
+                      {value.title}
+                    </h3>
+                    <p className="text-xs text-gray-500 line-clamp-2">{value.description}</p>
+                  </div>
                 </div>
               ))}
             </div>

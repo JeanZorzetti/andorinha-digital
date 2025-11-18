@@ -20,6 +20,8 @@ import DesignGrafico from "./pages/servicos/DesignGrafico";
 import Precos from "./pages/Precos";
 import Processo from "./pages/Processo";
 import Sobre from "./pages/Sobre";
+import Cases from "./pages/Cases";
+import CaseDetail from "./pages/CaseDetail";
 
 const queryClient = new QueryClient();
 
@@ -44,6 +46,10 @@ const App = () => (
             <Route path="/servicos/video" element={<Video />} />
             <Route path="/servicos/rebranding" element={<Rebranding />} />
             <Route path="/servicos/design-grafico" element={<DesignGrafico />} />
+
+            {/* Cases */}
+            <Route path="/cases" element={<Cases />} />
+            <Route path="/cases/:id" element={<CaseDetail />} />
 
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
