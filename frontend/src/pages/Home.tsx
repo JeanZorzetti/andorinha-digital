@@ -493,18 +493,18 @@ const Home = () => {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 px-4 bg-primary text-primary-foreground pattern-andorinha">
+      <section className="py-20 px-4 bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
             Pronto para Decolar?
           </h2>
-          <p className="text-xl mb-8 text-primary-foreground/90">
+          <p className="text-xl mb-8 text-white/90">
             Agende 30 minutos de diagnóstico gratuito e descubra como podemos transformar seu marketing em resultados reais
           </p>
-          <Button asChild size="lg" className="bg-primary-dark hover:bg-primary-dark/90 text-primary-foreground font-semibold text-lg px-12 py-6">
+          <Button asChild size="lg" className="bg-[#FF6B35] hover:bg-[#FF6B35]/90 text-white font-semibold text-lg px-12 py-6 hover-glow">
             <Link to="/contato">Agendar Diagnóstico Gratuito</Link>
           </Button>
-          <p className="mt-6 text-sm text-primary-foreground/70">
+          <p className="mt-6 text-sm text-white/80">
             ✓ Sem compromisso  ✓ Sem custo  ✓ Apenas estratégia
           </p>
         </div>
