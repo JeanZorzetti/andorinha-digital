@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Contato from "./pages/Contato";
 import NotFound from "./pages/NotFound";
 import WhatsAppButton from "./components/WhatsAppButton";
+import Analytics from "./components/Analytics";
 
 // Páginas de Serviços
 import Branding from "./pages/servicos/Branding";
@@ -35,6 +36,7 @@ const App = () => (
         <Sonner />
         <WhatsAppButton />
         <BrowserRouter>
+          <Analytics />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/contato" element={<Contato />} />
