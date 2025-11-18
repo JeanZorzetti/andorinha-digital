@@ -20,7 +20,7 @@ const Home = () => {
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
-        <div className="container mx-auto">
+        <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in slogan-hero">
               Voe Certo. Voe Alto com Marketing Estratégico
@@ -494,7 +494,7 @@ const Home = () => {
 
       {/* CTA Final */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
-        <div className="container mx-auto max-w-4xl text-center">
+        <div className="container mx-auto max-w-4xl text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
             Pronto para Decolar?
           </h2>

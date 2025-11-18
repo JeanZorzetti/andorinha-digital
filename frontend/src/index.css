@@ -223,39 +223,99 @@
   
   /* Patterns do Manual da Marca */
   .pattern-andorinha-01 {
+    position: relative;
+  }
+
+  .pattern-andorinha-01::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('/images/patterns/pattern-01.svg');
     background-repeat: repeat;
     background-size: 100px;
     opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .pattern-andorinha-02 {
+    position: relative;
+  }
+
+  .pattern-andorinha-02::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
     background-size: 120px;
     opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .pattern-andorinha-03 {
+    position: relative;
+  }
+
+  .pattern-andorinha-03::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('/images/patterns/pattern-03.svg');
     background-repeat: repeat;
     background-size: 80px;
     opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
   }
 
   .pattern-andorinha-04 {
+    position: relative;
+  }
+
+  .pattern-andorinha-04::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('/images/patterns/pattern-04.svg');
     background-repeat: repeat;
     background-size: 100px;
     opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
   }
 
   /* Classe genérica (usa pattern-01) */
   .pattern-andorinha {
+    position: relative;
+  }
+
+  .pattern-andorinha::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url('/images/patterns/pattern-01.svg');
     background-repeat: repeat;
     background-size: 100px;
     opacity: 0.05;
+    pointer-events: none;
+    z-index: 0;
   }
 
   /* Backgrounds decorativos */
