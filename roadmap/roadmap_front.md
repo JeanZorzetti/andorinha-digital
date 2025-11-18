@@ -1591,10 +1591,14 @@ src/components/NewsletterSignup.tsx
 - ✅ Criada Fase 8 - Implementação do Manual da Marca
 - ✅ **FASE 8 - Sprint 1 Concluído (60% da Fase 8):**
   - ✅ 8.1 Paleta de Cores Oficial - 10 cores implementadas
-  - ✅ 8.2 Tipografia Oficial - Tallica implementada e aplicada
+  - ✅ 8.2 Tipografia Oficial - Onest aplicada (Tallica removida do hero por legibilidade)
   - ✅ 8.3 Logos Oficiais - 4 logos SVG copiados + favicon
   - ✅ 8.4 Patterns e Backgrounds - 8 assets + classes CSS com ::before
   - ✅ Corrigido bug crítico de contraste (opacity afetando seções inteiras)
+  - ✅ Ajustes de UX e contraste:
+    - Título hero: fonte Onest com letter-spacing otimizado
+    - Botão secundário hero: fundo branco com texto azul marinho (WCAG AAA)
+    - Botão "Como Trabalhamos": fundo branco com texto azul marinho (WCAG AAA)
 
 **Próximos passos:**
 

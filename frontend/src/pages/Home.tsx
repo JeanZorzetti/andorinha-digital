@@ -22,8 +22,10 @@ const Home = () => {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in slogan-hero">
-              Voe Certo. Voe Alto com Marketing Estratégico
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in slogan-hero tracking-wide">
+              Voe Certo. Voe Alto com Marketing
+              <br />
+              <span className="mt-2 block">Estratégico</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up">
               Transformamos seu marketing em resultados reais. Estratégia + Execução + Transparência para PMEs que pensam grande.
@@ -32,7 +34,7 @@ const Home = () => {
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 hover-glow">
                 <Link to="/contato">Agende Diagnóstico Gratuito</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-8 py-6">
+              <Button asChild size="lg" variant="outline" className="bg-white border-2 border-white text-[#00072D] hover:bg-white/90 font-semibold text-lg px-8 py-6">
                 <Link to="/precos">Ver Pacotes e Preços</Link>
               </Button>
             </div>
@@ -323,7 +325,7 @@ const Home = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Button asChild size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
+            <Button asChild size="lg" variant="outline" className="bg-white border-2 border-white text-[#00072D] hover:bg-white/90 font-semibold">
               <Link to="/processo">Conheça o Processo Completo →</Link>
             </Button>
           </div>
