@@ -1325,9 +1325,10 @@ src/components/NewsletterSignup.tsx
 | Fase 5 - Compliance | 🔵 BAIXA | 3-4 dias | ❌ 0% |
 | Fase 6 - Testes | 🟡 ALTA | 1 semana | ❌ 0% |
 | Fase 7 - Deploy | 🔴 CRÍTICA | 2-3 dias | ❌ 0% |
+| **Fase 8 - Manual da Marca** | 🟡 ALTA | 3-4 dias | ❌ 0% |
 
-**Tempo Total Estimado:** 12-16 semanas (3-4 meses)
-**Progresso Atual:** ~80% do projeto completo
+**Tempo Total Estimado:** 14-18 semanas (3.5-4.5 meses)
+**Progresso Atual:** ~75% do projeto completo (com nova fase)
 
 ---
 
@@ -1579,7 +1580,559 @@ src/components/NewsletterSignup.tsx
 - `frontend/src/pages/servicos/DesignGrafico.tsx` (Schema Service + FAQ)
 - `frontend/src/pages/Precos.tsx` (Schema FAQ)
 
+### 2025-01-18 (Sessão 5)
+
+- ✅ Corrigido contraste de texto na hero da Home
+  - Substituído CSS variables por hex colors explícitos
+  - Background: `from-[#00072D] via-[#092473] to-[#3870A4]`
+  - Texto: `text-white` e `text-white/90`
+  - Ícones: `text-[#FF6B35]`
+- ✅ Estudado Manual da Marca completo (22 páginas)
+- ✅ Criada Fase 8 - Implementação do Manual da Marca
+
 **Próximos passos:**
 
 - Testes manuais completos
 - Deploy em produção
+- Implementar Fase 8 (Manual da Marca)
+
+---
+
+## 🎨 FASE 8 - IMPLEMENTAÇÃO DO MANUAL DA MARCA
+
+**Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
+**Prazo estimado:** 2-3 semanas
+**Status:** 🔴 Não iniciado
+**Prioridade:** ALTA - Correção de identidade visual
+
+### Contexto - Análise do Manual da Marca
+
+O Manual da Marca (22 páginas) define a identidade visual completa da Andorinha Marketing. A implementação atual utiliza cores e fontes aproximadas, mas não segue exatamente as especificações oficiais.
+
+#### Atributos da Marca
+- **Facilitadora** - Simplifica processos complexos
+- **Empresarial** - Profissional e corporativa
+- **Moderna** - Design contemporâneo
+- **Criativa** - Soluções inovadoras
+
+---
+
+### 8.1 Paleta de Cores Oficial
+**Status:** ❌ Não iniciado
+**Impacto:** CRÍTICO - Identidade visual incorreta
+**Tempo estimado:** 2-3 horas
+
+**Cores Principais (do Manual):**
+
+| Nome | HEX | Uso |
+|------|-----|-----|
+| Azul Marinho | `#00072D` | Cor principal, textos, fundos escuros |
+| Azul Escuro | `#092473` | Gradientes, elementos secundários |
+| Azul Médio | `#3870A4` | Gradientes, hover states |
+| Azul Claro | `#84D2F6` | Destaques, backgrounds claros |
+| Laranja | `#FF6B35` | CTAs, destaques, acentos principais |
+| Pêssego | `#F7C59F` | Acentos suaves, backgrounds secundários |
+
+**Cores Neutras:**
+
+| Nome | HEX | Uso |
+|------|-----|-----|
+| Cinza Escuro | `#212529` | Textos principais |
+| Cinza Médio | `#6C757D` | Textos secundários |
+| Cinza Claro | `#E9ECEF` | Borders, separadores |
+| Off-White | `#FAFAFB` | Backgrounds principais |
+
+**Tarefas:**
+- [ ] Atualizar CSS variables em `index.css`:
+  ```css
+  :root {
+    --primary: 18 100% 9%; /* #00072D - Azul Marinho */
+    --primary-dark: 227 89% 24%; /* #092473 - Azul Escuro */
+    --primary-blue: 210 48% 43%; /* #3870A4 - Azul Médio */
+    --accent-blue: 197 88% 74%; /* #84D2F6 - Azul Claro */
+    --primary-orange: 18 100% 60%; /* #FF6B35 - Laranja */
+    --accent-peach: 30 80% 80%; /* #F7C59F - Pêssego */
+  }
+  ```
+- [ ] Atualizar `tailwind.config.ts` com as cores do manual
+- [ ] Criar utilitários para gradientes oficiais:
+  - Gradiente principal: `from-[#00072D] via-[#092473] to-[#3870A4]`
+  - Gradiente suave: `from-[#84D2F6] to-[#F7C59F]`
+- [ ] Revisar todas as páginas para usar cores corretas
+- [ ] Garantir contraste WCAG AA em todas as combinações
+
+**Arquivos a modificar:**
+- `frontend/src/index.css`
+- `frontend/tailwind.config.ts`
+- Todas as páginas que usam cores hardcoded
+
+---
+
+### 8.2 Tipografia Oficial
+**Status:** ❌ Não iniciado
+**Impacto:** ALTO - Tipografia incompleta
+**Tempo estimado:** 3-4 horas
+
+**Fontes do Manual:**
+
+1. **Onest** (Títulos e Headlines)
+   - Weights: 500 (Medium), 600 (Semibold), 700 (Bold)
+   - Uso: H1, H2, H3, H4, botões, navegação
+   - Status: ✅ Já implementada via Google Fonts
+
+2. **Tallica** (Destaques e Calls)
+   - Tipo: Display font com estilo marcante
+   - Uso: Destaques especiais, citações, slogans, elementos de impacto
+   - Status: ❌ NÃO IMPLEMENTADA (substituída por Work Sans)
+
+**Arquivos de fonte disponíveis:**
+```
+andorinha mkt/04 - Fontes/
+├── Onest/
+│   └── Onest-VariableFont_wght.ttf
+└── TALICA/
+    ├── OpenType-TT/
+    │   └── Tallica-Variable.ttf
+    └── Variable-TT/
+        └── Tallica-Variable.ttf
+```
+
+**Tarefas:**
+- [ ] Adicionar fonte Tallica ao projeto:
+  ```bash
+  # Copiar para pasta public/fonts/
+  cp "andorinha mkt/04 - Fontes/TALICA/Variable-TT/Tallica-Variable.ttf" frontend/public/fonts/
+  ```
+
+- [ ] Configurar @font-face em `index.css`:
+  ```css
+  @font-face {
+    font-family: 'Tallica';
+    src: url('/fonts/Tallica-Variable.ttf') format('truetype-variations');
+    font-weight: 100 900;
+    font-display: swap;
+  }
+  ```
+
+- [ ] Atualizar `tailwind.config.ts`:
+  ```ts
+  fontFamily: {
+    'heading': ['Onest', 'sans-serif'],
+    'display': ['Tallica', 'Onest', 'sans-serif'], // Para destaques
+    'body': ['Work Sans', 'sans-serif'],
+  }
+  ```
+
+- [ ] Aplicar Tallica em elementos específicos:
+  - Slogan "Voe Certo. Voe Alto."
+  - Citações de clientes
+  - Números de estatísticas
+  - Textos de impacto em CTAs
+  - Headlines de hero sections
+
+- [ ] Preload da fonte Tallica para performance:
+  ```html
+  <link rel="preload" href="/fonts/Tallica-Variable.ttf" as="font" type="font/ttf" crossorigin>
+  ```
+
+**Arquivos a criar/modificar:**
+- `frontend/public/fonts/Tallica-Variable.ttf` (copiar)
+- `frontend/src/index.css`
+- `frontend/tailwind.config.ts`
+- `frontend/index.html`
+
+---
+
+### 8.3 Logos Oficiais
+**Status:** ❌ Não iniciado
+**Impacto:** CRÍTICO - Identidade visual
+**Tempo estimado:** 2-3 horas
+
+**Variantes de Logo Disponíveis:**
+
+1. **Logo Principal** - Símbolo + Logotipo horizontal
+   - Uso: Header, materiais principais
+   - Arquivos: `LOGO_PRINCIPAL_*.svg`
+
+2. **Logo Empilhada** - Símbolo sobre logotipo
+   - Uso: Espaços quadrados, mobile
+   - Arquivos: `LOGO_EMPILHADA_*.svg`
+
+3. **Logo Alternativa** - Versão simplificada
+   - Uso: Espaços reduzidos
+   - Arquivos: `LOGO_ALTERNATIVA_*.svg`
+
+4. **Logotipo** - Apenas texto
+   - Uso: Quando símbolo já está presente
+   - Arquivos: `LOGOTIPO_*.svg`
+
+5. **Símbolo** - Apenas o pássaro
+   - Uso: Favicon, ícones de app, patterns
+   - Arquivos: `SIMBOLO_*.svg`
+
+**Variações de Cor por Logo:**
+- Colorido (cores principais)
+- Azul Marinho (monocromático escuro)
+- Branco/Negativo (para fundos escuros)
+- Pêssego (versão suave)
+
+**Tarefas:**
+- [ ] Copiar logos para `frontend/public/images/logo/`:
+  ```
+  public/images/logo/
+  ├── logo-principal.svg          # Header desktop
+  ├── logo-principal-branco.svg   # Header em fundo escuro
+  ├── logo-empilhada.svg          # Mobile, footer
+  ├── logo-empilhada-branco.svg   # Footer escuro
+  ├── simbolo.svg                 # Favicon base
+  └── simbolo-branco.svg          # Patterns
+  ```
+
+- [ ] Atualizar Header component:
+  - Logo principal em desktop
+  - Símbolo ou logo empilhada em mobile
+  - Variante branca quando fundo escuro
+
+- [ ] Atualizar Footer component:
+  - Logo empilhada ou alternativa
+  - Considerar fundo e contraste
+
+- [ ] Gerar Favicons a partir do símbolo:
+  ```
+  public/
+  ├── favicon.ico          # 32x32
+  ├── favicon-16x16.png
+  ├── favicon-32x32.png
+  ├── apple-touch-icon.png # 180x180
+  └── android-chrome-*.png
+  ```
+
+- [ ] Atualizar `index.html` com favicons:
+  ```html
+  <link rel="icon" type="image/svg+xml" href="/images/logo/simbolo.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  ```
+
+- [ ] Respeitar regras de uso:
+  - Área de respiro mínima (baseada na altura do símbolo)
+  - Tamanho mínimo de 20mm impresso / 80px digital
+  - Nunca distorcer, rotacionar ou alterar cores
+
+**Arquivos de origem:**
+```
+andorinha mkt/01 - LOGO/SVG/
+├── LOGO_PRINCIPAL_COLORIDO.svg
+├── LOGO_PRINCIPAL_AZUL_MARINHO.svg
+├── LOGO_PRINCIPAL_BRANCO.svg
+├── LOGO_EMPILHADA_COLORIDO.svg
+├── LOGO_EMPILHADA_BRANCO.svg
+├── SIMBOLO_AZUL_MARINHO.svg
+├── SIMBOLO_BRANCO.svg
+└── ... (36 arquivos total)
+```
+
+---
+
+### 8.4 Elementos de Apoio (Patterns e Backgrounds)
+**Status:** ❌ Não iniciado
+**Impacto:** MÉDIO - Diferenciação visual
+**Tempo estimado:** 4-5 horas
+
+**Elementos Disponíveis:**
+
+1. **Patterns** - Padrões repetitivos com símbolo da andorinha
+   - `PATTERN_01.svg` - Grid de andorinhas
+   - `PATTERN_02.svg` - Diagonal
+   - `PATTERN_03.svg` - Disperso
+   - `PATTERN_04.svg` - Alternado
+
+2. **Backgrounds** - Elementos expandidos do símbolo
+   - `BG_01.svg` a `BG_08.svg`
+   - Linhas abstratas derivadas do símbolo
+   - Uso: Fundos de seções, hero sections
+
+**Tarefas:**
+- [ ] Copiar patterns para `frontend/public/images/patterns/`
+
+- [ ] Criar classe CSS para pattern de fundo:
+  ```css
+  .pattern-andorinha {
+    background-image: url('/images/patterns/pattern-01.svg');
+    background-repeat: repeat;
+    background-size: 100px;
+    opacity: 0.05;
+  }
+  ```
+
+- [ ] Aplicar patterns em seções específicas:
+  - Hero sections (sutil, baixa opacidade)
+  - Seções de depoimentos
+  - Backgrounds de cards
+  - Footer
+
+- [ ] Criar componente de background decorativo:
+  ```tsx
+  // src/components/BackgroundPattern.tsx
+  interface Props {
+    pattern?: 'andorinha' | 'lines' | 'abstract';
+    opacity?: number;
+  }
+  ```
+
+- [ ] Usar elementos BG como decoração:
+  - Linhas abstratas nas laterais de seções
+  - Elementos visuais em páginas de serviço
+  - Fundos de CTAs
+
+- [ ] Implementar em páginas:
+  - Home: Hero com pattern sutil + BG elements
+  - Serviços: Seções com patterns alternados
+  - Sobre: Background decorativo na história
+  - Contato: Pattern no formulário
+
+**Arquivos de origem:**
+```
+andorinha mkt/03 - Elementos de Apoio/SVG/
+├── BG_01.svg a BG_08.svg  # Backgrounds abstratos
+└── PATTERN_01.svg a PATTERN_04.svg  # Patterns repetitivos
+```
+
+---
+
+### 8.5 Componentes de UI Alinhados
+**Status:** ❌ Não iniciado
+**Impacto:** ALTO - Consistência visual
+**Tempo estimado:** 5-6 horas
+
+**Tarefas:**
+
+#### 8.5.1 Botões
+- [ ] Revisar estilos de botões seguindo o manual:
+  ```css
+  /* Botão Primário */
+  .btn-primary {
+    background: #FF6B35;
+    color: white;
+    border-radius: 8px;
+    font-family: 'Onest', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Botão Secundário */
+  .btn-secondary {
+    background: transparent;
+    border: 2px solid #00072D;
+    color: #00072D;
+  }
+
+  /* Botão Ghost (fundos escuros) */
+  .btn-ghost {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+  }
+  ```
+
+#### 8.5.2 Cards
+- [ ] Padronizar cards com visual do manual:
+  - Border-radius consistente (8px ou 12px)
+  - Sombras suaves
+  - Uso de cores do manual
+  - Patterns sutis em hover
+
+#### 8.5.3 Forms
+- [ ] Estilizar inputs seguindo a marca:
+  - Border: Cinza claro → Azul médio no focus
+  - Labels: Onest Medium
+  - Erros: Vermelho com ícone
+
+#### 8.5.4 Navegação
+- [ ] Atualizar Header e Footer:
+  - Cores corretas
+  - Logo oficial
+  - Hover states com cores da marca
+
+#### 8.5.5 Tipografia aplicada
+- [ ] Revisar hierarquia em todas as páginas:
+  - H1: Onest Bold, cores do manual
+  - H2: Onest Semibold
+  - Body: Work Sans Regular
+  - Destaques: Tallica
+
+---
+
+### 8.6 Aplicações Específicas
+**Status:** ❌ Não iniciado
+**Impacto:** MÉDIO - Polish final
+**Tempo estimado:** 3-4 horas
+
+**Tarefas:**
+
+#### 8.6.1 Home Page
+- [ ] Hero com gradiente oficial
+- [ ] Slogan "Voe Certo. Voe Alto." em Tallica
+- [ ] Pattern de fundo sutil
+- [ ] Cores de CTA alinhadas
+
+#### 8.6.2 Páginas de Serviço
+- [ ] Ícones em cores da marca (Laranja para destaques)
+- [ ] Pricing cards com hierarquia visual
+- [ ] FAQs com cores corretas
+
+#### 8.6.3 Cases
+- [ ] Cards com identidade visual consistente
+- [ ] Métricas em Tallica para destaque
+- [ ] Tags em cores secundárias
+
+#### 8.6.4 Blog
+- [ ] Cards de post com visual refinado
+- [ ] Categorias com cores da paleta
+- [ ] Artigos com tipografia correta
+
+#### 8.6.5 Loading States
+- [ ] Spinner com símbolo da andorinha
+- [ ] Skeleton screens com cores neutras
+
+---
+
+### 8.7 Assets e Exportações
+**Status:** ❌ Não iniciado
+**Impacto:** BAIXO - Completude
+**Tempo estimado:** 2 horas
+
+**Tarefas:**
+- [ ] Organizar estrutura de assets:
+  ```
+  public/
+  ├── images/
+  │   ├── logo/
+  │   │   ├── logo-principal.svg
+  │   │   ├── logo-empilhada.svg
+  │   │   └── simbolo.svg
+  │   ├── patterns/
+  │   │   ├── pattern-01.svg
+  │   │   └── ...
+  │   └── backgrounds/
+  │       ├── bg-01.svg
+  │       └── ...
+  ├── fonts/
+  │   └── Tallica-Variable.ttf
+  └── og/
+      └── ... (já criados)
+  ```
+
+- [ ] Criar documentação de uso dos assets
+- [ ] Atualizar README com informações da marca
+
+---
+
+### 8.8 Revisão e Quality Assurance
+**Status:** ❌ Não iniciado
+**Impacto:** CRÍTICO - Garantia de qualidade
+**Tempo estimado:** 4-5 horas
+
+**Checklist de Revisão:**
+
+#### Cores
+- [ ] Todas as cores são da paleta oficial
+- [ ] Gradientes seguem especificação
+- [ ] Contraste WCAG AA em todos os textos
+- [ ] Cores de hover/focus consistentes
+
+#### Tipografia
+- [ ] Onest em todos os títulos
+- [ ] Tallica em destaques específicos
+- [ ] Work Sans em textos de corpo
+- [ ] Hierarquia de tamanhos correta
+
+#### Logos
+- [ ] Logo correta em cada contexto
+- [ ] Variante correta para cada fundo
+- [ ] Área de respiro respeitada
+- [ ] Tamanho mínimo respeitado
+
+#### Patterns
+- [ ] Patterns sutis e não intrusivos
+- [ ] Opacidade adequada (5-10%)
+- [ ] Uso consistente entre páginas
+
+#### Consistência
+- [ ] Visual uniforme em todas as 12 páginas
+- [ ] Componentes padronizados
+- [ ] Espaçamentos consistentes
+
+---
+
+### Resumo de Esforço - Fase 8
+
+| Seção | Tempo Estimado | Prioridade |
+|-------|---------------|------------|
+| 8.1 Paleta de Cores | 2-3 horas | 🔴 CRÍTICA |
+| 8.2 Tipografia | 3-4 horas | 🔴 CRÍTICA |
+| 8.3 Logos | 2-3 horas | 🔴 CRÍTICA |
+| 8.4 Patterns | 4-5 horas | 🟡 ALTA |
+| 8.5 Componentes UI | 5-6 horas | 🟡 ALTA |
+| 8.6 Aplicações | 3-4 horas | 🟢 MÉDIA |
+| 8.7 Assets | 2 horas | 🟢 MÉDIA |
+| 8.8 QA | 4-5 horas | 🔴 CRÍTICA |
+
+**Total Estimado:** 25-32 horas (3-4 dias úteis)
+
+---
+
+### Ordem de Implementação Recomendada
+
+**Sprint 1 (Dia 1-2): Fundação**
+1. 8.1 Paleta de Cores - Configurar CSS/Tailwind
+2. 8.2 Tipografia - Adicionar Tallica
+3. 8.3 Logos - Copiar e configurar
+
+**Sprint 2 (Dia 2-3): Componentes**
+4. 8.5 Componentes UI - Atualizar estilos
+5. 8.4 Patterns - Implementar backgrounds
+
+**Sprint 3 (Dia 3-4): Aplicação e QA**
+6. 8.6 Aplicações - Revisar todas as páginas
+7. 8.7 Assets - Organizar estrutura
+8. 8.8 QA - Revisão completa
+
+---
+
+### Arquivos de Referência do Manual
+
+**Localização:** `andorinha mkt/Manual da marca/`
+
+**Estrutura de assets:**
+```
+andorinha mkt/
+├── Manual da marca/
+│   └── MANUAL_DA_MARCA_ANDORINHA.pdf (22 páginas)
+├── 01 - LOGO/
+│   ├── SVG/ (36 arquivos)
+│   └── PNG/ (35 arquivos @2x)
+├── 03 - Elementos de Apoio/
+│   └── SVG/ (12 arquivos - patterns e backgrounds)
+└── 04 - Fontes/
+    ├── Onest/
+    │   └── Onest-VariableFont_wght.ttf
+    └── TALICA/
+        └── Variable-TT/
+            └── Tallica-Variable.ttf
+```
+
+**Cores em formato CSS HSL:**
+```css
+/* Cores principais */
+--azul-marinho: 227 100% 9%;     /* #00072D */
+--azul-escuro: 227 89% 24%;      /* #092473 */
+--azul-medio: 210 48% 43%;       /* #3870A4 */
+--azul-claro: 197 88% 74%;       /* #84D2F6 */
+--laranja: 18 100% 60%;          /* #FF6B35 */
+--pessego: 30 80% 80%;           /* #F7C59F */
+
+/* Neutros */
+--cinza-escuro: 210 11% 15%;     /* #212529 */
+--cinza-medio: 208 7% 46%;       /* #6C757D */
+--cinza-claro: 210 16% 93%;      /* #E9ECEF */
+--off-white: 240 20% 98%;        /* #FAFAFB */
+```

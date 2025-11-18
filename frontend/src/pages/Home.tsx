@@ -19,34 +19,34 @@ const Home = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
+      <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-foreground mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in">
               Voe Certo. Voe Alto com Marketing Estratégico
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 animate-slide-up">
+            <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up">
               Transformamos seu marketing em resultados reais. Estratégia + Execução + Transparência para PMEs que pensam grande.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold text-lg px-8 py-6 hover-glow">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white font-semibold text-lg px-8 py-6 hover-glow">
                 <Link to="/contato">Agende Diagnóstico Gratuito</Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-lg px-8 py-6">
+              <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-semibold text-lg px-8 py-6">
                 <Link to="/precos">Ver Pacotes e Preços</Link>
               </Button>
             </div>
-            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-primary-foreground/80">
+            <div className="mt-8 flex flex-wrap justify-center gap-6 text-sm text-white/80">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-5 h-5 text-primary" />
+                <CheckCircle2 className="w-5 h-5 text-[#FF6B35]" />
                 <span>30 dias de suporte incluído</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="w-5 h-5 text-primary" />
+                <Clock className="w-5 h-5 text-[#FF6B35]" />
                 <span>Entrega em 15-45 dias</span>
               </div>
               <div className="flex items-center gap-2">
-                <Diamond className="w-5 h-5 text-primary" />
+                <Diamond className="w-5 h-5 text-[#FF6B35]" />
                 <span>Transparência total</span>
               </div>
             </div>
