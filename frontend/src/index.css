@@ -267,10 +267,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/patterns/pattern-01.svg');
+    background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
-    background-size: 100px;
-    opacity: 0.05;
+    background-size: 500px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
   }
@@ -288,8 +288,8 @@
     bottom: 0;
     background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
-    background-size: 120px;
-    opacity: 0.05;
+    background-size: 500px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
   }
@@ -305,10 +305,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/patterns/pattern-03.svg');
+    background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
-    background-size: 80px;
-    opacity: 0.05;
+    background-size: 500px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
   }
@@ -324,10 +324,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/patterns/pattern-04.svg');
+    background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
-    background-size: 100px;
-    opacity: 0.05;
+    background-size: 500px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
   }
@@ -344,10 +344,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('/images/patterns/pattern-01.svg');
+    background-image: url('/images/patterns/pattern-02.svg');
     background-repeat: repeat;
-    background-size: 100px;
-    opacity: 0.05;
+    background-size: 500px;
+    opacity: 0.08;
     pointer-events: none;
     z-index: 0;
   }
