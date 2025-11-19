@@ -33,6 +33,7 @@ const BlogPost = lazy(() => import("./pages/BlogPost"));
 
 // Páginas Legais
 const Privacidade = lazy(() => import("./pages/Privacidade"));
+const Termos = lazy(() => import("./pages/Termos"));
 
 // Componente de loading para Suspense
 const PageLoader = () => (
@@ -84,6 +85,7 @@ const App = () => (
 
               {/* Páginas Legais */}
               <Route path="/privacidade" element={<Privacidade />} />
+              <Route path="/termos" element={<Termos />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

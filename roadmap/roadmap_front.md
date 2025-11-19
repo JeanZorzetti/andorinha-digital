@@ -1099,17 +1099,23 @@ import { InlineWidget } from 'react-calendly';
 
 ### 5.2 Página: Termos de Uso
 **Rota:** `/termos`
-**Status:** ❌ Não iniciado
+**Status:** ✅ Concluído
 **Tempo estimado:** 1 dia
 
 **Conteúdo mínimo:**
-- [ ] Aceitação dos termos
-- [ ] Uso do site
-- [ ] Propriedade intelectual
-- [ ] Limitações de responsabilidade
-- [ ] Links externos
-- [ ] Modificações nos termos
-- [ ] Lei aplicável
+- [x] Aceitação dos termos
+- [x] Uso do site
+- [x] Propriedade intelectual
+- [x] Limitações de responsabilidade
+- [x] Links externos
+- [x] Modificações nos termos
+- [x] Lei aplicável
+
+**Implementação:**
+- Criado Termos.tsx com 12 seções completas
+- Inclui indenização, rescisão e disposições gerais
+- Rota adicionada no App.tsx
+- Link já existente no Footer
 
 ---
 
