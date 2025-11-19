@@ -343,16 +343,18 @@ const Contato = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center transition-colors group"
+                    aria-label="LinkedIn"
                   >
-                    <Linkedin className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
+                    <Linkedin className="w-6 h-6 text-primary group-hover:text-primary-foreground" aria-hidden="true" />
                   </a>
                   <a
                     href="https://instagram.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-12 h-12 rounded-full bg-primary/10 hover:bg-primary flex items-center justify-center transition-colors group"
+                    aria-label="Instagram"
                   >
-                    <Instagram className="w-6 h-6 text-primary group-hover:text-primary-foreground" />
+                    <Instagram className="w-6 h-6 text-primary group-hover:text-primary-foreground" aria-hidden="true" />
                   </a>
                 </div>
               </Card>

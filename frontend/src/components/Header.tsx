@@ -14,9 +14,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition-opacity">
             <img
-              src="/images/logo/logo-principal.svg"
+              src="/images/logo/simbolo.svg"
               alt="Andorinha Marketing"
-              className="h-16 w-auto"
+              className="h-24 w-auto"
             />
           </Link>
 
@@ -28,9 +28,13 @@ const Header = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium">
+              <button
+              className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium"
+              aria-expanded={isServicesOpen}
+              aria-haspopup="true"
+            >
                 Serviços
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-4 h-4" aria-hidden="true" />
               </button>
               
               {isServicesOpen && (
@@ -102,11 +106,13 @@ const Header = () => {
           <button
             className="lg:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
           >
             {isMenuOpen ? (
-              <X className="w-6 h-6 text-foreground" />
+              <X className="w-6 h-6 text-foreground" aria-hidden="true" />
             ) : (
-              <Menu className="w-6 h-6 text-foreground" />
+              <Menu className="w-6 h-6 text-foreground" aria-hidden="true" />
             )}
           </button>
         </div>

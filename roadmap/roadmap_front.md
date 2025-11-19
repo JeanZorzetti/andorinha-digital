@@ -979,17 +979,15 @@ import { InlineWidget } from 'react-calendly';
 - `--muted-foreground`: agora usa a cor corrigida
 
 #### 4.3.3 ARIA Labels
-- [ ] Adicionar onde necessário:
-  ```tsx
-  <button aria-label="Fechar modal">
-    <X />
-  </button>
-  ```
-- [ ] Form labels associados:
-  ```tsx
-  <label htmlFor="email">Email</label>
-  <input id="email" type="email" />
-  ```
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Header: botão menu mobile com aria-label dinâmico
+- [x] Header: dropdown serviços com aria-expanded e aria-haspopup
+- [x] Contato: redes sociais com aria-label
+- [x] Footer: já tinha aria-labels nas redes sociais
+- [x] Ícones decorativos com aria-hidden="true"
+- [x] Form labels já estão associados (htmlFor/id)
 
 #### 4.3.4 Imagens
 - [ ] Alt text descritivo em TODAS as imagens
