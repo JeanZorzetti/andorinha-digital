@@ -6,8 +6,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { Mail, Phone, Linkedin, Instagram, CheckCircle2 } from "lucide-react";
+import { Mail, Phone, Linkedin, Instagram, CheckCircle2, Calendar } from "lucide-react";
 import { Spinner } from "@/components/ui/spinner";
+import { InlineWidget } from "react-calendly";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -332,13 +333,29 @@ const Contato = () => {
               </Card>
 
               <Card className="p-6 bg-accent-blue-light/10 border-accent-blue-light">
-                <h3 className="font-semibold text-lg text-foreground mb-2">Prefere agendar direto?</h3>
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-5 h-5 text-primary" />
+                  <h3 className="font-semibold text-lg text-foreground">Agende Direto</h3>
+                </div>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Veja horários disponíveis e escolha o melhor para você
+                  Escolha o melhor horário para seu diagnóstico gratuito
                 </p>
-                <Button variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                  Ver Horários Disponíveis
-                </Button>
+                <div className="rounded-lg overflow-hidden border border-border bg-white">
+                  <InlineWidget
+                    url="https://calendly.com/andorinha/diagnostico"
+                    styles={{
+                      height: '400px',
+                      minWidth: '100%'
+                    }}
+                    pageSettings={{
+                      backgroundColor: 'ffffff',
+                      hideEventTypeDetails: false,
+                      hideLandingPageDetails: false,
+                      primaryColor: 'FF6B35',
+                      textColor: '1A1A1A'
+                    }}
+                  />
+                </div>
               </Card>
             </div>
           </div>

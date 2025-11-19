@@ -808,24 +808,33 @@ src/components/NewsletterSignup.tsx
 **Status:** 🔴 Não iniciado
 
 ### 4.1 Integrações de Terceiros
-**Status:** ❌ Não iniciado
+**Status:** 🟡 Em andamento
 **Tempo estimado:** 1-2 semanas
 
 #### 4.1.1 Calendly (Agendamento)
+**Status:** ✅ COMPLETO
 **Tarefas:**
-- [ ] Criar conta Calendly
-- [ ] Configurar tipos de eventos:
+- [x] Instalar react-calendly
+- [x] Configurar tipos de eventos (placeholder URL configurada)
+- [x] Integrar InlineWidget na página Contato
+- [x] Adicionar na sidebar com cores da marca (primaryColor: FF6B35)
+- [ ] Criar conta Calendly real e atualizar URL
+- [ ] Configurar eventos reais:
   - Diagnóstico Gratuito (30 min)
   - Consultoria (60 min)
-- [ ] Integrar inline ou popup:
-  ```tsx
-  import { InlineWidget } from 'react-calendly';
 
-  <InlineWidget url="https://calendly.com/andorinha/diagnostico" />
-  ```
-- [ ] Adicionar em:
-  - Sidebar da página Contato
-  - Modal ao clicar "Ver Horários Disponíveis"
+**Implementação:**
+```tsx
+import { InlineWidget } from 'react-calendly';
+
+<InlineWidget
+  url="https://calendly.com/andorinha/diagnostico"
+  pageSettings={{
+    primaryColor: 'FF6B35',
+    textColor: '1A1A1A'
+  }}
+/>
+```
 
 #### 4.1.2 CRM Integration
 **Opções:** RD Station, HubSpot, Pipedrive
