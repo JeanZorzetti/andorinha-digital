@@ -26,7 +26,7 @@ const ServicePricing = ({
   tiers,
 }: ServicePricingProps) => {
   return (
-    <section className="py-16 lg:py-24 bg-gray-50">
+    <section className="py-16 lg:py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary-dark mb-4">
@@ -53,7 +53,7 @@ const ServicePricing = ({
                     className={`rounded-none rounded-bl-lg font-body ${
                       tier.highlighted
                         ? "bg-primary text-white"
-                        : "bg-gray-200 text-gray-700"
+                        : "bg-muted text-muted-foreground"
                     }`}
                   >
                     {tier.highlighted && <Star className="w-3 h-3 mr-1" />}
@@ -84,7 +84,7 @@ const ServicePricing = ({
                 <ul className="space-y-3 mb-6">
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <Check className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-sm font-body">{feature}</span>
                     </li>
                   ))}

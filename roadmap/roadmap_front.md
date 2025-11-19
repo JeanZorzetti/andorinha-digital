@@ -1792,13 +1792,62 @@ src/components/NewsletterSignup.tsx
 - ❌ 8.7 Assets e Exportações (pendente)
 - ❌ 8.8 QA Final (pendente)
 
+### 2025-01-19 (Sessão 8 continuação - Polish Crítico Fase 8.6)
+
+- 🔴 **BUG CRÍTICO CORRIGIDO**: Line-height do slogan hero estava em 1000% (line-height: 10)
+  - Corrigido para 1.1 (110%)
+  - Visual estava completamente quebrado
+
+- ✅ **FASE 8.6 - Aplicações Específicas (70% completo):**
+
+  **Correções Críticas:**
+  - ✅ Slogan Hero "Voe Certo. Voe Alto." agora usa Tallica (font-display)
+    - Antes: Onest Bold
+    - Depois: Tallica Bold com letter-spacing: -0.02em
+    - Line-height corrigido: 1.1 (era 10 - bug crítico)
+
+  - ✅ Cores hardcoded substituídas por tokens do sistema:
+    - Home.tsx: `from-[#00072D] via-[#092473] to-[#3870A4]` → `from-primary-dark via-primary-blue to-accent-blue`
+    - Home.tsx: `text-[#FF6B35]` → `text-primary`
+    - Sistema de tokens aplicado corretamente
+
+  - ✅ Cores gray substituídas por cores do sistema:
+    - ServicePricing: `bg-gray-50` → `bg-muted/30`
+    - ServiceIncluded: `bg-gray-50` → `bg-muted/30`
+    - ServiceIncluded: `bg-gray-100` → `bg-muted`
+    - ServicePricing: `bg-gray-200 text-gray-700` → `bg-muted text-muted-foreground`
+
+  - ✅ Checkmarks agora usam cor da marca:
+    - Antes: `text-green-600` + `bg-green-100` (verde não está na paleta)
+    - Depois: `text-primary` + `bg-primary/10` (laranja oficial)
+    - ServiceIncluded.tsx e ServicePricing.tsx corrigidos
+
+  **Impacto:**
+  - Sistema de cores 100% alinhado com tokens do design system
+  - Paleta da marca aplicada consistentemente
+  - Bug visual crítico corrigido (slogan quebrado)
+  - Tallica aplicada estrategicamente no slogan hero
+
+**Status Fase 8 atualizado:** 🟢 96% Concluído
+
+**Seções completas:**
+
+- ✅ 8.1 Paleta de Cores
+- ✅ 8.2 Tipografia
+- ✅ 8.3 Logos (100% - favicons + PWA)
+- ✅ 8.4 Patterns e Backgrounds
+- ✅ 8.5 Componentes UI (5/5 completo)
+- 🟡 8.6 Aplicações Específicas (70% - polish crítico completo)
+- ❌ 8.7 Assets e Exportações (pendente)
+- ❌ 8.8 QA Final (pendente)
+
 ---
 
 ## 🎨 FASE 8 - IMPLEMENTAÇÃO DO MANUAL DA MARCA
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟢 94% Concluído (Sprint 1 e Sprint 2 COMPLETOS)
+**Status:** 🟢 96% Concluído (Sprint 1 e Sprint 2 COMPLETOS + Polish Crítico Sprint 3)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -2093,22 +2142,27 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.6 Aplicações Específicas
-**Status:** ❌ Não iniciado
+**Status:** 🟡 Em Progresso (Polish Crítico Completo - 70%)
 **Impacto:** MÉDIO - Polish final
 **Tempo estimado:** 3-4 horas
+**Tempo real:** 2 horas (correções críticas e importantes)
 
 **Tarefas:**
 
 #### 8.6.1 Home Page
-- [ ] Hero com gradiente oficial
-- [ ] Slogan "Voe Certo. Voe Alto." em Tallica
-- [ ] Pattern de fundo sutil
-- [ ] Cores de CTA alinhadas
+
+- [x] Hero com gradiente oficial (tokens em vez de hex)
+- [x] Slogan "Voe Certo. Voe Alto." em Tallica (fonte display)
+- [x] Line-height corrigido (1.1 em vez de 1000% - bug crítico)
+- [x] Pattern de fundo sutil (já implementado)
+- [x] Cores de CTA alinhadas (text-primary em vez de hex)
 
 #### 8.6.2 Páginas de Serviço
-- [ ] Ícones em cores da marca (Laranja para destaques)
-- [ ] Pricing cards com hierarquia visual
-- [ ] FAQs com cores corretas
+
+- [x] Ícones em cores da marca (checkmarks laranja em vez de verde)
+- [x] Pricing cards com cores do sistema (muted em vez de gray)
+- [x] Backgrounds neutros (bg-muted/30 em vez de bg-gray-50)
+- [ ] FAQs com melhorias visuais (pendente)
 
 #### 8.6.3 Cases
 - [ ] Cards com identidade visual consistente

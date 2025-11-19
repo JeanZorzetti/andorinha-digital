@@ -33,10 +33,10 @@ const ServiceIncluded = ({
           {items.map((item, index) => (
             <div
               key={index}
-              className="flex items-start gap-3 p-4 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors"
+              className="flex items-start gap-3 p-4 rounded-lg bg-muted/30 hover:bg-muted transition-colors"
             >
-              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center">
-                <Check className="w-4 h-4 text-green-600" />
+              <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+                <Check className="w-4 h-4 text-primary" />
               </div>
               <span className="font-body text-foreground">{item}</span>
             </div>
