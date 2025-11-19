@@ -1847,7 +1847,7 @@ src/components/NewsletterSignup.tsx
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟢 98% Concluído (Sprint 1 e Sprint 2 COMPLETOS + Sprint 3 Polish 95% completo)
+**Status:** 🟢 99% Concluído (Sprint 1, Sprint 2 e Sprint 3 COMPLETOS - restam apenas Assets/QA)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -2142,10 +2142,10 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.6 Aplicações Específicas
-**Status:** 🟢 95% Concluído (Polish Crítico + FAQs + Colors + Icons)
+**Status:** ✅ 100% COMPLETO (Polish Crítico + FAQs + Colors + Icons + Loading States)
 **Impacto:** MÉDIO - Polish final
 **Tempo estimado:** 3-4 horas
-**Tempo real:** 3 horas (correções críticas, importantes e melhorias visuais)
+**Tempo real:** 4 horas (correções críticas, importantes, melhorias visuais e loading states)
 
 **Tarefas:**
 
@@ -2177,23 +2177,24 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 - [x] bg-gray-* substituído por bg-muted/30 ou bg-muted
 
 #### 8.6.5 Loading States
-- [ ] Spinner com símbolo da andorinha
-- [ ] Skeleton screens com cores neutras
+- [x] Spinner com símbolo da andorinha (componente Spinner com animação customizada)
+- [x] Skeleton screens com cores neutras (bg-muted)
+- [x] Componentes pré-montados (SkeletonCard, SkeletonBlogPost, SkeletonList, SkeletonPage)
+- [x] SpinnerOverlay para loading em tela cheia
+- [x] Documentação completa (LOADING_STATES.md)
+- [x] Exemplos de uso (LoadingStates.tsx)
 
 **Commits da Fase 8.6:**
 - `7abbb4e` - fix: aplicar polish crítico Fase 8.6 (hex → tokens, gray → muted, line-height bug fix)
 - `e014872` - fix: reverter slogan hero para Onest conforme preferência do usuário
-- **Pendente** - feat: completar Fase 8.6 (FAQs, colors em 6 páginas, icons na Home)
+- `9e7b362` - feat: completar Fase 8.6 (FAQs, colors em 6 páginas, icons na Home)
+- **Pendente** - feat: implementar loading states (Spinner, Skeleton, documentação)
 
-**Arquivos modificados (commit pendente):**
-- `frontend/src/components/ui/accordion.tsx` - Hover states e chevron primary quando aberto
-- `frontend/src/pages/Home.tsx` - Emojis substituídos por lucide-react icons com containers brand
-- `frontend/src/pages/Processo.tsx` - Cores padronizadas (gray → muted system)
-- `frontend/src/pages/Precos.tsx` - Cores padronizadas
-- `frontend/src/pages/Cases.tsx` - Cores padronizadas
-- `frontend/src/pages/CaseDetail.tsx` - Cores padronizadas
-- `frontend/src/pages/BlogPost.tsx` - Cores padronizadas
-- `frontend/src/pages/Blog.tsx` - Cores padronizadas
+**Arquivos criados/modificados (commit pendente):**
+- `frontend/src/components/ui/spinner.tsx` - Novo componente Spinner com design customizado
+- `frontend/src/components/ui/skeleton.tsx` - Expandido com SkeletonCard, SkeletonBlogPost, SkeletonList, SkeletonPage
+- `frontend/src/components/LoadingStates.tsx` - Exemplos práticos de uso
+- `frontend/src/components/ui/LOADING_STATES.md` - Documentação completa
 
 ---
 
