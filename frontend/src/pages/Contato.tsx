@@ -342,7 +342,7 @@ const Contato = () => {
                 </p>
                 <div className="rounded-lg overflow-hidden border border-border bg-white">
                   <InlineWidget
-                    url="https://calendly.com/andorinha/diagnostico"
+                    url="https://calendly.com/roilabs-andorinha/30min"
                     styles={{
                       height: '400px',
                       minWidth: '100%'

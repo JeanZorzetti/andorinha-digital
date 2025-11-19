@@ -815,20 +815,19 @@ src/components/NewsletterSignup.tsx
 **Status:** ✅ COMPLETO
 **Tarefas:**
 - [x] Instalar react-calendly
-- [x] Configurar tipos de eventos (placeholder URL configurada)
+- [x] Criar conta Calendly (roilabs-andorinha)
+- [x] Configurar eventos reais:
+  - Diagnóstico Gratuito (30 min): https://calendly.com/roilabs-andorinha/30min
+  - Consultoria (60 min): https://calendly.com/roilabs-andorinha/consultoria-60-min
 - [x] Integrar InlineWidget na página Contato
 - [x] Adicionar na sidebar com cores da marca (primaryColor: FF6B35)
-- [ ] Criar conta Calendly real e atualizar URL
-- [ ] Configurar eventos reais:
-  - Diagnóstico Gratuito (30 min)
-  - Consultoria (60 min)
 
 **Implementação:**
 ```tsx
 import { InlineWidget } from 'react-calendly';
 
 <InlineWidget
-  url="https://calendly.com/andorinha/diagnostico"
+  url="https://calendly.com/roilabs-andorinha/30min"
   pageSettings={{
     primaryColor: 'FF6B35',
     textColor: '1A1A1A'
