@@ -211,10 +211,10 @@ const Precos = () => {
         <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Investimento Transparente em Marketing
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 Trabalhamos com projetos pontuais de escopo fechado. Você sabe
                 exatamente o que vai receber e quanto vai investir antes de começar.
               </p>
@@ -232,26 +232,26 @@ const Precos = () => {
         {/* Pricing Table */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               Tabela de Investimentos
             </h2>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[800px]">
                 <thead>
                   <tr className="border-b-2 border-gray-200">
-                    <th className="text-left py-4 px-4 font-semibold text-gray-900">
+                    <th className="text-left py-4 px-4 font-semibold text-foreground">
                       Serviço
                     </th>
-                    <th className="text-left py-4 px-4 font-semibold text-gray-900">
+                    <th className="text-left py-4 px-4 font-semibold text-foreground">
                       Investimento
                     </th>
-                    <th className="text-left py-4 px-4 font-semibold text-gray-900">
+                    <th className="text-left py-4 px-4 font-semibold text-foreground">
                       Prazo
                     </th>
-                    <th className="text-left py-4 px-4 font-semibold text-gray-900">
+                    <th className="text-left py-4 px-4 font-semibold text-foreground">
                       O Que Inclui
                     </th>
-                    <th className="text-center py-4 px-4 font-semibold text-gray-900">
+                    <th className="text-center py-4 px-4 font-semibold text-foreground">
                       Detalhes
                     </th>
                   </tr>
@@ -260,18 +260,18 @@ const Precos = () => {
                   {services.map((service, index) => (
                     <tr
                       key={index}
-                      className="border-b border-gray-100 hover:bg-gray-50 transition-colors"
+                      className="border-b border-gray-100 hover:bg-muted/30 transition-colors"
                     >
-                      <td className="py-4 px-4 font-medium text-gray-900">
+                      <td className="py-4 px-4 font-medium text-foreground">
                         {service.name}
                       </td>
                       <td className="py-4 px-4 text-[#FF6B35] font-semibold">
                         {service.price}
                       </td>
-                      <td className="py-4 px-4 text-gray-600">
+                      <td className="py-4 px-4 text-muted-foreground">
                         {service.duration}
                       </td>
-                      <td className="py-4 px-4 text-gray-600 text-sm">
+                      <td className="py-4 px-4 text-muted-foreground text-sm">
                         {service.includes}
                       </td>
                       <td className="py-4 px-4 text-center">
@@ -288,12 +288,12 @@ const Precos = () => {
         </section>
 
         {/* Price Factors */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               O Que Influencia o Preço
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Entenda os fatores que compõem o investimento em cada projeto
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -305,10 +305,10 @@ const Precos = () => {
                   <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
                     <factor.icon className="w-6 h-6 text-[#FF6B35]" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">
                     {factor.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{factor.description}</p>
+                  <p className="text-sm text-muted-foreground">{factor.description}</p>
                 </div>
               ))}
             </div>
@@ -318,10 +318,10 @@ const Precos = () => {
         {/* Payment Methods */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               Formas de Pagamento
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Condições flexíveis para se adequar ao seu fluxo de caixa
             </p>
             <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -337,7 +337,7 @@ const Precos = () => {
                     {method.options.map((option, optIndex) => (
                       <li key={optIndex} className="flex items-start gap-2">
                         <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-gray-600">{option}</span>
+                        <span className="text-sm text-muted-foreground">{option}</span>
                       </li>
                     ))}
                   </ul>
@@ -345,7 +345,7 @@ const Precos = () => {
               ))}
             </div>
             <div className="text-center mt-8">
-              <p className="text-gray-600">
+              <p className="text-muted-foreground">
                 <strong>Formas aceitas:</strong> PIX, Transferência Bancária,
                 Boleto, Cartão de Crédito (até 3x sem juros)
               </p>
@@ -354,9 +354,9 @@ const Precos = () => {
         </section>
 
         {/* Guarantees */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               Nossas Garantias
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -365,13 +365,13 @@ const Precos = () => {
                   key={index}
                   className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center"
                 >
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <guarantee.icon className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <guarantee.icon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">
                     {guarantee.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{guarantee.description}</p>
+                  <p className="text-sm text-muted-foreground">{guarantee.description}</p>
                 </div>
               ))}
             </div>
@@ -381,10 +381,10 @@ const Precos = () => {
         {/* Policies */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               Políticas Claras
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Transparência em todas as etapas do projeto
             </p>
             <div className="max-w-3xl mx-auto">
@@ -394,7 +394,7 @@ const Precos = () => {
                     <AccordionTrigger className="text-left font-medium">
                       {policy.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
+                    <AccordionContent className="text-muted-foreground">
                       {policy.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -405,12 +405,12 @@ const Precos = () => {
         </section>
 
         {/* FAQ */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               Perguntas Frequentes sobre Preços
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Tire suas dúvidas sobre investimentos e pagamentos
             </p>
             <div className="max-w-3xl mx-auto">
@@ -420,7 +420,7 @@ const Precos = () => {
                     <AccordionTrigger className="text-left font-medium">
                       {item.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-gray-600">
+                    <AccordionContent className="text-muted-foreground">
                       {item.answer}
                     </AccordionContent>
                   </AccordionItem>
@@ -444,7 +444,7 @@ const Precos = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-gray-100"
+                className="bg-white text-[#FF6B35] hover:bg-muted"
               >
                 <Link to="/contato">Solicitar Orçamento</Link>
               </Button>

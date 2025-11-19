@@ -118,17 +118,17 @@ const Blog = () => {
         <section className="pt-32 pb-8 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Conteúdo que Agrega
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 Dicas, estratégias e insights de marketing para PMEs que querem
                 crescer de forma inteligente.
               </p>
 
               {/* Search */}
               <div className="relative max-w-md mx-auto">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder="Buscar artigos..."
@@ -152,7 +152,7 @@ const Blog = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeFilter === category
                       ? "bg-[#FF6B35] text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      : "bg-muted text-muted-foreground hover:bg-muted"
                   }`}
                 >
                   {category}
@@ -179,7 +179,7 @@ const Blog = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-gray-700">
+                      <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
                         {post.category}
                       </span>
                     </div>
@@ -187,7 +187,7 @@ const Blog = () => {
 
                   {/* Content */}
                   <div className="p-6">
-                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
                       <span>{post.date}</span>
                       <span className="flex items-center gap-1">
                         <Clock className="w-4 h-4" />
@@ -195,11 +195,11 @@ const Blog = () => {
                       </span>
                     </div>
 
-                    <h2 className="font-bold text-gray-900 mb-3 line-clamp-2 group-hover:text-[#FF6B35] transition-colors">
+                    <h2 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-[#FF6B35] transition-colors">
                       {post.title}
                     </h2>
 
-                    <p className="text-sm text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
                       {post.excerpt}
                     </p>
 
@@ -217,7 +217,7 @@ const Blog = () => {
 
             {filteredPosts.length === 0 && (
               <div className="text-center py-12">
-                <p className="text-gray-500">
+                <p className="text-muted-foreground">
                   Nenhum artigo encontrado para sua busca.
                 </p>
               </div>
@@ -226,13 +226,13 @@ const Blog = () => {
         </section>
 
         {/* Newsletter CTA */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-foreground mb-4">
                 Receba Conteúdo Exclusivo
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Cadastre-se para receber dicas de marketing, novos artigos e
                 ofertas especiais diretamente no seu email.
               </p>
@@ -246,7 +246,7 @@ const Blog = () => {
                   Cadastrar
                 </Button>
               </div>
-              <p className="text-xs text-gray-500 mt-3">
+              <p className="text-xs text-muted-foreground mt-3">
                 Sem spam. Cancele quando quiser.
               </p>
             </div>
@@ -266,7 +266,7 @@ const Blog = () => {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#FF6B35] hover:bg-gray-100"
+              className="bg-white text-[#FF6B35] hover:bg-muted"
             >
               <Link to="/contato">Agendar Diagnóstico</Link>
             </Button>

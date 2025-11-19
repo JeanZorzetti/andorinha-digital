@@ -192,10 +192,10 @@ const Processo = () => {
         <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
                 Um Processo Claro do Início ao Fim
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-muted-foreground mb-8">
                 Transparência e colaboração em cada etapa. Você sempre sabe o que
                 está acontecendo e participa das decisões importantes.
               </p>
@@ -213,7 +213,7 @@ const Processo = () => {
         {/* Process Steps */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               5 Etapas Para o Sucesso
             </h2>
             <div className="space-y-12 max-w-4xl mx-auto">
@@ -238,25 +238,25 @@ const Processo = () => {
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex flex-wrap items-center gap-3 mb-3">
-                        <h3 className="text-xl font-bold text-gray-900">
+                        <h3 className="text-xl font-bold text-foreground">
                           {step.title}
                         </h3>
-                        <span className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-600">
+                        <span className="px-3 py-1 bg-muted rounded-full text-sm text-muted-foreground">
                           {step.duration}
                         </span>
                       </div>
-                      <p className="text-gray-600 mb-4">{step.description}</p>
+                      <p className="text-muted-foreground mb-4">{step.description}</p>
 
                       <div className="grid md:grid-cols-2 gap-4">
                         <div>
-                          <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                          <h4 className="font-semibold text-foreground mb-2 text-sm">
                             O que acontece:
                           </h4>
                           <ul className="space-y-1">
                             {step.details.map((detail, detailIndex) => (
                               <li
                                 key={detailIndex}
-                                className="flex items-start gap-2 text-sm text-gray-600"
+                                className="flex items-start gap-2 text-sm text-muted-foreground"
                               >
                                 <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                                 {detail}
@@ -265,7 +265,7 @@ const Processo = () => {
                           </ul>
                         </div>
                         <div className="md:border-l md:pl-4 border-gray-100">
-                          <h4 className="font-semibold text-gray-900 mb-2 text-sm">
+                          <h4 className="font-semibold text-foreground mb-2 text-sm">
                             Entregável:
                           </h4>
                           <p className="text-sm text-[#FF6B35] font-medium">
@@ -282,12 +282,12 @@ const Processo = () => {
         </section>
 
         {/* Tools */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               Ferramentas Que Usamos
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Tecnologias modernas para entregar resultados de qualidade
             </p>
             <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
@@ -296,10 +296,10 @@ const Processo = () => {
                   key={index}
                   className="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100"
                 >
-                  <span className="text-sm font-medium text-gray-900">
+                  <span className="text-sm font-medium text-foreground">
                     {tool.name}
                   </span>
-                  <span className="text-xs text-gray-500 ml-2">
+                  <span className="text-xs text-muted-foreground ml-2">
                     {tool.category}
                   </span>
                 </div>
@@ -311,10 +311,10 @@ const Processo = () => {
         {/* Differentials */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-4">
               Por Que Nosso Processo Funciona
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Diferenciais que garantem o sucesso do seu projeto
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -326,10 +326,10 @@ const Processo = () => {
                   <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
                     <diff.icon className="w-6 h-6 text-[#FF6B35]" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">
                     {diff.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{diff.description}</p>
+                  <p className="text-sm text-muted-foreground">{diff.description}</p>
                 </div>
               ))}
             </div>
@@ -337,9 +337,9 @@ const Processo = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold text-center text-foreground mb-12">
               O Que Dizem Sobre Nosso Processo
             </h2>
             <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -348,14 +348,14 @@ const Processo = () => {
                   key={index}
                   className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
                 >
-                  <p className="text-gray-600 mb-4 italic">
+                  <p className="text-muted-foreground mb-4 italic">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-foreground">
                       {testimonial.author}
                     </p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
               ))}
@@ -377,7 +377,7 @@ const Processo = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-gray-100"
+                className="bg-white text-[#FF6B35] hover:bg-muted"
               >
                 <Link to="/contato">Agendar Diagnóstico</Link>
               </Button>

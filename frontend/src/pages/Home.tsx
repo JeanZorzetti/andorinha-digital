@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, CheckCircle2, Clock, Shield, Award } from "lucide-react";
+import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -309,19 +309,26 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
             {[
-              { icon: "📋", title: "Diagnóstico Gratuito", time: "30-60 min", desc: "Entendemos seu negócio, desafios e objetivos" },
-              { icon: "🎯", title: "Onboarding Estratégico", time: "1-2 horas", desc: "Workshop de alinhamento colaborativo" },
-              { icon: "⚙️", title: "Execução Ágil", time: "15-45 dias", desc: "Sprints com check-ins semanais" },
-              { icon: "🚀", title: "Entrega + Handoff", time: "Apresentação", desc: "Capacitação e documentação" },
-              { icon: "🛡️", title: "Suporte", time: "30 dias", desc: "Acompanhamento e ajustes" }
-            ].map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="text-5xl mb-4">{step.icon}</div>
-                <h3 className="text-xl font-semibold font-heading mb-2">{step.title}</h3>
-                <div className="text-sm text-primary mb-2 font-semibold">{step.time}</div>
-                <p className="text-sm text-primary-foreground/70">{step.desc}</p>
-              </div>
-            ))}
+              { icon: ClipboardList, title: "Diagnóstico Gratuito", time: "30-60 min", desc: "Entendemos seu negócio, desafios e objetivos" },
+              { icon: Crosshair, title: "Onboarding Estratégico", time: "1-2 horas", desc: "Workshop de alinhamento colaborativo" },
+              { icon: Settings, title: "Execução Ágil", time: "15-45 dias", desc: "Sprints com check-ins semanais" },
+              { icon: Rocket, title: "Entrega + Handoff", time: "Apresentação", desc: "Capacitação e documentação" },
+              { icon: Shield, title: "Suporte", time: "30 dias", desc: "Acompanhamento e ajustes" }
+            ].map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Icon className="w-8 h-8 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading mb-2">{step.title}</h3>
+                  <div className="text-sm text-primary mb-2 font-semibold font-body">{step.time}</div>
+                  <p className="text-sm font-body text-primary-foreground/70">{step.desc}</p>
+                </div>
+              );
+            })}
           </div>
 
           <div className="text-center mt-12">

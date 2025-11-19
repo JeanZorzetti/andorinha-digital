@@ -569,10 +569,10 @@ const BlogPost = () => {
         <Header />
         <main className="pt-32 pb-16">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl font-bold text-foreground mb-4">
               Artigo não encontrado
             </h1>
-            <p className="text-gray-600 mb-8">
+            <p className="text-muted-foreground mb-8">
               O artigo que você procura não existe ou foi removido.
             </p>
             <Button asChild>
@@ -603,7 +603,7 @@ const BlogPost = () => {
             <div className="max-w-3xl mx-auto">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-[#FF6B35] mb-6"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#FF6B35] mb-6"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Voltar para Blog
@@ -613,11 +613,11 @@ const BlogPost = () => {
                 {post.category}
               </span>
 
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-6">
                 {post.title}
               </h1>
 
-              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
                 <span className="flex items-center gap-1">
                   <Calendar className="w-4 h-4" />
                   {post.date}
@@ -652,7 +652,7 @@ const BlogPost = () => {
         <section className="pb-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <div className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-600 prose-li:text-gray-600 prose-strong:text-gray-900">
+              <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-li:text-muted-foreground prose-strong:text-foreground">
                 {post.content.split('\n').map((paragraph, index) => {
                   if (paragraph.startsWith('## ')) {
                     return (
@@ -689,7 +689,7 @@ const BlogPost = () => {
               {/* Share */}
               <div className="mt-12 pt-8 border-t border-gray-200">
                 <div className="flex items-center gap-4">
-                  <span className="text-sm text-gray-500 flex items-center gap-2">
+                  <span className="text-sm text-muted-foreground flex items-center gap-2">
                     <Share2 className="w-4 h-4" />
                     Compartilhar:
                   </span>
@@ -697,7 +697,7 @@ const BlogPost = () => {
                     href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://andorinha.roilabs.com.br/blog/${id}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-[#0077B5]"
+                    className="text-muted-foreground hover:text-[#0077B5]"
                   >
                     LinkedIn
                   </a>
@@ -705,7 +705,7 @@ const BlogPost = () => {
                     href={`https://wa.me/?text=${encodeURIComponent(`${post.title} - https://andorinha.roilabs.com.br/blog/${id}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-[#25D366]"
+                    className="text-muted-foreground hover:text-[#25D366]"
                   >
                     WhatsApp
                   </a>
@@ -716,13 +716,13 @@ const BlogPost = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-muted/30">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              <h2 className="text-2xl font-bold text-foreground mb-4">
                 Precisa de Ajuda com {post.category}?
               </h2>
-              <p className="text-gray-600 mb-6">
+              <p className="text-muted-foreground mb-6">
                 Agende um diagnóstico gratuito e descubra como podemos ajudar
                 seu negócio a crescer.
               </p>

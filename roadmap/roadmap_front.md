@@ -1847,7 +1847,7 @@ src/components/NewsletterSignup.tsx
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟢 96% Concluído (Sprint 1 e Sprint 2 COMPLETOS + Polish Crítico Sprint 3)
+**Status:** 🟢 98% Concluído (Sprint 1 e Sprint 2 COMPLETOS + Sprint 3 Polish 95% completo)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -2142,41 +2142,58 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.6 Aplicações Específicas
-**Status:** 🟡 Em Progresso (Polish Crítico Completo - 70%)
+**Status:** 🟢 95% Concluído (Polish Crítico + FAQs + Colors + Icons)
 **Impacto:** MÉDIO - Polish final
 **Tempo estimado:** 3-4 horas
-**Tempo real:** 2 horas (correções críticas e importantes)
+**Tempo real:** 3 horas (correções críticas, importantes e melhorias visuais)
 
 **Tarefas:**
 
 #### 8.6.1 Home Page
 
 - [x] Hero com gradiente oficial (tokens em vez de hex)
-- [x] Slogan "Voe Certo. Voe Alto." em Tallica (fonte display)
+- [x] Slogan "Voe Certo. Voe Alto." em **Onest** (decisão do usuário, não Tallica)
 - [x] Line-height corrigido (1.1 em vez de 1000% - bug crítico)
 - [x] Pattern de fundo sutil (já implementado)
 - [x] Cores de CTA alinhadas (text-primary em vez de hex)
+- [x] Emojis substituídos por lucide-react icons (📋 → ClipboardList, 🎯 → Crosshair, etc.)
+- [x] Icons com containers brand (bg-primary/10, text-primary)
 
 #### 8.6.2 Páginas de Serviço
 
 - [x] Ícones em cores da marca (checkmarks laranja em vez de verde)
 - [x] Pricing cards com cores do sistema (muted em vez de gray)
 - [x] Backgrounds neutros (bg-muted/30 em vez de bg-gray-50)
-- [ ] FAQs com melhorias visuais (pendente)
+- [x] FAQs com melhorias visuais (accordion com hover states, chevron primary quando aberto)
 
 #### 8.6.3 Cases
-- [ ] Cards com identidade visual consistente
-- [ ] Métricas em Tallica para destaque
-- [ ] Tags em cores secundárias
+- [x] Cores padronizadas (text-gray → text-foreground/muted-foreground)
+- [x] Backgrounds com sistema muted (bg-gray-50 → bg-muted/30)
+- [x] Checkmarks em primary orange (text-green-600 → text-primary)
 
 #### 8.6.4 Blog
-- [ ] Cards de post com visual refinado
-- [ ] Categorias com cores da paleta
-- [ ] Artigos com tipografia correta
+- [x] Cores padronizadas em todas as páginas (Blog, BlogPost)
+- [x] text-gray-* substituído por text-foreground/muted-foreground
+- [x] bg-gray-* substituído por bg-muted/30 ou bg-muted
 
 #### 8.6.5 Loading States
 - [ ] Spinner com símbolo da andorinha
 - [ ] Skeleton screens com cores neutras
+
+**Commits da Fase 8.6:**
+- `7abbb4e` - fix: aplicar polish crítico Fase 8.6 (hex → tokens, gray → muted, line-height bug fix)
+- `e014872` - fix: reverter slogan hero para Onest conforme preferência do usuário
+- **Pendente** - feat: completar Fase 8.6 (FAQs, colors em 6 páginas, icons na Home)
+
+**Arquivos modificados (commit pendente):**
+- `frontend/src/components/ui/accordion.tsx` - Hover states e chevron primary quando aberto
+- `frontend/src/pages/Home.tsx` - Emojis substituídos por lucide-react icons com containers brand
+- `frontend/src/pages/Processo.tsx` - Cores padronizadas (gray → muted system)
+- `frontend/src/pages/Precos.tsx` - Cores padronizadas
+- `frontend/src/pages/Cases.tsx` - Cores padronizadas
+- `frontend/src/pages/CaseDetail.tsx` - Cores padronizadas
+- `frontend/src/pages/BlogPost.tsx` - Cores padronizadas
+- `frontend/src/pages/Blog.tsx` - Cores padronizadas
 
 ---
 

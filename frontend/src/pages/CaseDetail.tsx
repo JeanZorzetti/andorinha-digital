@@ -202,10 +202,10 @@ const CaseDetail = () => {
         <Header />
         <main className="pt-32 pb-16">
           <div className="container mx-auto px-4 text-center">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl font-bold text-foreground mb-4">
               Case não encontrado
             </h1>
-            <p className="text-gray-600 mb-8">
+            <p className="text-muted-foreground mb-8">
               O case que você procura não existe ou foi removido.
             </p>
             <Button asChild>
@@ -235,7 +235,7 @@ const CaseDetail = () => {
           <div className="container mx-auto px-4">
             <Link
               to="/cases"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-[#FF6B35] mb-6"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#FF6B35] mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
               Voltar para Cases
@@ -245,10 +245,10 @@ const CaseDetail = () => {
               <span className="px-3 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-sm font-medium">
                 {caseData.category}
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mt-4 mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">
                 {caseData.title}
               </h1>
-              <p className="text-xl text-gray-600">{caseData.client}</p>
+              <p className="text-xl text-muted-foreground">{caseData.client}</p>
             </div>
           </div>
         </section>
@@ -268,17 +268,17 @@ const CaseDetail = () => {
         <section className="pb-12">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-3 gap-4 max-w-3xl">
-              <div className="bg-gray-50 p-4 rounded-xl">
-                <p className="text-sm text-gray-500 mb-1">Cliente</p>
-                <p className="font-semibold text-gray-900">{caseData.client}</p>
+              <div className="bg-muted/30 p-4 rounded-xl">
+                <p className="text-sm text-muted-foreground mb-1">Cliente</p>
+                <p className="font-semibold text-foreground">{caseData.client}</p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-xl">
-                <p className="text-sm text-gray-500 mb-1">Duração</p>
-                <p className="font-semibold text-gray-900">{caseData.duration}</p>
+              <div className="bg-muted/30 p-4 rounded-xl">
+                <p className="text-sm text-muted-foreground mb-1">Duração</p>
+                <p className="font-semibold text-foreground">{caseData.duration}</p>
               </div>
-              <div className="bg-gray-50 p-4 rounded-xl">
-                <p className="text-sm text-gray-500 mb-1">Investimento</p>
-                <p className="font-semibold text-gray-900">{caseData.investment}</p>
+              <div className="bg-muted/30 p-4 rounded-xl">
+                <p className="text-sm text-muted-foreground mb-1">Investimento</p>
+                <p className="font-semibold text-foreground">{caseData.investment}</p>
               </div>
             </div>
           </div>
@@ -289,18 +289,18 @@ const CaseDetail = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl space-y-8">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   O Desafio
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {caseData.challenge}
                 </p>
               </div>
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                <h2 className="text-2xl font-bold text-foreground mb-4">
                   Nossa Solução
                 </h2>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {caseData.solution}
                 </p>
               </div>
@@ -312,15 +312,15 @@ const CaseDetail = () => {
         <section className="py-12 bg-green-50">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-                <TrendingUp className="w-6 h-6 text-green-600" />
+              <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
+                <TrendingUp className="w-6 h-6 text-primary" />
                 Resultados
               </h2>
               <ul className="space-y-3">
                 {caseData.results.map((result, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{result}</span>
+                    <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-foreground">{result}</span>
                   </li>
                 ))}
               </ul>
@@ -331,15 +331,15 @@ const CaseDetail = () => {
         {/* Testimonial */}
         <section className="py-12">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl bg-gray-50 p-8 rounded-2xl">
-              <p className="text-xl text-gray-700 italic mb-6">
+            <div className="max-w-3xl bg-muted/30 p-8 rounded-2xl">
+              <p className="text-xl text-foreground italic mb-6">
                 "{caseData.testimonial.quote}"
               </p>
               <div>
-                <p className="font-semibold text-gray-900">
+                <p className="font-semibold text-foreground">
                   {caseData.testimonial.author}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-muted-foreground">
                   {caseData.testimonial.role}
                 </p>
               </div>
@@ -351,14 +351,14 @@ const CaseDetail = () => {
         <section className="pb-12">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl font-bold text-foreground mb-6">
                 O Que Entregamos
               </h2>
               <ul className="grid sm:grid-cols-2 gap-3">
                 {caseData.deliverables.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-[#FF6B35] flex-shrink-0 mt-1" />
-                    <span className="text-sm text-gray-600">{item}</span>
+                    <span className="text-sm text-muted-foreground">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -380,7 +380,7 @@ const CaseDetail = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-gray-100"
+                className="bg-white text-[#FF6B35] hover:bg-muted"
               >
                 <Link to="/contato">Agendar Diagnóstico</Link>
               </Button>
