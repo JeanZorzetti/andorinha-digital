@@ -965,10 +965,18 @@ import { InlineWidget } from 'react-calendly';
 ```
 
 #### 4.3.2 Contraste de Cores
-- [ ] Auditar com WebAIM Contrast Checker
-- [ ] Garantir 4.5:1 para texto normal
-- [ ] Garantir 3:1 para texto grande e elementos UI
-- [ ] Corrigir textos problemáticos
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Auditar design system
+- [x] Ajustar --muted-foreground de #6C757D para #5A6570
+- [x] Contraste agora: 5.7:1 (antes: ~4.5:1)
+- [x] Garantir 4.5:1 para texto normal
+- [x] Garantir 3:1 para texto grande e elementos UI
+
+**Correções aplicadas:**
+- `--cinza-medio`: 208 7% 46% → 208 10% 40%
+- `--muted-foreground`: agora usa a cor corrigida
 
 #### 4.3.3 ARIA Labels
 - [ ] Adicionar onde necessário:

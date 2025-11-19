@@ -34,7 +34,7 @@
 
     /* Cores Neutras */
     --cinza-escuro: 210 11% 15%;      /* #212529 - Textos principais */
-    --cinza-medio: 208 7% 46%;        /* #6C757D - Textos secundários */
+    --cinza-medio: 208 10% 40%;       /* #5A6570 - Textos secundários (WCAG AA) */
     --cinza-claro: 210 16% 93%;       /* #E9ECEF - Borders */
     --off-white: 240 20% 98%;         /* #FAFAFB - Backgrounds */
 
@@ -62,7 +62,7 @@
     --secondary-foreground: 227 100% 9%;
 
     --muted: 210 16% 93%; /* Cinza Claro */
-    --muted-foreground: 208 7% 46%; /* Cinza Médio */
+    --muted-foreground: 208 10% 40%; /* Cinza Médio - Contraste 5.7:1 (WCAG AA) */
 
     --accent: 18 100% 60%; /* Laranja */
     --accent-foreground: 0 0% 100%;
