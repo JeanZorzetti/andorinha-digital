@@ -91,6 +91,7 @@ const Contato = () => {
       />
       <Header />
 
+      <main>
       {/* Hero */}
       <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-primary-dark to-accent-blue text-primary-foreground">
         <div className="container mx-auto text-center">
@@ -363,6 +364,7 @@ const Contato = () => {
           </div>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>

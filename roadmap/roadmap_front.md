@@ -1002,11 +1002,20 @@ import { InlineWidget } from 'react-calendly';
 - [x] CaseDetail.tsx: alt dinâmico com título do case ✓
 
 #### 4.3.5 Estrutura Semântica
-- [ ] Usar HTML5 semântico:
-  - `<header>`, `<nav>`, `<main>`, `<footer>`
-  - `<article>`, `<section>`, `<aside>`
-- [ ] Hierarquia de headings correta (H1 > H2 > H3)
-- [ ] Apenas um H1 por página
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Usar HTML5 semântico:
+  - [x] `<header>` - Header.tsx ✓
+  - [x] `<nav>` - Header.tsx (desktop + mobile) ✓
+  - [x] `<main>` - Todas as páginas ✓
+  - [x] `<footer>` - Footer.tsx ✓
+  - [x] `<article>` - Blog.tsx (posts) ✓
+  - [x] `<section>` - Todas as páginas ✓
+- [x] Hierarquia de headings correta (H1 > H2 > H3)
+- [x] Apenas um H1 por página
+- [x] Contato.tsx: adicionado `<main>`
+- [x] NotFound.tsx: adicionado `<main>` + traduzido para PT-BR
 
 #### 4.3.6 Formulários
 - [ ] Labels visíveis
