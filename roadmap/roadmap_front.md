@@ -536,28 +536,31 @@ src/components/
 ---
 
 ### 2.4 Seções Faltantes na Home
-**Status:** ❌ Não iniciado
+**Status:** 🟡 Em Progresso (2.4.1 completo)
 **Tempo estimado:** 1 semana
 
 #### 2.4.1 Cases Preview (Home)
+**Status:** ✅ COMPLETO
 **Tarefas:**
-- [ ] Carousel/Slider com 3-4 cards visíveis
-- [ ] Background: Gradiente suave cinza
-- [ ] Headline: "Resultados que Falam Por Si"
-- [ ] Subheadline: "Projetos que transformaram negócios reais"
-- [ ] Estrutura de card:
-  - Logo/Nome cliente
-  - Imagem do projeto
-  - Tag categoria
-  - Desafio (1-2 linhas)
-  - Solução (1-2 linhas)
-  - Resultado com número
-  - Depoimento curto (2-3 linhas)
-  - CTA: "Ver Case Completo →"
-- [ ] CTA final: "Ver Todos os Cases →"
+- [x] Grid com 3 cards visíveis (responsivo 1/2/3 colunas)
+- [x] Background: Gradiente suave (from-muted/50 to-white)
+- [x] Headline: "Resultados que Falam Por Si"
+- [x] Subheadline: "Projetos que transformaram negócios reais"
+- [x] Estrutura de card:
+  - Nome cliente (TechStart, Almeida Consultoria, Sabor & Arte)
+  - Imagem do projeto (Unsplash)
+  - Tag categoria (badge com backdrop-blur)
+  - Desafio (2 linhas com line-clamp)
+  - Resultado com número e ícone TrendingUp
+  - Depoimento curto com ícone Quote
+  - CTA: "Ver Case Completo →" com ArrowRight
+- [x] CTA final: "Ver Todos os Cases →" (Button outline)
 
-**Biblioteca de carousel:**
-- Usar `embla-carousel-react` (já instalado)
+**Implementação:**
+- Optou-se por grid estático em vez de carousel para melhor UX
+- 3 cases representando Branding, Sites e Vídeo
+- Hover effects com shadow e scale na imagem
+- Links para /cases/:id funcionais
 
 #### 2.4.2 Sobre Preview (Home)
 **Tarefas:**

@@ -7,7 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Spinner } from "@/components/ui/spinner";
-import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket } from "lucide-react";
+import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket, ArrowRight, ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -379,6 +379,163 @@ const Home = () => {
                 </Button>
               </div>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Cases Preview */}
+      <section className="py-20 px-4 bg-gradient-to-b from-muted/50 to-white">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
+              Resultados que Falam Por Si
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Projetos que transformaram negócios reais
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Case 1 - TechStart */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
+                  alt="TechStart Branding"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Branding
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">TechStart</p>
+                <h3 className="font-bold text-foreground mb-3 line-clamp-2">
+                  Nova Identidade para Startup de Tech
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  Startup precisava de identidade visual que transmitisse inovação e confiança para captar investidores.
+                </p>
+                <div className="flex items-center gap-2 mb-4 p-3 bg-primary/5 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-foreground">
+                    +40% em conversão de pitch
+                  </span>
+                </div>
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg">
+                  <Quote className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-xs text-muted-foreground italic">
+                    "A nova identidade nos ajudou a fechar a rodada seed em tempo recorde."
+                  </p>
+                </div>
+                <Link
+                  to="/cases/techstart-branding"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ver Case Completo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+
+            {/* Case 2 - Almeida Consultoria */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+                  alt="Almeida Consultoria Site"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Sites
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">Almeida Consultoria</p>
+                <h3 className="font-bold text-foreground mb-3 line-clamp-2">
+                  Site Institucional de Alta Conversão
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  Consultoria tradicional precisava modernizar presença digital e captar leads qualificados.
+                </p>
+                <div className="flex items-center gap-2 mb-4 p-3 bg-primary/5 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-foreground">
+                    +180% leads qualificados
+                  </span>
+                </div>
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg">
+                  <Quote className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-xs text-muted-foreground italic">
+                    "Nosso site agora trabalha para nós 24/7, captando clientes enquanto dormimos."
+                  </p>
+                </div>
+                <Link
+                  to="/cases/consultoria-site"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ver Case Completo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+
+            {/* Case 3 - Sabor & Arte */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop"
+                  alt="Sabor & Arte Vídeo"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Vídeo
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <p className="text-sm text-muted-foreground mb-2">Sabor & Arte Buffet</p>
+                <h3 className="font-bold text-foreground mb-3 line-clamp-2">
+                  Vídeo Institucional Emotivo
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                  Buffet familiar queria mostrar a paixão por trás de cada evento e captar clientes corporativos.
+                </p>
+                <div className="flex items-center gap-2 mb-4 p-3 bg-primary/5 rounded-lg">
+                  <TrendingUp className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-semibold text-foreground">
+                    +90% eventos corporativos
+                  </span>
+                </div>
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg">
+                  <Quote className="w-4 h-4 text-primary mb-2" />
+                  <p className="text-xs text-muted-foreground italic">
+                    "O vídeo capturou exatamente a essência do nosso trabalho. Clientes se emocionam."
+                  </p>
+                </div>
+                <Link
+                  to="/cases/buffet-video"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ver Case Completo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Link to="/cases">
+                Ver Todos os Cases
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
