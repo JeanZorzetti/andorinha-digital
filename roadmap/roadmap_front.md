@@ -1649,13 +1649,103 @@ src/components/NewsletterSignup.tsx
 - [ ] 8.5.3 Forms - Estilizar inputs conforme marca
 - [ ] 8.5.5 Tipografia - Revisar hierarquia em todas as páginas
 
+### 2025-01-18 (Sessão 7 - Completando Fase 8.3 e 8.5.2)
+
+- ✅ **FASE 8.3 - Logos Oficiais (COMPLETA 100%):**
+  - ✅ Ajustados tamanhos de logos:
+    - Header: simbolo.svg h-24 (96px) para maior destaque
+    - Footer: logo-principal-branco.svg h-24 (96px)
+  - ✅ Favicons PNG adicionados:
+    - favicon.png (192x192) - Símbolo oficial @2x
+    - apple-touch-icon.png (180x180) - Para dispositivos Apple
+  - ✅ PWA Support completo:
+    - site.webmanifest criado
+    - Theme color: #FF6B35 (laranja da marca)
+    - Background: #FAFAFB (off-white)
+  - ✅ index.html atualizado com todas as tags de favicon
+
+- ✅ **FASE 8.5.2 - Cards (COMPLETA 100%):**
+  - ✅ Componente Card refatorado (card.tsx):
+    - rounded-xl (12px) para visual moderno
+    - shadow-md → hover:shadow-lg para profundidade
+    - hover:scale-[1.02] com transition-all 300ms
+    - Border consistente usando var(--border)
+
+  - ✅ CardTitle padronizado:
+    - font-heading (Onest Semibold) conforme manual
+    - text-foreground para cores corretas
+    - leading-tight para melhor legibilidade
+
+  - ✅ CardDescription padronizado:
+    - font-body (Work Sans Regular) conforme manual
+    - leading-relaxed para leitura confortável
+    - text-muted-foreground para hierarquia visual
+
+**Status Fase 8 atualizado:** 🟡 82% Concluído
+
+**Seções completas:**
+
+- ✅ 8.1 Paleta de Cores
+- ✅ 8.2 Tipografia
+- ✅ 8.3 Logos (100% - favicons + PWA)
+- ✅ 8.4 Patterns e Backgrounds
+- 🟡 8.5 Componentes UI (3/5 completo):
+  - ✅ 8.5.1 Botões
+  - ✅ 8.5.2 Cards
+  - ❌ 8.5.3 Forms (pendente)
+  - ✅ 8.5.4 Navegação
+  - ❌ 8.5.5 Tipografia aplicada (pendente)
+
+### 2025-01-19 (Sessão 8 - Completando Fase 8.5.3 Forms)
+
+- ✅ **FASE 8.5.3 - Forms (COMPLETA 100%):**
+  - ✅ Componente Input refatorado (input.tsx):
+    - font-body (Work Sans) para consistência tipográfica
+    - Border cinza claro (--border) com transição suave 200ms
+    - Focus: border azul médio (brand-blue-medium) do manual
+    - Ring azul médio com 20% opacity no focus
+    - Removido ring-offset para visual mais limpo
+
+  - ✅ Componente Label refatorado (label.tsx):
+    - font-heading (Onest Medium) conforme especificação do manual
+    - Mantida semântica e acessibilidade
+
+  - ✅ Componente Textarea refatorado (textarea.tsx):
+    - Mesmos estilos do Input para consistência
+    - font-body, focus azul médio, transição suave
+
+  - ✅ Componente Select refatorado (select.tsx):
+    - SelectTrigger com font-body e focus azul médio
+    - Mesmos estados visuais dos outros inputs
+
+  - ✅ Componente Form refatorado (form.tsx):
+    - FormMessage com ícone AlertCircle (lucide-react)
+    - Ícone vermelho + mensagem de erro alinhados
+    - FormDescription com font-body aplicado
+    - Import do AlertCircle adicionado
+
+**Status Fase 8 atualizado:** 🟢 88% Concluído
+
+**Seções completas:**
+
+- ✅ 8.1 Paleta de Cores
+- ✅ 8.2 Tipografia
+- ✅ 8.3 Logos (100% - favicons + PWA)
+- ✅ 8.4 Patterns e Backgrounds
+- 🟡 8.5 Componentes UI (4/5 completo):
+  - ✅ 8.5.1 Botões
+  - ✅ 8.5.2 Cards
+  - ✅ 8.5.3 Forms
+  - ✅ 8.5.4 Navegação
+  - ❌ 8.5.5 Tipografia aplicada (pendente)
+
 ---
 
 ## 🎨 FASE 8 - IMPLEMENTAÇÃO DO MANUAL DA MARCA
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟡 75% Concluído (Sprint 1 + Sprint 2 parcial)
+**Status:** 🟢 88% Concluído (Sprint 1 + Sprint 2 quase completo)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -1764,10 +1854,10 @@ andorinha mkt/04 - Fontes/
 ---
 
 ### 8.3 Logos Oficiais
-**Status:** ✅ Concluído (parcial - aguarda atualização de Header/Footer)
+**Status:** ✅ COMPLETO
 **Impacto:** CRÍTICO - Identidade visual
 **Tempo estimado:** 2-3 horas
-**Tempo real:** 1 hora
+**Tempo real:** 2 horas
 
 **Variantes de Logo Disponíveis:**
 
@@ -1805,15 +1895,23 @@ andorinha mkt/04 - Fontes/
   - ✅ `simbolo.svg` (azul marinho)
   - ✅ `simbolo-branco.svg` (para patterns)
 
-- [ ] Atualizar Header component com logos oficiais
-- [ ] Atualizar Footer component com logos oficiais
+- [x] Atualizar Header component com logos oficiais (simbolo.svg h-24)
+- [x] Atualizar Footer component com logos oficiais (logo-principal-branco.svg h-24)
 - [x] Configurar favicon SVG em `index.html`
-- [ ] Gerar favicons PNG/ICO adicionais (apple-touch-icon, etc.)
+- [x] Gerar favicons PNG/ICO adicionais:
+  - ✅ favicon.png (192x192) para compatibilidade universal
+  - ✅ apple-touch-icon.png (180x180) para dispositivos Apple
+  - ✅ site.webmanifest para PWA support
 
 **Arquivos modificados:**
 
 - ✅ `frontend/public/images/logo/` - 4 logos SVG copiados
-- ✅ `frontend/index.html` - Favicon SVG configurado
+- ✅ `frontend/src/components/Header.tsx` - Símbolo oficial (h-24)
+- ✅ `frontend/src/components/Footer.tsx` - Logo branco (h-24)
+- ✅ `frontend/index.html` - Favicons completos (SVG + PNG + manifest)
+- ✅ `frontend/public/favicon.png` - Favicon PNG 192x192
+- ✅ `frontend/public/apple-touch-icon.png` - Apple touch icon 180x180
+- ✅ `frontend/public/site.webmanifest` - PWA manifest
 
 **Arquivos de origem:**
 ```
@@ -1882,10 +1980,10 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.5 Componentes de UI Alinhados
-**Status:** 🟡 Em Progresso (2/5 completo)
+**Status:** 🟡 Em Progresso (4/5 completo)
 **Impacto:** ALTO - Consistência visual
 **Tempo estimado:** 5-6 horas
-**Tempo real:** 2 horas (botões + navegação)
+**Tempo real:** 4.5 horas (botões + navegação + cards + forms)
 
 **Tarefas:**
 
@@ -1901,17 +1999,25 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
   - [x] Transições suaves (300ms) e hover:scale em botões primários
 
 #### 8.5.2 Cards
-- [ ] Padronizar cards com visual do manual:
-  - Border-radius consistente (8px ou 12px)
-  - Sombras suaves
-  - Uso de cores do manual
-  - Patterns sutis em hover
+- [x] Padronizar cards com visual do manual:
+  - [x] rounded-xl (12px) para visual moderno conforme manual
+  - [x] shadow-md com hover:shadow-lg para profundidade
+  - [x] hover:scale-[1.02] com transition-all 300ms
+  - [x] Border consistente usando --border do manual
+  - [x] CardTitle com font-heading (Onest Semibold)
+  - [x] CardDescription com font-body (Work Sans) e leading-relaxed
+  - [x] Cores do manual aplicadas (text-foreground, text-muted-foreground)
 
 #### 8.5.3 Forms
-- [ ] Estilizar inputs seguindo a marca:
-  - Border: Cinza claro → Azul médio no focus
-  - Labels: Onest Medium
-  - Erros: Vermelho com ícone
+- [x] Estilizar inputs seguindo a marca:
+  - [x] Border: Cinza claro → Azul médio no focus (`border-brand-blue-medium`)
+  - [x] Labels: Onest Medium (`font-heading`)
+  - [x] Erros: Vermelho com ícone (`AlertCircle` de lucide-react)
+  - [x] Input: font-body (Work Sans), transição suave 200ms, ring azul médio 20% opacity
+  - [x] Textarea: mesmos estilos do Input aplicados
+  - [x] Select: SelectTrigger com focus azul médio
+  - [x] FormMessage: ícone AlertCircle vermelho + mensagem
+  - [x] FormDescription: font-body aplicado
 
 #### 8.5.4 Navegação
 - [x] Atualizar Header e Footer:

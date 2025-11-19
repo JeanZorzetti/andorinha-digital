@@ -17,7 +17,17 @@ const SelectTrigger = React.forwardRef<
   <SelectPrimitive.Trigger
     ref={ref}
     className={cn(
-      "flex h-10 w-full items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 [&>span]:line-clamp-1",
+      // Base styles com fonte Work Sans
+      "flex h-10 w-full items-center justify-between rounded-md font-body text-sm",
+      // Border cinza claro → azul médio no focus (Manual da Marca)
+      "border border-border bg-background px-3 py-2",
+      "focus:outline-none focus:border-brand-blue-medium focus:ring-2 focus:ring-brand-blue-medium/20 focus:ring-offset-0",
+      // Transição suave
+      "transition-colors duration-200",
+      // Placeholder e estados
+      "placeholder:text-muted-foreground",
+      "disabled:cursor-not-allowed disabled:opacity-50",
+      "[&>span]:line-clamp-1",
       className,
     )}
     {...props}
