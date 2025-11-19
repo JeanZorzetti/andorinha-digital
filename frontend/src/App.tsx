@@ -31,6 +31,9 @@ const CaseDetail = lazy(() => import("./pages/CaseDetail"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
 
+// Páginas Legais
+const Privacidade = lazy(() => import("./pages/Privacidade"));
+
 // Componente de loading para Suspense
 const PageLoader = () => (
   <div className="min-h-screen flex items-center justify-center bg-background">
@@ -78,6 +81,9 @@ const App = () => (
               {/* Blog */}
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:id" element={<BlogPost />} />
+
+              {/* Páginas Legais */}
+              <Route path="/privacidade" element={<Privacidade />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
