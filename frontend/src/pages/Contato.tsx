@@ -291,8 +291,6 @@ const Contato = () => {
                     }}
                     pageSettings={{
                       backgroundColor: 'ffffff',
-                      hideEventTypeDetails: false,
-                      hideLandingPageDetails: false,
                       primaryColor: 'FF6B35',
                       textColor: '1A1A1A'
                     }}
