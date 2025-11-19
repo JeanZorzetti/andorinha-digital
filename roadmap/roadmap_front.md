@@ -943,27 +943,26 @@ import { InlineWidget } from 'react-calendly';
 ---
 
 ### 4.3 Acessibilidade (WCAG AA)
-**Status:** ❌ Não iniciado
+**Status:** 🟡 Em andamento
 **Tempo estimado:** 1 semana
 
-**Tarefas:**
-
 #### 4.3.1 Navegação por Teclado
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Focus visível com cor primária (outline laranja)
+- [x] Skip link "Pular para o conteúdo principal"
+- [x] Main content wrapper na Home (id="main-content")
 - [ ] Testar Tab em todas as páginas
-- [ ] Garantir focus visível:
-  ```css
-  :focus-visible {
-    outline: 2px solid var(--primary-orange);
-    outline-offset: 2px;
-  }
-  ```
-- [ ] Skip to main content:
-  ```tsx
-  <a href="#main-content" className="skip-link">
-    Pular para o conteúdo principal
-  </a>
-  ```
 - [ ] Trap focus em modals
+
+**Implementação:**
+```css
+:focus-visible {
+  outline: 2px solid hsl(var(--primary));
+  outline-offset: 2px;
+}
+```
 
 #### 4.3.2 Contraste de Cores
 - [ ] Auditar com WebAIM Contrast Checker

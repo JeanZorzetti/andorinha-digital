@@ -51,6 +51,10 @@ const App = () => (
         <SchemaOrganization />
         <BrowserRouter>
           <Analytics />
+          {/* Skip Link para Acessibilidade */}
+          <a href="#main-content" className="skip-link">
+            Pular para o conteúdo principal
+          </a>
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />

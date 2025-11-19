@@ -76,8 +76,9 @@ const Home = () => {
         image="https://andorinha.roilabs.com.br/og/og-home.png"
       />
       <Header />
-      
+
       {/* Hero Section */}
+      <main id="main-content">
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -987,6 +988,7 @@ const Home = () => {
           </Card>
         </div>
       </section>
+      </main>
 
       <Footer />
     </div>
