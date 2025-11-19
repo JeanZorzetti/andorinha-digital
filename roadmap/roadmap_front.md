@@ -414,11 +414,12 @@ src/components/
 ---
 
 ### 1.7 Correções na Home
-**Status:** 🟡 Parcialmente implementado
+**Status:** ✅ COMPLETO
 **Tempo estimado:** 2-3 dias
+**Tempo real:** 1 hora
 
 **Tarefas:**
-- [ ] Adicionar 6º serviço: **Fotografia Corporativa**
+- [x] Adicionar 6º serviço: **Fotografia Corporativa**
   - Ícone: Camera
   - Descrição: "Sessões fotográficas para produtos, equipe, espaços e eventos"
   - Investimento: "A partir de R$ 1.500"
@@ -426,12 +427,14 @@ src/components/
   - Badge: "Edição e retoque incluído"
   - Link: `/contato?servico=fotografia`
 
-- [ ] Modificar CTA Final para incluir formulário inline:
+- [x] Modificar CTA Final para incluir formulário inline:
   - Manter headline e subheadline
   - Substituir botão único por formulário completo
   - Campos: Nome, Email, Telefone, Empresa, Serviço, Aceite
-  - Botão: "Agendar Diagnóstico Gratuito"
+  - Botão: "Agendar Diagnóstico Gratuito" com Spinner
   - Nota: "✓ Sem compromisso ✓ Sem custo ✓ Apenas estratégia"
+  - Estado de loading com useToast feedback
+  - Select com todos os 6 serviços + "Ainda não sei"
 
 - [ ] Corrigir links do Header/Footer que apontam para páginas não criadas
   - Adicionar páginas ou desabilitar links temporariamente

@@ -1,12 +1,71 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Spinner } from "@/components/ui/spinner";
+import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
+import { useToast } from "@/hooks/use-toast";
 
 const Home = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [ctaForm, setCtaForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    service: "",
+    acceptContact: false
+  });
+
+  const handleCtaSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!ctaForm.acceptContact) {
+      toast({
+        title: "Erro",
+        description: "Você precisa aceitar receber contato para continuar.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      toast({
+        title: "Diagnóstico agendado!",
+        description: "Entraremos em contato em até 24 horas úteis.",
+      });
+
+      setCtaForm({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        acceptContact: false
+      });
+    } catch {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente ou entre em contato por telefone.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <SEO
@@ -291,6 +350,35 @@ const Home = () => {
                 </Button>
               </div>
             </Card>
+
+            {/* Fotografia Corporativa */}
+            <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
+              <div className="p-8">
+                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                  <Camera className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Fotografia Corporativa</h3>
+                <p className="text-muted-foreground mb-4">
+                  Sessões fotográficas para produtos, equipe, espaços e eventos
+                </p>
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Investimento:</span>
+                    <span className="font-semibold text-foreground">A partir de R$ 1.500</span>
+                  </div>
+                  <div className="flex items-center justify-between text-sm">
+                    <span className="text-muted-foreground">Prazo:</span>
+                    <span className="font-semibold text-foreground">Agendamento flexível</span>
+                  </div>
+                </div>
+                <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  ✓ Edição e retoque incluído
+                </div>
+                <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                  <Link to="/contato?servico=fotografia">Agendar Sessão →</Link>
+                </Button>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
@@ -501,21 +589,115 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Final */}
+      {/* CTA Final com Formulário */}
       <section className="py-20 px-4 bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-white">
-            Pronto para Decolar?
-          </h2>
-          <p className="text-xl mb-8 text-white/90">
-            Agende 30 minutos de diagnóstico gratuito e descubra como podemos transformar seu marketing em resultados reais
-          </p>
-          <Button asChild size="xl" className="hover-glow">
-            <Link to="/contato">Agendar Diagnóstico Gratuito</Link>
-          </Button>
-          <p className="mt-6 text-sm text-white/80">
-            ✓ Sem compromisso  ✓ Sem custo  ✓ Apenas estratégia
-          </p>
+        <div className="container mx-auto max-w-4xl relative z-10">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-white">
+              Pronto para Decolar?
+            </h2>
+            <p className="text-xl text-white/90">
+              Agende 30 minutos de diagnóstico gratuito e descubra como podemos transformar seu marketing em resultados reais
+            </p>
+          </div>
+
+          <Card className="p-8 bg-white/95 backdrop-blur-sm">
+            <form onSubmit={handleCtaSubmit} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="cta-name" className="text-foreground">Nome *</Label>
+                  <Input
+                    id="cta-name"
+                    required
+                    value={ctaForm.name}
+                    onChange={(e) => setCtaForm({ ...ctaForm, name: e.target.value })}
+                    placeholder="Seu nome"
+                    className="mt-1"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="cta-email" className="text-foreground">Email *</Label>
+                  <Input
+                    id="cta-email"
+                    type="email"
+                    required
+                    value={ctaForm.email}
+                    onChange={(e) => setCtaForm({ ...ctaForm, email: e.target.value })}
+                    placeholder="seu@email.com"
+                    className="mt-1"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <Label htmlFor="cta-phone" className="text-foreground">Telefone *</Label>
+                  <Input
+                    id="cta-phone"
+                    type="tel"
+                    required
+                    value={ctaForm.phone}
+                    onChange={(e) => setCtaForm({ ...ctaForm, phone: e.target.value })}
+                    placeholder="(11) 99999-9999"
+                    className="mt-1"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="cta-company" className="text-foreground">Empresa</Label>
+                  <Input
+                    id="cta-company"
+                    value={ctaForm.company}
+                    onChange={(e) => setCtaForm({ ...ctaForm, company: e.target.value })}
+                    placeholder="Nome da empresa"
+                    className="mt-1"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="cta-service" className="text-foreground">Serviço de interesse</Label>
+                <Select value={ctaForm.service} onValueChange={(value) => setCtaForm({ ...ctaForm, service: value })}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Selecione um serviço" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="branding">Branding & Identidade Visual</SelectItem>
+                    <SelectItem value="sites">Sites & Landing Pages</SelectItem>
+                    <SelectItem value="video">Vídeo Institucional</SelectItem>
+                    <SelectItem value="rebranding">Rebranding</SelectItem>
+                    <SelectItem value="design">Design Gráfico</SelectItem>
+                    <SelectItem value="fotografia">Fotografia Corporativa</SelectItem>
+                    <SelectItem value="nao-sei">Ainda não sei</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="flex items-start gap-2">
+                <Checkbox
+                  id="cta-accept"
+                  checked={ctaForm.acceptContact}
+                  onCheckedChange={(checked) => setCtaForm({ ...ctaForm, acceptContact: checked as boolean })}
+                />
+                <label htmlFor="cta-accept" className="text-sm text-muted-foreground cursor-pointer">
+                  Aceito receber contato da Andorinha Marketing *
+                </label>
+              </div>
+
+              <Button
+                type="submit"
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                disabled={isSubmitting}
+              >
+                {isSubmitting && <Spinner size="sm" className="mr-2" />}
+                {isSubmitting ? "Enviando..." : "Agendar Diagnóstico Gratuito"}
+              </Button>
+
+              <p className="text-center text-sm text-muted-foreground">
+                ✓ Sem compromisso  ✓ Sem custo  ✓ Apenas estratégia
+              </p>
+            </form>
+          </Card>
         </div>
       </section>
 
