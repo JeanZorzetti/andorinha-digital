@@ -859,17 +859,17 @@ import { InlineWidget } from 'react-calendly';
   };
   ```
 
-#### 4.1.3 Live Chat
-**Opções:** Tawk.to (grátis), Intercom, Drift
+#### 4.1.3 Live Chat (Tawk.to)
+**Status:** ✅ COMPLETO
 
 **Tarefas:**
-- [ ] Criar conta
-- [ ] Adicionar script no `index.html`
-- [ ] Personalizar:
-  - Cores (laranja #FF6B35)
-  - Mensagem de boas-vindas
-  - Horário de atendimento
+- [x] Criar conta Tawk.to
+- [x] Personalizar cores (#FF6B35)
+- [x] Configurar mensagem de boas-vindas
+- [x] Adicionar script no `index.html`
 - [ ] Testar em mobile
+
+**Widget ID:** 691dcd6007973119582923b8/1jae6kg7j
 
 #### 4.1.4 Facebook Pixel
 **Tarefas:**
