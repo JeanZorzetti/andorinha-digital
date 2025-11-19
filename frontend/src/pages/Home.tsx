@@ -22,7 +22,7 @@ const Home = () => {
       <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 animate-fade-in slogan-hero tracking-wide">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading text-white mb-6 animate-fade-in slogan-hero tracking-wide">
               Voe Certo. Voe Alto com Marketing
               <br />
               <span className="mt-2 block">Estratégico</span>
@@ -61,17 +61,17 @@ const Home = () => {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary metric-number">50+</div>
+              <div className="text-3xl font-bold font-heading text-primary metric-number">50+</div>
               <div className="text-sm text-muted-foreground">Projetos Entregues</div>
             </div>
             <div className="hidden md:block w-px h-12 bg-border"></div>
             <div>
-              <div className="text-3xl font-bold text-primary metric-number">98%</div>
+              <div className="text-3xl font-bold font-heading text-primary metric-number">98%</div>
               <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
             </div>
             <div className="hidden md:block w-px h-12 bg-border"></div>
             <div>
-              <div className="text-3xl font-bold text-primary metric-number">15 anos</div>
+              <div className="text-3xl font-bold font-heading text-primary metric-number">15 anos</div>
               <div className="text-sm text-muted-foreground">De Experiência</div>
             </div>
           </div>
@@ -82,7 +82,7 @@ const Home = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
               Por Que Escolher a Andorinha?
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -95,7 +95,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Target className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Estratégia Real</h3>
+              <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Estratégia Real</h3>
               <p className="text-muted-foreground">
                 Não fazemos só o design bonito. Pensamos o seu negócio, público e objetivos antes de criar qualquer pixel.
               </p>
@@ -105,7 +105,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Zap className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Velocidade Inteligente</h3>
+              <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Velocidade Inteligente</h3>
               <p className="text-muted-foreground">
                 Qualidade de média agência entregue em 15-45 dias. Porque timing é tudo em marketing.
               </p>
@@ -115,7 +115,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <Diamond className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Transparência Total</h3>
+              <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Transparência Total</h3>
               <p className="text-muted-foreground">
                 Preços claros, processo documentado, sem surpresas. Você sabe exatamente o que recebe e quanto custa.
               </p>
@@ -125,7 +125,7 @@ const Home = () => {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <TrendingUp className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">Suporte Real</h3>
+              <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Suporte Real</h3>
               <p className="text-muted-foreground">
                 30 dias de suporte pós-entrega incluído. Não entregamos e sumimos, acompanhamos seus resultados.
               </p>
@@ -138,7 +138,7 @@ const Home = () => {
       <section className="py-20 px-4 bg-gradient-to-b from-background to-muted">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
               Projetos que Transformam Negócios
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -153,7 +153,7 @@ const Home = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Palette className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-3">Branding & Identidade Visual</h3>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Branding & Identidade Visual</h3>
                 <p className="text-muted-foreground mb-4">
                   Logo, paleta de cores, tipografia e manual completo de marca
                 </p>
@@ -182,7 +182,7 @@ const Home = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Monitor className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-3">Sites & Landing Pages</h3>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Sites & Landing Pages</h3>
                 <p className="text-muted-foreground mb-4">
                   Sites institucionais, landing pages e páginas de conversão estratégicas
                 </p>
@@ -211,7 +211,7 @@ const Home = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Video className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-3">Vídeo Institucional</h3>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Vídeo Institucional</h3>
                 <p className="text-muted-foreground mb-4">
                   Vídeos profissionais para apresentar sua empresa, produto ou serviço
                 </p>
@@ -240,7 +240,7 @@ const Home = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <RefreshCw className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-3">Rebranding Completo</h3>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Rebranding Completo</h3>
                 <p className="text-muted-foreground mb-4">
                   Renovação completa da identidade visual e posicionamento de marca
                 </p>
@@ -269,7 +269,7 @@ const Home = () => {
                 <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                   <Layers className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="text-2xl font-semibold text-foreground mb-3">Design Gráfico</h3>
+                <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Design Gráfico</h3>
                 <p className="text-muted-foreground mb-4">
                   Materiais impressos, digitais, papelaria e peças de comunicação
                 </p>
@@ -299,7 +299,7 @@ const Home = () => {
       <section className="py-20 px-4 bg-primary-dark text-primary-foreground">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading mb-4">
               Como Trabalhamos
             </h2>
             <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto">
@@ -317,7 +317,7 @@ const Home = () => {
             ].map((step, index) => (
               <div key={index} className="text-center">
                 <div className="text-5xl mb-4">{step.icon}</div>
-                <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
+                <h3 className="text-xl font-semibold font-heading mb-2">{step.title}</h3>
                 <div className="text-sm text-primary mb-2 font-semibold">{step.time}</div>
                 <p className="text-sm text-primary-foreground/70">{step.desc}</p>
               </div>
@@ -336,7 +336,7 @@ const Home = () => {
       <section className="py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
               Investimento Transparente
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -351,7 +351,7 @@ const Home = () => {
                 Entrada
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">Decolagem</h3>
-              <div className="text-3xl font-bold text-primary mb-4">A partir de R$ 3.500</div>
+              <div className="text-3xl font-bold font-heading text-primary mb-4">A partir de R$ 3.500</div>
               <p className="text-muted-foreground mb-6">Perfeito para começar</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -390,7 +390,7 @@ const Home = () => {
                 Recomendado
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">Voo Alto</h3>
-              <div className="text-3xl font-bold text-primary mb-4">A partir de R$ 8.000</div>
+              <div className="text-3xl font-bold font-heading text-primary mb-4">A partir de R$ 8.000</div>
               <p className="text-muted-foreground mb-6">Para empresas em crescimento</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -426,7 +426,7 @@ const Home = () => {
                 Premium
               </div>
               <h3 className="text-2xl font-bold text-foreground mb-2">Estratosfera</h3>
-              <div className="text-3xl font-bold text-primary mb-4">A partir de R$ 15.000</div>
+              <div className="text-3xl font-bold font-heading text-primary mb-4">A partir de R$ 15.000</div>
               <p className="text-muted-foreground mb-6">Transformação completa</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start gap-2">
@@ -467,7 +467,7 @@ const Home = () => {
       <section className="py-20 px-4 bg-accent-blue-light/10">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
               Nossos Compromissos com Você
             </h2>
           </div>
@@ -485,7 +485,7 @@ const Home = () => {
                   <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground mb-2">{guarantee.title}</h3>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-2">{guarantee.title}</h3>
                   <p className="text-muted-foreground">{guarantee.desc}</p>
                 </div>
               );
@@ -497,7 +497,7 @@ const Home = () => {
       {/* CTA Final */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#00072D] via-[#092473] to-[#3870A4] pattern-andorinha">
         <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-white">
+          <h2 className="text-3xl md:text-5xl font-bold font-heading mb-6 text-white">
             Pronto para Decolar?
           </h2>
           <p className="text-xl mb-8 text-white/90">

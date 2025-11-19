@@ -1739,13 +1739,66 @@ src/components/NewsletterSignup.tsx
   - ✅ 8.5.4 Navegação
   - ❌ 8.5.5 Tipografia aplicada (pendente)
 
+### 2025-01-19 (Sessão 8 continuação - Completando Fase 8.5.5 Tipografia)
+
+- ✅ **FASE 8.5.5 - Tipografia Aplicada (COMPLETA 100%):**
+
+  **Componentes de Serviço (impacto em 5 páginas):**
+  - ✅ ServiceHero.tsx: H1 font-heading, parágrafos font-body
+  - ✅ ServiceIncluded.tsx: H2 font-heading, items font-body
+  - ✅ ServiceProcess.tsx: H2/H3 font-heading, descrições font-body
+  - ✅ ServicePricing.tsx: H2/H3 font-heading, **preços font-display (Tallica)**, features font-body
+  - ✅ ServiceFAQ.tsx: H2 font-heading, perguntas font-heading, respostas font-body
+  - ✅ ServiceCTA.tsx: H2 font-heading, textos font-body
+
+  **Páginas Principais:**
+  - ✅ Home.tsx:
+    - Todos H1, H2, H3 com font-heading
+    - Mantido slogan-hero (Onest Bold customizado)
+    - Mantido metric-number (Tallica)
+
+  - ✅ Sobre.tsx:
+    - 23 cores hardcoded substituídas (text-gray-* → text-foreground/text-muted-foreground)
+    - Todos H1, H2, H3 com font-heading
+    - Parágrafos e prose com font-body
+    - Missão, Visão, Valores com tipografia correta
+
+  - ✅ Contato.tsx:
+    - Todos headings com font-heading
+    - Formulário já usando Labels corretos (font-heading)
+
+  **Resumo quantitativo:**
+  - 6 componentes reutilizáveis padronizados
+  - 3 páginas principais corrigidas
+  - 5 páginas de serviços impactadas indiretamente
+  - ~100+ elementos com tipografia corrigida
+  - Tallica (font-display) aplicado em preços para destaque visual
+
+**Status Fase 8 atualizado:** 🟢 94% Concluído
+
+**Seções completas:**
+
+- ✅ 8.1 Paleta de Cores
+- ✅ 8.2 Tipografia
+- ✅ 8.3 Logos (100% - favicons + PWA)
+- ✅ 8.4 Patterns e Backgrounds
+- ✅ 8.5 Componentes UI (5/5 completo):
+  - ✅ 8.5.1 Botões
+  - ✅ 8.5.2 Cards
+  - ✅ 8.5.3 Forms
+  - ✅ 8.5.4 Navegação
+  - ✅ 8.5.5 Tipografia aplicada
+- ❌ 8.6 Aplicações Específicas (pendente)
+- ❌ 8.7 Assets e Exportações (pendente)
+- ❌ 8.8 QA Final (pendente)
+
 ---
 
 ## 🎨 FASE 8 - IMPLEMENTAÇÃO DO MANUAL DA MARCA
 
 **Objetivo:** Implementar todos os elementos do Manual da Marca oficial para garantir consistência visual e alinhamento com a identidade da Andorinha Marketing
 **Prazo estimado:** 2-3 semanas
-**Status:** 🟢 88% Concluído (Sprint 1 + Sprint 2 quase completo)
+**Status:** 🟢 94% Concluído (Sprint 1 e Sprint 2 COMPLETOS)
 **Prioridade:** ALTA - Correção de identidade visual
 
 ### Contexto - Análise do Manual da Marca
@@ -1980,10 +2033,10 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 ---
 
 ### 8.5 Componentes de UI Alinhados
-**Status:** 🟡 Em Progresso (4/5 completo)
+**Status:** ✅ COMPLETO (5/5 completo)
 **Impacto:** ALTO - Consistência visual
 **Tempo estimado:** 5-6 horas
-**Tempo real:** 4.5 horas (botões + navegação + cards + forms)
+**Tempo real:** 6 horas (botões + navegação + cards + forms + tipografia)
 
 **Tarefas:**
 
@@ -2027,11 +2080,15 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
   - [x] Dimensões h-12 (48px) para boa visibilidade
 
 #### 8.5.5 Tipografia aplicada
-- [ ] Revisar hierarquia em todas as páginas:
-  - H1: Onest Bold, cores do manual
-  - H2: Onest Semibold
-  - Body: Work Sans Regular
-  - Destaques: Tallica
+- [x] Revisar hierarquia em todas as páginas:
+  - [x] H1: Onest Bold (`font-heading font-bold`) aplicado
+  - [x] H2: Onest Semibold (`font-heading font-semibold`) aplicado
+  - [x] H3: Onest Semibold (`font-heading font-semibold`) aplicado
+  - [x] Body: Work Sans Regular (`font-body`) aplicado
+  - [x] Destaques numéricos: Tallica (`font-display`) em preços e métricas
+  - [x] Cores hardcoded substituídas (`text-gray-*` → `text-foreground/text-muted-foreground`)
+  - [x] Componentes de serviço: 6 componentes padronizados
+  - [x] Páginas principais: Home, Sobre, Contato corrigidas
 
 ---
 

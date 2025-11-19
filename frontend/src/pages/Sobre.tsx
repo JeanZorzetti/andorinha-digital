@@ -140,10 +140,10 @@ const Sobre = () => {
         <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold font-heading text-foreground mb-6">
                 Voe Certo. Voe Alto.
               </h1>
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl font-body text-muted-foreground mb-8">
                 Marketing que transforma vendas em consequência, não em luta.
                 Ajudamos PMEs a crescerem com estratégia, não com sorte.
               </p>
@@ -155,10 +155,10 @@ const Sobre = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h2 className="text-3xl font-bold font-heading text-foreground mb-8 text-center">
                 Nossa História
               </h2>
-              <div className="prose prose-lg max-w-none text-gray-600">
+              <div className="prose prose-lg max-w-none font-body text-muted-foreground">
                 <p>
                   A Andorinha nasceu da frustração. Depois de anos trabalhando em
                   grandes agências, percebemos que pequenas e médias empresas eram
@@ -210,8 +210,8 @@ const Sobre = () => {
                 <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
                   <Target className="w-6 h-6 text-[#FF6B35]" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Missão</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold font-heading text-foreground mb-3">Missão</h3>
+                <p className="font-body text-muted-foreground">
                   Tornar marketing estratégico de qualidade acessível para pequenas
                   e médias empresas, ajudando-as a crescer de forma sustentável e
                   inteligente.
@@ -221,18 +221,18 @@ const Sobre = () => {
                 <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
                   <Eye className="w-6 h-6 text-[#FF6B35]" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Visão</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold font-heading text-foreground mb-3">Visão</h3>
+                <p className="font-body text-muted-foreground">
                   Ser referência em projetos de marketing para PMEs, reconhecida
                   pela qualidade, transparência e resultados reais que entregamos.
                 </p>
               </div>
             </div>
 
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold font-heading text-center text-foreground mb-4">
               Nossos Valores
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               Os princípios que guiam cada projeto e decisão
             </p>
             <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
@@ -245,10 +245,10 @@ const Sobre = () => {
                     <value.icon className="w-5 h-5 text-[#FF6B35]" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-sm">
+                    <h3 className="font-semibold text-foreground text-sm">
                       {value.title}
                     </h3>
-                    <p className="text-xs text-gray-500 line-clamp-2">{value.description}</p>
+                    <p className="text-xs text-muted-foreground line-clamp-2">{value.description}</p>
                   </div>
                 </div>
               ))}
@@ -259,10 +259,10 @@ const Sobre = () => {
         {/* Why Choose Us */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold font-heading text-center text-foreground mb-4">
               Por Que Escolher a Andorinha?
             </h2>
-            <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
               6 razões que nos diferenciam das outras agências
             </p>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
@@ -274,10 +274,10 @@ const Sobre = () => {
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                     <diff.icon className="w-6 h-6 text-green-600" />
                   </div>
-                  <h3 className="font-semibold text-gray-900 mb-2">
+                  <h3 className="font-semibold text-foreground mb-2">
                     {diff.title}
                   </h3>
-                  <p className="text-sm text-gray-600">{diff.description}</p>
+                  <p className="text-sm text-muted-foreground">{diff.description}</p>
                 </div>
               ))}
             </div>
@@ -287,7 +287,7 @@ const Sobre = () => {
         {/* Testimonials */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+            <h2 className="text-3xl font-bold font-heading text-center text-foreground mb-12">
               O Que Nossos Clientes Dizem
             </h2>
             <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -296,14 +296,14 @@ const Sobre = () => {
                   key={index}
                   className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
                 >
-                  <p className="text-gray-600 mb-4 italic">
+                  <p className="text-muted-foreground mb-4 italic">
                     "{testimonial.quote}"
                   </p>
                   <div>
-                    <p className="font-semibold text-gray-900">
+                    <p className="font-semibold text-foreground">
                       {testimonial.author}
                     </p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    <p className="text-sm text-muted-foreground">{testimonial.role}</p>
                   </div>
                 </div>
               ))}

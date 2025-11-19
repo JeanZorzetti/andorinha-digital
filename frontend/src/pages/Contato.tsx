@@ -62,7 +62,7 @@ const Contato = () => {
       {/* Hero */}
       <section className="pt-32 pb-12 px-4 bg-gradient-to-br from-primary-dark to-accent-blue text-primary-foreground">
         <div className="container mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Vamos Conversar?</h1>
+          <h1 className="text-4xl md:text-6xl font-bold font-heading mb-4">Vamos Conversar?</h1>
           <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
             Agende 30 minutos de diagnóstico gratuito e estratégico. Sem compromisso, sem custo.
           </p>
@@ -76,7 +76,7 @@ const Contato = () => {
             {/* Coluna Formulário */}
             <div className="lg:col-span-2">
               <Card className="p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-6">Agendar Diagnóstico Gratuito</h2>
+                <h2 className="text-2xl font-bold font-heading text-foreground mb-6">Agendar Diagnóstico Gratuito</h2>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
