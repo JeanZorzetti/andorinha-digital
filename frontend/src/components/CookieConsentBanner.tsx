@@ -28,6 +28,8 @@ const CookieConsentBanner = () => {
         padding: "16px 24px",
         alignItems: "center",
         fontSize: "14px",
+        flexDirection: "row",
+        justifyContent: "flex-start",
       }}
       buttonStyle={{
         background: "#FF6B35",
@@ -36,7 +38,7 @@ const CookieConsentBanner = () => {
         fontWeight: "600",
         borderRadius: "8px",
         padding: "10px 20px",
-        marginLeft: "16px",
+        margin: "0 8px 0 0",
       }}
       declineButtonStyle={{
         background: "transparent",
@@ -46,12 +48,14 @@ const CookieConsentBanner = () => {
         fontWeight: "500",
         borderRadius: "8px",
         padding: "10px 20px",
+        margin: "0",
       }}
       contentStyle={{
-        flex: "1 0 300px",
-        margin: "8px 0",
+        flex: "0 0 auto",
+        margin: "8px 16px 8px 0",
+        maxWidth: "60%",
       }}
-      buttonWrapperClasses="flex gap-2 flex-wrap"
+      buttonWrapperClasses="flex gap-2"
     >
       <span className="text-white/90">
         Usamos cookies para melhorar sua experiência e analisar o tráfego do site.{" "}
