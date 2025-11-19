@@ -189,7 +189,7 @@ const Processo = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="pt-32 pb-16 bg-gradient-to-b from-background to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -202,7 +202,7 @@ const Processo = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#FF6B35] hover:bg-[#e55a2b] text-white"
+                className="bg-primary hover:bg-primary/90 text-white"
               >
                 <Link to="/contato">Agendar Diagnóstico Gratuito</Link>
               </Button>
@@ -220,16 +220,16 @@ const Processo = () => {
               {processSteps.map((step, index) => (
                 <div
                   key={index}
-                  className="relative bg-white rounded-2xl shadow-sm border border-gray-100 p-8"
+                  className="relative bg-white rounded-2xl shadow-sm border border-border p-8"
                 >
                   <div className="flex flex-col md:flex-row gap-6">
                     {/* Icon and Number */}
                     <div className="flex-shrink-0">
-                      <div className="w-16 h-16 bg-[#FF6B35] rounded-xl flex items-center justify-center">
+                      <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
                         <step.icon className="w-8 h-8 text-white" />
                       </div>
                       <div className="text-center mt-2">
-                        <span className="text-sm font-bold text-[#FF6B35]">
+                        <span className="text-sm font-bold text-primary">
                           {step.number}
                         </span>
                       </div>
@@ -258,17 +258,17 @@ const Processo = () => {
                                 key={detailIndex}
                                 className="flex items-start gap-2 text-sm text-muted-foreground"
                               >
-                                <CheckCircle className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                                <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                                 {detail}
                               </li>
                             ))}
                           </ul>
                         </div>
-                        <div className="md:border-l md:pl-4 border-gray-100">
+                        <div className="md:border-l md:pl-4 border-border">
                           <h4 className="font-semibold text-foreground mb-2 text-sm">
                             Entregável:
                           </h4>
-                          <p className="text-sm text-[#FF6B35] font-medium">
+                          <p className="text-sm text-primary font-medium">
                             {step.deliverable}
                           </p>
                         </div>
@@ -294,7 +294,7 @@ const Processo = () => {
               {tools.map((tool, index) => (
                 <div
                   key={index}
-                  className="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-100"
+                  className="px-4 py-2 bg-white rounded-lg shadow-sm border border-border"
                 >
                   <span className="text-sm font-medium text-foreground">
                     {tool.name}
@@ -321,10 +321,10 @@ const Processo = () => {
               {differentials.map((diff, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
-                  <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
-                    <diff.icon className="w-6 h-6 text-[#FF6B35]" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <diff.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">
                     {diff.title}
@@ -346,7 +346,7 @@ const Processo = () => {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
                   <p className="text-muted-foreground mb-4 italic">
                     "{testimonial.quote}"
@@ -364,7 +364,7 @@ const Processo = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#FF6B35]">
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Pronto Para Começar?
@@ -377,7 +377,7 @@ const Processo = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-muted"
+                className="bg-white text-primary hover:bg-muted"
               >
                 <Link to="/contato">Agendar Diagnóstico</Link>
               </Button>

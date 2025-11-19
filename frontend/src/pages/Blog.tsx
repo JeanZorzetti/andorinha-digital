@@ -126,7 +126,7 @@ const Blog = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-8 bg-gradient-to-b from-gray-50 to-white">
+        <section className="pt-32 pb-8 bg-gradient-to-b from-background to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -153,7 +153,7 @@ const Blog = () => {
         </section>
 
         {/* Filters */}
-        <section className="py-8 border-b border-gray-100">
+        <section className="py-8 border-b border-border">
           <div className="container mx-auto px-4">
             <div className="flex flex-wrap justify-center gap-2">
               {categories.map((category) => (
@@ -162,7 +162,7 @@ const Blog = () => {
                   onClick={() => setActiveFilter(category)}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeFilter === category
-                      ? "bg-[#FF6B35] text-white"
+                      ? "bg-primary text-white"
                       : "bg-muted text-muted-foreground hover:bg-muted"
                   }`}
                 >
@@ -190,7 +190,7 @@ const Blog = () => {
                 {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow"
+                  className="bg-white rounded-xl shadow-sm border border-border overflow-hidden group hover:shadow-md transition-shadow"
                 >
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -216,7 +216,7 @@ const Blog = () => {
                       </span>
                     </div>
 
-                    <h2 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-[#FF6B35] transition-colors">
+                    <h2 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
                       {post.title}
                     </h2>
 
@@ -226,7 +226,7 @@ const Blog = () => {
 
                     <Link
                       to={`/blog/${post.id}`}
-                      className="inline-flex items-center gap-2 text-[#FF6B35] font-medium text-sm hover:gap-3 transition-all"
+                      className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
                     >
                       Ler Artigo
                       <ArrowRight className="w-4 h-4" />
@@ -264,7 +264,7 @@ const Blog = () => {
                   placeholder="Seu melhor email"
                   className="flex-1"
                 />
-                <Button className="bg-[#FF6B35] hover:bg-[#e55a2b]">
+                <Button className="bg-primary hover:bg-primary/90">
                   Cadastrar
                 </Button>
               </div>
@@ -276,7 +276,7 @@ const Blog = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#FF6B35]">
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Precisa de Ajuda com Marketing?
@@ -288,7 +288,7 @@ const Blog = () => {
             <Button
               asChild
               size="lg"
-              className="bg-white text-[#FF6B35] hover:bg-muted"
+              className="bg-white text-primary hover:bg-muted"
             >
               <Link to="/contato">Agendar Diagnóstico</Link>
             </Button>

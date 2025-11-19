@@ -137,7 +137,7 @@ const Sobre = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="pt-32 pb-16 bg-gradient-to-b from-background to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold font-heading text-foreground mb-6">
@@ -187,7 +187,7 @@ const Sobre = () => {
         </section>
 
         {/* Stats */}
-        <section className="py-16 bg-[#FF6B35]">
+        <section className="py-16 bg-primary">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
@@ -206,9 +206,9 @@ const Sobre = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-16">
-              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-[#FF6B35]" />
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-border">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Target className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold font-heading text-foreground mb-3">Missão</h3>
                 <p className="font-body text-muted-foreground">
@@ -217,9 +217,9 @@ const Sobre = () => {
                   inteligente.
                 </p>
               </div>
-              <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
-                  <Eye className="w-6 h-6 text-[#FF6B35]" />
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-border">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                  <Eye className="w-6 h-6 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold font-heading text-foreground mb-3">Visão</h3>
                 <p className="font-body text-muted-foreground">
@@ -239,10 +239,10 @@ const Sobre = () => {
               {values.map((value, index) => (
                 <div
                   key={index}
-                  className="bg-white px-6 py-4 rounded-xl shadow-sm border border-gray-100 flex items-center gap-3 min-w-[280px] max-w-[320px]"
+                  className="bg-white px-6 py-4 rounded-xl shadow-sm border border-border flex items-center gap-3 min-w-[280px] max-w-[320px]"
                 >
-                  <div className="w-10 h-10 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <value.icon className="w-5 h-5 text-[#FF6B35]" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <value.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground text-sm">
@@ -269,10 +269,10 @@ const Sobre = () => {
               {differentials.map((diff, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                    <diff.icon className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <diff.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">
                     {diff.title}
@@ -294,7 +294,7 @@ const Sobre = () => {
               {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
                   <p className="text-muted-foreground mb-4 italic">
                     "{testimonial.quote}"
@@ -312,7 +312,7 @@ const Sobre = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#FF6B35]">
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Quer Fazer Parte Dessa História?
@@ -325,7 +325,7 @@ const Sobre = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-gray-100"
+                className="bg-white text-primary hover:bg-muted"
               >
                 <Link to="/contato">Agendar Diagnóstico</Link>
               </Button>

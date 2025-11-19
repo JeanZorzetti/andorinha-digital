@@ -12,7 +12,7 @@ function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>)
  */
 function SkeletonCard() {
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-border overflow-hidden">
       <Skeleton className="h-48 w-full rounded-none" />
       <div className="p-6 space-y-4">
         <Skeleton className="h-4 w-20" />
@@ -33,7 +33,7 @@ function SkeletonCard() {
  */
 function SkeletonBlogPost() {
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-lg shadow-sm border border-border overflow-hidden">
       <Skeleton className="h-56 w-full rounded-none" />
       <div className="p-6 space-y-3">
         <div className="flex items-center gap-2">
@@ -77,7 +77,7 @@ function SkeletonList({ items = 3 }: { items?: number }) {
  */
 function SkeletonPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       {/* Hero skeleton */}
       <div className="bg-gradient-to-br from-primary-dark to-accent-blue py-20">
         <div className="container mx-auto px-4">

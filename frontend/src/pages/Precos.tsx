@@ -208,7 +208,7 @@ const Precos = () => {
 
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-gray-50 to-white">
+        <section className="pt-32 pb-16 bg-gradient-to-b from-background to-white">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -221,7 +221,7 @@ const Precos = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-[#FF6B35] hover:bg-[#e55a2b] text-white"
+                className="bg-primary hover:bg-primary/90 text-white"
               >
                 <Link to="/contato">Solicitar Proposta Personalizada</Link>
               </Button>
@@ -238,7 +238,7 @@ const Precos = () => {
             <div className="overflow-x-auto">
               <table className="w-full min-w-[800px]">
                 <thead>
-                  <tr className="border-b-2 border-gray-200">
+                  <tr className="border-b-2 border-border">
                     <th className="text-left py-4 px-4 font-semibold text-foreground">
                       Serviço
                     </th>
@@ -260,12 +260,12 @@ const Precos = () => {
                   {services.map((service, index) => (
                     <tr
                       key={index}
-                      className="border-b border-gray-100 hover:bg-muted/30 transition-colors"
+                      className="border-b border-border hover:bg-muted/30 transition-colors"
                     >
                       <td className="py-4 px-4 font-medium text-foreground">
                         {service.name}
                       </td>
-                      <td className="py-4 px-4 text-[#FF6B35] font-semibold">
+                      <td className="py-4 px-4 text-primary font-semibold">
                         {service.price}
                       </td>
                       <td className="py-4 px-4 text-muted-foreground">
@@ -300,10 +300,10 @@ const Precos = () => {
               {priceFactors.map((factor, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
-                  <div className="w-12 h-12 bg-[#FF6B35]/10 rounded-lg flex items-center justify-center mb-4">
-                    <factor.icon className="w-6 h-6 text-[#FF6B35]" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                    <factor.icon className="w-6 h-6 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-2">
                     {factor.title}
@@ -328,15 +328,15 @@ const Precos = () => {
               {paymentMethods.map((method, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border"
                 >
-                  <h3 className="font-semibold text-[#FF6B35] mb-4">
+                  <h3 className="font-semibold text-primary mb-4">
                     {method.range}
                   </h3>
                   <ul className="space-y-3">
                     {method.options.map((option, optIndex) => (
                       <li key={optIndex} className="flex items-start gap-2">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <Check className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                         <span className="text-sm text-muted-foreground">{option}</span>
                       </li>
                     ))}
@@ -363,7 +363,7 @@ const Precos = () => {
               {guarantees.map((guarantee, index) => (
                 <div
                   key={index}
-                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center"
+                  className="bg-white p-6 rounded-xl shadow-sm border border-border text-center"
                 >
                   <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <guarantee.icon className="w-6 h-6 text-primary" />
@@ -431,7 +431,7 @@ const Precos = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#FF6B35]">
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Não Encontrou o Que Procura?
@@ -444,7 +444,7 @@ const Precos = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-muted"
+                className="bg-white text-primary hover:bg-muted"
               >
                 <Link to="/contato">Solicitar Orçamento</Link>
               </Button>

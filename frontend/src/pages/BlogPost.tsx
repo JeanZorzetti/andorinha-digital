@@ -603,13 +603,13 @@ const BlogPost = () => {
             <div className="max-w-3xl mx-auto">
               <Link
                 to="/blog"
-                className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#FF6B35] mb-6"
+                className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Voltar para Blog
               </Link>
 
-              <span className="px-3 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                 {post.category}
               </span>
 
@@ -687,7 +687,7 @@ const BlogPost = () => {
               </div>
 
               {/* Share */}
-              <div className="mt-12 pt-8 border-t border-gray-200">
+              <div className="mt-12 pt-8 border-t border-border">
                 <div className="flex items-center gap-4">
                   <span className="text-sm text-muted-foreground flex items-center gap-2">
                     <Share2 className="w-4 h-4" />
@@ -727,7 +727,7 @@ const BlogPost = () => {
                 seu negócio a crescer.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <Button asChild className="bg-[#FF6B35] hover:bg-[#e55a2b]">
+                <Button asChild className="bg-primary hover:bg-primary/90">
                   <Link to="/contato">Agendar Diagnóstico</Link>
                 </Button>
                 <Button asChild variant="outline">

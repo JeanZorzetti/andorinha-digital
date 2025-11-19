@@ -235,14 +235,14 @@ const CaseDetail = () => {
           <div className="container mx-auto px-4">
             <Link
               to="/cases"
-              className="inline-flex items-center gap-2 text-muted-foreground hover:text-[#FF6B35] mb-6"
+              className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary mb-6"
             >
               <ArrowLeft className="w-4 h-4" />
               Voltar para Cases
             </Link>
 
             <div className="max-w-4xl">
-              <span className="px-3 py-1 bg-[#FF6B35]/10 text-[#FF6B35] rounded-full text-sm font-medium">
+              <span className="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
                 {caseData.category}
               </span>
               <h1 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4">
@@ -309,7 +309,7 @@ const CaseDetail = () => {
         </section>
 
         {/* Results */}
-        <section className="py-12 bg-green-50">
+        <section className="py-12 bg-primary/5">
           <div className="container mx-auto px-4">
             <div className="max-w-3xl">
               <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-2">
@@ -357,7 +357,7 @@ const CaseDetail = () => {
               <ul className="grid sm:grid-cols-2 gap-3">
                 {caseData.deliverables.map((item, index) => (
                   <li key={index} className="flex items-start gap-2">
-                    <CheckCircle className="w-4 h-4 text-[#FF6B35] flex-shrink-0 mt-1" />
+                    <CheckCircle className="w-4 h-4 text-primary flex-shrink-0 mt-1" />
                     <span className="text-sm text-muted-foreground">{item}</span>
                   </li>
                 ))}
@@ -367,7 +367,7 @@ const CaseDetail = () => {
         </section>
 
         {/* CTA */}
-        <section className="py-20 bg-[#FF6B35]">
+        <section className="py-20 bg-primary">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Quer Resultados Como Esses?
@@ -380,7 +380,7 @@ const CaseDetail = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-[#FF6B35] hover:bg-muted"
+                className="bg-white text-primary hover:bg-muted"
               >
                 <Link to="/contato">Agendar Diagnóstico</Link>
               </Button>

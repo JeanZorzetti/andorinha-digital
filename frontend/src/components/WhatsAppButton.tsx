@@ -36,7 +36,7 @@ const WhatsAppButton = () => {
       <span className="absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75 animate-ping"></span>
 
       {/* Tooltip on hover (desktop only) */}
-      <span className="hidden md:block absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <span className="hidden md:block absolute right-full mr-3 px-3 py-2 bg-primary-dark text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
         Fale conosco
       </span>
     </button>
