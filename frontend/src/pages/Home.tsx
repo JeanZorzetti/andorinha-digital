@@ -746,6 +746,136 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Blog Preview */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
+              Conteúdo que Agrega
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Dicas, insights e estratégias de marketing
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Post 1 */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop"
+                  alt="Quanto Custa Criar um Site"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Sites
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <span>15 Jan 2025</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    8 min
+                  </span>
+                </div>
+                <h4 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                  Quanto Custa Criar um Site Profissional em 2025?
+                </h4>
+                <Link
+                  to="/blog/quanto-custa-site-2025"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ler Artigo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+
+            {/* Post 2 */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=340&fit=crop"
+                  alt="Identidade Visual"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Branding
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <span>10 Jan 2025</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    6 min
+                  </span>
+                </div>
+                <h4 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                  Identidade Visual: Vale a Pena Investir?
+                </h4>
+                <Link
+                  to="/blog/identidade-visual-vale-pena"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ler Artigo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+
+            {/* Post 3 */}
+            <Card className="group overflow-hidden hover:shadow-lg transition-all">
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=340&fit=crop"
+                  alt="Orçamento de Marketing"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">
+                    Estratégia
+                  </span>
+                </div>
+              </div>
+              <div className="p-6">
+                <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                  <span>5 Jan 2025</span>
+                  <span className="flex items-center gap-1">
+                    <Clock className="w-4 h-4" />
+                    10 min
+                  </span>
+                </div>
+                <h4 className="font-bold text-foreground mb-3 line-clamp-2 group-hover:text-primary transition-colors">
+                  Como Definir Orçamento de Marketing para PMEs
+                </h4>
+                <Link
+                  to="/blog/orcamento-marketing-pmes"
+                  className="inline-flex items-center gap-2 text-primary font-medium text-sm hover:gap-3 transition-all"
+                >
+                  Ler Artigo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </Card>
+          </div>
+
+          <div className="text-center mt-12">
+            <Button asChild variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+              <Link to="/blog">
+                Ver Todos os Artigos
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Final com Formulário */}
       <section className="py-20 px-4 bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
         <div className="container mx-auto max-w-4xl relative z-10">

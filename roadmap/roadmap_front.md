@@ -574,24 +574,25 @@ src/components/
 - [ ] Imagem: Foto equipe ou ilustração colaborativa
 
 #### 2.4.3 Blog Preview (Home)
+**Status:** ✅ COMPLETO
 **Tarefas:**
-- [ ] Grid 3 colunas
-- [ ] Background: Cinza claro
-- [ ] Headline: "Conteúdo que Agrega"
-- [ ] Subheadline: "Dicas, insights e estratégias de marketing"
-- [ ] 3 cards de post:
-  - Thumbnail (16:9)
-  - Tag categoria
-  - Título (H4)
-  - Data
-  - Tempo de leitura
-  - CTA: "Ler Artigo →"
-- [ ] CTA final: "Ver Todos os Artigos →"
+- [x] Grid 3 colunas
+- [x] Background: bg-muted/30 (cinza claro do design system)
+- [x] Headline: "Conteúdo que Agrega"
+- [x] Subheadline: "Dicas, insights e estratégias de marketing"
+- [x] 3 cards de post:
+  - Thumbnail aspect-video (16:9)
+  - Tag categoria com bg-white/90 backdrop-blur
+  - Título H4 com hover:text-primary
+  - Data formatada
+  - Tempo de leitura com ícone Clock
+  - CTA: "Ler Artigo →" com ArrowRight
+- [x] CTA final: "Ver Todos os Artigos →"
 
-**Criar 3 posts placeholder:**
-- [ ] "Quanto custa criar um site profissional em 2025"
-- [ ] "Identidade visual: vale a pena investir?"
-- [ ] "Como definir orçamento de marketing para PMEs"
+**Posts implementados:**
+- [x] "Quanto Custa Criar um Site Profissional em 2025?" (Sites, 8 min)
+- [x] "Identidade Visual: Vale a Pena Investir?" (Branding, 6 min)
+- [x] "Como Definir Orçamento de Marketing para PMEs" (Estratégia, 10 min)
 
 ---
 
