@@ -1032,11 +1032,11 @@ import { InlineWidget } from 'react-calendly';
 ---
 
 ### 4.4 PWA (Progressive Web App) - Opcional
-**Status:** ❌ Não iniciado
+**Status:** ✅ Concluído
 **Tempo estimado:** 3-4 dias
 
 **Tarefas:**
-- [ ] Criar `manifest.json`:
+- [x] Criar `manifest.json`:
   ```json
   {
     "name": "Andorinha Marketing",
@@ -1050,17 +1050,21 @@ import { InlineWidget } from 'react-calendly';
   }
   ```
 
-- [ ] Service Worker para cache:
-  ```bash
-  npm install workbox-webpack-plugin
-  ```
+- [x] Service Worker para cache:
+  - Instalado vite-plugin-pwa e workbox-window
+  - Configurado runtime caching para Google Fonts e Unsplash
+  - Cache de assets estáticos (js, css, html, png, svg, woff)
 
-- [ ] Offline fallback page
+- [x] Offline fallback page
+  - Criado /public/offline.html com design consistente
 
-- [ ] Ícones PWA (vários tamanhos):
-  - 192x192px
-  - 512x512px
-  - Outras variações
+- [x] Ícones PWA (vários tamanhos):
+  - 72x72, 96x96, 128x128, 144x144, 152x152px
+  - 192x192px (any)
+  - 384x384px
+  - 512x512px (any)
+  - 512x512px (maskable)
+  - Script de geração: scripts/generate-pwa-icons.js
 
 ---
 
