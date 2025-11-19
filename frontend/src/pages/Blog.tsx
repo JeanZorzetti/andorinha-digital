@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { SkeletonBlogPost } from "@/components/ui/skeleton";
 import { Search, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -21,6 +22,7 @@ interface Post {
 const Blog = () => {
   const [activeFilter, setActiveFilter] = useState("Todos");
   const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const categories = [
     "Todos",
@@ -101,6 +103,15 @@ const Blog = () => {
     return matchesCategory && matchesSearch;
   });
 
+  // Simula carregamento inicial de posts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <SEO
@@ -165,8 +176,18 @@ const Blog = () => {
         {/* Posts Grid */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
+            {isLoading ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <SkeletonBlogPost />
+                <SkeletonBlogPost />
+                <SkeletonBlogPost />
+                <SkeletonBlogPost />
+                <SkeletonBlogPost />
+                <SkeletonBlogPost />
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredPosts.map((post) => (
                 <article
                   key={post.id}
                   className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow"
@@ -213,9 +234,10 @@ const Blog = () => {
                   </div>
                 </article>
               ))}
-            </div>
+              </div>
+            )}
 
-            {filteredPosts.length === 0 && (
+            {!isLoading && filteredPosts.length === 0 && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">
                   Nenhum artigo encontrado para sua busca.

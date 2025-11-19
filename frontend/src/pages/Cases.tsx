@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
 import { Button } from "@/components/ui/button";
+import { SkeletonCard } from "@/components/ui/skeleton";
 import { ArrowRight, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -19,6 +20,7 @@ interface Case {
 
 const Cases = () => {
   const [activeFilter, setActiveFilter] = useState("Todos");
+  const [isLoading, setIsLoading] = useState(true);
 
   const categories = [
     "Todos",
@@ -97,6 +99,15 @@ const Cases = () => {
       ? cases
       : cases.filter((c) => c.category === activeFilter);
 
+  // Simula carregamento inicial de dados
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800); // 800ms de loading simulado
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <SEO
@@ -149,8 +160,18 @@ const Cases = () => {
         {/* Cases Grid */}
         <section className="py-16">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredCases.map((caseItem) => (
+            {isLoading ? (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+                <SkeletonCard />
+              </div>
+            ) : (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {filteredCases.map((caseItem) => (
                 <div
                   key={caseItem.id}
                   className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group hover:shadow-md transition-shadow"
@@ -198,9 +219,10 @@ const Cases = () => {
                   </div>
                 </div>
               ))}
-            </div>
+              </div>
+            )}
 
-            {filteredCases.length === 0 && (
+            {!isLoading && filteredCases.length === 0 && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">
                   Nenhum case encontrado para esta categoria.

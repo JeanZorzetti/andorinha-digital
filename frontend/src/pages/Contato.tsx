@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Mail, Phone, Linkedin, Instagram, CheckCircle2 } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import SEO from "@/components/SEO";
@@ -14,6 +15,7 @@ import { useToast } from "@/hooks/use-toast";
 
 const Contato = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,9 +29,9 @@ const Contato = () => {
     newsletter: false
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!formData.acceptContact) {
       toast({
         title: "Erro",
@@ -39,13 +41,42 @@ const Contato = () => {
       return;
     }
 
-    // Simulação de envio
-    toast({
-      title: "Mensagem enviada!",
-      description: "Entraremos em contato em até 24 horas úteis.",
-    });
-    
-    console.log("Form submitted:", formData);
+    // Simulação de envio com loading
+    setIsSubmitting(true);
+
+    try {
+      // Simula requisição à API (2 segundos)
+      await new Promise(resolve => setTimeout(resolve, 2000));
+
+      toast({
+        title: "Mensagem enviada!",
+        description: "Entraremos em contato em até 24 horas úteis.",
+      });
+
+      // Reset do formulário após envio bem-sucedido
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        company: "",
+        service: "",
+        budget: "",
+        urgency: "",
+        message: "",
+        acceptContact: false,
+        newsletter: false
+      });
+
+      console.log("Form submitted:", formData);
+    } catch (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Tente novamente ou entre em contato por telefone.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -214,8 +245,14 @@ const Contato = () => {
                     </div>
                   </div>
 
-                  <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-                    Agendar Diagnóstico Gratuito
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting && <Spinner size="sm" className="mr-2" />}
+                    {isSubmitting ? "Enviando..." : "Agendar Diagnóstico Gratuito"}
                   </Button>
 
                   <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">

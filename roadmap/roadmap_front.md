@@ -2183,18 +2183,22 @@ andorinha mkt/03 - Elementos de Apoio/SVG/
 - [x] SpinnerOverlay para loading em tela cheia
 - [x] Documentação completa (LOADING_STATES.md)
 - [x] Exemplos de uso (LoadingStates.tsx)
+- [x] **Integração em páginas:**
+  - [x] Formulário de Contato - Spinner no botão de submit com loading async
+  - [x] Página Cases - Skeleton cards durante carregamento inicial
+  - [x] Página Blog - Skeleton posts durante carregamento inicial
 
 **Commits da Fase 8.6:**
 - `7abbb4e` - fix: aplicar polish crítico Fase 8.6 (hex → tokens, gray → muted, line-height bug fix)
 - `e014872` - fix: reverter slogan hero para Onest conforme preferência do usuário
 - `9e7b362` - feat: completar Fase 8.6 (FAQs, colors em 6 páginas, icons na Home)
-- **Pendente** - feat: implementar loading states (Spinner, Skeleton, documentação)
+- `0fd3074` - feat: implementar loading states completos - Fase 8.6.5 (componentes base)
+- **Pendente** - feat: integrar loading states nas páginas (Contato, Cases, Blog)
 
 **Arquivos criados/modificados (commit pendente):**
-- `frontend/src/components/ui/spinner.tsx` - Novo componente Spinner com design customizado
-- `frontend/src/components/ui/skeleton.tsx` - Expandido com SkeletonCard, SkeletonBlogPost, SkeletonList, SkeletonPage
-- `frontend/src/components/LoadingStates.tsx` - Exemplos práticos de uso
-- `frontend/src/components/ui/LOADING_STATES.md` - Documentação completa
+- `frontend/src/pages/Contato.tsx` - Spinner no botão submit com estado async
+- `frontend/src/pages/Cases.tsx` - Skeleton cards durante loading inicial (800ms)
+- `frontend/src/pages/Blog.tsx` - Skeleton posts durante loading inicial (800ms)
 
 ---
 
