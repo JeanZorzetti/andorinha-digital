@@ -30,7 +30,7 @@ const ServiceHero = ({
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Breadcrumb */}
-        <nav className="flex items-center text-sm text-white/70 mb-8">
+        <nav className="flex items-center text-sm font-body text-white/70 mb-8">
           <Link to="/" className="hover:text-white transition-colors">
             Home
           </Link>
@@ -44,15 +44,15 @@ const ServiceHero = ({
 
         <div className="max-w-3xl">
           {/* Subtitle */}
-          <p className="text-primary font-medium mb-4">{subtitle}</p>
+          <p className="text-primary font-body font-medium mb-4">{subtitle}</p>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading mb-6 leading-tight">
             {title}
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/90 mb-8 leading-relaxed">
+          <p className="text-lg md:text-xl font-body text-white/90 mb-8 leading-relaxed">
             {description}
           </p>
 
@@ -60,11 +60,11 @@ const ServiceHero = ({
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
               <DollarSign className="w-5 h-5 text-primary" />
-              <span className="font-semibold">{price}</span>
+              <span className="font-body font-semibold">{price}</span>
             </div>
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
               <Clock className="w-5 h-5 text-primary" />
-              <span className="font-semibold">{duration}</span>
+              <span className="font-body font-semibold">{duration}</span>
             </div>
           </div>
 

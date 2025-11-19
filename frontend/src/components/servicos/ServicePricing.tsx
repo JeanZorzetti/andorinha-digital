@@ -29,10 +29,10 @@ const ServicePricing = ({
     <section className="py-16 lg:py-24 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary-dark mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-primary-dark mb-4">
             {title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg font-body text-muted-foreground max-w-2xl mx-auto">
             {subtitle}
           </p>
         </div>
@@ -50,7 +50,7 @@ const ServicePricing = ({
               {tier.badge && (
                 <div className="absolute top-0 right-0">
                   <Badge
-                    className={`rounded-none rounded-bl-lg ${
+                    className={`rounded-none rounded-bl-lg font-body ${
                       tier.highlighted
                         ? "bg-primary text-white"
                         : "bg-gray-200 text-gray-700"
@@ -63,21 +63,21 @@ const ServicePricing = ({
               )}
 
               <CardHeader className="text-center pb-4">
-                <h3 className="text-xl font-bold text-primary-dark">
+                <h3 className="text-xl font-bold font-heading text-primary-dark">
                   {tier.name}
                 </h3>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-primary">
+                  <span className="text-3xl font-bold font-display text-primary">
                     {tier.price}
                   </span>
                 </div>
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm font-body text-muted-foreground mt-2">
                   {tier.duration}
                 </p>
               </CardHeader>
 
               <CardContent>
-                <p className="text-sm text-muted-foreground text-center mb-6">
+                <p className="text-sm font-body text-muted-foreground text-center mb-6">
                   {tier.description}
                 </p>
 
@@ -85,7 +85,7 @@ const ServicePricing = ({
                   {tier.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-2">
                       <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm">{feature}</span>
+                      <span className="text-sm font-body">{feature}</span>
                     </li>
                   ))}
                 </ul>

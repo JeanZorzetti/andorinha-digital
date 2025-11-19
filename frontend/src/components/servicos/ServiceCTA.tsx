@@ -23,10 +23,10 @@ const ServiceCTA = ({
     <section className="py-16 lg:py-24 bg-gradient-to-br from-primary to-primary/80">
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold font-heading text-white mb-4">
             {title}
           </h2>
-          <p className="text-lg text-white/90 mb-8">{subtitle}</p>
+          <p className="text-lg font-body text-white/90 mb-8">{subtitle}</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to={primaryLink}>
@@ -50,7 +50,7 @@ const ServiceCTA = ({
             </Link>
           </div>
 
-          <p className="text-sm text-white/70 mt-6">
+          <p className="text-sm font-body text-white/70 mt-6">
             Sem compromisso | Sem custo | Apenas estratégia
           </p>
         </div>
