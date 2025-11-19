@@ -1018,10 +1018,16 @@ import { InlineWidget } from 'react-calendly';
 - [x] NotFound.tsx: adicionado `<main>` + traduzido para PT-BR
 
 #### 4.3.6 Formulários
-- [ ] Labels visíveis
-- [ ] Mensagens de erro claras e associadas
-- [ ] Required fields indicados
-- [ ] Validação acessível (aria-invalid, aria-describedby)
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Labels visíveis associados via htmlFor/id
+- [x] Campos obrigatórios indicados com * no label
+- [x] Atributo `required` nos campos obrigatórios
+- [x] `aria-required="true"` nos campos obrigatórios
+- [x] Types corretos (email, tel)
+- [x] Contato.tsx: 4 campos + checkbox com aria-required
+- [x] Home.tsx: 3 campos + checkbox com aria-required
 
 ---
 

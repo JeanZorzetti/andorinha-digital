@@ -897,6 +897,7 @@ const Home = () => {
                   <Input
                     id="cta-name"
                     required
+                    aria-required="true"
                     value={ctaForm.name}
                     onChange={(e) => setCtaForm({ ...ctaForm, name: e.target.value })}
                     placeholder="Seu nome"
@@ -909,6 +910,7 @@ const Home = () => {
                     id="cta-email"
                     type="email"
                     required
+                    aria-required="true"
                     value={ctaForm.email}
                     onChange={(e) => setCtaForm({ ...ctaForm, email: e.target.value })}
                     placeholder="seu@email.com"
@@ -924,6 +926,7 @@ const Home = () => {
                     id="cta-phone"
                     type="tel"
                     required
+                    aria-required="true"
                     value={ctaForm.phone}
                     onChange={(e) => setCtaForm({ ...ctaForm, phone: e.target.value })}
                     placeholder="(11) 99999-9999"
@@ -965,6 +968,7 @@ const Home = () => {
                   id="cta-accept"
                   checked={ctaForm.acceptContact}
                   onCheckedChange={(checked) => setCtaForm({ ...ctaForm, acceptContact: checked as boolean })}
+                  aria-required="true"
                 />
                 <label htmlFor="cta-accept" className="text-sm text-muted-foreground cursor-pointer">
                   Aceito receber contato da Andorinha Marketing *

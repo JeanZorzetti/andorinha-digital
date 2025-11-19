@@ -118,6 +118,7 @@ const Contato = () => {
                       <Input
                         id="name"
                         required
+                        aria-required="true"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Seu nome"
@@ -130,6 +131,7 @@ const Contato = () => {
                         id="email"
                         type="email"
                         required
+                        aria-required="true"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="seu@email.com"
@@ -144,6 +146,7 @@ const Contato = () => {
                         id="phone"
                         type="tel"
                         required
+                        aria-required="true"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="(11) 99999-9999"
@@ -229,6 +232,7 @@ const Contato = () => {
                         id="acceptContact"
                         checked={formData.acceptContact}
                         onCheckedChange={(checked) => setFormData({ ...formData, acceptContact: checked as boolean })}
+                        aria-required="true"
                       />
                       <label htmlFor="acceptContact" className="text-sm text-muted-foreground cursor-pointer">
                         Aceito receber contato da Andorinha Marketing *
