@@ -990,9 +990,16 @@ import { InlineWidget } from 'react-calendly';
 - [x] Form labels já estão associados (htmlFor/id)
 
 #### 4.3.4 Imagens
-- [ ] Alt text descritivo em TODAS as imagens
-- [ ] Imagens decorativas: `alt=""`
-- [ ] Logos: `alt="Andorinha Marketing - Logotipo"`
+**Status:** ✅ COMPLETO
+
+**Tarefas:**
+- [x] Alt text descritivo em TODAS as imagens
+- [x] Logos: `alt="Andorinha Marketing"` ✓
+- [x] Home.tsx: 6 imagens com alt descritivo
+- [x] Cases.tsx: alt dinâmico com título do case ✓
+- [x] Blog.tsx: alt dinâmico com título do post ✓
+- [x] BlogPost.tsx: alt dinâmico com título do post ✓
+- [x] CaseDetail.tsx: alt dinâmico com título do case ✓
 
 #### 4.3.5 Estrutura Semântica
 - [ ] Usar HTML5 semântico:

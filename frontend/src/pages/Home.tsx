@@ -402,7 +402,7 @@ const Home = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=600&h=400&fit=crop"
-                  alt="TechStart Branding"
+                  alt="Apresentação de pitch deck em reunião de negócios - Case TechStart"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -446,7 +446,7 @@ const Home = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
-                  alt="Almeida Consultoria Site"
+                  alt="Dashboard de analytics mostrando métricas de conversão - Case Almeida Consultoria"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -490,7 +490,7 @@ const Home = () => {
               <div className="relative h-48 overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=400&fit=crop"
-                  alt="Sabor & Arte Vídeo"
+                  alt="Equipe de buffet preparando evento corporativo - Case Sabor & Arte"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -765,7 +765,7 @@ const Home = () => {
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop"
-                  alt="Quanto Custa Criar um Site"
+                  alt="Tela de computador exibindo gráficos e código de desenvolvimento web"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -800,7 +800,7 @@ const Home = () => {
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=340&fit=crop"
-                  alt="Identidade Visual"
+                  alt="Paleta de cores e materiais de branding em mesa de trabalho"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
@@ -835,7 +835,7 @@ const Home = () => {
               <div className="relative aspect-video overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1553484771-371a605b060b?w=600&h=340&fit=crop"
-                  alt="Orçamento de Marketing"
+                  alt="Equipe de marketing analisando gráficos financeiros em reunião"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <div className="absolute top-4 left-4">
