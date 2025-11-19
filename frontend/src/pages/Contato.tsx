@@ -272,6 +272,33 @@ const Contato = () => {
                   </div>
                 </form>
               </Card>
+
+              {/* Calendly - Abaixo do formulário */}
+              <Card className="p-8 mt-8 bg-accent-blue-light/10 border-accent-blue-light">
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-5 h-5 text-primary" />
+                  <h3 className="font-semibold text-xl text-foreground">Ou Agende Direto</h3>
+                </div>
+                <p className="text-sm text-muted-foreground mb-6">
+                  Prefere escolher o horário você mesmo? Use nosso calendário abaixo:
+                </p>
+                <div className="rounded-lg overflow-hidden border border-border bg-white">
+                  <InlineWidget
+                    url="https://calendly.com/roilabs-andorinha/30min"
+                    styles={{
+                      height: '600px',
+                      minWidth: '100%'
+                    }}
+                    pageSettings={{
+                      backgroundColor: 'ffffff',
+                      hideEventTypeDetails: false,
+                      hideLandingPageDetails: false,
+                      primaryColor: 'FF6B35',
+                      textColor: '1A1A1A'
+                    }}
+                  />
+                </div>
+              </Card>
             </div>
 
             {/* Coluna Informações */}
@@ -332,31 +359,6 @@ const Contato = () => {
                 </div>
               </Card>
 
-              <Card className="p-6 bg-accent-blue-light/10 border-accent-blue-light">
-                <div className="flex items-center gap-2 mb-3">
-                  <Calendar className="w-5 h-5 text-primary" />
-                  <h3 className="font-semibold text-lg text-foreground">Agende Direto</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Escolha o melhor horário para seu diagnóstico gratuito
-                </p>
-                <div className="rounded-lg overflow-hidden border border-border bg-white">
-                  <InlineWidget
-                    url="https://calendly.com/roilabs-andorinha/30min"
-                    styles={{
-                      height: '400px',
-                      minWidth: '100%'
-                    }}
-                    pageSettings={{
-                      backgroundColor: 'ffffff',
-                      hideEventTypeDetails: false,
-                      hideLandingPageDetails: false,
-                      primaryColor: 'FF6B35',
-                      textColor: '1A1A1A'
-                    }}
-                  />
-                </div>
-              </Card>
             </div>
           </div>
         </div>
