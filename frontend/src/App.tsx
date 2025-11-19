@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import Analytics from "./components/Analytics";
 import { SchemaOrganization } from "./components/SchemaOrg";
 import { Spinner } from "@/components/ui/spinner";
+import CookieConsentBanner from "./components/CookieConsentBanner";
 
 // Lazy loading de todas as páginas para code splitting
 const Home = lazy(() => import("./pages/Home"));
@@ -82,6 +83,7 @@ const App = () => (
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          <CookieConsentBanner />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>

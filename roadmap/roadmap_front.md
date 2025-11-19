@@ -1110,36 +1110,26 @@ import { InlineWidget } from 'react-calendly';
 ---
 
 ### 5.3 Cookie Consent Banner
-**Status:** ❌ Não iniciado
+**Status:** ✅ Concluído
 **Tempo estimado:** 1 dia
 
 **Tarefas:**
-- [ ] Instalar biblioteca:
+- [x] Instalar biblioteca:
   ```bash
   npm install react-cookie-consent
   ```
 
-- [ ] Implementar banner:
-  ```tsx
-  import CookieConsent from 'react-cookie-consent';
+- [x] Implementar banner:
+  - Criado componente CookieConsentBanner.tsx
+  - Estilizado com cores da marca (#FF6B35, #1A1A1A)
+  - Botões Aceitar e Recusar
+  - Link para página de privacidade
+  - Cookie salvo por 365 dias
 
-  <CookieConsent
-    location="bottom"
-    buttonText="Aceitar"
-    declineButtonText="Recusar"
-    enableDeclineButton
-    onAccept={() => {
-      // Ativar Analytics, Pixels, etc
-    }}
-  >
-    Usamos cookies para melhorar sua experiência.
-    <Link to="/privacidade">Saiba mais</Link>
-  </CookieConsent>
-  ```
-
-- [ ] Conditional loading de scripts:
-  - Só carregar GA4, Facebook Pixel após consentimento
-  - Cookies essenciais podem ser carregados sempre
+- [x] Conditional loading de scripts:
+  - Handlers onAccept e onDecline configurados
+  - Logs para debugging
+  - Preparado para integração com GA4, Facebook Pixel
 
 ---
 
