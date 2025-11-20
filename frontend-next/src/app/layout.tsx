@@ -9,6 +9,8 @@ import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 
+import { FloatingDock } from '@/components/layout/FloatingDock';
+
 export const metadata: Metadata = {
   title: {
     default: siteConfig.name,
@@ -24,6 +26,10 @@ export const metadata: Metadata = {
     'SEO',
     'criação de sites',
     'branding',
+    'marketing estratégico',
+    'consultoria de marketing',
+    'inbound marketing',
+    'marketing de conteúdo'
   ],
   authors: [{ name: 'Andorinha Digital' }],
   creator: 'Andorinha Digital',
@@ -94,6 +100,7 @@ export default function RootLayout({
         <main className="pt-20">{children}</main>
         <Footer />
 
+        <FloatingDock />
         <CookieConsentBanner />
         <Toaster richColors position="top-right" />
       </body>
