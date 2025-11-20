@@ -353,7 +353,7 @@ export default function ProcessoPage() {
                 className="bg-white p-6 rounded-xl shadow-sm border border-border"
               >
                 <p className="text-muted-foreground mb-4 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <div>
                   <p className="font-semibold text-foreground">

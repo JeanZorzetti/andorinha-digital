@@ -64,7 +64,7 @@ const ContactPageContent = () => {
             });
 
             console.log("Form submitted:", formData);
-        } catch (error) {
+        } catch {
             toast.error("Erro ao enviar", {
                 description: "Tente novamente ou entre em contato por telefone.",
             });

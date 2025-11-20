@@ -3,12 +3,13 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, TrendingUp, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { getCaseStudy, getAllCaseStudies } from "@/lib/cases-data";
 
 interface CaseDetailPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -21,7 +22,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: CaseDetailPageProps): Promise<Metadata> {
-    const caseData = getCaseStudy(params.slug);
+    const { slug } = await params;
+    const caseData = getCaseStudy(slug);
 
     if (!caseData) {
         return {
@@ -50,8 +52,9 @@ export async function generateMetadata({
     };
 }
 
-export default function CaseDetailPage({ params }: CaseDetailPageProps) {
-    const caseData = getCaseStudy(params.slug);
+export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
+    const { slug } = await params;
+    const caseData = getCaseStudy(slug);
 
     if (!caseData) {
         notFound();
@@ -85,11 +88,14 @@ export default function CaseDetailPage({ params }: CaseDetailPageProps) {
             {/* Image */}
             <section className="pb-12">
                 <div className="container mx-auto px-4">
-                    <img
-                        src={caseData.image}
-                        alt={caseData.title}
-                        className="w-full h-[400px] object-cover rounded-2xl"
-                    />
+                    <div className="relative w-full h-[400px] rounded-2xl overflow-hidden">
+                        <Image
+                            src={caseData.image}
+                            alt={caseData.title}
+                            fill
+                            className="object-cover"
+                        />
+                    </div>
                 </div>
             </section>
 
@@ -167,7 +173,7 @@ export default function CaseDetailPage({ params }: CaseDetailPageProps) {
                     <div className="container mx-auto px-4">
                         <div className="max-w-3xl bg-muted/30 p-8 rounded-2xl">
                             <p className="text-xl text-foreground italic mb-6">
-                                "{caseData.testimonial.quote}"
+                                &quot;{caseData.testimonial.quote}&quot;
                             </p>
                             <div>
                                 <p className="font-semibold text-foreground">

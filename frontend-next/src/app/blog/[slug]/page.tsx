@@ -3,13 +3,14 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, Calendar, User, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { SchemaArticle } from "@/components/SchemaOrg";
 import { getBlogPost, getAllBlogPosts } from "@/lib/blog-data";
 
 interface BlogPostPageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -22,7 +23,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: BlogPostPageProps): Promise<Metadata> {
-    const post = getBlogPost(params.slug);
+    const { slug } = await params;
+    const post = getBlogPost(slug);
 
     if (!post) {
         return {
@@ -53,8 +55,9 @@ export async function generateMetadata({
     };
 }
 
-export default function BlogPostPage({ params }: BlogPostPageProps) {
-    const post = getBlogPost(params.slug);
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
+    const { slug } = await params;
+    const post = getBlogPost(slug);
 
     if (!post) {
         notFound();
@@ -113,11 +116,12 @@ export default function BlogPostPage({ params }: BlogPostPageProps) {
                 {/* Featured Image */}
                 <section className="pb-8">
                     <div className="container mx-auto px-4">
-                        <div className="max-w-4xl mx-auto">
-                            <img
+                        <div className="max-w-4xl mx-auto relative h-[300px] md:h-[400px] w-full rounded-2xl overflow-hidden">
+                            <Image
                                 src={post.image}
                                 alt={post.title}
-                                className="w-full h-[300px] md:h-[400px] object-cover rounded-2xl"
+                                fill
+                                className="object-cover"
                             />
                         </div>
                     </div>

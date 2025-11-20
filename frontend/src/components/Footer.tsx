@@ -15,7 +15,7 @@ const Footer = () => {
               <img
                 src="/images/logo/logo-principal-branco.svg"
                 alt="Andorinha Marketing"
-                className="h-16 w-auto"
+                className="h-24 w-auto"
               />
             </Link>
             

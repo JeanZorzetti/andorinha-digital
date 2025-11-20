@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Search, Clock, ArrowRight } from "lucide-react";
@@ -71,8 +72,8 @@ export function BlogList({ posts }: BlogListProps) {
                                 key={category}
                                 onClick={() => setActiveFilter(category)}
                                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === category
-                                        ? "bg-primary text-white"
-                                        : "bg-muted text-muted-foreground hover:bg-muted"
+                                    ? "bg-primary text-white"
+                                    : "bg-muted text-muted-foreground hover:bg-muted"
                                     }`}
                             >
                                 {category}
@@ -93,10 +94,11 @@ export function BlogList({ posts }: BlogListProps) {
                             >
                                 {/* Image */}
                                 <div className="relative h-48 overflow-hidden">
-                                    <img
+                                    <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
                                     />
                                     <div className="absolute top-4 left-4">
                                         <span className="px-3 py-1 bg-white/90 backdrop-blur-sm rounded-full text-xs font-medium text-foreground">

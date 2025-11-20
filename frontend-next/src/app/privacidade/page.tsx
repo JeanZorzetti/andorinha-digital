@@ -37,7 +37,7 @@ export default function PrivacidadePage() {
                 1. Introdução
               </h2>
               <p className="text-muted-foreground mb-4">
-                A Andorinha Marketing ("nós", "nosso" ou "empresa") está
+                A Andorinha Marketing (&quot;nós&quot;, &quot;nosso&quot; ou &quot;empresa&quot;) está
                 comprometida em proteger a privacidade dos visitantes do nosso
                 site e clientes. Esta Política de Privacidade explica como
                 coletamos, usamos, armazenamos e protegemos suas informações

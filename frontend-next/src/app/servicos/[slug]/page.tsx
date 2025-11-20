@@ -10,9 +10,9 @@ import ServiceCTA from "@/components/servicos/ServiceCTA";
 import { getServiceData, getAllServices } from "@/lib/services-data";
 
 interface ServicePageProps {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
 export async function generateStaticParams() {
@@ -25,7 +25,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
     params,
 }: ServicePageProps): Promise<Metadata> {
-    const service = getServiceData(params.slug);
+    const { slug } = await params;
+    const service = getServiceData(slug);
 
     if (!service) {
         return {
@@ -53,8 +54,9 @@ export async function generateMetadata({
     };
 }
 
-export default function ServicePage({ params }: ServicePageProps) {
-    const service = getServiceData(params.slug);
+export default async function ServicePage({ params }: ServicePageProps) {
+    const { slug } = await params;
+    const service = getServiceData(slug);
 
     if (!service) {
         notFound();

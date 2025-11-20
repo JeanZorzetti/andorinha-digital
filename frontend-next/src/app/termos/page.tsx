@@ -36,14 +36,14 @@ export default function TermosPage() {
                 1. Aceitação dos Termos
               </h2>
               <p className="text-muted-foreground mb-4">
-                Ao acessar e usar o site da Andorinha Marketing ("Site"), você
+                Ao acessar e usar o site da Andorinha Marketing (&quot;Site&quot;), você
                 concorda em cumprir e estar vinculado a estes Termos de Uso. Se
                 você não concordar com qualquer parte destes termos, não deve
                 usar nosso Site.
               </p>
               <p className="text-muted-foreground">
-                Estes termos constituem um acordo legal entre você ("Usuário") e
-                a Andorinha Marketing ("nós", "nosso" ou "Empresa").
+                Estes termos constituem um acordo legal entre você (&quot;Usuário&quot;) e
+                a Andorinha Marketing (&quot;nós&quot;, &quot;nosso&quot; ou &quot;Empresa&quot;).
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export default function TermosPage() {
                 5. Limitação de Responsabilidade
               </h2>
               <p className="text-muted-foreground mb-4">
-                O Site é fornecido "como está" e "conforme disponível". Não
+                O Site é fornecido &quot;como está&quot; e &quot;conforme disponível&quot;. Não
                 garantimos que:
               </p>
               <ul className="list-disc pl-6 text-muted-foreground mb-4 space-y-2">
