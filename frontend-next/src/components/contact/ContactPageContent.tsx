@@ -12,6 +12,7 @@ import { Mail, Phone, Linkedin, Instagram, CheckCircle2, Calendar } from "lucide
 import { Spinner } from "@/components/ui/spinner";
 import { InlineWidget } from "react-calendly";
 import { toast } from "sonner";
+import confetti from "canvas-confetti";
 
 const ContactPageContent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -44,6 +45,35 @@ const ContactPageContent = () => {
         try {
             // Simula requisição à API (2 segundos)
             await new Promise(resolve => setTimeout(resolve, 2000));
+
+            // Trigger Confetti
+            const end = Date.now() + 3 * 1000; // 3 seconds
+            const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+
+            const frame = () => {
+                if (Date.now() > end) return;
+
+                confetti({
+                    particleCount: 2,
+                    angle: 60,
+                    spread: 55,
+                    startVelocity: 60,
+                    origin: { x: 0, y: 0.5 },
+                    colors: colors,
+                });
+                confetti({
+                    particleCount: 2,
+                    angle: 120,
+                    spread: 55,
+                    startVelocity: 60,
+                    origin: { x: 1, y: 0.5 },
+                    colors: colors,
+                });
+
+                requestAnimationFrame(frame);
+            };
+
+            frame();
 
             toast.success("Mensagem enviada!", {
                 description: "Entraremos em contato em até 24 horas úteis.",

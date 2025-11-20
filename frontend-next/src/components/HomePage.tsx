@@ -20,6 +20,8 @@ import { MagicCard } from "@/components/ui/magic-card";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { OrbitingCircles } from "@/components/ui/orbiting-circles";
 import { Ripple } from "@/components/ui/ripple";
+import { NumberTicker } from "@/components/ui/number-ticker";
+import { Marquee } from "@/components/ui/marquee";
 import { cn } from "@/lib/utils";
 
 const HomePage = () => {
@@ -136,23 +138,45 @@ const HomePage = () => {
             <div className="container mx-auto px-4">
               <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
                 <div>
-                  <div className="text-3xl font-bold font-heading text-primary metric-number">50+</div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number flex items-center justify-center">
+                    <NumberTicker value={50} />+
+                  </div>
                   <div className="text-sm text-muted-foreground">Projetos Entregues</div>
                 </div>
                 <div className="hidden md:block w-px h-12 bg-border"></div>
                 <div>
-                  <div className="text-3xl font-bold font-heading text-primary metric-number">98%</div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number flex items-center justify-center">
+                    <NumberTicker value={98} />%
+                  </div>
                   <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
                 </div>
                 <div className="hidden md:block w-px h-12 bg-border"></div>
                 <div>
-                  <div className="text-3xl font-bold font-heading text-primary metric-number">15 anos</div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number flex items-center justify-center">
+                    <NumberTicker value={15} /> anos
+                  </div>
                   <div className="text-sm text-muted-foreground">De Experiência</div>
                 </div>
               </div>
             </div>
           </section>
         </BlurFade>
+
+        {/* Client Logos Marquee */}
+        <section className="py-10 bg-background overflow-hidden border-b border-border/50">
+          <div className="container mx-auto px-4 mb-6 text-center">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
+              Empresas que confiam na Andorinha
+            </p>
+          </div>
+          <Marquee pauseOnHover className="[--duration:40s]">
+            {["TechFlow", "Nexus", "Vanguard", "Elevate", "Horizon", "Pinnacle", "Summit", "Apex", "Zenith", "Meridian"].map((logo, idx) => (
+              <div key={idx} className="mx-8 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity">
+                <span className="text-xl font-bold font-heading text-foreground">{logo}</span>
+              </div>
+            ))}
+          </Marquee>
+        </section>
 
         {/* Diferenciais */}
         <BlurFade delay={0.3} inView>
