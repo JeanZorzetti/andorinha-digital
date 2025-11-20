@@ -16,6 +16,10 @@ import { Particles } from "@/components/ui/particles";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { ShimmerButton } from "@/components/ui/shimmer-button";
 import { BlurFade } from "@/components/ui/blur-fade";
+import { MagicCard } from "@/components/ui/magic-card";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { OrbitingCircles } from "@/components/ui/orbiting-circles";
+import { Ripple } from "@/components/ui/ripple";
 import { cn } from "@/lib/utils";
 
 const HomePage = () => {
@@ -222,16 +226,19 @@ const HomePage = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Branding */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Palette className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Branding & Identidade Visual</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Branding & Identidade Visual</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Logo, paleta de cores, tipografia e manual completo de marca
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 6.000</span>
@@ -241,26 +248,29 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">21-30 dias</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ Inclui 3 rodadas de revisão
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/servicos/branding">Saiba Mais →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
 
               {/* Sites */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Monitor className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Sites & Landing Pages</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Sites & Landing Pages</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Sites institucionais, landing pages e páginas de conversão estratégicas
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 3.500</span>
@@ -270,26 +280,29 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">15-30 dias</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ SEO básico incluído
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/servicos/sites">Saiba Mais →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
 
               {/* Vídeo */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Video className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Vídeo Institucional</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Vídeo Institucional</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Vídeos profissionais para apresentar sua empresa, produto ou serviço
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 8.000</span>
@@ -299,26 +312,29 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">30-45 dias</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ Roteiro + produção + edição
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/servicos/video">Saiba Mais →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
 
               {/* Rebranding */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <RefreshCw className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Rebranding Completo</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Rebranding Completo</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Renovação completa da identidade visual e posicionamento de marca
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 15.000</span>
@@ -328,26 +344,29 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">45-60 dias</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ Pesquisa + estratégia incluída
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/servicos/rebranding">Saiba Mais →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
 
               {/* Design Gráfico */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Layers className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Design Gráfico</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Design Gráfico</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Materiais impressos, digitais, papelaria e peças de comunicação
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 250</span>
@@ -357,26 +376,29 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">5-15 dias</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ Peças avulsas ou pacotes
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/servicos/design-grafico">Saiba Mais →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
 
               {/* Fotografia Corporativa */}
-              <Card className="group overflow-hidden hover-lift border-2 hover:border-primary transition-all">
-                <div className="p-8">
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
                   <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
                     <Camera className="w-7 h-7 text-primary" />
                   </div>
-                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3">Fotografia Corporativa</h3>
-                  <p className="text-muted-foreground mb-4">
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Fotografia Corporativa</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
                     Sessões fotográficas para produtos, equipe, espaços e eventos
                   </p>
-                  <div className="space-y-2 mb-6">
+                  <div className="space-y-2 mb-6 mt-auto">
                     <div className="flex items-center justify-between text-sm">
                       <span className="text-muted-foreground">Investimento:</span>
                       <span className="font-semibold text-foreground">A partir de R$ 1.500</span>
@@ -386,14 +408,14 @@ const HomePage = () => {
                       <span className="font-semibold text-foreground">Agendamento flexível</span>
                     </div>
                   </div>
-                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4">
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
                     ✓ Edição e retoque incluído
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/contato?servico=fotografia">Agendar Sessão →</Link>
                   </Button>
                 </div>
-              </Card>
+              </MagicCard>
             </div>
           </div>
         </section>
@@ -658,8 +680,9 @@ const HomePage = () => {
               </Card>
 
               {/* Voo Alto - Destaque */}
-              <Card className="p-8 hover-lift border-4 border-primary relative shadow-lg">
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-full">
+              <Card className="p-8 hover-lift border-4 border-primary relative shadow-lg overflow-hidden">
+                <BorderBeam size={250} duration={12} delay={9} />
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground text-sm font-semibold px-4 py-2 rounded-full z-10">
                   ⭐ Mais Popular
                 </div>
                 <div className="inline-block bg-primary/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 mt-4">
@@ -740,8 +763,9 @@ const HomePage = () => {
         </section>
 
         {/* Garantias */}
-        <section className="py-20 px-4 bg-accent-blue-light/10">
-          <div className="container mx-auto">
+        <section className="relative py-20 px-4 bg-accent-blue-light/10 overflow-hidden">
+          <Ripple className="absolute inset-0 opacity-30" />
+          <div className="container mx-auto relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
                 Nossos Compromissos com Você
@@ -766,6 +790,80 @@ const HomePage = () => {
                   </div>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Tech Stack - Orbiting Circles */}
+        <section className="py-20 px-4 bg-background overflow-hidden">
+          <div className="container mx-auto">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+              <div className="w-full md:w-1/2">
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-6">
+                  Tecnologia de Ponta para Resultados Reais
+                </h2>
+                <p className="text-xl text-muted-foreground mb-8">
+                  Utilizamos as ferramentas mais modernas do mercado para garantir performance, segurança e escalabilidade para o seu projeto.
+                </p>
+                <ul className="space-y-4">
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary" />
+                    <span className="text-lg">Sites ultra-rápidos com Next.js</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary" />
+                    <span className="text-lg">Design responsivo e acessível</span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <CheckCircle2 className="w-6 h-6 text-primary" />
+                    <span className="text-lg">Otimização para SEO nativa</span>
+                  </li>
+                </ul>
+              </div>
+              <div className="w-full md:w-1/2 flex justify-center relative h-[500px]">
+                <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background">
+                  <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-black">
+                    Tech
+                  </span>
+
+                  {/* Inner Circles */}
+                  <OrbitingCircles
+                    className="size-[30px] border-none bg-transparent"
+                    duration={20}
+                    delay={20}
+                    radius={80}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-blue-500"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                  </OrbitingCircles>
+                  <OrbitingCircles
+                    className="size-[30px] border-none bg-transparent"
+                    duration={20}
+                    delay={10}
+                    radius={80}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-cyan-500"><circle cx="12" cy="12" r="10" /><path d="M12 16v-4" /><path d="M12 8h.01" /></svg>
+                  </OrbitingCircles>
+
+                  {/* Outer Circles (reverse) */}
+                  <OrbitingCircles
+                    className="size-[50px] border-none bg-transparent"
+                    radius={190}
+                    duration={20}
+                    reverse
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-orange-500"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
+                  </OrbitingCircles>
+                  <OrbitingCircles
+                    className="size-[50px] border-none bg-transparent"
+                    radius={190}
+                    duration={20}
+                    delay={20}
+                    reverse
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-yellow-500"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" /><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" /></svg>
+                  </OrbitingCircles>
+                </div>
+              </div>
             </div>
           </div>
         </section>
