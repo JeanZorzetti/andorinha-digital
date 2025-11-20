@@ -12,6 +12,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Spinner } from "@/components/ui/spinner";
 import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket, ArrowRight, Quote } from "lucide-react";
 import { toast } from "sonner";
+import { Particles } from "@/components/ui/particles";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { ShimmerButton } from "@/components/ui/shimmer-button";
+import { BlurFade } from "@/components/ui/blur-fade";
+import { cn } from "@/lib/utils";
 
 const HomePage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -65,21 +70,41 @@ const HomePage = () => {
       {/* Hero Section */}
       <main id="main-content">
         <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
+          <Particles
+            className="absolute inset-0"
+            quantity={100}
+            ease={80}
+            color="#ffffff"
+            refresh
+          />
           <div className="container mx-auto relative z-10">
             <div className="max-w-4xl mx-auto text-center">
+              <div className="flex justify-center mb-6">
+                <AnimatedGradientText>
+                  <span className={cn(
+                    "inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent",
+                  )}>
+                    Marketing Estratégico para PMEs
+                  </span>
+                </AnimatedGradientText>
+              </div>
               <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-heading text-white mb-6 animate-fade-in slogan-hero tracking-wide">
                 Voe Certo. Voe Alto com Marketing
                 <br />
-                <span className="mt-2 block">Estratégico</span>
+                <span className="mt-2 block text-primary-foreground">Estratégico</span>
               </h1>
               <p className="text-xl md:text-2xl text-white/90 mb-8 animate-slide-up">
                 Transformamos seu marketing em resultados reais. Estratégia + Execução + Transparência para PMEs que pensam grande.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-                <Button asChild size="lg" className="hover-glow">
-                  <Link href="/contato">Agende Diagnóstico Gratuito</Link>
-                </Button>
-                <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/10 hover:text-white">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up items-center">
+                <Link href="/contato">
+                  <ShimmerButton className="shadow-2xl">
+                    <span className="whitespace-pre-wrap text-center text-sm font-medium leading-none tracking-tight text-white dark:from-white dark:to-slate-900/10 lg:text-lg">
+                      Agende Diagnóstico Gratuito
+                    </span>
+                  </ShimmerButton>
+                </Link>
+                <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/10 hover:text-white h-12 px-8">
                   <Link href="/precos">Ver Pacotes e Preços</Link>
                 </Button>
               </div>
@@ -102,82 +127,86 @@ const HomePage = () => {
         </section>
 
         {/* Trust Bar */}
-        <section className="py-8 bg-card border-b border-border">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold font-heading text-primary metric-number">50+</div>
-                <div className="text-sm text-muted-foreground">Projetos Entregues</div>
-              </div>
-              <div className="hidden md:block w-px h-12 bg-border"></div>
-              <div>
-                <div className="text-3xl font-bold font-heading text-primary metric-number">98%</div>
-                <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
-              </div>
-              <div className="hidden md:block w-px h-12 bg-border"></div>
-              <div>
-                <div className="text-3xl font-bold font-heading text-primary metric-number">15 anos</div>
-                <div className="text-sm text-muted-foreground">De Experiência</div>
+        <BlurFade delay={0.2} inView>
+          <section className="py-8 bg-card border-b border-border">
+            <div className="container mx-auto px-4">
+              <div className="flex flex-col md:flex-row justify-center items-center gap-8 text-center">
+                <div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number">50+</div>
+                  <div className="text-sm text-muted-foreground">Projetos Entregues</div>
+                </div>
+                <div className="hidden md:block w-px h-12 bg-border"></div>
+                <div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number">98%</div>
+                  <div className="text-sm text-muted-foreground">Taxa de Satisfação</div>
+                </div>
+                <div className="hidden md:block w-px h-12 bg-border"></div>
+                <div>
+                  <div className="text-3xl font-bold font-heading text-primary metric-number">15 anos</div>
+                  <div className="text-sm text-muted-foreground">De Experiência</div>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </BlurFade>
 
         {/* Diferenciais */}
-        <section className="py-20 px-4 bg-background">
-          <div className="container mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
-                Por Que Escolher a Andorinha?
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Não somos apenas mais uma agência. Somos parceiros estratégicos do seu crescimento.
-              </p>
+        <BlurFade delay={0.3} inView>
+          <section className="py-20 px-4 bg-background">
+            <div className="container mx-auto">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl md:text-5xl font-bold font-heading text-foreground mb-4">
+                  Por Que Escolher a Andorinha?
+                </h2>
+                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                  Não somos apenas mais uma agência. Somos parceiros estratégicos do seu crescimento.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Target className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Estratégia Real</h3>
+                  <p className="text-muted-foreground">
+                    Não fazemos só o design bonito. Pensamos o seu negócio, público e objetivos antes de criar qualquer pixel.
+                  </p>
+                </Card>
+
+                <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Zap className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Velocidade Inteligente</h3>
+                  <p className="text-muted-foreground">
+                    Qualidade de média agência entregue em 15-45 dias. Porque timing é tudo em marketing.
+                  </p>
+                </Card>
+
+                <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <Diamond className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Transparência Total</h3>
+                  <p className="text-muted-foreground">
+                    Preços claros, processo documentado, sem surpresas. Você sabe exatamente o que recebe e quanto custa.
+                  </p>
+                </Card>
+
+                <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+                    <TrendingUp className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Suporte Real</h3>
+                  <p className="text-muted-foreground">
+                    30 dias de suporte pós-entrega incluído. Não entregamos e sumimos, acompanhamos seus resultados.
+                  </p>
+                </Card>
+              </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Target className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Estratégia Real</h3>
-                <p className="text-muted-foreground">
-                  Não fazemos só o design bonito. Pensamos o seu negócio, público e objetivos antes de criar qualquer pixel.
-                </p>
-              </Card>
-
-              <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Zap className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Velocidade Inteligente</h3>
-                <p className="text-muted-foreground">
-                  Qualidade de média agência entregue em 15-45 dias. Porque timing é tudo em marketing.
-                </p>
-              </Card>
-
-              <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <Diamond className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Transparência Total</h3>
-                <p className="text-muted-foreground">
-                  Preços claros, processo documentado, sem surpresas. Você sabe exatamente o que recebe e quanto custa.
-                </p>
-              </Card>
-
-              <Card className="p-8 hover-lift border-2 hover:border-primary transition-all">
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
-                  <TrendingUp className="w-7 h-7 text-primary" />
-                </div>
-                <h3 className="text-xl font-semibold font-heading text-foreground mb-3">Suporte Real</h3>
-                <p className="text-muted-foreground">
-                  30 dias de suporte pós-entrega incluído. Não entregamos e sumimos, acompanhamos seus resultados.
-                </p>
-              </Card>
-            </div>
-          </div>
-        </section>
+          </section>
+        </BlurFade>
 
         {/* Serviços */}
         <section className="py-20 px-4 bg-gradient-to-b from-background to-muted">
