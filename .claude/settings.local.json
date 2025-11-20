@@ -11,9 +11,35 @@
       "Bash(git commit:*)",
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(find:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(findstr:*)",
+      "Bash(copy:*)",
+      "Bash(npm run build:*)",
+      "Bash(cd:*)",
+      "Bash(node scripts/generate-pwa-icons.js:*)",
+      "Bash(run_server.bat)",
+      "Bash(cmd /c \"C:\\Users\\jeanz\\Downloads\\andorinha-digital-main\\mcp-servidor-go\\run_server.bat\")",
+      "Bash(mcp-servidor-go.exe)",
+      "Bash(.mcp-servidor-go.exe)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx create-next-app@latest frontend-next --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --turbopack --no-experimental-app)",
+      "Bash(xcopy:*)",
+      "Bash(robocopy:*)"
     ],
     "deny": [],
     "ask": []
-  }
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "servidor-go",
+    "memory-go",
+    "puppeteer-go",
+    "automation-go",
+    "agent-go",
+    "booster-go",
+    "deriv-go",
+    "figma-go"
+  ]
 }

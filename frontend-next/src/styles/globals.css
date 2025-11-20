@@ -1,0 +1,483 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   ANDORINHA MARKETING - DESIGN SYSTEM
+   Baseado no Manual da Marca Oficial
+   ======================================== */
+
+/* Fonte Tallica - Display font para destaques
+   Copie o arquivo Tallica-Variable.ttf para /public/fonts/
+*/
+@font-face {
+  font-family: 'Tallica';
+  src: url('/fonts/Tallica-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+/* Fonte Onest - Headings */
+@font-face {
+  font-family: 'Onest';
+  src: url('/fonts/Onest-Variable.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* ======================================
+       PALETA DE CORES OFICIAL
+       Conforme Manual da Marca Andorinha
+       ====================================== */
+
+    /* Cores Principais */
+    --azul-marinho: 227 100% 9%;
+    /* #00072D - Cor principal */
+    --azul-escuro: 227 89% 24%;
+    /* #092473 - Gradientes */
+    --azul-medio: 210 48% 43%;
+    /* #3870A4 - Hover states */
+    --azul-claro: 197 88% 74%;
+    /* #84D2F6 - Destaques */
+    --laranja: 18 100% 60%;
+    /* #FF6B35 - CTAs, acentos */
+    --pessego: 30 80% 80%;
+    /* #F7C59F - Backgrounds suaves */
+
+    /* Cores Neutras */
+    --cinza-escuro: 210 11% 15%;
+    /* #212529 - Textos principais */
+    --cinza-medio: 208 10% 40%;
+    /* #5A6570 - Textos secundários (WCAG AA) */
+    --cinza-claro: 210 16% 93%;
+    /* #E9ECEF - Borders */
+    --off-white: 240 20% 98%;
+    /* #FAFAFB - Backgrounds */
+
+    /* Mapeamento para Sistema de Design */
+    --primary: 18 100% 60%;
+    /* Laranja #FF6B35 */
+    --primary-foreground: 0 0% 100%;
+    /* Branco para contraste */
+
+    --primary-dark: 227 100% 9%;
+    /* Azul Marinho #00072D */
+    --primary-blue: 227 89% 24%;
+    /* Azul Escuro #092473 */
+    --accent-blue: 210 48% 43%;
+    /* Azul Médio #3870A4 */
+    --accent-blue-light: 197 88% 74%;
+    /* Azul Claro #84D2F6 */
+    --accent-peach: 30 80% 80%;
+    /* Pêssego #F7C59F */
+
+    /* Semantic Colors */
+    --background: 240 20% 98%;
+    /* Off-White #FAFAFB */
+    --foreground: 210 11% 15%;
+    /* Cinza Escuro #212529 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --secondary: 197 88% 74%;
+    /* Azul Claro */
+    --secondary-foreground: 227 100% 9%;
+
+    --muted: 210 16% 93%;
+    /* Cinza Claro */
+    --muted-foreground: 208 10% 40%;
+    /* Cinza Médio - Contraste 5.7:1 (WCAG AA) */
+
+    --accent: 18 100% 60%;
+    /* Laranja */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 16% 93%;
+    /* Cinza Claro */
+    --input: 210 16% 93%;
+    --ring: 18 100% 60%;
+    /* Laranja */
+
+    --radius: 0.5rem;
+
+    /* Gradientes Oficiais */
+    --gradient-hero: linear-gradient(135deg, hsl(227 100% 9%), hsl(227 89% 24%), hsl(210 48% 43%));
+    --gradient-cta: linear-gradient(135deg, hsl(18 100% 60%), hsl(18 100% 50%));
+    --gradient-suave: linear-gradient(135deg, hsl(197 88% 74%), hsl(30 80% 80%));
+
+    /* Shadows */
+    --shadow-sm: 0 1px 3px rgba(0, 7, 45, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 7, 45, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 7, 45, 0.15);
+    --shadow-glow: 0 0 40px rgba(255, 107, 53, 0.3);
+
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 6rem;
+  }
+
+  .dark {
+    --background: 227 100% 9%;
+    /* Azul Marinho */
+    --foreground: 240 20% 98%;
+    /* Off-White */
+
+    --card: 227 89% 24%;
+    /* Azul Escuro */
+    --card-foreground: 240 20% 98%;
+
+    --popover: 227 89% 24%;
+    --popover-foreground: 240 20% 98%;
+
+    --primary: 18 100% 60%;
+    /* Laranja */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 48% 43%;
+    /* Azul Médio */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 227 89% 20%;
+    --muted-foreground: 208 7% 70%;
+
+    --accent: 18 100% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 227 89% 20%;
+    --input: 227 89% 20%;
+    --ring: 18 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* ======================================
+     ACESSIBILIDADE - Focus Visible
+     ====================================== */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+
+  /* Remove outline padrão quando não é focus-visible */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Skip Link - Pular para conteúdo principal */
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    padding: 0.75rem 1.5rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+    font-weight: 600;
+    z-index: 9999;
+    transition: top 0.3s ease;
+  }
+
+  .skip-link:focus {
+    top: 0;
+    outline: 2px solid hsl(var(--primary-foreground));
+    outline-offset: 2px;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw, 4.5rem);
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  h3 {
+    font-weight: 600;
+    font-size: clamp(1.375rem, 3vw, 2rem);
+  }
+
+  h4 {
+    font-weight: 500;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+  }
+
+  p {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+  }
+
+  small,
+  .text-sm {
+    font-size: 0.875rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent-blue;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300;
+  }
+
+  .hover-glow:hover {
+    box-shadow: 0 0 40px rgba(255, 107, 53, 0.3);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Patterns do Manual da Marca */
+  .pattern-andorinha-01 {
+    position: relative;
+  }
+
+  .pattern-andorinha-01::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pattern-andorinha-02 {
+    position: relative;
+  }
+
+  .pattern-andorinha-02::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pattern-andorinha-03 {
+    position: relative;
+  }
+
+  .pattern-andorinha-03::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .pattern-andorinha-04 {
+    position: relative;
+  }
+
+  .pattern-andorinha-04::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Classe genérica (usa pattern-01) */
+  .pattern-andorinha {
+    position: relative;
+  }
+
+  .pattern-andorinha::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/patterns/pattern-02.svg');
+    background-repeat: repeat;
+    background-size: 500px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Backgrounds decorativos */
+  .bg-decorativo {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-decorativo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -10%;
+    width: 50%;
+    height: 100%;
+    background-image: url('/images/backgrounds/bg-01.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Utilitário para fonte Tallica */
+  .font-tallica {
+    font-family: 'Tallica', 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* Aplicações específicas da fonte Tallica */
+  .slogan-hero {
+    font-family: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+  }
+
+  .metric-number {
+    font-family: 'Tallica', 'Onest', sans-serif;
+    font-weight: 700;
+  }
+
+  .testimonial-quote {
+    font-family: 'Tallica', 'Onest', sans-serif;
+    font-style: italic;
+  }
+
+  /* Font Utilities */
+  .font-heading {
+    font-family: 'Onest', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/50 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/70;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/20 text-foreground;
+}
