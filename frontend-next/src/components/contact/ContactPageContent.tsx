@@ -13,6 +13,7 @@ import { Spinner } from "@/components/ui/spinner";
 import { InlineWidget } from "react-calendly";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
+import { trackEvent } from "@/lib/analytics";
 
 const ContactPageContent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -115,6 +116,13 @@ const ContactPageContent = () => {
             });
 
             console.log("Form submitted:", formData);
+
+            trackEvent({
+                action: 'submit',
+                category: 'form',
+                label: 'contact_form_success',
+                value: 1
+            });
         } catch {
             toast.error("Erro ao enviar", {
                 description: "Tente novamente ou entre em contato por telefone.",

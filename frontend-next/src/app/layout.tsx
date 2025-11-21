@@ -6,10 +6,9 @@ import { siteConfig } from '@/lib/constants';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
+import MicrosoftClarity from '@/components/analytics/MicrosoftClarity';
 
-
-import { FloatingDock } from '@/components/layout/FloatingDock';
 
 export const metadata: Metadata = {
   title: {
@@ -94,13 +93,14 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
         <Suspense fallback={null}>
-          <GoogleAnalytics />
+          <GoogleAnalytics GA_MEASUREMENT_ID="G-LY3366ZNM5" />
+          <MicrosoftClarity projectId="u9npi8wx80" />
         </Suspense>
         <Header />
         <main className="pt-20">{children}</main>
         <Footer />
 
-        <FloatingDock />
+
         <CookieConsentBanner />
         <Toaster richColors position="top-right" />
       </body>

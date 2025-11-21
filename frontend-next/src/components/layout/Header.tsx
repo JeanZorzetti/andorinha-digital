@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { trackEvent } from '@/lib/analytics';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -113,7 +114,16 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold">
-              <Link href="/contato">Diagnóstico Gratuito</Link>
+              <Link
+                href="/contato"
+                onClick={() => trackEvent({
+                  action: 'click',
+                  category: 'cta',
+                  label: 'header_diagnostico_gratuito'
+                })}
+              >
+                Diagnóstico Gratuito
+              </Link>
             </Button>
           </div>
 

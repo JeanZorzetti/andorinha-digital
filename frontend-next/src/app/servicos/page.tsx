@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MagicCard } from "@/components/ui/magic-card";
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Palette, Globe, Video, RefreshCw, Image as ImageIcon, Camera } from "lucide-react";
 
@@ -79,7 +80,14 @@ export default function ServicesPage() {
                                     <p className="text-muted-foreground leading-relaxed">
                                         {service.description}
                                     </p>
-                                    <div className="mt-auto pt-4 flex items-center text-primary font-semibold group-hover:gap-2 transition-all">
+                                    <div
+                                        className="mt-auto pt-4 flex items-center text-primary font-semibold group-hover:gap-2 transition-all"
+                                        onClick={() => trackEvent({
+                                            action: 'click',
+                                            category: 'service_card',
+                                            label: service.title
+                                        })}
+                                    >
                                         Saiba mais <ArrowRight className="w-4 h-4 ml-1" />
                                     </div>
                                 </MagicCard>
