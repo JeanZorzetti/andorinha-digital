@@ -35,14 +35,15 @@ const Header = () => {
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
-              <button
+              <Link
+                href="/servicos"
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors font-medium"
                 aria-expanded={isServicesOpen}
                 aria-haspopup="true"
               >
                 Serviços
                 <ChevronDown className="w-4 h-4" aria-hidden="true" />
-              </button>
+              </Link>
 
               {isServicesOpen && (
                 <div className="absolute top-full left-0 pt-2 w-64 animate-fade-in">
@@ -88,6 +89,34 @@ const Header = () => {
                     >
                       <div className="font-medium text-foreground">Fotografia Corporativa</div>
                       <div className="text-sm text-muted-foreground">Imagem profissional</div>
+                    </Link>
+                    <Link
+                      href="/servicos/captacao-conteudo"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Captação de Conteúdo</div>
+                      <div className="text-sm text-muted-foreground">10 vídeos em 1 dia</div>
+                    </Link>
+                    <Link
+                      href="/servicos/cobertura-eventos"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Cobertura de Eventos</div>
+                      <div className="text-sm text-muted-foreground">Aftermovie em 24h</div>
+                    </Link>
+                    <Link
+                      href="/servicos/storymaker"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">StoryMaker</div>
+                      <div className="text-sm text-muted-foreground">Stories em tempo real</div>
+                    </Link>
+                    <Link
+                      href="/servicos/video-institucional-express"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Vídeo Express</div>
+                      <div className="text-sm text-muted-foreground">Institucional acessível</div>
                     </Link>
                   </div>
                 </div>
@@ -147,7 +176,7 @@ const Header = () => {
           <div className="lg:hidden py-4 animate-fade-in">
             <nav className="flex flex-col gap-4">
               <div className="border-b border-border pb-4">
-                <div className="font-semibold text-foreground mb-2">Serviços</div>
+                <Link href="/servicos" className="font-semibold text-foreground mb-2 block" onClick={() => setIsMenuOpen(false)}>Serviços</Link>
                 <div className="pl-4 space-y-2">
                   <Link
                     href="/servicos/branding"
@@ -190,6 +219,34 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Fotografia Corporativa
+                  </Link>
+                  <Link
+                    href="/servicos/captacao-conteudo"
+                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Captação de Conteúdo
+                  </Link>
+                  <Link
+                    href="/servicos/cobertura-eventos"
+                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Cobertura de Eventos
+                  </Link>
+                  <Link
+                    href="/servicos/storymaker"
+                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    StoryMaker
+                  </Link>
+                  <Link
+                    href="/servicos/video-institucional-express"
+                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Vídeo Express
                   </Link>
                 </div>
               </div>

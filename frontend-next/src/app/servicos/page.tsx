@@ -4,7 +4,7 @@ import Link from "next/link";
 import { MagicCard } from "@/components/ui/magic-card";
 import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Palette, Globe, Video, RefreshCw, Image as ImageIcon, Camera } from "lucide-react";
+import { ArrowRight, Palette, Globe, Video, RefreshCw, Image as ImageIcon, Camera, Smartphone, Film, Clapperboard } from "lucide-react";
 
 const services = [
     {
@@ -42,6 +42,30 @@ const services = [
         title: "Fotografia Corporativa",
         description: "Ensaios fotográficos profissionais para sua equipe e ambiente de trabalho. Humanize sua marca.",
         href: "/servicos/fotografia",
+    },
+    {
+        icon: Smartphone,
+        title: "Captação de Conteúdo",
+        description: "10 vídeos estratégicos gravados em um único dia para suas redes sociais. Roteiro e edição inclusos.",
+        href: "/servicos/captacao-conteudo",
+    },
+    {
+        icon: Film,
+        title: "Cobertura de Eventos",
+        description: "Cobertura mobile profissional com entrega de aftermovie em 24 horas. Ideal para Reels e TikTok.",
+        href: "/servicos/cobertura-eventos",
+    },
+    {
+        icon: Clapperboard,
+        title: "StoryMaker",
+        description: "Cobertura de Stories em tempo real para você curtir o evento. Postagem imediata e profissional.",
+        href: "/servicos/storymaker",
+    },
+    {
+        icon: Video,
+        title: "Vídeo Institucional Express",
+        description: "Vídeo institucional de até 3 minutos com excelente custo-benefício. Roteiro e edição ágil.",
+        href: "/servicos/video-institucional-express",
     },
 ];
 

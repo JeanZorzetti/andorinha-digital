@@ -1,4 +1,4 @@
-import { LucideIcon, Search, Lightbulb, Palette, FileCheck, Rocket, FileSearch, Layout, Code, TestTube, MessageSquare, Pencil, Send, Users, RefreshCw, FileText, Video, Film, Sparkles } from "lucide-react";
+import { LucideIcon, Search, Lightbulb, Palette, FileCheck, Rocket, FileSearch, Layout, Code, TestTube, MessageSquare, Pencil, Send, Users, RefreshCw, FileText, Video, Film, Sparkles, Clock, CheckCircle2 } from "lucide-react";
 
 export interface ServiceData {
     id: string;
@@ -793,6 +793,371 @@ export const servicesData: Record<string, ServiceData> = {
         cta: {
             title: "Pronto para Contar sua História?",
             subtitle: "Agende um diagnóstico gratuito e descubra como um vídeo pode transformar sua comunicação",
+        },
+    },
+    "captacao-conteudo": {
+        id: "captacao-conteudo",
+        title: "Captação Estratégica de Conteúdo",
+        subtitle: "10 vídeos profissionais em 1 dia",
+        description: "Um pacote pontual para quem precisa de um upgrade rápido, estratégico e acessível nas redes sociais. Em um único dia de gravação você sai com 10 vídeos profissionais.",
+        price: "R$ 1.797,00",
+        duration: "1 dia de gravação",
+        breadcrumb: "Captação de Conteúdo",
+        seo: {
+            title: "Captação de Conteúdo para Redes Sociais | R$ 1.797",
+            description: "10 vídeos estratégicos em 1 dia de gravação. Roteiro, captação com filmmaker e edição inclusos. Ideal para renovar suas redes sociais.",
+            keywords: "captação de conteúdo, vídeos para instagram, filmmaker, produção de conteúdo, reels",
+            image: "https://andorinha.roilabs.com.br/og/og-captacao.png",
+        },
+        schema: {
+            name: "Captação Estratégica de Conteúdo",
+            description: "10 vídeos estratégicos em 1 dia de gravação. Roteiro, captação com filmmaker e edição inclusos.",
+            price: "1797",
+        },
+        includedItems: [
+            "10 vídeos estratégicos para redes sociais",
+            "Roteirização completa",
+            "Sessão de gravação de até 4 horas",
+            "Filmmaker profissional",
+            "Equipamentos (luzes, microfone, iPhone última geração)",
+            "Edição dinâmica (cortes, cor, som)",
+            "1 rodada de alterações gratuita",
+        ],
+        processSteps: [
+            {
+                icon: Users,
+                title: "Onboarding",
+                description: "Reunião de alinhamento de objetivos e tom de voz",
+                duration: "1 hora",
+            },
+            {
+                icon: MessageSquare,
+                title: "Grupo",
+                description: "Criação de grupo para comunicação ágil",
+                duration: "Imediato",
+            },
+            {
+                icon: FileText,
+                title: "Roteirização",
+                description: "Criação e aprovação dos roteiros dos 10 vídeos",
+                duration: "Pré-gravação",
+            },
+            {
+                icon: Video,
+                title: "Gravação",
+                description: "Sessão de até 4 horas com filmmaker",
+                duration: "1 dia",
+            },
+            {
+                icon: Sparkles,
+                title: "Edição",
+                description: "Edição dinâmica otimizada para Reels/TikTok",
+                duration: "Pós-gravação",
+            },
+        ],
+        pricingTiers: [
+            {
+                name: "Pacote Black",
+                price: "R$ 1.797,00",
+                duration: "Pontual",
+                description: "Investimento promocional",
+                badge: "Black Friday",
+                highlighted: true,
+                features: [
+                    "10 vídeos editados",
+                    "4h de gravação",
+                    "Roteiros inclusos",
+                    "Edição profissional",
+                    "Equipamento incluso",
+                    "1 rodada de revisão",
+                ],
+            },
+        ],
+        faqItems: [
+            {
+                question: "Quantos vídeos eu recebo?",
+                answer: "Você recebe 10 vídeos editados e prontos para postar nas redes sociais.",
+            },
+            {
+                question: "Eu preciso escrever os roteiros?",
+                answer: "Não! Nós fazemos a roteirização completa baseada no seu objetivo, mas você aprova tudo antes da gravação.",
+            },
+            {
+                question: "Onde é feita a gravação?",
+                answer: "A gravação é feita no seu local (escritório, loja, consultório) ou em local a combinar.",
+            },
+        ],
+        cta: {
+            title: "Quer renovar suas redes?",
+            subtitle: "Garanta seus 10 vídeos profissionais agora mesmo",
+        },
+    },
+    "cobertura-eventos": {
+        id: "cobertura-eventos",
+        title: "Cobertura Mobile de Eventos",
+        subtitle: "Aftermovie em 24h",
+        description: "Cobertura completa do seu evento com olhar profissional em formato mobile. Entregamos um aftermovie dinâmico em até 24 horas para você aproveitar o buzz.",
+        price: "R$ 1.297,00",
+        duration: "Até 4h30 de evento",
+        breadcrumb: "Cobertura de Eventos",
+        seo: {
+            title: "Cobertura de Eventos Mobile | Aftermovie em 24h | R$ 1.297",
+            description: "Cobertura profissional de eventos com entrega de aftermovie em 24 horas. Ideal para eventos corporativos e sociais.",
+            keywords: "cobertura de eventos, aftermovie, vídeo evento, filmmaker evento, reels evento",
+            image: "https://andorinha.roilabs.com.br/og/og-eventos.png",
+        },
+        schema: {
+            name: "Cobertura Mobile de Eventos",
+            description: "Cobertura completa do seu evento com olhar profissional em formato mobile. Entregamos um aftermovie dinâmico em até 24 horas.",
+            price: "1297",
+        },
+        includedItems: [
+            "Cobertura mobile de até 4h30",
+            "Chegada antecipada (making of/decor)",
+            "Registro de momentos chave e bastidores",
+            "Aftermovie vertical (Reels/TikTok)",
+            "Edição dinâmica",
+            "Entrega em até 24h",
+        ],
+        processSteps: [
+            {
+                icon: MessageSquare,
+                title: "Alinhamento",
+                description: "Definição de objetivos e mood do vídeo",
+                duration: "Pré-evento",
+            },
+            {
+                icon: Clock,
+                title: "Chegada",
+                description: "Chegada antecipada para captar detalhes",
+                duration: "Dia do evento",
+            },
+            {
+                icon: Video,
+                title: "Cobertura",
+                description: "Captação ao vivo por até 4h30",
+                duration: "Durante evento",
+            },
+            {
+                icon: Sparkles,
+                title: "Edição",
+                description: "Seleção e edição expressa dos melhores momentos",
+                duration: "Pós-evento",
+            },
+            {
+                icon: Send,
+                title: "Entrega",
+                description: "Vídeo finalizado em até 24 horas",
+                duration: "24h após",
+            },
+        ],
+        pricingTiers: [
+            {
+                name: "Cobertura Express",
+                price: "R$ 1.297,00",
+                duration: "24h entrega",
+                description: "Registro rápido e profissional",
+                badge: "Agilidade",
+                highlighted: true,
+                features: [
+                    "4h30 de cobertura",
+                    "Aftermovie editado",
+                    "Formato vertical",
+                    "Entrega em 24h",
+                    "Captação iPhone Pro",
+                ],
+            },
+        ],
+        faqItems: [
+            {
+                question: "Qual o formato do vídeo entregue?",
+                answer: "Entregamos em formato vertical (9:16), ideal para Reels, TikTok e Stories.",
+            },
+            {
+                question: "Vocês entregam as fotos também?",
+                answer: "O foco é vídeo (aftermovie), mas podemos combinar a entrega de alguns takes brutos se alinhado previamente.",
+            },
+        ],
+        cta: {
+            title: "Vai fazer um evento?",
+            subtitle: "Garanta o registro profissional e receba o vídeo no dia seguinte",
+        },
+    },
+    "storymaker": {
+        id: "storymaker",
+        title: "StoryMaker em Tempo Real",
+        subtitle: "Cobertura de Stories ao vivo",
+        description: "Nós cuidamos dos seus Stories enquanto você curte o evento. Gravação, edição e postagem em tempo real para engajar sua audiência.",
+        price: "R$ 1.497,00",
+        duration: "Durante o evento",
+        breadcrumb: "StoryMaker",
+        seo: {
+            title: "StoryMaker | Cobertura de Stories em Tempo Real | R$ 1.497",
+            description: "Cobertura de eventos via Stories em tempo real. Engaje sua audiência enquanto aproveita o evento.",
+            keywords: "storymaker, stories ao vivo, cobertura instagram, social media evento",
+            image: "https://andorinha.roilabs.com.br/og/og-storymaker.png",
+        },
+        schema: {
+            name: "StoryMaker em Tempo Real",
+            description: "Gravação, edição e postagem de Stories em tempo real durante seu evento.",
+            price: "1497",
+        },
+        includedItems: [
+            "Cobertura estratégica em tempo real",
+            "Gravação e edição rápida de Stories",
+            "Publicação imediata no perfil",
+            "Uso de recursos (enquetes, box, etc)",
+            "Foco na narrativa do evento",
+            "Mobile de última geração",
+        ],
+        processSteps: [
+            {
+                icon: MessageSquare,
+                title: "Alinhamento",
+                description: "Definição de perfil, senha e diretrizes",
+                duration: "Pré-evento",
+            },
+            {
+                icon: Video,
+                title: "Cobertura",
+                description: "Registro e postagem ao vivo",
+                duration: "Durante evento",
+            },
+            {
+                icon: Sparkles,
+                title: "Storytelling",
+                description: "Construção de narrativa com início, meio e fim",
+                duration: "Durante evento",
+            },
+            {
+                icon: CheckCircle2,
+                title: "Finalização",
+                description: "Destaques e encerramento da cobertura",
+                duration: "Pós-evento",
+            },
+        ],
+        pricingTiers: [
+            {
+                name: "StoryMaker Live",
+                price: "R$ 1.497,00",
+                duration: "Evento",
+                description: "Cobertura completa em tempo real",
+                badge: "Ao Vivo",
+                highlighted: true,
+                features: [
+                    "Stories ilimitados (com bom senso)",
+                    "Postagem em tempo real",
+                    "Interação com público",
+                    "Narrativa estratégica",
+                    "Você livre do celular",
+                ],
+            },
+        ],
+        faqItems: [
+            {
+                question: "Preciso passar a senha do Instagram?",
+                answer: "Sim, precisamos estar logados no dispositivo de captura para postar em tempo real com agilidade.",
+            },
+            {
+                question: "Vocês respondem directs?",
+                answer: "O foco é a produção de conteúdo. A interação via direct continua com sua equipe ou você, mas podemos combinar exceções.",
+            },
+        ],
+        cta: {
+            title: "Quer aproveitar sua festa?",
+            subtitle: "Deixe os Stories com a gente e curta o momento",
+        },
+    },
+    "video-institucional-express": {
+        id: "video-institucional-express",
+        title: "Vídeo Institucional Express",
+        subtitle: "Apresente sua empresa com profissionalismo",
+        description: "Vídeo institucional de até 3 minutos para apresentar a essência da sua empresa. Ideal para site, apresentações e redes sociais.",
+        price: "R$ 997,00",
+        duration: "Entrega rápida",
+        breadcrumb: "Vídeo Express",
+        seo: {
+            title: "Vídeo Institucional Express | R$ 997 | Andorinha Marketing",
+            description: "Vídeo institucional profissional de até 3 minutos. Roteiro, gravação e edição inclusos. Ótimo custo-benefício.",
+            keywords: "vídeo institucional barato, vídeo empresa, apresentação comercial, vídeo marketing",
+            image: "https://andorinha.roilabs.com.br/og/og-video-express.png",
+        },
+        schema: {
+            name: "Vídeo Institucional Express",
+            description: "Vídeo institucional de até 3 minutos para apresentar a essência da sua empresa.",
+            price: "997",
+        },
+        includedItems: [
+            "Reunião de briefing",
+            "Roteiro base",
+            "Captação com filmmaker profissional",
+            "Gravação na empresa",
+            "Edição completa (até 3 min)",
+            "Trilha sonora",
+            "Inserção de logo e textos",
+        ],
+        processSteps: [
+            {
+                icon: MessageSquare,
+                title: "Briefing",
+                description: "Entendimento do objetivo e mensagem",
+                duration: "Início",
+            },
+            {
+                icon: FileText,
+                title: "Roteiro",
+                description: "Estruturação das cenas e falas",
+                duration: "Pré-gravação",
+            },
+            {
+                icon: Video,
+                title: "Gravação",
+                description: "Captação das imagens e depoimentos",
+                duration: "1 dia",
+            },
+            {
+                icon: Sparkles,
+                title: "Edição",
+                description: "Montagem, cor e finalização",
+                duration: "Pós-gravação",
+            },
+            {
+                icon: Send,
+                title: "Entrega",
+                description: "Vídeo pronto para uso",
+                duration: "Final",
+            },
+        ],
+        pricingTiers: [
+            {
+                name: "Institucional Express",
+                price: "R$ 997,00",
+                duration: "Rápido",
+                description: "Custo-benefício imbatível",
+                badge: "Oferta",
+                highlighted: true,
+                features: [
+                    "Vídeo até 3 min",
+                    "Roteiro incluso",
+                    "Captação profissional",
+                    "Edição completa",
+                    "Trilha sonora",
+                ],
+            },
+        ],
+        faqItems: [
+            {
+                question: "Qual a duração do vídeo?",
+                answer: "O vídeo final terá até 3 minutos de duração.",
+            },
+            {
+                question: "Inclui locução?",
+                answer: "Este pacote foca em imagens e trilha, ou depoimentos gravados no local. Locução profissional off pode ser contratada à parte.",
+            },
+        ],
+        cta: {
+            title: "Precisa de um vídeo institucional?",
+            subtitle: "Comece agora com um investimento acessível",
         },
     },
 };

@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Spinner } from "@/components/ui/spinner";
-import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket, ArrowRight, Quote } from "lucide-react";
+import { Target, Zap, Diamond, TrendingUp, Palette, Monitor, Video, RefreshCw, Layers, Camera, CheckCircle2, Clock, Shield, Award, ClipboardList, Crosshair, Settings, Rocket, ArrowRight, Quote, Smartphone, Film, Clapperboard } from "lucide-react";
 import { toast } from "sonner";
 import { Particles } from "@/components/ui/particles";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
@@ -453,6 +453,134 @@ const HomePage = () => {
                   </div>
                   <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                     <Link href="/contato?servico=fotografia">Agendar Sessão →</Link>
+                  </Button>
+                </div>
+              </MagicCard>
+
+              {/* Captação de Conteúdo */}
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Smartphone className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Captação de Conteúdo</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
+                    10 vídeos estratégicos gravados em um único dia para suas redes sociais
+                  </p>
+                  <div className="space-y-2 mb-6 mt-auto">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Investimento:</span>
+                      <span className="font-semibold text-foreground">R$ 1.797,00</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Prazo:</span>
+                      <span className="font-semibold text-foreground">1 dia de gravação</span>
+                    </div>
+                  </div>
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
+                    ✓ Roteiro + Edição inclusos
+                  </div>
+                  <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Link href="/servicos/captacao-conteudo">Saiba Mais →</Link>
+                  </Button>
+                </div>
+              </MagicCard>
+
+              {/* Cobertura de Eventos */}
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Film className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Cobertura de Eventos</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
+                    Cobertura mobile profissional com entrega de aftermovie em 24 horas
+                  </p>
+                  <div className="space-y-2 mb-6 mt-auto">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Investimento:</span>
+                      <span className="font-semibold text-foreground">R$ 1.297,00</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Prazo:</span>
+                      <span className="font-semibold text-foreground">Entrega em 24h</span>
+                    </div>
+                  </div>
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
+                    ✓ Ideal para Reels/TikTok
+                  </div>
+                  <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Link href="/servicos/cobertura-eventos">Saiba Mais →</Link>
+                  </Button>
+                </div>
+              </MagicCard>
+
+              {/* StoryMaker */}
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Clapperboard className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">StoryMaker</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
+                    Cobertura de Stories em tempo real para você curtir o evento
+                  </p>
+                  <div className="space-y-2 mb-6 mt-auto">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Investimento:</span>
+                      <span className="font-semibold text-foreground">R$ 1.497,00</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Prazo:</span>
+                      <span className="font-semibold text-foreground">Em tempo real</span>
+                    </div>
+                  </div>
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
+                    ✓ Postagem imediata
+                  </div>
+                  <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Link href="/servicos/storymaker">Saiba Mais →</Link>
+                  </Button>
+                </div>
+              </MagicCard>
+
+              {/* Vídeo Express */}
+              <MagicCard
+                className="group cursor-pointer flex-col items-center justify-center shadow-2xl whitespace-nowrap text-4xl"
+                gradientColor={"#D9D9D955"}
+              >
+                <div className="p-8 w-full h-full flex flex-col">
+                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
+                    <Video className="w-7 h-7 text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-semibold font-heading text-foreground mb-3 whitespace-normal">Vídeo Institucional Express</h3>
+                  <p className="text-muted-foreground mb-4 text-base whitespace-normal">
+                    Vídeo institucional de até 3 minutos com excelente custo-benefício
+                  </p>
+                  <div className="space-y-2 mb-6 mt-auto">
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Investimento:</span>
+                      <span className="font-semibold text-foreground">R$ 997,00</span>
+                    </div>
+                    <div className="flex items-center justify-between text-sm">
+                      <span className="text-muted-foreground">Prazo:</span>
+                      <span className="font-semibold text-foreground">Entrega rápida</span>
+                    </div>
+                  </div>
+                  <div className="inline-block bg-accent-peach/20 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-4 w-fit whitespace-normal">
+                    ✓ Roteiro + Edição
+                  </div>
+                  <Button asChild variant="outline" className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                    <Link href="/servicos/video-institucional-express">Saiba Mais →</Link>
                   </Button>
                 </div>
               </MagicCard>
