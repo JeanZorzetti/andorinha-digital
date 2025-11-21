@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -26,6 +26,22 @@ import { cn } from "@/lib/utils";
 
 const HomePage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [particleQuantity, setParticleQuantity] = useState(100);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setParticleQuantity(30);
+      } else {
+        setParticleQuantity(100);
+      }
+    };
+
+    handleResize(); // Set initial value
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const [ctaForm, setCtaForm] = useState({
     name: "",
     email: "",
@@ -78,7 +94,7 @@ const HomePage = () => {
         <section className="relative pt-32 pb-20 px-4 overflow-hidden bg-gradient-to-br from-primary-dark via-primary-blue to-accent-blue pattern-andorinha">
           <Particles
             className="absolute inset-0"
-            quantity={100}
+            quantity={particleQuantity}
             ease={80}
             color="#ffffff"
             refresh

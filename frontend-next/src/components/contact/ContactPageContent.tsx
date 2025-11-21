@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -16,6 +16,27 @@ import confetti from "canvas-confetti";
 
 const ContactPageContent = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [showCalendly, setShowCalendly] = useState(false);
+    const calendlyRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    setShowCalendly(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+
+        if (calendlyRef.current) {
+            observer.observe(calendlyRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -300,19 +321,25 @@ const ContactPageContent = () => {
                                 <p className="text-sm text-muted-foreground mb-6">
                                     Prefere escolher o horário você mesmo? Use nosso calendário abaixo:
                                 </p>
-                                <div className="rounded-lg overflow-hidden border border-border bg-white">
-                                    <InlineWidget
-                                        url="https://calendly.com/roilabs-andorinha/30min"
-                                        styles={{
-                                            height: '600px',
-                                            minWidth: '100%'
-                                        }}
-                                        pageSettings={{
-                                            backgroundColor: 'ffffff',
-                                            primaryColor: 'FF6B35',
-                                            textColor: '1A1A1A'
-                                        }}
-                                    />
+                                <div ref={calendlyRef} className="rounded-lg overflow-hidden border border-border bg-white min-h-[600px]">
+                                    {showCalendly ? (
+                                        <InlineWidget
+                                            url="https://calendly.com/roilabs-andorinha/30min"
+                                            styles={{
+                                                height: '600px',
+                                                minWidth: '100%'
+                                            }}
+                                            pageSettings={{
+                                                backgroundColor: 'ffffff',
+                                                primaryColor: 'FF6B35',
+                                                textColor: '1A1A1A'
+                                            }}
+                                        />
+                                    ) : (
+                                        <div className="h-[600px] flex items-center justify-center bg-muted/10">
+                                            <Spinner size="lg" />
+                                        </div>
+                                    )}
                                 </div>
                             </Card>
                         </div>
