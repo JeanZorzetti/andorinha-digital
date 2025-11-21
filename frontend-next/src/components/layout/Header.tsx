@@ -132,6 +132,9 @@ const Header = () => {
             <Link href="/cases" className="text-foreground hover:text-primary transition-colors font-medium">
               Cases
             </Link>
+            <Link href="/founder" className="text-foreground hover:text-primary transition-colors font-medium">
+              Founder
+            </Link>
             <Link href="/sobre" className="text-foreground hover:text-primary transition-colors font-medium">
               Sobre
             </Link>
@@ -271,6 +274,13 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Cases
+              </Link>
+              <Link
+                href="/founder"
+                className="text-foreground hover:text-primary transition-colors font-medium"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Founder
               </Link>
               <Link
                 href="/sobre"
