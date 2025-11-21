@@ -44,42 +44,51 @@ const Header = () => {
               </button>
 
               {isServicesOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-card rounded-lg shadow-lg border border-border py-2 animate-fade-in">
-                  <Link
-                    href="/servicos/branding"
-                    className="block px-4 py-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className="font-medium text-foreground">Branding</div>
-                    <div className="text-sm text-muted-foreground">Identidade visual completa</div>
-                  </Link>
-                  <Link
-                    href="/servicos/sites"
-                    className="block px-4 py-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className="font-medium text-foreground">Sites & Landing Pages</div>
-                    <div className="text-sm text-muted-foreground">Presença digital profissional</div>
-                  </Link>
-                  <Link
-                    href="/servicos/video"
-                    className="block px-4 py-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className="font-medium text-foreground">Vídeo Institucional</div>
-                    <div className="text-sm text-muted-foreground">Conte sua história</div>
-                  </Link>
-                  <Link
-                    href="/servicos/rebranding"
-                    className="block px-4 py-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className="font-medium text-foreground">Rebranding</div>
-                    <div className="text-sm text-muted-foreground">Renovação completa</div>
-                  </Link>
-                  <Link
-                    href="/servicos/design-grafico"
-                    className="block px-4 py-2 hover:bg-accent/10 transition-colors"
-                  >
-                    <div className="font-medium text-foreground">Design Gráfico</div>
-                    <div className="text-sm text-muted-foreground">Materiais de comunicação</div>
-                  </Link>
+                <div className="absolute top-full left-0 pt-2 w-64 animate-fade-in">
+                  <div className="bg-card rounded-lg shadow-lg border border-border py-2">
+                    <Link
+                      href="/servicos/branding"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Branding</div>
+                      <div className="text-sm text-muted-foreground">Identidade visual completa</div>
+                    </Link>
+                    <Link
+                      href="/servicos/sites"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Sites & Landing Pages</div>
+                      <div className="text-sm text-muted-foreground">Presença digital profissional</div>
+                    </Link>
+                    <Link
+                      href="/servicos/video"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Vídeo Institucional</div>
+                      <div className="text-sm text-muted-foreground">Conte sua história</div>
+                    </Link>
+                    <Link
+                      href="/servicos/rebranding"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Rebranding</div>
+                      <div className="text-sm text-muted-foreground">Renovação completa</div>
+                    </Link>
+                    <Link
+                      href="/servicos/design-grafico"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Design Gráfico</div>
+                      <div className="text-sm text-muted-foreground">Materiais de comunicação</div>
+                    </Link>
+                    <Link
+                      href="/servicos/fotografia"
+                      className="block px-4 py-2 hover:bg-accent/10 transition-colors"
+                    >
+                      <div className="font-medium text-foreground">Fotografia Corporativa</div>
+                      <div className="text-sm text-muted-foreground">Imagem profissional</div>
+                    </Link>
+                  </div>
                 </div>
               )}
             </div>
@@ -164,6 +173,13 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Design Gráfico
+                  </Link>
+                  <Link
+                    href="/servicos/fotografia"
+                    className="block text-muted-foreground hover:text-primary transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Fotografia Corporativa
                   </Link>
                 </div>
               </div>
