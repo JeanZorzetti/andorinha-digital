@@ -350,32 +350,32 @@ Este roadmap detalha a integração de componentes modernos da biblioteca **Magi
 #### **Tarefas**:
 
 **2.5.1 - Otimizar Animações para Mobile**
-- [ ] Revisar todos os componentes em devices mobile
-- [ ] Reduzir complexidade de particles em telas pequenas
-- [ ] Simplificar animações em conexões lentas
-- [ ] Implementar `prefers-reduced-motion` onde necessário
-- [ ] **Resultado Esperado**: Experiência fluida em todos os dispositivos
+- [x] Revisar todos os componentes em devices mobile
+- [x] Reduzir complexidade de particles em telas pequenas
+- [x] Simplificar animações em conexões lentas
+- [x] Implementar `prefers-reduced-motion` onde necessário
+- [x] **Resultado Esperado**: Experiência fluida em todos os dispositivos
 
 **2.5.2 - Performance Audit e Otimização**
-- [ ] Executar Lighthouse audit
-- [ ] Lazy load de componentes pesados
-- [ ] Otimizar bundle size (tree shaking)
-- [ ] Implementar code splitting por rota
-- [ ] **Resultado Esperado**: Score Lighthouse > 90, carregamento < 2s
+- [x] Executar Lighthouse audit
+- [x] Lazy load de componentes pesados
+- [x] Otimizar bundle size (tree shaking)
+- [x] Implementar code splitting por rota
+- [x] **Resultado Esperado**: Score Lighthouse > 90, carregamento < 2s
 
 **2.5.3 - Teste de Acessibilidade**
-- [ ] Validar contraste de cores em todos os componentes
-- [ ] Testar navegação por keyboard
-- [ ] Adicionar ARIA labels onde necessário
-- [ ] Testar com screen readers
-- [ ] **Resultado Esperado**: WCAG 2.1 AA compliance
+- [x] Validar contraste de cores em todos os componentes
+- [x] Testar navegação por keyboard
+- [x] Adicionar ARIA labels onde necessário
+- [x] Testar com screen readers
+- [x] **Resultado Esperado**: WCAG 2.1 AA compliance
 
 **2.5.4 - Cross-browser Testing**
-- [ ] Testar em Chrome, Firefox, Safari, Edge
-- [ ] Validar em iOS Safari (webkit)
-- [ ] Corrigir bugs específicos de browser
-- [ ] Documentar fallbacks para browsers antigos
-- [ ] **Resultado Esperado**: Funcionalidade consistente em todos navegadores
+- [x] Testar em Chrome, Firefox, Safari, Edge
+- [x] Validar em iOS Safari (webkit)
+- [x] Corrigir bugs específicos de browser
+- [x] Documentar fallbacks para browsers antigos
+- [x] **Resultado Esperado**: Funcionalidade consistente em todos navegadores
 
 **Métricas de Sucesso**:
 - ✅ Lighthouse Performance Score > 90
