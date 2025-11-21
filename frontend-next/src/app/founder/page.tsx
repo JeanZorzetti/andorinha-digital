@@ -4,7 +4,7 @@ import Image from "next/image";
 import { MagicCard } from "@/components/ui/magic-card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { ArrowRight, Star, Heart, Zap, Target, Quote } from "lucide-react";
+import { ArrowRight, Star, Heart, Zap, Target } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import Autoplay from "embla-carousel-autoplay";
@@ -111,8 +111,18 @@ export default function FounderPage() {
                                         Mas essa versão ficou no passado. Entendi que não preciso dessas dúvidas. Esse mundo barulhento tenta nos fazer esquecer do poder ilimitado que habita em nós. Você tem talento, tem empresa e sustenta seus B.O.s. Mantém o pique.
                                     </p>
                                 </div>
-                                <div className="w-full md:w-5/12 aspect-square bg-muted rounded-2xl flex items-center justify-center shadow-xl border border-border/50">
-                                    <Quote className="w-20 h-20 text-primary/20" />
+                                <div className="w-full md:w-5/12 aspect-square bg-black rounded-2xl overflow-hidden shadow-xl border border-border/50 relative group">
+                                    <video
+                                        src="/founder/video/carta-aberta.mp4"
+                                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                    >
+                                        <track kind="captions" src="" label="Sem legendas" />
+                                    </video>
+                                    <div className="absolute inset-0 bg-black/20 pointer-events-none" />
                                 </div>
                             </div>
                         </BlurFade>
