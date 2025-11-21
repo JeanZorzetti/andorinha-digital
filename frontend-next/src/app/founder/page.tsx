@@ -7,6 +7,12 @@ import Link from "next/link";
 import { ArrowRight, Star, Heart, Zap, Target, Quote } from "lucide-react";
 import { BlurFade } from "@/components/ui/blur-fade";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import Autoplay from "embla-carousel-autoplay";
+import {
+    Carousel,
+    CarouselContent,
+    CarouselItem,
+} from "@/components/ui/carousel";
 
 export default function FounderPage() {
     return (
@@ -57,10 +63,33 @@ export default function FounderPage() {
                                     </p>
                                 </div>
                                 <div className="w-full md:w-5/12 aspect-[4/5] bg-muted rounded-2xl overflow-hidden shadow-2xl relative group">
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10" />
-                                    <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center text-white/20 text-6xl font-heading">
-                                        F
-                                    </div>
+                                    <Carousel
+                                        plugins={[
+                                            Autoplay({
+                                                delay: 4000,
+                                            }),
+                                        ]}
+                                        className="w-full h-full"
+                                        opts={{
+                                            loop: true,
+                                        }}
+                                    >
+                                        <CarouselContent className="h-full ml-0">
+                                            {Array.from({ length: 9 }).map((_, index) => (
+                                                <CarouselItem key={index} className="pl-0 h-full basis-full">
+                                                    <div className="relative w-full h-full">
+                                                        <Image
+                                                            src={`/founder/carousel/${index + 1}.jpg`}
+                                                            alt={`Foto Faella ${index + 1}`}
+                                                            fill
+                                                            className="object-cover"
+                                                            priority={index === 0}
+                                                        />
+                                                    </div>
+                                                </CarouselItem>
+                                            ))}
+                                        </CarouselContent>
+                                    </Carousel>
                                 </div>
                             </div>
                         </BlurFade>
