@@ -13,8 +13,31 @@ import {
     CarouselContent,
     CarouselItem,
 } from "@/components/ui/carousel";
+import { MediaCarousel } from "@/components/ui/media-carousel";
 
 export default function FounderPage() {
+    const palestraItems = [
+        { src: "/founder/carousel_palestra/1.mp4", type: "video" as const },
+        { src: "/founder/carousel_palestra/2.JPG", type: "image" as const },
+        { src: "/founder/carousel_palestra/3.jpg", type: "image" as const },
+        { src: "/founder/carousel_palestra/4.jpg", type: "image" as const },
+        { src: "/founder/carousel_palestra/5.jpg", type: "image" as const },
+        { src: "/founder/carousel_palestra/6.jpg", type: "image" as const },
+        { src: "/founder/carousel_palestra/7.jpg", type: "image" as const },
+        { src: "/founder/carousel_palestra/8.jpg", type: "image" as const },
+    ];
+
+    const blackboxItems = [
+        { src: "/founder/carousel_blackbox/1.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/2.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/3.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/4.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/5.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/6.jpg", type: "image" as const },
+        { src: "/founder/carousel_blackbox/7.mp4", type: "video" as const },
+        { src: "/founder/carousel_blackbox/8.mp4", type: "video" as const },
+    ];
+
     return (
         <main className="min-h-screen bg-background">
             {/* Hero Section */}
@@ -94,9 +117,38 @@ export default function FounderPage() {
                             </div>
                         </BlurFade>
 
-                        {/* Chapter 2: The Struggle */}
+                        {/* Chapter 1.5: Palestra (NEW) */}
                         <BlurFade delay={0.2} inView>
                             <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+                                <div className="flex-1 space-y-6">
+                                    <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-2">
+                                        Autoridade
+                                    </div>
+                                    <h2 className="text-3xl md:text-4xl font-bold text-foreground font-heading">
+                                        Posicionamento é Estratégia
+                                    </h2>
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                        Postar por postar não é estratégia. 🚫
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                        Cada conteúdo que você publica ensina o algoritmo, e o público, sobre quem você é. Se o que você entrega não tem propósito, o algoritmo vai aprender isso também.
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed font-medium text-foreground">
+                                        🎯 Entenda seu público, fale a linguagem dele e poste com intenção. Isso é posicionamento.
+                                    </p>
+                                    <p className="text-lg text-muted-foreground leading-relaxed">
+                                        ✨ Se você quer postar com propósito e estratégia, estamos aqui pra te guiar nesse caminho.
+                                    </p>
+                                </div>
+                                <div className="w-full md:w-5/12 aspect-[4/5] bg-muted rounded-2xl overflow-hidden shadow-2xl relative group">
+                                    <MediaCarousel items={palestraItems} />
+                                </div>
+                            </div>
+                        </BlurFade>
+
+                        {/* Chapter 2: The Struggle */}
+                        <BlurFade delay={0.2} inView>
+                            <div className="flex flex-col md:flex-row gap-12 items-center">
                                 <div className="flex-1 space-y-6">
                                     <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-2">
                                         A Jornada
@@ -129,7 +181,7 @@ export default function FounderPage() {
 
                         {/* Chapter 3: Growth & Community */}
                         <BlurFade delay={0.2} inView>
-                            <div className="flex flex-col md:flex-row gap-12 items-center">
+                            <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
                                 <div className="flex-1 space-y-6">
                                     <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-2">
                                         A Comunidade
@@ -157,7 +209,7 @@ export default function FounderPage() {
 
                         {/* Chapter 4: The Future */}
                         <BlurFade delay={0.2} inView>
-                            <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+                            <div className="flex flex-col md:flex-row gap-12 items-center">
                                 <div className="flex-1 space-y-6">
                                     <div className="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-sm font-semibold mb-2">
                                         O Futuro
@@ -171,16 +223,19 @@ export default function FounderPage() {
                                     <p className="text-lg text-muted-foreground leading-relaxed">
                                         Estar nesse círculo não é sobre status. É sobre preparar asas para voos maiores. É trazer para dentro da Andorinha a mentalidade e os processos que nos farão voar cada vez mais alto, levando nossos clientes junto. O futuro chegou e a Andorinha vai liderar.
                                     </p>
+                                    <div className="flex flex-col gap-4 mt-6">
+                                        <MagicCard className="p-6 flex items-center justify-center text-center" gradientColor="#D9D9D955">
+                                            <h3 className="text-2xl font-bold text-foreground">Blackbox</h3>
+                                            <p className="text-sm text-muted-foreground">Mastermind de Elite</p>
+                                        </MagicCard>
+                                        <MagicCard className="p-6 flex items-center justify-center text-center" gradientColor="#D9D9D955">
+                                            <h3 className="text-2xl font-bold text-foreground">+100 Milhões</h3>
+                                            <p className="text-sm text-muted-foreground">Contas Impactadas</p>
+                                        </MagicCard>
+                                    </div>
                                 </div>
-                                <div className="w-full md:w-5/12 flex flex-col gap-4">
-                                    <MagicCard className="p-6 flex items-center justify-center text-center" gradientColor="#D9D9D955">
-                                        <h3 className="text-2xl font-bold text-foreground">Blackbox</h3>
-                                        <p className="text-sm text-muted-foreground">Mastermind de Elite</p>
-                                    </MagicCard>
-                                    <MagicCard className="p-6 flex items-center justify-center text-center" gradientColor="#D9D9D955">
-                                        <h3 className="text-2xl font-bold text-foreground">+100 Milhões</h3>
-                                        <p className="text-sm text-muted-foreground">Contas Impactadas</p>
-                                    </MagicCard>
+                                <div className="w-full md:w-5/12 aspect-[4/5] bg-muted rounded-2xl overflow-hidden shadow-2xl relative group">
+                                    <MediaCarousel items={blackboxItems} />
                                 </div>
                             </div>
                         </BlurFade>
