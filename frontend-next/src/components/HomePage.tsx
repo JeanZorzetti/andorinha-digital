@@ -178,21 +178,7 @@ const HomePage = () => {
           </section>
         </BlurFade>
 
-        {/* Client Logos Marquee */}
-        <section className="py-10 bg-background overflow-hidden border-b border-border/50">
-          <div className="container mx-auto px-4 mb-6 text-center">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
-              Empresas que confiam na Andorinha
-            </p>
-          </div>
-          <Marquee pauseOnHover className="[--duration:40s]">
-            {["TechFlow", "Nexus", "Vanguard", "Elevate", "Horizon", "Pinnacle", "Summit", "Apex", "Zenith", "Meridian"].map((logo, idx) => (
-              <div key={idx} className="mx-8 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity">
-                <span className="text-xl font-bold font-heading text-foreground">{logo}</span>
-              </div>
-            ))}
-          </Marquee>
-        </section>
+
 
         {/* Diferenciais */}
         <BlurFade delay={0.3} inView>
@@ -251,6 +237,34 @@ const HomePage = () => {
             </div>
           </section>
         </BlurFade>
+
+        {/* Client Logos Marquee */}
+        <section className="py-10 bg-background overflow-hidden border-b border-border/50">
+          <div className="container mx-auto px-4 mb-6 text-center">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-widest">
+              Empresas que confiam na Andorinha
+            </p>
+          </div>
+          <Marquee pauseOnHover className="[--duration:40s]">
+            {[
+              "/home/empresas/788925.png",
+              "/home/empresas/Logo_4@3x.png",
+              "/home/empresas/industria.png",
+              "/home/empresas/788925.png",
+              "/home/empresas/Logo_4@3x.png",
+              "/home/empresas/industria.png",
+            ].map((logo, idx) => (
+              <div key={idx} className="mx-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity relative h-16 w-32">
+                <Image
+                  src={logo}
+                  alt={`Logo Empresa ${idx + 1}`}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ))}
+          </Marquee>
+        </section>
 
         {/* Serviços */}
         <section className="py-20 px-4 bg-gradient-to-b from-background to-muted">
