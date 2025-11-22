@@ -53,6 +53,7 @@ export function Marquee({
         },
         className
       )}
+      style={{ "--gap": "1rem" } as React.CSSProperties}
     >
       {Array(repeat)
         .fill(0)
