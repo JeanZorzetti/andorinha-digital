@@ -245,7 +245,7 @@ const HomePage = () => {
               Empresas que confiam na Andorinha
             </p>
           </div>
-          <Marquee pauseOnHover className="[--duration:40s]">
+          <Marquee pauseOnHover className="[--duration:80s]">
             {[
               "/home/empresas/31W9hs7w0JL.png",
               "/home/empresas/788925.png",
@@ -262,11 +262,11 @@ const HomePage = () => {
               "/home/empresas/download (7).png",
               "/home/empresas/download (8).png",
               "/home/empresas/download (9).png",
-              "/home/empresas/download.jpg",
+              "/home/empresas/download (10).png",
               "/home/empresas/download.png",
               "/home/empresas/google-bard.webp",
               "/home/empresas/industria.png",
-              "/home/empresas/logo.webp",
+              "/home/empresas/download (11).png",
               "/home/empresas/logofatospreto.webp",
               "/home/empresas/outback-logo.png",
               "/home/empresas/spotify.webp",
