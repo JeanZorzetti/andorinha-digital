@@ -247,19 +247,36 @@ const HomePage = () => {
           </div>
           <Marquee pauseOnHover className="[--duration:40s]">
             {[
+              "/home/empresas/31W9hs7w0JL.png",
               "/home/empresas/788925.png",
+              "/home/empresas/Disney+_logo.png",
               "/home/empresas/Logo_4@3x.png",
+              "/home/empresas/Universal_Pictures_logo.svg",
+              "/home/empresas/all-accor-logo.png",
+              "/home/empresas/corona-extra.png",
+              "/home/empresas/download (1).jpg",
+              "/home/empresas/download (3).png",
+              "/home/empresas/download (4).png",
+              "/home/empresas/download (5).png",
+              "/home/empresas/download (6).png",
+              "/home/empresas/download (7).png",
+              "/home/empresas/download (8).png",
+              "/home/empresas/download (9).png",
+              "/home/empresas/download.jpg",
+              "/home/empresas/download.png",
+              "/home/empresas/google-bard.webp",
               "/home/empresas/industria.png",
-              "/home/empresas/788925.png",
-              "/home/empresas/Logo_4@3x.png",
-              "/home/empresas/industria.png",
+              "/home/empresas/logo.webp",
+              "/home/empresas/logofatospreto.webp",
+              "/home/empresas/outback-logo.png",
+              "/home/empresas/spotify.webp",
             ].map((logo, idx) => (
-              <div key={idx} className="mx-12 flex items-center justify-center opacity-50 hover:opacity-100 transition-opacity relative h-16 w-32">
+              <div key={idx} className="mx-8 flex items-center justify-center opacity-150 hover:opacity-100 transition-opacity relative h-20 w-40">
                 <Image
                   src={logo}
                   alt={`Logo Empresa ${idx + 1}`}
                   fill
-                  className="object-contain"
+                  className="object-contain opacity-70 hover:opacity-100 transition-all duration-300"
                 />
               </div>
             ))}
