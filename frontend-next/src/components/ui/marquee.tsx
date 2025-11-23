@@ -46,14 +46,17 @@ export function Marquee({
     <div
       {...props}
       className={cn(
-        "group flex [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1rem]",
+        "group flex [gap:var(--gap)] overflow-hidden p-2",
         {
           "flex-row": !vertical,
           "flex-col": vertical,
         },
         className
       )}
-      style={{ "--gap": "1rem" } as React.CSSProperties}
+      style={{
+        "--gap": "1rem",
+        "--duration": "40s"
+      } as React.CSSProperties}
     >
       {Array(repeat)
         .fill(0)
@@ -66,6 +69,12 @@ export function Marquee({
               "group-hover:[animation-play-state:paused]": pauseOnHover,
               "[animation-direction:reverse]": reverse,
             })}
+            style={{
+              animation: vertical
+                ? `marquee-vertical var(--duration) linear infinite${reverse ? ' reverse' : ''}`
+                : `marquee var(--duration) linear infinite${reverse ? ' reverse' : ''}`,
+              animationPlayState: 'running'
+            } as React.CSSProperties}
           >
             {children}
           </div>
