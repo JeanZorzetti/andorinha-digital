@@ -140,8 +140,8 @@ O ROI de uma boa identidade visual é difícil de medir, mas fácil de sentir: m
     },
     {
         id: "orcamento-marketing-pmes",
-        title: "Como Definir Orçamento de Marketing para PMEs",
-        excerpt: "Aprenda a calcular quanto investir em marketing de acordo com seu faturamento e objetivos de crescimento.",
+        title: "Como Definir Orçamento de Audiovisual para PMEs",
+        excerpt: "Aprenda a calcular quanto investir em audiovisual de acordo com seu faturamento e objetivos de crescimento.",
         category: "Estratégia",
         image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=600&fit=crop",
         date: "5 Jan 2025",
@@ -150,7 +150,7 @@ O ROI de uma boa identidade visual é difícil de medir, mas fácil de sentir: m
         content: `
 ## A Regra Geral
 
-A maioria dos especialistas recomenda investir entre 5% e 15% do faturamento bruto em marketing. Mas essa "regra" precisa de contexto.
+A maioria dos especialistas recomenda investir entre 5% e 15% do faturamento bruto em audiovisual. Mas essa "regra" precisa de contexto.
 
 ## Fatores que Influenciam
 
@@ -168,7 +168,7 @@ Crescer 50% ao ano exige mais investimento que crescer 10%.
 ## Como Calcular
 
 ### Método do Faturamento
-Faturamento Anual x Percentual = Orçamento de Marketing
+Faturamento Anual x Percentual = Orçamento de Audiovisual
 
 Exemplo: R$ 1.000.000 x 10% = R$ 100.000/ano
 
@@ -188,15 +188,15 @@ Uma distribuição comum para PMEs:
 ## Erros Comuns
 
 1. **Não ter orçamento definido**: Gastar "quando sobra"
-2. **Cortar na crise**: Marketing é investimento, não custo
+2. **Cortar na crise**: Audiovisual é investimento, não custo
 3. **Não medir resultados**: Impossível otimizar sem dados
 4. **Querer tudo de uma vez**: Melhor fazer bem poucas coisas
 
 ## Conclusão
 
-O orçamento de marketing ideal depende do seu contexto. O importante é ter um número definido, medir resultados e ajustar conforme necessário.
+O orçamento de audiovisual ideal depende do seu contexto. O importante é ter um número definido, medir resultados e ajustar conforme necessário.
 
-Comece com o que é possível, mas comece. Marketing não feito é oportunidade perdida.
+Comece com o que é possível, mas comece. Audiovisual não feito é oportunidade perdida.
     `,
     },
     {

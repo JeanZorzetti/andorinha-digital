@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Nosso Processo | Como Trabalhamos | Andorinha Marketing",
+  title: "Nosso Processo | Como Trabalhamos | Andorinha Audiovisual",
   description: "Conheça nosso processo de trabalho: do diagnóstico gratuito à entrega final. Metodologia clara, transparente e colaborativa em 5 etapas.",
   keywords: "processo de trabalho, metodologia, como funciona, etapas do projeto, diagnóstico gratuito",
   openGraph: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         url: "https://andorinha.roilabs.com.br/og/og-processo.png",
         width: 1200,
         height: 630,
-        alt: "Processo de Trabalho Andorinha Marketing",
+        alt: "Processo de Trabalho Andorinha Audiovisual",
       },
     ],
   },

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Termos de Uso | Andorinha Marketing",
-  description: "Leia os termos e condições de uso do site da Andorinha Marketing.",
+  title: "Termos de Uso | Andorinha Audiovisual",
+  description: "Leia os termos e condições de uso do site da Andorinha Audiovisual.",
   keywords: "termos de uso, condições, regras, uso do site",
   openGraph: {
     url: "https://andorinha.roilabs.com.br/termos",
@@ -36,14 +36,14 @@ export default function TermosPage() {
                 1. Aceitação dos Termos
               </h2>
               <p className="text-muted-foreground mb-4">
-                Ao acessar e usar o site da Andorinha Marketing (&quot;Site&quot;), você
+                Ao acessar e usar o site da Andorinha Audiovisual (&quot;Site&quot;), você
                 concorda em cumprir e estar vinculado a estes Termos de Uso. Se
                 você não concordar com qualquer parte destes termos, não deve
                 usar nosso Site.
               </p>
               <p className="text-muted-foreground">
                 Estes termos constituem um acordo legal entre você (&quot;Usuário&quot;) e
-                a Andorinha Marketing (&quot;nós&quot;, &quot;nosso&quot; ou &quot;Empresa&quot;).
+                a Andorinha Audiovisual (&quot;nós&quot;, &quot;nosso&quot; ou &quot;Empresa&quot;).
               </p>
             </div>
 
@@ -97,7 +97,7 @@ export default function TermosPage() {
               <p className="text-muted-foreground mb-4">
                 Todo o conteúdo do Site, incluindo textos, gráficos, logos,
                 ícones, imagens, vídeos, áudio e software, é de propriedade
-                exclusiva da Andorinha Marketing ou de seus licenciadores e está
+                exclusiva da Andorinha Audiovisual ou de seus licenciadores e está
                 protegido por leis de direitos autorais e propriedade
                 intelectual.
               </p>
@@ -198,7 +198,7 @@ export default function TermosPage() {
                 7. Indenização
               </h2>
               <p className="text-muted-foreground">
-                Você concorda em indenizar e isentar a Andorinha Marketing, seus
+                Você concorda em indenizar e isentar a Andorinha Audiovisual, seus
                 diretores, funcionários e parceiros de qualquer reclamação,
                 dano, perda ou despesa (incluindo honorários advocatícios)
                 decorrentes de: (a) seu uso do Site; (b) violação destes Termos;
@@ -261,7 +261,7 @@ export default function TermosPage() {
               <ul className="list-disc pl-6 text-muted-foreground space-y-2">
                 <li>
                   <strong>Acordo integral:</strong> Estes Termos constituem o
-                  acordo completo entre você e a Andorinha Marketing
+                  acordo completo entre você e a Andorinha Audiovisual
                 </li>
                 <li>
                   <strong>Renúncia:</strong> A falha em exercer qualquer direito
@@ -289,7 +289,7 @@ export default function TermosPage() {
               </p>
               <div className="bg-muted/50 p-6 rounded-lg">
                 <p className="text-foreground font-semibold mb-2">
-                  Andorinha Marketing
+                  Andorinha Audiovisual
                 </p>
                 <p className="text-muted-foreground">
                   E-mail:{" "}

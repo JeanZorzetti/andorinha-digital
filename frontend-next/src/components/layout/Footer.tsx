@@ -12,7 +12,7 @@ const Footer = () => {
             <Link href="/" className="inline-block mb-4 hover:opacity-80 transition-opacity">
               <Image
                 src="/images/logo/logo-principal-branco.svg"
-                alt="Andorinha Marketing"
+                alt="Andorinha Audiovisual"
                 width={96}
                 height={96}
                 className="h-24 w-auto"
@@ -24,7 +24,7 @@ const Footer = () => {
             </p>
 
             <p className="text-sm text-background/70 mb-6 leading-relaxed">
-              Marketing estratégico através de projetos pontuais e transparentes para PMEs.
+              Audiovisual estratégico através de projetos pontuais e transparentes para PMEs.
             </p>
 
             <div>
@@ -177,7 +177,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-background/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-background/60 text-center md:text-left">
-              © 2025 Andorinha Marketing. Todos os direitos reservados.
+              © 2025 Andorinha Audiovisual. Todos os direitos reservados.
             </p>
             <div className="flex flex-wrap justify-center gap-4 md:gap-6 text-sm">
               <Link href="/privacidade" className="text-background/60 hover:text-primary transition-colors">
@@ -187,7 +187,7 @@ const Footer = () => {
                 Termos de Uso
               </Link>
               <span className="text-background/60">
-                Desenvolvido por Andorinha Marketing
+                Desenvolvido por Andorinha Audiovisual
               </span>
             </div>
           </div>

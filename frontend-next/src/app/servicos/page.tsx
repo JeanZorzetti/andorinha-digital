@@ -79,7 +79,7 @@ export default function ServicesPage() {
                         Nossas Soluções
                     </h1>
                     <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-8 animate-slide-up">
-                        Estratégias completas de marketing digital para impulsionar o crescimento do seu negócio.
+                        Estratégias completas de audiovisual estratégico para impulsionar o crescimento do seu negócio.
                     </p>
                 </div>
             </section>

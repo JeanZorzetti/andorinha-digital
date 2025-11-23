@@ -3,9 +3,9 @@ import { CaseList } from "@/components/cases/CaseList";
 import { getAllCaseStudies } from "@/lib/cases-data";
 
 export const metadata: Metadata = {
-  title: "Cases de Sucesso | Projetos que Transformam | Andorinha Marketing",
+  title: "Cases de Sucesso | Projetos que Transformam | Andorinha Audiovisual",
   description: "Conheça nossos cases de sucesso em branding, sites, vídeos e design. Resultados reais de clientes reais com métricas comprovadas.",
-  keywords: "cases de sucesso, portfolio, projetos de marketing, resultados, branding cases, cases sites",
+  keywords: "cases de sucesso, portfolio, projetos de audiovisual, resultados, branding cases, cases sites",
   openGraph: {
     url: "https://andorinha.roilabs.com.br/cases",
     images: [

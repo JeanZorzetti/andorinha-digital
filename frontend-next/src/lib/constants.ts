@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: 'Andorinha Digital',
-  description: 'Marketing Digital que Transforma Resultados em Crescimento',
+  description: 'Audiovisual Estratégico que Transforma Resultados em Crescimento',
   url: 'https://andorinhadigital.com.br',
   ogImage: '/og-image.png',
   links: {

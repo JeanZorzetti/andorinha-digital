@@ -5,10 +5,10 @@ export const SchemaOrganization = () => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Andorinha Marketing",
+        "name": "Andorinha Audiovisual",
         "url": "https://andorinha.roilabs.com.br",
         "logo": "https://andorinha.roilabs.com.br/logo.png",
-        "description": "Agência de marketing estratégico com projetos pontuais para PMEs. Branding, Sites, Vídeo e Rebranding com transparência total.",
+        "description": "Agência de audiovisual estratégico com projetos pontuais para PMEs. Branding, Sites, Vídeo e Rebranding com transparência total.",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "BR",
@@ -58,7 +58,7 @@ export const SchemaService = ({
         "description": description,
         "provider": {
             "@type": "Organization",
-            "name": "Andorinha Marketing",
+            "name": "Andorinha Audiovisual",
             "url": "https://andorinha.roilabs.com.br"
         },
         "url": url,
@@ -147,7 +147,7 @@ export const SchemaArticle = ({
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Andorinha Marketing",
+            "name": "Andorinha Audiovisual",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://andorinha.roilabs.com.br/logo.png"
@@ -176,10 +176,10 @@ export const SchemaLocalBusiness = () => {
     const schema = {
         "@context": "https://schema.org",
         "@type": "MarketingAgency",
-        "name": "Andorinha Marketing",
+        "name": "Andorinha Audiovisual",
         "url": "https://andorinha.roilabs.com.br",
         "logo": "https://andorinha.roilabs.com.br/logo.png",
-        "description": "Agência de marketing estratégico com projetos pontuais para PMEs.",
+        "description": "Agência de audiovisual estratégico com projetos pontuais para PMEs.",
         "address": {
             "@type": "PostalAddress",
             "addressCountry": "BR",

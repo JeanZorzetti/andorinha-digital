@@ -19,7 +19,7 @@ const Header = () => {
           <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
             <Image
               src="/images/logo/simbolo.svg"
-              alt="Andorinha Marketing"
+              alt="Andorinha Audiovisual"
               width={96}
               height={96}
               className="h-24 w-auto"

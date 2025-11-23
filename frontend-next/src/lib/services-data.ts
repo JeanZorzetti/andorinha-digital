@@ -209,7 +209,7 @@ export const servicesData: Record<string, ServiceData> = {
         duration: "15-45 dias",
         breadcrumb: "Sites",
         seo: {
-            title: "Criação de Sites | A partir de R$ 3.500 | Andorinha Marketing",
+            title: "Criação de Sites | A partir de R$ 3.500 | Andorinha Audiovisual",
             description: "Sites institucionais e landing pages que convertem. Design responsivo, SEO otimizado e CMS para você gerenciar. Entrega em 15 a 45 dias.",
             keywords: "criação de sites, quanto custa criar site, site institucional, landing page, desenvolvimento web, site responsivo",
             image: "https://andorinha.roilabs.com.br/og/og-sites.png",
@@ -356,7 +356,7 @@ export const servicesData: Record<string, ServiceData> = {
         duration: "3-7 dias",
         breadcrumb: "Design Gráfico",
         seo: {
-            title: "Design Gráfico | Peças a partir de R$ 350 | Andorinha Marketing",
+            title: "Design Gráfico | Peças a partir de R$ 350 | Andorinha Audiovisual",
             description: "Criação de materiais gráficos: posts para redes sociais, banners, folders, cartões de visita e mais. Entrega em até 5 dias úteis com arquivos editáveis.",
             keywords: "design gráfico, criação de posts, design para redes sociais, material gráfico, banner, folder, cartão de visita",
             image: "https://andorinha.roilabs.com.br/og/og-design-grafico.png",
@@ -1077,7 +1077,7 @@ export const servicesData: Record<string, ServiceData> = {
         duration: "Entrega rápida",
         breadcrumb: "Vídeo Express",
         seo: {
-            title: "Vídeo Institucional Express | R$ 997 | Andorinha Marketing",
+            title: "Vídeo Institucional Express | R$ 997 | Andorinha Audiovisual",
             description: "Vídeo institucional profissional de até 3 minutos. Roteiro, gravação e edição inclusos. Ótimo custo-benefício.",
             keywords: "vídeo institucional barato, vídeo empresa, apresentação comercial, vídeo marketing",
             image: "https://andorinha.roilabs.com.br/og/og-video-express.png",

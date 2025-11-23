@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade | Andorinha Marketing",
+  title: "Política de Privacidade | Andorinha Audiovisual",
   description: "Conheça nossa política de privacidade e como tratamos seus dados pessoais em conformidade com a LGPD.",
   keywords: "política de privacidade, LGPD, proteção de dados, privacidade",
   openGraph: {
@@ -37,7 +37,7 @@ export default function PrivacidadePage() {
                 1. Introdução
               </h2>
               <p className="text-muted-foreground mb-4">
-                A Andorinha Marketing (&quot;nós&quot;, &quot;nosso&quot; ou &quot;empresa&quot;) está
+                A Andorinha Audiovisual (&quot;nós&quot;, &quot;nosso&quot; ou &quot;empresa&quot;) está
                 comprometida em proteger a privacidade dos visitantes do nosso
                 site e clientes. Esta Política de Privacidade explica como
                 coletamos, usamos, armazenamos e protegemos suas informações
@@ -68,7 +68,7 @@ export default function PrivacidadePage() {
                 <li>Número de telefone</li>
                 <li>Nome da empresa</li>
                 <li>
-                  Informações sobre seu negócio e necessidades de marketing
+                  Informações sobre seu negócio e necessidades de audiovisual
                 </li>
               </ul>
 
@@ -143,7 +143,7 @@ export default function PrivacidadePage() {
                 <li>Manter você conectado durante a navegação</li>
                 <li>Lembrar suas preferências</li>
                 <li>Analisar o tráfego e comportamento no site</li>
-                <li>Medir a eficácia das campanhas de marketing</li>
+                <li>Medir a eficácia das campanhas</li>
               </ul>
               <p className="text-muted-foreground mb-4">
                 <strong>Tipos de cookies que utilizamos:</strong>
@@ -307,7 +307,7 @@ export default function PrivacidadePage() {
               </p>
               <div className="bg-muted/50 p-6 rounded-lg">
                 <p className="text-foreground font-semibold mb-2">
-                  Andorinha Marketing
+                  Andorinha Audiovisual
                 </p>
                 <p className="text-muted-foreground">
                   E-mail:{" "}

@@ -12,9 +12,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Sobre Nós | Quem Somos | Andorinha Marketing",
-  description: "Conheça a Andorinha Marketing: agência especializada em PMEs com 15 anos de experiência. Transparência, estratégia e resultados reais.",
-  keywords: "sobre andorinha marketing, quem somos, agência de marketing, história, valores, equipe",
+  title: "Sobre Nós | Quem Somos | Andorinha Audiovisual",
+  description: "Conheça a Andorinha Audiovisual: agência especializada em PMEs com 15 anos de experiência. Transparência, estratégia e resultados reais.",
+  keywords: "sobre andorinha audiovisual, quem somos, agência de audiovisual, história, valores, equipe",
   openGraph: {
     url: "https://andorinha.roilabs.com.br/sobre",
     images: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
         url: "https://andorinha.roilabs.com.br/og/og-sobre.png",
         width: 1200,
         height: 630,
-        alt: "Sobre a Andorinha Marketing",
+        alt: "Sobre a Andorinha Audiovisual",
       },
     ],
   },
@@ -40,7 +40,7 @@ export default function SobrePage() {
       icon: Target,
       title: "Estratégia",
       description:
-        "Cada decisão é baseada em dados e objetivos. Marketing que faz sentido para seu negócio.",
+        "Cada decisão é baseada em dados e objetivos. Audiovisual que faz sentido para seu negócio.",
     },
     {
       icon: Zap,
@@ -92,7 +92,7 @@ export default function SobrePage() {
       icon: Target,
       title: "Estratégia Real",
       description:
-        "Não fazemos marketing por fazer. Cada ação tem um objetivo claro e mensurável.",
+        "Não fazemos audiovisual por fazer. Cada ação tem um objetivo claro e mensurável.",
     },
     {
       icon: Heart,
@@ -145,7 +145,7 @@ export default function SobrePage() {
               Voe Certo. Voe Alto.
             </h1>
             <p className="text-xl font-body text-muted-foreground mb-8">
-              Marketing que transforma vendas em consequência, não em luta.
+              Audiovisual que transforma vendas em consequência, não em luta.
               Ajudamos PMEs a crescerem com estratégia, não com sorte.
             </p>
           </div>
@@ -173,7 +173,7 @@ export default function SobrePage() {
               </p>
               <p>
                 Hoje, com mais de 15 anos de experiência e 50+ projetos
-                entregues, continuamos com a mesma filosofia: marketing
+                entregues, continuamos com a mesma filosofia: audiovisual
                 estratégico de qualidade a preços justos. Sem enrolação, sem
                 burocracia, sem promessas vazias.
               </p>
@@ -213,7 +213,7 @@ export default function SobrePage() {
               </div>
               <h3 className="text-xl font-bold font-heading text-foreground mb-3">Missão</h3>
               <p className="font-body text-muted-foreground">
-                Tornar marketing estratégico de qualidade acessível para pequenas
+                Tornar audiovisual estratégico de qualidade acessível para pequenas
                 e médias empresas, ajudando-as a crescer de forma sustentável e
                 inteligente.
               </p>
@@ -224,7 +224,7 @@ export default function SobrePage() {
               </div>
               <h3 className="text-xl font-bold font-heading text-foreground mb-3">Visão</h3>
               <p className="font-body text-muted-foreground">
-                Ser referência em projetos de marketing para PMEs, reconhecida
+                Ser referência em projetos de audiovisual para PMEs, reconhecida
                 pela qualidade, transparência e resultados reais que entregamos.
               </p>
             </div>

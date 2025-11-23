@@ -18,15 +18,15 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     'marketing digital',
-    'agência de marketing',
+    'agência de audiovisual',
     'social media',
     'gestão de redes sociais',
     'tráfego pago',
     'SEO',
     'criação de sites',
     'branding',
-    'marketing estratégico',
-    'consultoria de marketing',
+    'audiovisual estratégico',
+    'consultoria de audiovisual',
     'inbound marketing',
     'marketing de conteúdo'
   ],

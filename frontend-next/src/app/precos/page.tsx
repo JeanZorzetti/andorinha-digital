@@ -11,9 +11,9 @@ import { Check, Clock, Layers, Zap, RotateCcw, CreditCard, Shield, FileText } fr
 import { SchemaFAQPage } from "@/components/SchemaOrg";
 
 export const metadata: Metadata = {
-  title: "Tabela de Preços | Investimentos Transparentes | Andorinha Marketing",
-  description: "Tabela completa de preços dos serviços de marketing: branding, sites, vídeos e design gráfico. Investimento transparente com condições de pagamento flexíveis.",
-  keywords: "preços marketing, quanto custa branding, preço site institucional, valores identidade visual, orçamento marketing",
+  title: "Tabela de Preços | Investimentos Transparentes | Andorinha Audiovisual",
+  description: "Tabela completa de preços dos serviços de audiovisual: branding, sites, vídeos e design gráfico. Investimento transparente com condições de pagamento flexíveis.",
+  keywords: "preços audiovisual, quanto custa branding, preço site institucional, valores identidade visual, orçamento audiovisual",
   openGraph: {
     url: "https://andorinha.roilabs.com.br/precos",
     images: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
         url: "https://andorinha.roilabs.com.br/og/og-precos.png",
         width: 1200,
         height: 630,
-        alt: "Tabela de Preços Andorinha Marketing",
+        alt: "Tabela de Preços Andorinha Audiovisual",
       },
     ],
   },
@@ -218,7 +218,7 @@ export default function PrecosPage() {
           <div className="container mx-auto px-4">
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                Investimento Transparente em Marketing
+                Investimento Transparente em Audiovisual
               </h1>
               <p className="text-xl text-muted-foreground mb-8">
                 Trabalhamos com projetos pontuais de escopo fechado. Você sabe
