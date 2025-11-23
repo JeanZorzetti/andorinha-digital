@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from "react"
+import { ComponentPropsWithoutRef, useEffect, useRef } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -42,9 +42,53 @@ export function Marquee({
   repeat = 4,
   ...props
 }: MarqueeProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const itemRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    console.log('=== MARQUEE DEBUG ===')
+    console.log('Container element:', containerRef.current)
+    console.log('Item element:', itemRef.current)
+
+    if (containerRef.current) {
+      const containerStyles = window.getComputedStyle(containerRef.current)
+      console.log('Container computed styles:', {
+        display: containerStyles.display,
+        overflow: containerStyles.overflow,
+        '--duration': containerStyles.getPropertyValue('--duration'),
+        '--gap': containerStyles.getPropertyValue('--gap'),
+      })
+    }
+
+    if (itemRef.current) {
+      const itemStyles = window.getComputedStyle(itemRef.current)
+      console.log('Item computed styles:', {
+        display: itemStyles.display,
+        animation: itemStyles.animation,
+        animationName: itemStyles.animationName,
+        animationDuration: itemStyles.animationDuration,
+        animationPlayState: itemStyles.animationPlayState,
+        transform: itemStyles.transform,
+      })
+
+      // Check if keyframes exist
+      const animations = document.getAnimations()
+      console.log('All animations on page:', animations.length)
+      const marqueeAnimations = animations.filter(anim => {
+        const effect = anim.effect as KeyframeEffect | null
+        return effect?.target === itemRef.current
+      })
+      console.log('Animations on marquee item:', marqueeAnimations)
+    }
+
+    console.log('Props:', { vertical, reverse, pauseOnHover, repeat })
+    console.log('=== END DEBUG ===')
+  }, [vertical, reverse, pauseOnHover, repeat])
+
   return (
     <div
       {...props}
+      ref={containerRef}
       className={cn(
         "group flex [gap:var(--gap)] overflow-hidden p-2",
         {
@@ -63,6 +107,7 @@ export function Marquee({
         .map((_, i) => (
           <div
             key={i}
+            ref={i === 0 ? itemRef : null}
             className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
               "animate-marquee flex-row": !vertical,
               "animate-marquee-vertical flex-col": vertical,
