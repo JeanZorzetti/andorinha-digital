@@ -46,42 +46,54 @@ export function Marquee({
   const itemRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    console.log('=== MARQUEE DEBUG ===')
-    console.log('Container element:', containerRef.current)
-    console.log('Item element:', itemRef.current)
+    // Inject keyframes if they don't exist
+    const keyframesId = 'marquee-keyframes-injected'
+    if (!document.getElementById(keyframesId)) {
+      const style = document.createElement('style')
+      style.id = keyframesId
+      style.textContent = `
+        @keyframes marquee {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(calc(-100% - 1rem));
+          }
+        }
 
-    if (containerRef.current) {
-      const containerStyles = window.getComputedStyle(containerRef.current)
-      console.log('Container computed styles:', {
-        display: containerStyles.display,
-        overflow: containerStyles.overflow,
-        '--duration': containerStyles.getPropertyValue('--duration'),
-        '--gap': containerStyles.getPropertyValue('--gap'),
-      })
+        @keyframes marquee-vertical {
+          from {
+            transform: translateY(0);
+          }
+          to {
+            transform: translateY(calc(-100% - 1rem));
+          }
+        }
+      `
+      document.head.appendChild(style)
+      console.log('✅ Marquee keyframes injected into document')
     }
 
+    // Debug logs
+    console.log('=== MARQUEE DEBUG ===')
     if (itemRef.current) {
       const itemStyles = window.getComputedStyle(itemRef.current)
       console.log('Item computed styles:', {
-        display: itemStyles.display,
         animation: itemStyles.animation,
         animationName: itemStyles.animationName,
-        animationDuration: itemStyles.animationDuration,
         animationPlayState: itemStyles.animationPlayState,
-        transform: itemStyles.transform,
       })
 
-      // Check if keyframes exist
-      const animations = document.getAnimations()
-      console.log('All animations on page:', animations.length)
-      const marqueeAnimations = animations.filter(anim => {
-        const effect = anim.effect as KeyframeEffect | null
-        return effect?.target === itemRef.current
-      })
-      console.log('Animations on marquee item:', marqueeAnimations)
+      // Force reflow to trigger animation
+      setTimeout(() => {
+        const animations = document.getAnimations()
+        const marqueeAnimations = animations.filter(anim => {
+          const effect = anim.effect as KeyframeEffect | null
+          return effect?.target === itemRef.current
+        })
+        console.log('Animations after injection:', marqueeAnimations.length)
+      }, 100)
     }
-
-    console.log('Props:', { vertical, reverse, pauseOnHover, repeat })
     console.log('=== END DEBUG ===')
   }, [vertical, reverse, pauseOnHover, repeat])
 
