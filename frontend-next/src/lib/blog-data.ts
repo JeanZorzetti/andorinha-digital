@@ -36,7 +36,7 @@ export const getAllBlogPosts = unstable_cache(
             orderBy: { createdAt: 'desc' }, // Assuming you want latest first, or add a specific date field for ordering if needed
         });
 
-        return posts.map((post: any) => ({
+        return posts.map(post => ({
             ...post,
             content: post.content || undefined,
         }));
