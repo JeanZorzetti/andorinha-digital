@@ -81,23 +81,25 @@ export const getServiceData = unstable_cache(
 
         if (!service) return undefined;
 
-        // Cast JSON fields to their respective interfaces
-        const rawProcessSteps = service.processSteps as unknown as ServiceProcessStepRaw[];
+        // Cast JSON fields to their respective interfaces with safety checks
+        const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
 
         // Hydrate icons for processSteps
-        const processSteps: ServiceProcessStep[] = rawProcessSteps.map(step => ({
-            ...step,
-            icon: iconMap[step.iconName || 'Search'] || Search, // Default to Search if not found
-        }));
+        const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
+            ? rawProcessSteps.map(step => ({
+                ...step,
+                icon: iconMap[step.iconName || 'Search'] || Search, // Default to Search if not found
+            }))
+            : [];
 
         return {
             ...service,
-            seo: service.seo as unknown as ServiceSeo,
-            schema: service.schema as unknown as ServiceSchema,
+            seo: (service.seo as unknown as ServiceSeo) || {},
+            schema: (service.schema as unknown as ServiceSchema) || {},
             processSteps: processSteps,
-            pricingTiers: service.pricingTiers as unknown as ServicePricingTier[],
-            faqItems: service.faqItems as unknown as ServiceFaqItem[],
-            cta: service.cta as unknown as ServiceCta,
+            pricingTiers: (service.pricingTiers as unknown as ServicePricingTier[]) || [],
+            faqItems: (service.faqItems as unknown as ServiceFaqItem[]) || [],
+            cta: (service.cta as unknown as ServiceCta) || { title: '', subtitle: '' },
         };
     },
     ['service-data'],
@@ -111,23 +113,25 @@ export const getAllServices = unstable_cache(
         });
 
         return services.map(service => {
-            // Cast JSON fields to their respective interfaces
-            const rawProcessSteps = service.processSteps as unknown as ServiceProcessStepRaw[];
+            // Cast JSON fields to their respective interfaces with safety checks
+            const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
 
             // Hydrate icons for processSteps
-            const processSteps: ServiceProcessStep[] = rawProcessSteps.map(step => ({
-                ...step,
-                icon: iconMap[step.iconName || 'Search'] || Search,
-            }));
+            const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
+                ? rawProcessSteps.map(step => ({
+                    ...step,
+                    icon: iconMap[step.iconName || 'Search'] || Search,
+                }))
+                : [];
 
             return {
                 ...service,
-                seo: service.seo as unknown as ServiceSeo,
-                schema: service.schema as unknown as ServiceSchema,
+                seo: (service.seo as unknown as ServiceSeo) || {},
+                schema: (service.schema as unknown as ServiceSchema) || {},
                 processSteps: processSteps,
-                pricingTiers: service.pricingTiers as unknown as ServicePricingTier[],
-                faqItems: service.faqItems as unknown as ServiceFaqItem[],
-                cta: service.cta as unknown as ServiceCta,
+                pricingTiers: (service.pricingTiers as unknown as ServicePricingTier[]) || [],
+                faqItems: (service.faqItems as unknown as ServiceFaqItem[]) || [],
+                cta: (service.cta as unknown as ServiceCta) || { title: '', subtitle: '' },
             };
         });
     },
