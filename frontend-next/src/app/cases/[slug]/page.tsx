@@ -32,9 +32,9 @@ export async function generateMetadata({
     }
 
     return {
-        title: `${caseData.title} | Case de Sucesso Andorinha Marketing`,
+        title: `${caseData.title} | Case de Sucesso Andorinha Audiovisual`,
         description: caseData.challenge,
-        keywords: `case ${caseData.category.toLowerCase()}, ${caseData.client}, projeto de marketing`,
+        keywords: `case ${caseData.category.toLowerCase()}, ${caseData.client}, projeto de audiovisual`,
         openGraph: {
             title: caseData.title,
             description: caseData.challenge,

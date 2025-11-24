@@ -277,7 +277,7 @@ const ContactPageContent = () => {
                                                 aria-required="true"
                                             />
                                             <label htmlFor="acceptContact" className="text-sm text-muted-foreground cursor-pointer">
-                                                Aceito receber contato da Andorinha Marketing *
+                                                Aceito receber contato da Andorinha Audiovisual *
                                             </label>
                                         </div>
 
@@ -288,7 +288,7 @@ const ContactPageContent = () => {
                                                 onCheckedChange={(checked) => setFormData({ ...formData, newsletter: checked as boolean })}
                                             />
                                             <label htmlFor="newsletter" className="text-sm text-muted-foreground cursor-pointer">
-                                                Quero receber conteúdo de marketing por email
+                                                Quero receber conteúdo estratégico por email
                                             </label>
                                         </div>
                                     </div>

@@ -156,7 +156,7 @@ export const servicesData: Record<string, ServiceData> = {
                     "Naming (se necessário)",
                     "Estratégia de marca",
                     "Brand book extenso",
-                    "Materiais de marketing",
+                    "Materiais de comunicação",
                     "60 dias de suporte",
                 ],
             },
@@ -611,7 +611,7 @@ export const servicesData: Record<string, ServiceData> = {
                     "Pesquisa aprofundada",
                     "Arquitetura de marca",
                     "Site institucional",
-                    "Materiais de marketing",
+                    "Materiais de comunicação",
                     "Treinamento da equipe",
                     "90 dias de suporte",
                 ],
@@ -1079,7 +1079,7 @@ export const servicesData: Record<string, ServiceData> = {
         seo: {
             title: "Vídeo Institucional Express | R$ 997 | Andorinha Audiovisual",
             description: "Vídeo institucional profissional de até 3 minutos. Roteiro, gravação e edição inclusos. Ótimo custo-benefício.",
-            keywords: "vídeo institucional barato, vídeo empresa, apresentação comercial, vídeo marketing",
+            keywords: "vídeo institucional barato, vídeo empresa, apresentação comercial, vídeo corporativo",
             image: "https://andorinha.roilabs.com.br/og/og-video-express.png",
         },
         schema: {

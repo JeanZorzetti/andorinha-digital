@@ -33,9 +33,9 @@ export async function generateMetadata({
     }
 
     return {
-        title: `${post.title} | Blog Andorinha Marketing`,
+        title: `${post.title} | Blog Andorinha Audiovisual`,
         description: post.excerpt,
-        keywords: `${post.category.toLowerCase()}, marketing, pme`,
+        keywords: `${post.category.toLowerCase()}, audiovisual, pme`,
         openGraph: {
             title: post.title,
             description: post.excerpt,

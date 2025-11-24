@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    'marketing digital',
+    'audiovisual estratégico',
     'agência de audiovisual',
     'social media',
     'gestão de redes sociais',

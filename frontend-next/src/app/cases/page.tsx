@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         url: "https://andorinha.roilabs.com.br/og/og-cases.png",
         width: 1200,
         height: 630,
-        alt: "Cases de Sucesso Andorinha Marketing",
+        alt: "Cases de Sucesso Andorinha Audiovisual",
       },
     ],
   },

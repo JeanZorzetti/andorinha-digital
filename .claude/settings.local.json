@@ -26,7 +26,8 @@
       "Bash(npx create-next-app:*)",
       "Bash(npx create-next-app@latest frontend-next --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --turbopack --no-experimental-app)",
       "Bash(xcopy:*)",
-      "Bash(robocopy:*)"
+      "Bash(robocopy:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []

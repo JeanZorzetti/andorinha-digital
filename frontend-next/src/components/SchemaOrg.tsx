@@ -175,7 +175,7 @@ export const SchemaArticle = ({
 export const SchemaLocalBusiness = () => {
     const schema = {
         "@context": "https://schema.org",
-        "@type": "MarketingAgency",
+        "@type": "ProfessionalService",
         "name": "Andorinha Audiovisual",
         "url": "https://andorinha.roilabs.com.br",
         "logo": "https://andorinha.roilabs.com.br/logo.png",

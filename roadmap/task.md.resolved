@@ -1,0 +1,58 @@
+# UX/UI Roadmap Execution Tasks
+
+- [x] **Sprint 1: Foundation & Hero Enhancement**
+    - [x] **Componentes MagicUI**:
+        - [x] [Particles](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/particles.tsx#80-318) (background)
+        - [x] `Animated Gradient Text` (título)
+        - [x] `Shimmer Button` (CTA principal)
+        - [x] `Blur Fade` (transições de seção)
+    - [x] **Implementação**:
+        - [x] Integrar [Particles](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/particles.tsx#80-318) no background da Hero Section.
+        - [x] Aplicar `Animated Gradient Text` no título principal ("Marketing Estratégico...").
+        - [x] Substituir botão "Agende Diagnóstico" por `Shimmer Button`.
+        - [x] Adicionar `Blur Fade` nas seções principais (Hero, Trust Bar, Diferenciais).
+
+- [x] **Sprint 2: Visual Engagement & Services**
+    - [x] **Componentes MagicUI**:
+        - [x] `Magic Card` (cards de serviços)
+        - [x] `Border Beam` (destaque de planos)
+        - [x] `Orbiting Circles` (seção de tecnologia/integrações - opcional/adaptado)
+        - [x] `Ripple` (seção de garantias/CTA final)
+    - [x] **Implementação**:
+        - [x] Substituir cards de serviços estáticos por `Magic Card`.
+        - [x] Adicionar `Border Beam` no card de plano "Voo Alto" (destaque).
+        - [x] Implementar `Ripple` no background da seção de Garantias.
+        - [x] (Adaptado) `Orbiting Circles` não foi aplicado pois não havia seção de tecnologia clara, mas a base está instalada.
+
+- [x] **Sprint 3: Stats, Social Proof & Animation**
+    - [x] **Componentes MagicUI**:
+        - [x] `Number Ticker` (para estatísticas)
+        - [x] `Marquee` (para logos de clientes)
+        - [x] [Confetti](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/confetti.tsx#33-34) (para sucesso no formulário)
+    - [x] **Implementação**:
+        - [x] Substituir números estáticos na "Trust Bar" por `NumberTicker`.
+        - [x] Adicionar seção de logos de clientes com `Marquee` abaixo da Trust Bar.
+        - [x] Adicionar efeito de [Confetti](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/confetti.tsx#33-34) ao enviar formulário de contato com sucesso.
+    - [x] **Verificação**:
+        - [x] Verificar animações e responsividade.
+
+- [x] **Sprint 4: Interactive Elements & Polish**
+    - [x] **Componentes MagicUI**:
+        - [x] [Dock](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/dock.tsx#102-150) (menu flutuante mobile - opcional)
+        - [x] `Globe` (seção de alcance - opcional)
+    - [x] **Implementação**:
+        - [x] Avaliar necessidade de [Dock](file:///c:/Users/jeanz/Downloads/andorinha-digital-main/frontend-next/src/components/ui/dock.tsx#102-150) para mobile (Implementado).
+        - [x] Refinar transições e hovers em todos os botões e cards.
+        - [x] Verificar contraste e acessibilidade (cores).
+
+- [x] **Sprint 5: Mobile Optimization & Performance**
+    - [x] 2.5.1 - Optimize Animations for Mobile (Reduzir partículas) <!-- id: 17 -->
+    - [x] 2.5.2 - Performance Audit and Optimization (Lazy loading Calendly) <!-- id: 18 -->
+    - [x] 2.5.3 - Accessibility Testing (Verificado targets e labels) <!-- id: 19 -->
+    - [x] 2.5.4 - Cross-browser Testing (Build verificado) <!-- id: 20 -->
+
+- [ ] **Sprint 6: A/B Testing & Analytics**
+    - [ ] 2.6.1 - Configure A/B Tests <!-- id: 21 -->
+    - [ ] 2.6.2 - Implement Event Tracking <!-- id: 22 -->
+    - [ ] 2.6.3 - Heatmap and Session Recording <!-- id: 23 -->
+    - [ ] 2.6.4 - Impact Report <!-- id: 24 -->
