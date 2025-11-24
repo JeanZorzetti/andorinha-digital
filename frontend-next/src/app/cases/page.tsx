@@ -19,8 +19,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function CasesPage() {
-  const cases = getAllCaseStudies();
+export default async function CasesPage() {
+  const cases = await getAllCaseStudies();
 
   return (
     <main>

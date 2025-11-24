@@ -14,6 +14,13 @@ export const SchemaOrganization = () => {
             "addressCountry": "BR",
             "addressRegion": "SP"
         },
+        "telephone": "+55-11-99999-9999",
+        "priceRange": "$$",
+        "openingHours": "Mo-Fr 09:00-18:00",
+        "areaServed": {
+            "@type": "Country",
+            "name": "Brazil"
+        },
         "contactPoint": {
             "@type": "ContactPoint",
             "telephone": "+55-11-99999-9999",

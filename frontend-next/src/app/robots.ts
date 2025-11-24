@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://andorinhadigital.com.br/sitemap.xml',
+    sitemap: 'https://andorinha.roilabs.com.br/sitemap.xml',
   };
 }

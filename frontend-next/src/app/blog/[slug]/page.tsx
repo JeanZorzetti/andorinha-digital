@@ -14,7 +14,7 @@ interface BlogPostPageProps {
 }
 
 export async function generateStaticParams() {
-    const posts = getAllBlogPosts();
+    const posts = await getAllBlogPosts();
     return posts.map((post) => ({
         slug: post.id,
     }));
@@ -24,7 +24,7 @@ export async function generateMetadata({
     params,
 }: BlogPostPageProps): Promise<Metadata> {
     const { slug } = await params;
-    const post = getBlogPost(slug);
+    const post = await getBlogPost(slug);
 
     if (!post) {
         return {
@@ -57,7 +57,7 @@ export async function generateMetadata({
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
     const { slug } = await params;
-    const post = getBlogPost(slug);
+    const post = await getBlogPost(slug);
 
     if (!post) {
         notFound();

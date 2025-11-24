@@ -1,7 +1,25 @@
 import { MetadataRoute } from 'next';
+import { getAllBlogPosts } from '@/lib/blog-data';
+import { getAllCaseStudies } from '@/lib/cases-data';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://andorinha.roilabs.com.br';
+  const blogPosts = await getAllBlogPosts();
+  const caseStudies = await getAllCaseStudies();
+
+  const blogUrls = blogPosts.map((post) => ({
+    url: `${baseUrl}/blog/${post.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  const caseUrls = caseStudies.map((study) => ({
+    url: `${baseUrl}/cases/${study.id}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
 
   return [
     {
@@ -46,5 +64,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    ...blogUrls,
+    ...caseUrls,
   ];
 }

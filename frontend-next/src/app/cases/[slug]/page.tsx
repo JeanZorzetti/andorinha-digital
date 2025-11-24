@@ -13,7 +13,7 @@ interface CaseDetailPageProps {
 }
 
 export async function generateStaticParams() {
-    const cases = getAllCaseStudies();
+    const cases = await getAllCaseStudies();
     return cases.map((c) => ({
         slug: c.id,
     }));
@@ -23,7 +23,7 @@ export async function generateMetadata({
     params,
 }: CaseDetailPageProps): Promise<Metadata> {
     const { slug } = await params;
-    const caseData = getCaseStudy(slug);
+    const caseData = await getCaseStudy(slug);
 
     if (!caseData) {
         return {
@@ -54,7 +54,7 @@ export async function generateMetadata({
 
 export default async function CaseDetailPage({ params }: CaseDetailPageProps) {
     const { slug } = await params;
-    const caseData = getCaseStudy(slug);
+    const caseData = await getCaseStudy(slug);
 
     if (!caseData) {
         notFound();

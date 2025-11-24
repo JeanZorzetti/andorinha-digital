@@ -16,7 +16,7 @@ interface ServicePageProps {
 }
 
 export async function generateStaticParams() {
-    const services = getAllServices();
+    const services = await getAllServices();
     return services.map((service) => ({
         slug: service.id,
     }));
@@ -26,7 +26,7 @@ export async function generateMetadata({
     params,
 }: ServicePageProps): Promise<Metadata> {
     const { slug } = await params;
-    const service = getServiceData(slug);
+    const service = await getServiceData(slug);
 
     if (!service) {
         return {
@@ -56,7 +56,7 @@ export async function generateMetadata({
 
 export default async function ServicePage({ params }: ServicePageProps) {
     const { slug } = await params;
-    const service = getServiceData(slug);
+    const service = await getServiceData(slug);
 
     if (!service) {
         notFound();
