@@ -1,14 +1,69 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
-  provider = "prisma-client"
-  output   = "../generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model BlogPost {
+  id        String   @id
+  title     String
+  excerpt   String
+  category  String
+  image     String
+  date      String
+  readTime  String
+  author    String
+  content   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("blog_posts")
+}
+
+model CaseStudy {
+  id           String   @id
+  title        String
+  client       String
+  category     String
+  duration     String?
+  investment   String?
+  image        String
+  challenge    String
+  result       String?
+  metric       String?
+  solution     String?
+  results      String[]
+  testimonial  Json?
+  deliverables String[]
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("case_studies")
+}
+
+model Service {
+  id            String   @id
+  title         String
+  subtitle      String
+  description   String
+  price         String
+  duration      String
+  breadcrumb    String
+  seo           Json
+  schema        Json
+  includedItems String[]
+  processSteps  Json
+  pricingTiers  Json
+  faqItems      Json
+  cta           Json
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@map("services")
 }
