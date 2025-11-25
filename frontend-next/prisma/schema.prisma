@@ -10,25 +10,57 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum UserRole {
+  ADMIN
+  EDITOR
+  USER
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
 model BlogPost {
-  id        String   @id
+  id        String     @id @default(cuid())
   title     String
+  slug      String     @unique
   excerpt   String
-  category  String
+  content   String?    @db.Text
   image     String
+  category  String
+  tags      String[]
+  status    PostStatus @default(DRAFT)
   date      String
   readTime  String
   author    String
-  content   String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  authorId  String
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String[]
+
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  // Relação
+  user User @relation("AuthorPosts", fields: [authorId], references: [id], onDelete: Cascade)
 
   @@map("blog_posts")
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@index([authorId])
 }
 
 model CaseStudy {
-  id           String   @id
+  id           String     @id @default(cuid())
   title        String
+  slug         String     @unique
   client       String
   category     String
   duration     String?
@@ -41,10 +73,26 @@ model CaseStudy {
   results      String[]
   testimonial  Json?
   deliverables String[]
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  status       PostStatus @default(DRAFT)
+  authorId     String
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
+
+  // Relação
+  user User @relation("AuthorCases", fields: [authorId], references: [id], onDelete: Cascade)
 
   @@map("case_studies")
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@index([authorId])
 }
 
 model Service {
@@ -73,10 +121,14 @@ model User {
   name      String
   email     String   @unique
   password  String
-  role      String   @default("user")
+  role      UserRole @default(USER)
   image     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  // Relações
+  blogPosts   BlogPost[]  @relation("AuthorPosts")
+  caseStudies CaseStudy[] @relation("AuthorCases")
 
   @@map("users")
 }

@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Lock } from "lucide-react";
 
 export default function SignIn() {
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const router = useRouter();
@@ -20,7 +20,7 @@ export default function SignIn() {
         setError("");
 
         const result = await signIn("credentials", {
-            username,
+            email,
             password,
             redirect: false,
         });
@@ -50,13 +50,13 @@ export default function SignIn() {
                 <form onSubmit={handleSubmit}>
                     <CardContent className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="username">Usuário</Label>
+                            <Label htmlFor="email">Email</Label>
                             <Input
-                                id="username"
-                                type="text"
-                                placeholder="admin"
-                                value={username}
-                                onChange={(e) => setUsername(e.target.value)}
+                                id="email"
+                                type="email"
+                                placeholder="admin@andorinha.com"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 required
                             />
                         </div>

@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient, UserRole } from '@prisma/client'
 import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient()
@@ -15,16 +15,18 @@ async function main() {
         where: { email },
         update: {
             password: hashedPassword, // Force update password to ensure it matches
+            role: UserRole.ADMIN, // Ensure role is set to ADMIN enum
         },
         create: {
             email,
             name: 'Admin',
             password: hashedPassword,
-            role: 'admin',
+            role: UserRole.ADMIN, // Use enum instead of string
         },
     });
 
     console.log('Admin user seeded:', user.email);
+    console.log('Role:', user.role);
 }
 
 main()
