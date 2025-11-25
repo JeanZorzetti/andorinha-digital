@@ -1487,20 +1487,23 @@ export function MediaLibrary() {
 
 ## ✍️ FASE 2: CRUD DE BLOG POSTS
 
-> **Status:** 🚧 PENDENTE
+> **Status:** 🚧 EM PROGRESSO (50%)
 > **Tempo estimado:** 2 semanas
 > **Dependências:** Fase 0, Fase 1
 
 ### Objetivos
 
-- [ ] Criar página de listagem de posts com tabela
+- [x] Criar página de listagem de posts com tabela
 - [ ] Implementar formulário de criação/edição
 - [ ] Integrar editor de texto rico (TipTap)
-- [ ] Adicionar validação com Zod
-- [ ] Criar Server Actions para CRUD
+- [x] Adicionar validação com Zod
+- [x] Criar Server Actions para CRUD
 - [ ] Implementar preview de post
-- [ ] Adicionar sistema de tags/categorias
-- [ ] Implementar sistema de rascunhos
+- [x] Adicionar sistema de tags/categorias (via schema)
+- [x] Implementar sistema de rascunhos (via status DRAFT)
+- [x] Instalar dependências (TipTap, date-fns)
+- [x] Criar utilitários (slug, readTime)
+- [x] Adicionar componentes UI (Badge, AlertDialog)
 
 ---
 
