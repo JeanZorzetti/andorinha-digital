@@ -1,7 +1,34 @@
-import { LucideIcon } from "lucide-react";
+import {
+    LucideIcon,
+    Search,
+    Lightbulb,
+    Palette,
+    FileCheck,
+    Rocket,
+    FileSearch,
+    Layout,
+    Code,
+    TestTube,
+    MessageSquare,
+    Pencil,
+    Send,
+    Users,
+    RefreshCw,
+    FileText,
+    Video,
+    Film,
+    Sparkles,
+    Clock,
+    CheckCircle2
+} from "lucide-react";
 
-interface ProcessStep {
-    icon: LucideIcon;
+// Map of icon names to Lucide components
+const iconMap: Record<string, LucideIcon> = {
+    Search, Lightbulb, Palette, FileCheck, Rocket, FileSearch, Layout, Code, TestTube, MessageSquare, Pencil, Send, Users, RefreshCw, FileText, Video, Film, Sparkles, Clock, CheckCircle2
+};
+
+export interface ProcessStep {
+    iconName?: string;
     title: string;
     description: string;
     duration?: string;
@@ -29,7 +56,7 @@ const ServiceProcess = ({
                 <div className="max-w-5xl mx-auto">
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {steps.map((step, index) => {
-                            const Icon = step.icon;
+                            const Icon = iconMap[step.iconName || 'Search'] || Search;
                             return (
                                 <div
                                     key={index}
