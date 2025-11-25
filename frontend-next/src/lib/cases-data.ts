@@ -10,10 +10,8 @@ export interface CaseStudy {
     investment?: string;
     image: string;
     challenge: string;
-    result?: string; // Used in listing
-    metric?: string; // Used in listing
     solution?: string; // Used in detail
-    results?: string[]; // Used in detail
+    results?: string[]; // Used in detail (replaced result and metric)
     testimonial?: {
         quote: string;
         author: string;
@@ -34,8 +32,6 @@ export const getCaseStudy = unstable_cache(
             ...caseStudy,
             duration: caseStudy.duration || undefined,
             investment: caseStudy.investment || undefined,
-            result: caseStudy.result || undefined,
-            metric: caseStudy.metric || undefined,
             solution: caseStudy.solution || undefined,
             results: caseStudy.results || undefined,
             testimonial: (caseStudy.testimonial as unknown as CaseStudy['testimonial']) || undefined,
@@ -56,8 +52,6 @@ export const getAllCaseStudies = unstable_cache(
             ...c,
             duration: c.duration || undefined,
             investment: c.investment || undefined,
-            result: c.result || undefined,
-            metric: c.metric || undefined,
             solution: c.solution || undefined,
             results: c.results || undefined,
             testimonial: (c.testimonial as unknown as CaseStudy['testimonial']) || undefined,
