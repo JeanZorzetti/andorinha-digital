@@ -1,26 +1,46 @@
 import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { PrismaClient } from "@prisma/client";
+import * as bcrypt from "bcryptjs";
+import prisma from "@/lib/prisma"; // Use singleton
 
 export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "admin" },
+                email: { label: "Email", type: "email", placeholder: "admin@andorinha.com" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
-                // TODO: Replace with environment variables or database check
-                const validUsername = process.env.ADMIN_USERNAME || "admin";
-                const validPassword = process.env.ADMIN_PASSWORD || "admin";
-
-                if (
-                    credentials?.username === validUsername &&
-                    credentials?.password === validPassword
-                ) {
-                    return { id: "1", name: "Admin", email: "admin@andorinha.com" };
+                if (!credentials?.email || !credentials?.password) {
+                    return null;
                 }
-                return null;
+
+                const user = await prisma.user.findUnique({
+                    where: { email: credentials.email }
+                });
+
+                if (!user) {
+                    return null;
+                }
+
+                const isPasswordValid = await bcrypt.compare(
+                    credentials.password,
+                    user.password
+                );
+
+                if (!isPasswordValid) {
+                    return null;
+                }
+
+                return {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    image: user.image,
+                    role: user.role,
+                };
             }
         })
     ],
@@ -30,13 +50,13 @@ export const authOptions: NextAuthOptions = {
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
-                token.role = "admin";
+                token.role = (user as any).role;
             }
             return token;
         },
         async session({ session, token }) {
             if (session?.user) {
-                session.user.role = token.role;
+                (session.user as any).role = token.role;
             }
             return session;
         }
