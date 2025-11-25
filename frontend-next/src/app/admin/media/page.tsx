@@ -57,7 +57,6 @@ export default function MediaLibraryPage() {
             <CardContent>
               <MediaUploader
                 endpoint="imageUploader"
-                maxFiles={10}
                 onUploadComplete={(urls) => {
                   setUploadedUrls(urls);
                   console.log("URLs uploaded:", urls);
@@ -76,7 +75,6 @@ export default function MediaLibraryPage() {
             <CardContent>
               <MediaUploader
                 endpoint="pdfUploader"
-                maxFiles={1}
                 onUploadComplete={(urls) => {
                   console.log("PDF uploaded:", urls);
                 }}

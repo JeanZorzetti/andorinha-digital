@@ -36,7 +36,7 @@ export const ourFileRouter = {
       }
       return { userId: session.user.id };
     })
-    .onUploadComplete(async ({ metadata, file }) => {
+    .onUploadComplete(async ({ file }) => {
       console.log("PDF uploaded:", file.url);
       return { url: file.url };
     }),

@@ -11,19 +11,22 @@ import { Card } from "@/components/ui/card";
 
 interface MediaUploaderProps {
   onUploadComplete?: (urls: string[]) => void;
-  maxFiles?: number;
   endpoint?: keyof OurFileRouter;
+}
+
+interface UploadedFile {
+  url: string;
+  name: string;
 }
 
 export function MediaUploader({
   onUploadComplete,
-  maxFiles = 10,
   endpoint = "imageUploader",
 }: MediaUploaderProps) {
   const [uploadedFiles, setUploadedFiles] = useState<Array<{ url: string; name: string }>>([]);
 
-  const handleUploadComplete = (res: any) => {
-    const newFiles = res.map((file: any) => ({
+  const handleUploadComplete = (res: UploadedFile[]) => {
+    const newFiles = res.map((file) => ({
       url: file.url,
       name: file.name,
     }));
