@@ -332,7 +332,8 @@ frontend-next/
 
 ## 🏁 FASE 0: FUNDAMENTOS E INFRAESTRUTURA
 
-> **Status:** ✅ CONCLUÍDO (95%)
+> **Status:** ✅ CONCLUÍDO (100%)
+> **Data de conclusão:** 25 de Novembro de 2025
 > **Tempo estimado:** 2 semanas
 > **Dependências:** Nenhuma
 
@@ -342,9 +343,13 @@ frontend-next/
 - [x] Criar layout base do admin (Sidebar + Header)
 - [x] Implementar proteção de rotas
 - [x] Definir Design System do admin
-- [ ] Adicionar middleware de proteção global
-- [ ] Implementar sistema de roles (RBAC)
-- [ ] Criar componentes base reutilizáveis
+- [x] Adicionar middleware de proteção global
+- [x] Implementar sistema de roles (RBAC)
+- [x] Criar componentes base reutilizáveis (DataTable)
+- [x] Criar migration com enums (UserRole, PostStatus)
+- [x] Atualizar schema Prisma com relações e índices
+- [x] Corrigir login form (email em vez de username)
+- [x] Adicionar SessionProvider ao layout admin
 
 ---
 
