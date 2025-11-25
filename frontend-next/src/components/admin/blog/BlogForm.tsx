@@ -68,7 +68,6 @@ export function BlogForm({ initialData, mode }: BlogFormProps) {
     },
   });
 
-  const title = watch("title");
   const content = watch("content");
 
   // Auto-gerar slug quando o título mudar
@@ -125,7 +124,7 @@ export function BlogForm({ initialData, mode }: BlogFormProps) {
         router.push("/admin/blog");
         router.refresh();
       }
-    } catch (error) {
+    } catch {
       toast.error("Erro ao salvar post");
     } finally {
       setIsSubmitting(false);
