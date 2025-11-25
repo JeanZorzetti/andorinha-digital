@@ -34,6 +34,8 @@ export async function createBlogPost(data: BlogPostFormData) {
         ...validated,
         slug,
         authorId: session.user.id,
+        author: session.user.name || session.user.email || "Admin",
+        date: new Date().toISOString().split('T')[0], // YYYY-MM-DD format
         publishedAt: validated.status === "PUBLISHED" ? new Date() : null,
       },
     });
