@@ -5,8 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { blogPostSchema, updateBlogPostSchema, type BlogPostFormData, type UpdateBlogPostData } from "@/lib/validations/blog-schema";
-import { generateSlug, calculateReadTime } from "@/lib/utils/slug";
-import { redirect } from "next/navigation";
+import { generateSlug } from "@/lib/utils/slug";
 
 /**
  * Criar novo blog post
