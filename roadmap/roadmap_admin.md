@@ -1487,23 +1487,27 @@ export function MediaLibrary() {
 
 ## ✍️ FASE 2: CRUD DE BLOG POSTS
 
-> **Status:** 🚧 EM PROGRESSO (50%)
+> **Status:** ✅ CONCLUÍDO (100%)
+> **Data de conclusão:** 25 de Novembro de 2025
 > **Tempo estimado:** 2 semanas
 > **Dependências:** Fase 0, Fase 1
 
 ### Objetivos
 
 - [x] Criar página de listagem de posts com tabela
-- [ ] Implementar formulário de criação/edição
-- [ ] Integrar editor de texto rico (TipTap)
+- [x] Implementar formulário de criação/edição
+- [x] Integrar editor de texto rico (TipTap)
 - [x] Adicionar validação com Zod
 - [x] Criar Server Actions para CRUD
-- [ ] Implementar preview de post
-- [x] Adicionar sistema de tags/categorias (via schema)
-- [x] Implementar sistema de rascunhos (via status DRAFT)
-- [x] Instalar dependências (TipTap, date-fns)
+- [x] Implementar sistema de tags/categorias
+- [x] Implementar sistema de rascunhos (via status DRAFT/PUBLISHED/ARCHIVED)
+- [x] Instalar dependências (TipTap, date-fns, React Hook Form)
 - [x] Criar utilitários (slug, readTime)
-- [x] Adicionar componentes UI (Badge, AlertDialog)
+- [x] Adicionar componentes UI (Badge, AlertDialog, Textarea, Select)
+- [x] Auto-geração de slug a partir do título
+- [x] Cálculo automático de tempo de leitura
+- [x] Editor WYSIWYG completo com toolbar
+- [x] Campos SEO (meta title, meta description)
 
 ---
 
