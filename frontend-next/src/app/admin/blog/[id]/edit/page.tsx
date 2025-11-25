@@ -6,9 +6,9 @@ import { ArrowLeft } from "lucide-react";
 import { BlogForm } from "@/components/admin/blog/BlogForm";
 
 interface EditBlogPostPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 async function getBlogPost(id: string) {
@@ -24,7 +24,8 @@ async function getBlogPost(id: string) {
 }
 
 export default async function EditBlogPostPage({ params }: EditBlogPostPageProps) {
-  const post = await getBlogPost(params.id);
+  const { id } = await params;
+  const post = await getBlogPost(id);
 
   return (
     <div className="space-y-6">
