@@ -69,6 +69,7 @@ export function CaseForm({ initialData, mode }: CaseFormProps) {
       content: initialData?.content || "",
       client: initialData?.client || "",
       industry: initialData?.industry || "",
+      category: initialData?.category || "",
       challenge: initialData?.challenge || "",
       solution: initialData?.solution || "",
       results: initialData?.results || [],
@@ -278,6 +279,18 @@ export function CaseForm({ initialData, mode }: CaseFormProps) {
                     <p className="text-sm text-destructive mt-1">{errors.industry.message}</p>
                   )}
                 </div>
+              </div>
+
+              <div>
+                <Label htmlFor="category">Categoria</Label>
+                <Input
+                  id="category"
+                  {...register("category")}
+                  placeholder="Ex: Website, E-commerce, Landing Page"
+                />
+                {errors.category && (
+                  <p className="text-sm text-destructive mt-1">{errors.category.message}</p>
+                )}
               </div>
             </CardContent>
           </Card>

@@ -65,7 +65,7 @@ model CaseStudy {
   content      String?    @db.Text
   client       String
   industry     String     @default("Tecnologia")
-  category     String
+  category     String     @default("")
   duration     String?
   investment   String?
   image        String

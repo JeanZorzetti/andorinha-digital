@@ -53,6 +53,7 @@ export default async function EditCasePage({ params }: EditCasePageProps) {
           content: caseStudy.content || "",
           client: caseStudy.client,
           industry: caseStudy.industry,
+          category: caseStudy.category || "",
           challenge: caseStudy.challenge,
           solution: caseStudy.solution || undefined,
           results: caseStudy.results,

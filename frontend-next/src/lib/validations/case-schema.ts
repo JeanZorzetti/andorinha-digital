@@ -26,6 +26,11 @@ export const caseStudySchema = z.object({
     .min(2, "O setor deve ter no mínimo 2 caracteres")
     .max(50, "O setor deve ter no máximo 50 caracteres"),
 
+  category: z.string()
+    .min(2, "A categoria deve ter no mínimo 2 caracteres")
+    .max(50, "A categoria deve ter no máximo 50 caracteres")
+    .optional(),
+
   challenge: z.string()
     .min(50, "O desafio deve ter no mínimo 50 caracteres")
     .max(1000, "O desafio deve ter no máximo 1000 caracteres"),
