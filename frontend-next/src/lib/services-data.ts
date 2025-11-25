@@ -1,11 +1,5 @@
 import prisma from './prisma';
 import { unstable_cache } from 'next/cache';
-import { LucideIcon, Search, Lightbulb, Palette, FileCheck, Rocket, FileSearch, Layout, Code, TestTube, MessageSquare, Pencil, Send, Users, RefreshCw, FileText, Video, Film, Sparkles, Clock, CheckCircle2 } from "lucide-react";
-
-// Map of icon names to Lucide components
-const iconMap: Record<string, LucideIcon> = {
-    Search, Lightbulb, Palette, FileCheck, Rocket, FileSearch, Layout, Code, TestTube, MessageSquare, Pencil, Send, Users, RefreshCw, FileText, Video, Film, Sparkles, Clock, CheckCircle2
-};
 
 export interface ServiceSeo {
     title: string;
@@ -21,14 +15,13 @@ export interface ServiceSchema {
 }
 
 export interface ServiceProcessStep {
-    icon: LucideIcon; // Hydrated on the client/server after fetch
     iconName?: string; // Stored in DB
     title: string;
     description: string;
     duration: string;
 }
 
-// Interface for the raw data from DB where icon is missing/optional before hydration
+// Interface for the raw data from DB
 interface ServiceProcessStepRaw {
     iconName?: string;
     title: string;
@@ -54,6 +47,7 @@ export interface ServiceFaqItem {
 export interface ServiceCta {
     title: string;
     subtitle: string;
+    description?: string;
 }
 
 export interface ServiceData {
@@ -84,11 +78,13 @@ export const getServiceData = unstable_cache(
         // Cast JSON fields to their respective interfaces with safety checks
         const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
 
-        // Hydrate icons for processSteps
+        // Map raw steps to public interface (no hydration needed for icons now)
         const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
             ? rawProcessSteps.map(step => ({
-                ...step,
-                icon: iconMap[step.iconName || 'Search'] || Search, // Default to Search if not found
+                iconName: step.iconName,
+                title: step.title,
+                description: step.description,
+                duration: step.duration
             }))
             : [];
 
@@ -116,11 +112,13 @@ export const getAllServices = unstable_cache(
             // Cast JSON fields to their respective interfaces with safety checks
             const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
 
-            // Hydrate icons for processSteps
+            // Map raw steps to public interface
             const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
                 ? rawProcessSteps.map(step => ({
-                    ...step,
-                    icon: iconMap[step.iconName || 'Search'] || Search,
+                    iconName: step.iconName,
+                    title: step.title,
+                    description: step.description,
+                    duration: step.duration
                 }))
                 : [];
 
