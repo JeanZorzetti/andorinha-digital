@@ -1,10 +1,28 @@
 import { PrismaClient } from '@prisma/client'
+import * as bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient()
 
 async function main() {
-    console.log('Seed script is currently disabled as static data has been migrated to the database.');
-    // To re-enable seeding, you would need to restore the static data files or fetch data from another source.
+    console.log('Running seed script...');
+
+    // Seed Admin User
+    const email = 'admin@andorinha.com';
+    const password = 'admin'; // Change this in production!
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.upsert({
+        where: { email },
+        update: {},
+        create: {
+            email,
+            name: 'Admin',
+            password: hashedPassword,
+            role: 'admin',
+        },
+    });
+
+    console.log('Admin user seeded:', user.email);
 }
 
 main()
