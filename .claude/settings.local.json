@@ -10,7 +10,10 @@
       "Bash(npm install:*)",
       "Bash(npx shadcn@latest add table)",
       "Bash(npx shadcn@latest add:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(npx prisma db execute:*)",
+      "Bash(npx prisma generate:*)"
     ],
     "deny": [],
     "ask": []

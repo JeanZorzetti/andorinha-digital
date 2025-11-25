@@ -32,7 +32,8 @@ export const caseStudySchema = z.object({
 
   solution: z.string()
     .min(50, "A solução deve ter no mínimo 50 caracteres")
-    .max(1000, "A solução deve ter no máximo 1000 caracteres"),
+    .max(1000, "A solução deve ter no máximo 1000 caracteres")
+    .optional(),
 
   results: z.array(z.string())
     .min(1, "Adicione pelo menos 1 resultado")

@@ -61,24 +61,32 @@ model CaseStudy {
   id           String     @id @default(cuid())
   title        String
   slug         String     @unique
+  description  String     @default("")
+  content      String?    @db.Text
   client       String
+  industry     String     @default("Tecnologia")
   category     String
   duration     String?
   investment   String?
   image        String
-  challenge    String
-  result       String?
-  metric       String?
-  solution     String?
-  results      String[]
+  gallery      String[]   @default([])
+  challenge    String     @db.Text
+  solution     String?    @db.Text
+  results      String[]   @default([])
+  tags         String[]   @default([])
+  technologies String[]   @default([])
+  featured     Boolean    @default(false)
+  date         String     @default("")
   testimonial  Json?
-  deliverables String[]
+  metrics      Json?
+  deliverables String[]   @default([])
   status       PostStatus @default(DRAFT)
   authorId     String
 
   // SEO
   metaTitle       String?
   metaDescription String?
+  metaKeywords    String[]
 
   // Timestamps
   createdAt   DateTime  @default(now())
@@ -93,6 +101,7 @@ model CaseStudy {
   @@index([status])
   @@index([category])
   @@index([authorId])
+  @@index([featured])
 }
 
 model Service {
