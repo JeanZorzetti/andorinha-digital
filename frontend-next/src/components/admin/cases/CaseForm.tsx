@@ -510,6 +510,7 @@ export function CaseForm({ initialData, mode }: CaseFormProps) {
               <div className="grid grid-cols-2 gap-2">
                 {gallery.map((img, index) => (
                   <div key={index} className="relative group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src={img} alt={`Gallery ${index + 1}`} className="w-full h-24 object-cover rounded" />
                     <Button
                       type="button"

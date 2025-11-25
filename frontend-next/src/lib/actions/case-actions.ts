@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { caseStudySchema, updateCaseStudySchema, type CaseStudyFormData, type UpdateCaseStudyData } from "@/lib/validations/case-schema";
-import { generateSlug } from "@/lib/utils/slug";
 
 /**
  * Criar novo case study
