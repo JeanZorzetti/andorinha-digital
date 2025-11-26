@@ -13,7 +13,9 @@
       "Bash(git restore:*)",
       "Bash(npx prisma migrate:*)",
       "Bash(npx prisma db execute:*)",
-      "Bash(npx prisma generate:*)"
+      "Bash(npx prisma generate:*)",
+      "Bash(npx sharp-cli:*)",
+      "Bash(npx to-ico:*)"
     ],
     "deny": [],
     "ask": []
