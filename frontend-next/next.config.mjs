@@ -10,21 +10,19 @@ const withPWA = withPWAInit({
   fallbacks: {
     document: '/offline.html',
   },
-  workboxOptions: {
-    runtimeCaching: [
-      {
-        urlPattern: /^https?.*/,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'offlineCache',
-          expiration: {
-            maxEntries: 200,
-          },
-          networkTimeoutSeconds: 3,
+  runtimeCaching: [
+    {
+      urlPattern: /^https?.*/,
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'offlineCache',
+        expiration: {
+          maxEntries: 200,
         },
+        networkTimeoutSeconds: 3,
       },
-    ],
-  },
+    },
+  ],
 });
 
 /** @type {import('next').NextConfig} */
