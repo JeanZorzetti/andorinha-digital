@@ -5,8 +5,25 @@ const withPWA = withPWAInit({
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
+  cacheOnFrontEndNav: true,
+  reloadOnOnline: true,
   fallbacks: {
     document: '/offline.html',
+  },
+  workboxOptions: {
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: 'NetworkFirst',
+        options: {
+          cacheName: 'offlineCache',
+          expiration: {
+            maxEntries: 200,
+          },
+          networkTimeoutSeconds: 3,
+        },
+      },
+    ],
   },
 });
 
