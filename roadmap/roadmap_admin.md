@@ -2565,9 +2565,74 @@ Páginas com metadata completo:
 
 ---
 
-## 🚀 FASES 8-10: PRÓXIMAS ETAPAS
+## 🔒 FASE 8: SEGURANÇA E AUDITORIA
 
-**FASE 8: Segurança e Auditoria** (logs, rate limiting, 2FA)
+> **Status:** 🚧 EM ANDAMENTO (40%)
+> **Data de início:** 04 de Dezembro de 2025
+> **Tempo estimado:** 2-3 semanas
+> **Dependências:** Fase 0, Fase 1, Fase 2, Fase 3, Fase 4, Fase 5, Fase 6, Fase 7
+
+### Objetivos da Fase 8
+
+- [x] Criar sistema de logs de auditoria (Audit Logs)
+- [x] Implementar tabela AuditLog no Prisma
+- [x] Criar Server Actions para registrar logs
+- [ ] Criar página de visualização de logs (/admin/settings/audit-logs)
+- [ ] Integrar audit logging em todas as actions existentes
+- [ ] Implementar rate limiting para APIs
+- [ ] Adicionar sistema de 2FA (Two-Factor Authentication) - OPCIONAL
+- [ ] Criar middleware de segurança adicional
+
+### Implementações Realizadas
+
+- `prisma/schema.prisma` - Modelos AuditLog, enums AuditAction e AuditResource
+  - Enums: CREATE, UPDATE, DELETE, LOGIN, LOGOUT, PASSWORD_CHANGE, ROLE_CHANGE, PUBLISH, UNPUBLISH
+  - Recursos: USER, POST, CASE, SERVICE, MEDIA, SETTINGS
+  - Campos: action, resource, resourceId, details, ipAddress, userAgent, userId
+  - Relação cascade com User
+  - Índices otimizados para queries
+
+- `src/lib/actions/audit-actions.ts` - Server Actions para audit logs
+  - `createAuditLog` - Criar log de auditoria com IP e User-Agent
+  - `listAuditLogs` - Listar logs com filtros e paginação (Admin only)
+  - `getAuditStats` - Estatísticas de uso (Admin only)
+  - `deleteOldAuditLogs` - Limpeza de dados antigos (90 dias default)
+
+### Sistema de Audit Logs
+
+**Recursos Implementados:**
+
+1. **Rastreamento Completo**
+   - Todas as ações importantes registradas
+   - IP address e User-Agent capturados
+   - Timestamp automático
+   - Detalhes adicionais em JSON
+
+2. **Tipos de Ações Auditadas**
+   - Criação, edição, exclusão de recursos
+   - Login/Logout
+   - Mudanças de senha
+   - Alterações de permissões
+   - Publicação/Despublicação de conteúdo
+
+3. **Segurança e Performance**
+   - Admin-only access para visualização
+   - Logs imutáveis (não podem ser editados)
+   - Índices otimizados para queries rápidas
+   - Data retention configurável
+
+### Pendente (60%)
+
+- [ ] Interface web para visualizar logs
+- [ ] Integração com user-actions, blog-actions, case-actions, service-actions
+- [ ] Rate limiting para proteção contra ataques
+- [ ] 2FA com TOTP (opcional)
+- [ ] Headers de segurança (CSP, HSTS, etc.)
+
+---
+
+## 🚀 FASES 9-10: PRÓXIMAS ETAPAS
+
 **FASE 9: Notificações e Webhooks** (integração com CRM, emails)
 **FASE 10: Otimizações Finais** (testes, CI/CD, documentação)
 

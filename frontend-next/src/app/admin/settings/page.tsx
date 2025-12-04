@@ -33,13 +33,12 @@ const settingsCards = [
     disabled: true,
   },
   {
-    title: "Segurança",
-    description: "Logs de auditoria, 2FA e configurações de segurança",
+    title: "Audit Logs",
+    description: "Logs de auditoria e histórico de atividades do sistema",
     icon: Shield,
-    href: "/admin/settings/security",
+    href: "/admin/settings/audit-logs",
     iconColor: "text-red-600",
     bgColor: "bg-red-100",
-    disabled: true,
   },
   {
     title: "Backup & Restore",
