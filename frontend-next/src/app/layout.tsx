@@ -8,6 +8,7 @@ import Footer from '@/components/layout/Footer';
 import CookieConsentBanner from '@/components/layout/CookieConsentBanner';
 import GoogleAnalytics from '@/components/analytics/GoogleAnalytics';
 import MicrosoftClarity from '@/components/analytics/MicrosoftClarity';
+import { SchemaOrganization } from '@/components/SchemaOrg';
 
 
 export const metadata: Metadata = {
@@ -92,6 +93,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" suppressHydrationWarning>
       <body className="min-h-screen bg-background font-sans antialiased">
+        <SchemaOrganization />
         <Suspense fallback={null}>
           <GoogleAnalytics GA_MEASUREMENT_ID="G-LY3366ZNM5" />
           <MicrosoftClarity projectId="u9npi8wx80" />

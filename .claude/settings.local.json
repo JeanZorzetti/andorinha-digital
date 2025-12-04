@@ -17,7 +17,12 @@
       "Bash(npx sharp-cli:*)",
       "Bash(npx to-ico:*)",
       "Bash(npm run build:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(if [ -f \"c:\\Users\\jeanz\\Downloads\\andorinha-digital-main\\frontend-next\\src\\app\\sitemap.ts\" ])",
+      "Bash(then echo \"exists\")",
+      "Bash(else echo \"not found\")",
+      "Bash(fi)",
+      "Bash(if [ -f \"c:\\Users\\jeanz\\Downloads\\andorinha-digital-main\\frontend-next\\src\\app\\robots.ts\" ])"
     ],
     "deny": [],
     "ask": []
