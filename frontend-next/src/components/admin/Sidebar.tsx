@@ -7,9 +7,7 @@ import {
     FileText,
     Briefcase,
     Layers,
-    Settings,
     ImageIcon,
-    BarChart3,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
@@ -70,16 +68,18 @@ export default function Sidebar() {
             href: "/admin/media",
             icon: ImageIcon,
         },
-        {
-            title: "Analytics",
-            href: "/admin/analytics",
-            icon: BarChart3,
-        },
-        {
-            title: "Configurações",
-            href: "/admin/settings",
-            icon: Settings,
-        },
+        // TODO: Implementar Analytics (Fase 5)
+        // {
+        //     title: "Analytics",
+        //     href: "/admin/analytics",
+        //     icon: BarChart3,
+        // },
+        // TODO: Implementar Configurações (Fase 6)
+        // {
+        //     title: "Configurações",
+        //     href: "/admin/settings",
+        //     icon: Settings,
+        // },
     ];
 
     return (

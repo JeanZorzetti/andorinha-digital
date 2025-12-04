@@ -2,7 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, Bell, Settings } from "lucide-react";
+import { LogOut, User, Bell } from "lucide-react";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -13,7 +13,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import Link from "next/link";
 
 export default function Header() {
     const { data: session } = useSession();
@@ -65,13 +64,14 @@ export default function Header() {
                             </div>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem asChild>
+                        {/* TODO: Implementar página de Configurações (Fase 6) */}
+                        {/* <DropdownMenuItem asChild>
                             <Link href="/admin/settings">
                                 <Settings className="mr-2 h-4 w-4" />
                                 <span>Configurações</span>
                             </Link>
                         </DropdownMenuItem>
-                        <DropdownMenuSeparator />
+                        <DropdownMenuSeparator /> */}
                         <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/auth/signin" })}>
                             <LogOut className="mr-2 h-4 w-4" />
                             <span>Sair</span>

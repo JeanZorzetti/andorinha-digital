@@ -43,7 +43,7 @@ const quickActions: QuickAction[] = [
     title: "Biblioteca",
     description: "Gerenciar arquivos e mídia",
     icon: Image,
-    href: "/admin/uploads",
+    href: "/admin/media",
     iconColor: "text-orange-600",
     bgColor: "bg-orange-100",
   },
