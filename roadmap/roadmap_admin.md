@@ -2691,7 +2691,7 @@ Páginas com metadata completo:
 
 ## Fase 9: Notificações e Webhooks
 
-> **Status:** 🚧 EM ANDAMENTO (20%)
+> **Status:** 🚧 EM ANDAMENTO (50%)
 > **Data de início:** 04 de Dezembro de 2025
 > **Tempo estimado:** 2-3 semanas
 > **Dependências:** Fase 0-8
@@ -2699,11 +2699,11 @@ Páginas com metadata completo:
 ### Objetivos da Fase 9
 
 - [x] Implementar rate limiting para proteção de APIs
-- [ ] Criar sistema de notificações por email
+- [x] Criar sistema de notificações por email
 - [ ] Implementar webhooks para integrações externas
 - [ ] Adicionar notificações in-app (opcional)
-- [ ] Integrar com serviços de email (Resend/SendGrid)
-- [ ] Criar templates de email responsivos
+- [x] Integrar com serviços de email (Resend/SendGrid)
+- [x] Criar templates de email responsivos
 - [ ] Implementar sistema de fila de emails (opcional)
 
 ### 1. Rate Limiting ✅
@@ -2753,39 +2753,90 @@ Páginas com metadata completo:
 
 **Build Status:** ✅ Successful (Middleware: 58.1 kB)
 
-### 2. Sistema de Notificações por Email
+### 2. Sistema de Notificações por Email ✅
 
 **Objetivo:** Enviar emails transacionais e notificações importantes
 
-**Casos de Uso:**
+**Status:** ✅ CONCLUÍDO
 
-- Novo usuário criado (boas-vindas)
+**Implementações Realizadas:**
 
-- Senha alterada (confirmação)
-- Role alterado (notificação)
-- Novo blog post publicado (opcional - newsletter)
-- Novo case adicionado (notificação para admins)
-- Erros críticos do sistema (alertas)
+- ✅ Integração com Resend API
+- ✅ Cliente de email com tratamento de erros
+- ✅ Templates HTML responsivos inline
+- ✅ Envio não-bloqueante (não falha actions se email falhar)
+- ✅ Graceful degradation quando API key não configurada
+- ✅ Email helpers para casos de uso comuns
 
-**Implementações Planejadas:**
+**Templates de Email Criados:**
 
-- Integração com Resend API ou SendGrid
+1. **Welcome Email** - Boas-vindas para novos usuários
+   - Design responsivo com header azul
+   - Informações de login (se senha temporária)
+   - Link para acessar o painel
+   - Alerta para trocar senha temporária
 
-- Templates de email em React usando `@react-email/components`
-- Server Actions para envio de emails
-- Tabela de logs de emails enviados (opcional)
-- Retry automático em caso de falha
+2. **Password Changed Email** - Confirmação de alteração de senha
+   - Design com header verde (sucesso)
+   - Timestamp da alteração
+   - Alerta de segurança (se não foi você)
 
-**Arquivos a criar:**
+3. **Role Changed Email** - Notificação de mudança de permissões
+   - Design com header roxo
+   - Visualização antes/depois (old role → new role)
+   - Badges coloridos para roles
+   - Timestamp da alteração
 
-- `src/lib/email.ts` - Cliente de email e funções auxiliares
+**Integrações Automáticas:**
 
-- `src/emails/` - Templates de email em React
-  - `WelcomeEmail.tsx`
-  - `PasswordChangedEmail.tsx`
-  - `RoleChangedEmail.tsx`
-  - `NewBlogPostEmail.tsx`
-- `src/lib/actions/notification-actions.ts` - Server Actions para notificações
+- ✅ Email de boas-vindas ao criar usuário (createUser)
+- ✅ Email de confirmação ao alterar senha (changePassword)
+- ✅ Email de notificação ao alterar role (changeUserRole)
+
+**Arquivos criados/modificados:**
+
+- `src/lib/email.ts` - Sistema completo de emails (400+ linhas)
+  - Cliente Resend com error handling
+  - Função sendEmail() genérica
+  - EmailTemplates com 3 templates HTML responsivos
+  - EmailHelpers para envio facilitado
+  - Suporte a múltiplos destinatários
+  - Text fallback para todos os emails
+
+- `src/lib/actions/user-actions.ts` - Notificações integradas
+  - Welcome email em createUser
+  - Password changed email em changePassword
+  - Role changed email em changeUserRole
+  - Catch de erros para não bloquear operações
+
+**Características:**
+
+- **Reliability:** Emails são enviados de forma não-bloqueante
+- **Resilience:** Falhas de email não impedem operações críticas
+- **Design:** Templates HTML responsivos com inline CSS
+- **Accessibility:** Versão text alternativa para todos os emails
+- **Security:** Alertas de segurança em ações sensíveis
+- **Branding:** Design consistente com cores da marca
+
+**Dependências Adicionadas:**
+
+```json
+{
+  "resend": "^4.0.0",
+  "@react-email/components": "^0.0.25",
+  "@react-email/render": "^1.0.1"
+}
+```
+
+**Variáveis de Ambiente Necessárias:**
+
+```env
+RESEND_API_KEY=re_xxx  # Obrigatório para envio de emails
+EMAIL_FROM=noreply@andorinha.com.br  # Opcional (default: noreply@andorinha.com.br)
+NEXTAUTH_URL=https://andorinha.com.br  # Usado nos links dos emails
+```
+
+**Build Status:** ✅ Successful
 
 ### 3. Webhooks para Integrações
 
