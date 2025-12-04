@@ -2579,7 +2579,8 @@ Páginas com metadata completo:
 - [x] Criar Server Actions para registrar logs
 - [x] Criar página de visualização de logs (/admin/settings/audit-logs)
 - [x] Adicionar headers de segurança HTTP
-- [ ] Integrar audit logging em todas as actions existentes (FUTURO)
+- [x] Integrar audit logging em todas as actions existentes
+- [x] Corrigir erro de Select com valores vazios
 - [ ] Implementar rate limiting para APIs (FUTURO - Fase 9)
 - [ ] Adicionar sistema de 2FA (Two-Factor Authentication) (FUTURO - Fase 9)
 
@@ -2597,6 +2598,11 @@ Páginas com metadata completo:
   - `listAuditLogs` - Listar logs com filtros e paginação (Admin only)
   - `getAuditStats` - Estatísticas de uso (Admin only)
   - `deleteOldAuditLogs` - Limpeza de dados antigos (90 dias default)
+
+- **Integração de Audit Logging:**
+  - `src/lib/actions/user-actions.ts` - Logs em CREATE, UPDATE, DELETE, ROLE_CHANGE, PASSWORD_CHANGE
+  - `src/lib/actions/blog-actions.ts` - Logs em CREATE, UPDATE, DELETE, PUBLISH, UNPUBLISH
+  - `src/lib/auth.ts` - Log automático de LOGIN com captura de IP e User-Agent
 
 ### Sistema de Audit Logs
 
@@ -2683,9 +2689,158 @@ Páginas com metadata completo:
 
 ---
 
-## 🚀 FASES 9-10: PRÓXIMAS ETAPAS
+## Fase 9: Notificações e Webhooks
 
-**FASE 9: Notificações e Webhooks** (integração com CRM, emails)
+> **Status:** 🚧 EM ANDAMENTO (0%)
+> **Data de início:** 04 de Dezembro de 2025
+> **Tempo estimado:** 2-3 semanas
+> **Dependências:** Fase 0-8
+
+### Objetivos da Fase 9
+
+- [ ] Implementar rate limiting para proteção de APIs
+- [ ] Criar sistema de notificações por email
+- [ ] Implementar webhooks para integrações externas
+- [ ] Adicionar notificações in-app (opcional)
+- [ ] Integrar com serviços de email (Resend/SendGrid)
+- [ ] Criar templates de email responsivos
+- [ ] Implementar sistema de fila de emails (opcional)
+
+### 1. Rate Limiting
+
+**Objetivo:** Proteger APIs contra abuso e ataques de força bruta
+
+**Implementações Planejadas:**
+
+- Middleware de rate limiting usando `@upstash/ratelimit` ou similar
+
+- Limites diferenciados por tipo de endpoint:
+  - Login: 5 tentativas por 15 minutos
+  - API pública: 100 requisições por hora
+  - API autenticada: 1000 requisições por hora
+- Headers informativos (X-RateLimit-*)
+- Resposta 429 Too Many Requests com retry-after
+- Whitelist para IPs confiáveis (opcional)
+
+**Arquivos a criar:**
+
+- `src/lib/rate-limit.ts` - Configuração do rate limiter
+
+- `src/middleware.ts` - Integração com Next.js middleware (atualizar)
+
+### 2. Sistema de Notificações por Email
+
+**Objetivo:** Enviar emails transacionais e notificações importantes
+
+**Casos de Uso:**
+
+- Novo usuário criado (boas-vindas)
+
+- Senha alterada (confirmação)
+- Role alterado (notificação)
+- Novo blog post publicado (opcional - newsletter)
+- Novo case adicionado (notificação para admins)
+- Erros críticos do sistema (alertas)
+
+**Implementações Planejadas:**
+
+- Integração com Resend API ou SendGrid
+
+- Templates de email em React usando `@react-email/components`
+- Server Actions para envio de emails
+- Tabela de logs de emails enviados (opcional)
+- Retry automático em caso de falha
+
+**Arquivos a criar:**
+
+- `src/lib/email.ts` - Cliente de email e funções auxiliares
+
+- `src/emails/` - Templates de email em React
+  - `WelcomeEmail.tsx`
+  - `PasswordChangedEmail.tsx`
+  - `RoleChangedEmail.tsx`
+  - `NewBlogPostEmail.tsx`
+- `src/lib/actions/notification-actions.ts` - Server Actions para notificações
+
+### 3. Webhooks para Integrações
+
+**Objetivo:** Permitir integrações com sistemas externos
+
+**Funcionalidades:**
+
+- Webhook quando novo blog post é publicado
+
+- Webhook quando novo case é adicionado
+- Webhook para eventos de usuário (opcional)
+- Assinatura de webhooks configurável
+- Retry com backoff exponencial
+- Verificação de assinatura (HMAC)
+
+**Implementações Planejadas:**
+
+- Tabela `WebhookSubscription` no Prisma
+
+- Sistema de dispatch de webhooks
+- Logs de webhooks enviados
+- Interface admin para gerenciar webhooks
+- Testes de webhook (enviar evento de teste)
+
+**Arquivos a criar:**
+
+- `prisma/schema.prisma` - Adicionar modelo WebhookSubscription e WebhookLog
+
+- `src/lib/webhooks.ts` - Sistema de dispatch de webhooks
+- `src/lib/actions/webhook-actions.ts` - CRUD de webhooks
+- `src/app/admin/settings/webhooks/page.tsx` - Interface de gerenciamento
+- `src/components/admin/settings/WebhookForm.tsx` - Formulário de webhook
+
+### 4. Notificações In-App (Opcional)
+
+**Objetivo:** Mostrar notificações dentro do painel admin
+
+**Funcionalidades:**
+
+- Bell icon com contador de notificações não lidas
+
+- Dropdown com lista de notificações
+- Marcar como lida
+- Tipos: info, success, warning, error
+- Persistência em banco de dados
+
+**Implementações Planejadas:**
+
+- Tabela `Notification` no Prisma
+
+- Server Actions para criar e gerenciar notificações
+- Componente de notificações no Header
+- Polling ou WebSockets para atualizações em tempo real (opcional)
+
+**Arquivos a criar:**
+
+- `prisma/schema.prisma` - Adicionar modelo Notification
+
+- `src/lib/actions/notification-actions.ts` - CRUD de notificações
+- `src/components/admin/NotificationBell.tsx` - Componente de notificações
+- `src/app/admin/settings/notifications/page.tsx` - Página de configurações
+
+### Build e Deploy
+
+- [ ] Configurar variáveis de ambiente para serviços de email
+- [ ] Testar envio de emails em staging
+- [ ] Configurar rate limiting no middleware
+- [ ] Validar webhooks com integrações reais
+- [ ] Documentar endpoints e eventos disponíveis
+
+### Itens Movidos para Fases Futuras
+
+- 2FA com TOTP (Fase 10 - opcional)
+- WebSockets para notificações em tempo real (Fase 10)
+- Push notifications (Fase 10)
+
+---
+
+## 🚀 FASE 10: PRÓXIMAS ETAPAS
+
 **FASE 10: Otimizações Finais** (testes, CI/CD, documentação)
 
 ---
