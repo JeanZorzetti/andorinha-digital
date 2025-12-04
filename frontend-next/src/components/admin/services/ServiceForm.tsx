@@ -82,9 +82,6 @@ export function ServiceForm({ mode, initialData }: ServiceFormProps) {
     name: "gallery",
   });
 
-  // Watch title for auto-slug
-  const title = watch("title");
-
   const generateSlug = (text: string) => {
     return text
       .toLowerCase()
