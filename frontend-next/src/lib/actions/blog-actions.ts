@@ -6,6 +6,7 @@ import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { blogPostSchema, updateBlogPostSchema, type BlogPostFormData, type UpdateBlogPostData } from "@/lib/validations/blog-schema";
 import { generateSlug } from "@/lib/utils/slug";
+import { createAuditLog } from "./audit-actions";
 
 /**
  * Criar novo blog post
@@ -45,6 +46,14 @@ export async function createBlogPost(data: BlogPostFormData) {
     if (validated.status === "PUBLISHED") {
       revalidatePath("/blog");
     }
+
+    // Registrar no audit log
+    await createAuditLog({
+      action: validated.status === "PUBLISHED" ? "PUBLISH" : "CREATE",
+      resource: "POST",
+      resourceId: post.id,
+      details: `${validated.status === "PUBLISHED" ? "Publicado" : "Criado"} post: ${post.title}`,
+    });
 
     return { success: true, post };
   } catch (error) {
@@ -99,6 +108,17 @@ export async function updateBlogPost(data: UpdateBlogPostData) {
       revalidatePath(`/blog/${post.slug}`);
     }
 
+    // Registrar no audit log
+    const wasPublished = existing.status !== "PUBLISHED" && post.status === "PUBLISHED";
+    const wasUnpublished = existing.status === "PUBLISHED" && post.status !== "PUBLISHED";
+
+    await createAuditLog({
+      action: wasPublished ? "PUBLISH" : wasUnpublished ? "UNPUBLISH" : "UPDATE",
+      resource: "POST",
+      resourceId: post.id,
+      details: `${wasPublished ? "Publicado" : wasUnpublished ? "Despublicado" : "Atualizado"} post: ${post.title}`,
+    });
+
     return { success: true, post };
   } catch (error) {
     console.error("Error updating blog post:", error);
@@ -136,6 +156,14 @@ export async function deleteBlogPost(id: string) {
     if (existing.status === "PUBLISHED") {
       revalidatePath("/blog");
     }
+
+    // Registrar no audit log
+    await createAuditLog({
+      action: "DELETE",
+      resource: "POST",
+      resourceId: id,
+      details: `Deletado post: ${existing.title}`,
+    });
 
     return { success: true };
   } catch (error) {

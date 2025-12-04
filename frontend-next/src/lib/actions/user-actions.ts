@@ -13,6 +13,7 @@ import {
   type UpdateUserData,
   type ChangePasswordData,
 } from "@/lib/validations/user-schema";
+import { createAuditLog } from "./audit-actions";
 
 /**
  * Criar novo usuário
@@ -67,6 +68,14 @@ export async function createUser(data: CreateUserData) {
     // 6. Revalidar cache
     revalidateTag("users");
     revalidatePath("/admin/settings/users");
+
+    // 7. Registrar no audit log
+    await createAuditLog({
+      action: "CREATE",
+      resource: "USER",
+      resourceId: user.id,
+      details: `Criado usuário ${user.name} (${user.email}) com role ${user.role}`,
+    });
 
     return { success: true, user };
   } catch (error: unknown) {
@@ -126,6 +135,15 @@ export async function updateUser(id: string, data: Partial<UpdateUserData>) {
     revalidateTag("users");
     revalidatePath("/admin/settings/users");
 
+    // Registrar no audit log
+    const changedFields = Object.keys(updateData).filter(k => k !== 'password');
+    await createAuditLog({
+      action: "UPDATE",
+      resource: "USER",
+      resourceId: id,
+      details: `Atualizado usuário ${user.name}: ${changedFields.join(", ")}${validated.password ? ", senha" : ""}`,
+    });
+
     return { success: true, user };
   } catch (error: unknown) {
     console.error("Error updating user:", error);
@@ -159,12 +177,26 @@ export async function deleteUser(id: string) {
       };
     }
 
+    // Buscar informações do usuário antes de deletar
+    const userToDelete = await prisma.user.findUnique({
+      where: { id },
+      select: { name: true, email: true },
+    });
+
     await prisma.user.delete({
       where: { id },
     });
 
     revalidateTag("users");
     revalidatePath("/admin/settings/users");
+
+    // Registrar no audit log
+    await createAuditLog({
+      action: "DELETE",
+      resource: "USER",
+      resourceId: id,
+      details: `Deletado usuário ${userToDelete?.name} (${userToDelete?.email})`,
+    });
 
     return { success: true };
   } catch (error: unknown) {
@@ -320,6 +352,12 @@ export async function changeUserRole(id: string, role: "ADMIN" | "EDITOR" | "USE
       };
     }
 
+    // Buscar role anterior
+    const previousUser = await prisma.user.findUnique({
+      where: { id },
+      select: { name: true, role: true },
+    });
+
     const user = await prisma.user.update({
       where: { id },
       data: { role },
@@ -333,6 +371,14 @@ export async function changeUserRole(id: string, role: "ADMIN" | "EDITOR" | "USE
 
     revalidateTag("users");
     revalidatePath("/admin/settings/users");
+
+    // Registrar no audit log
+    await createAuditLog({
+      action: "ROLE_CHANGE",
+      resource: "USER",
+      resourceId: id,
+      details: `Alterado role de ${user.name}: ${previousUser?.role} → ${role}`,
+    });
 
     return { success: true, user };
   } catch (error: unknown) {
@@ -383,6 +429,14 @@ export async function changePassword(data: ChangePasswordData) {
     await prisma.user.update({
       where: { id: session.user.id },
       data: { password: hashedPassword },
+    });
+
+    // Registrar no audit log
+    await createAuditLog({
+      action: "PASSWORD_CHANGE",
+      resource: "USER",
+      resourceId: session.user.id,
+      details: "Senha alterada pelo próprio usuário",
     });
 
     return { success: true, message: "Senha alterada com sucesso" };

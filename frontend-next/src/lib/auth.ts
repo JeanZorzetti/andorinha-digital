@@ -2,6 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import * as bcrypt from "bcryptjs";
 import prisma from "@/lib/prisma"; // Use singleton
+import { headers } from "next/headers";
 
 export const authOptions: NextAuthOptions = {
     providers: [
@@ -39,6 +40,27 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 console.log('✅ Auth: Login successful for:', user.email, 'Role:', user.role);
+
+                // Registrar login no audit log
+                try {
+                    const headersList = await headers();
+                    const ipAddress = headersList.get("x-forwarded-for") || headersList.get("x-real-ip") || "unknown";
+                    const userAgent = headersList.get("user-agent") || "unknown";
+
+                    await prisma.auditLog.create({
+                        data: {
+                            userId: user.id,
+                            action: "LOGIN",
+                            resource: "USER",
+                            resourceId: user.id,
+                            details: `Login bem-sucedido`,
+                            ipAddress,
+                            userAgent,
+                        },
+                    });
+                } catch (error) {
+                    console.error('Error creating audit log for login:', error);
+                }
 
                 return {
                     id: user.id,
