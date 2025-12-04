@@ -13,7 +13,7 @@ interface Activity {
   title: string;
   action: "created" | "updated" | "published";
   author: string;
-  timestamp: Date;
+  timestamp: string | Date;
   slug?: string;
 }
 
@@ -83,7 +83,7 @@ export function RecentActivity({ activities }: RecentActivityProps) {
                         {config.label}
                       </Badge>
                       <span className="text-xs text-muted-foreground">
-                        {formatDistanceToNow(activity.timestamp, {
+                        {formatDistanceToNow(new Date(activity.timestamp), {
                           addSuffix: true,
                           locale: ptBR,
                         })}

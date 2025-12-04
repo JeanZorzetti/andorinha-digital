@@ -45,7 +45,7 @@ async function getDashboardStats() {
   ]);
 
   // Combinar e ordenar atividades recentes
-  const activities = [
+  const activitiesWithDates = [
     ...recentBlogPosts.map((post) => ({
       id: post.id,
       type: "blog" as const,
@@ -76,6 +76,12 @@ async function getDashboardStats() {
   ]
     .sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime())
     .slice(0, 10);
+
+  // Serializar datas para passar ao client component
+  const activities = activitiesWithDates.map(activity => ({
+    ...activity,
+    timestamp: activity.timestamp.toISOString(),
+  }));
 
   return {
     totalPosts,
