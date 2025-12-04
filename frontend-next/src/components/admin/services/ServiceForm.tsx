@@ -77,10 +77,14 @@ export function ServiceForm({ mode, initialData }: ServiceFormProps) {
     name: "process",
   });
 
-  const { fields: galleryFields, append: appendGallery, remove: removeGallery } = useFieldArray({
-    control,
-    name: "gallery",
-  });
+  // Gallery state
+  const galleryValue = watch("gallery") || [];
+  const addGalleryItem = () => {
+    setValue("gallery", [...galleryValue, ""]);
+  };
+  const removeGalleryItem = (index: number) => {
+    setValue("gallery", galleryValue.filter((_, i) => i !== index));
+  };
 
   const generateSlug = (text: string) => {
     return text
@@ -254,14 +258,14 @@ export function ServiceForm({ mode, initialData }: ServiceFormProps) {
               {/* Gallery */}
               <div className="space-y-2">
                 <Label>Galeria de Imagens (opcional)</Label>
-                {galleryFields.map((field, index) => (
-                  <div key={field.id} className="flex gap-2">
+                {galleryValue.map((_, index) => (
+                  <div key={index} className="flex gap-2">
                     <Input
                       {...register(`gallery.${index}` as const)}
                       placeholder="https://exemplo.com/imagem.jpg"
                       type="url"
                     />
-                    <Button type="button" variant="outline" size="icon" onClick={() => removeGallery(index)}>
+                    <Button type="button" variant="outline" size="icon" onClick={() => removeGalleryItem(index)}>
                       <Trash2 className="w-4 h-4" />
                     </Button>
                   </div>
@@ -270,7 +274,7 @@ export function ServiceForm({ mode, initialData }: ServiceFormProps) {
                   type="button"
                   variant="outline"
                   size="sm"
-                  onClick={() => appendGallery("")}
+                  onClick={addGalleryItem}
                   className="w-full"
                 >
                   <Plus className="w-4 h-4 mr-2" />
