@@ -15,7 +15,9 @@
       "Bash(npx prisma db execute:*)",
       "Bash(npx prisma generate:*)",
       "Bash(npx sharp-cli:*)",
-      "Bash(npx to-ico:*)"
+      "Bash(npx to-ico:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []

@@ -126,7 +126,14 @@ async function UserTableData({
   });
 
   if (!result.success || !result.users) {
-    return <div>Erro ao carregar usuários</div>;
+    return (
+      <div className="p-4 border border-destructive rounded-lg bg-destructive/10">
+        <p className="text-destructive font-medium">Erro ao carregar usuários</p>
+        {result.error && (
+          <p className="text-sm text-muted-foreground mt-2">{result.error}</p>
+        )}
+      </div>
+    );
   }
 
   return <UserTable users={result.users} />;
