@@ -14,6 +14,7 @@ import {
   type ChangePasswordData,
 } from "@/lib/validations/user-schema";
 import { createAuditLog } from "./audit-actions";
+import { EmailHelpers } from "@/lib/email";
 
 /**
  * Criar novo usuário
@@ -75,6 +76,11 @@ export async function createUser(data: CreateUserData) {
       resource: "USER",
       resourceId: user.id,
       details: `Criado usuário ${user.name} (${user.email}) com role ${user.role}`,
+    });
+
+    // 8. Enviar email de boas-vindas (não bloquear em caso de erro)
+    EmailHelpers.sendWelcomeEmail(user.email, user.name).catch((error) => {
+      console.error('Failed to send welcome email:', error);
     });
 
     return { success: true, user };
@@ -380,6 +386,18 @@ export async function changeUserRole(id: string, role: "ADMIN" | "EDITOR" | "USE
       details: `Alterado role de ${user.name}: ${previousUser?.role} → ${role}`,
     });
 
+    // Enviar email de notificação (não bloquear em caso de erro)
+    if (previousUser?.role) {
+      EmailHelpers.sendRoleChangedEmail(
+        user.email,
+        user.name,
+        previousUser.role,
+        role
+      ).catch((error) => {
+        console.error('Failed to send role changed email:', error);
+      });
+    }
+
     return { success: true, user };
   } catch (error: unknown) {
     console.error("Error changing user role:", error);
@@ -438,6 +456,16 @@ export async function changePassword(data: ChangePasswordData) {
       resourceId: session.user.id,
       details: "Senha alterada pelo próprio usuário",
     });
+
+    // Enviar email de confirmação (não bloquear em caso de erro)
+    if (session.user.email && session.user.name) {
+      EmailHelpers.sendPasswordChangedEmail(
+        session.user.email,
+        session.user.name
+      ).catch((error) => {
+        console.error('Failed to send password changed email:', error);
+      });
+    }
 
     return { success: true, message: "Senha alterada com sucesso" };
   } catch (error: unknown) {
