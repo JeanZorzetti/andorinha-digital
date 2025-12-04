@@ -1,6 +1,7 @@
 import { ServiceForm } from "@/components/admin/services/ServiceForm";
 import { getServiceById } from "@/lib/actions/service-actions";
 import { notFound } from "next/navigation";
+import type { PricingTier, ProcessStep } from "@/lib/schemas/service-schema";
 
 interface EditServicePageProps {
   params: Promise<{
@@ -31,8 +32,8 @@ export default async function EditServicePage({ params }: EditServicePageProps) 
         gallery: service.gallery || undefined,
         category: service.category,
         tags: service.tags,
-        pricing: service.pricing,
-        process: service.process,
+        pricing: service.pricing as PricingTier[],
+        process: service.process as ProcessStep[],
         deliveryTime: service.deliveryTime,
         includes: service.includes,
         excludes: service.excludes || undefined,
