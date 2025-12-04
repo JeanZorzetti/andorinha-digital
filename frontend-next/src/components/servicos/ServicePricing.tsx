@@ -7,11 +7,10 @@ import Link from "next/link";
 interface PricingTier {
     name: string;
     price: string;
-    duration: string;
-    description: string;
+    period?: string; // Ex: "por mês", "único"
     features: string[];
     highlighted?: boolean;
-    badge?: string;
+    cta?: string; // Call to action button text
 }
 
 interface ServicePricingProps {
@@ -46,16 +45,11 @@ const ServicePricing = ({
                                 : "border-border hover:border-primary/50"
                                 }`}
                         >
-                            {tier.badge && (
+                            {tier.highlighted && (
                                 <div className="absolute top-0 right-0">
-                                    <Badge
-                                        className={`rounded-none rounded-bl-lg font-body ${tier.highlighted
-                                            ? "bg-primary text-white"
-                                            : "bg-muted text-muted-foreground"
-                                            }`}
-                                    >
-                                        {tier.highlighted && <Star className="w-3 h-3 mr-1" />}
-                                        {tier.badge}
+                                    <Badge className="rounded-none rounded-bl-lg font-body bg-primary text-white">
+                                        <Star className="w-3 h-3 mr-1" />
+                                        Mais Popular
                                     </Badge>
                                 </div>
                             )}
@@ -69,16 +63,14 @@ const ServicePricing = ({
                                         {tier.price}
                                     </span>
                                 </div>
-                                <p className="text-sm font-body text-muted-foreground mt-2">
-                                    {tier.duration}
-                                </p>
+                                {tier.period && (
+                                    <p className="text-sm font-body text-muted-foreground mt-2">
+                                        {tier.period}
+                                    </p>
+                                )}
                             </CardHeader>
 
                             <CardContent>
-                                <p className="text-sm font-body text-muted-foreground text-center mb-6">
-                                    {tier.description}
-                                </p>
-
                                 <ul className="space-y-3 mb-6">
                                     {tier.features.map((feature, featureIndex) => (
                                         <li key={featureIndex} className="flex items-start gap-2">
@@ -95,7 +87,7 @@ const ServicePricing = ({
                                             : "bg-primary-dark hover:bg-primary-dark/90"
                                             }`}
                                     >
-                                        Solicitar Proposta
+                                        {tier.cta || "Solicitar Proposta"}
                                     </Button>
                                 </Link>
                             </CardContent>
