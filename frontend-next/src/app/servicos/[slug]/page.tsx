@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SchemaService, SchemaFAQPage } from "@/components/SchemaOrg";
+import { SchemaService } from "@/components/SchemaOrg";
 import ServiceHero from "@/components/servicos/ServiceHero";
 import ServiceIncluded from "@/components/servicos/ServiceIncluded";
 import ServiceProcess from "@/components/servicos/ServiceProcess";
 import ServicePricing from "@/components/servicos/ServicePricing";
-import ServiceFAQ from "@/components/servicos/ServiceFAQ";
 import ServiceCTA from "@/components/servicos/ServiceCTA";
 import { getServiceData, getAllServices } from "@/lib/services-data";
 
@@ -18,7 +17,7 @@ interface ServicePageProps {
 export async function generateStaticParams() {
     const services = await getAllServices();
     return services.map((service) => ({
-        slug: service.id,
+        slug: service.slug,
     }));
 }
 
@@ -35,16 +34,16 @@ export async function generateMetadata({
     }
 
     return {
-        title: service.seo.title,
-        description: service.seo.description,
-        keywords: service.seo.keywords,
+        title: service.metaTitle || service.title,
+        description: service.metaDescription || service.description,
+        keywords: service.metaKeywords?.join(', '),
         openGraph: {
-            title: service.seo.title,
-            description: service.seo.description,
-            url: `https://andorinha.roilabs.com.br/servicos/${service.id}`,
+            title: service.metaTitle || service.title,
+            description: service.metaDescription || service.description,
+            url: `https://andorinha.roilabs.com.br/servicos/${service.slug}`,
             images: [
                 {
-                    url: service.seo.image,
+                    url: service.image,
                     width: 1200,
                     height: 630,
                     alt: service.title,
@@ -62,39 +61,39 @@ export default async function ServicePage({ params }: ServicePageProps) {
         notFound();
     }
 
+    // Extract first pricing tier for hero display
+    const mainPricing = service.pricing[0];
+
     return (
         <>
             <SchemaService
-                name={service.schema.name}
-                description={service.schema.description}
-                price={service.schema.price}
-                url={`https://andorinha.roilabs.com.br/servicos/${service.id}`}
+                name={service.title}
+                description={service.description}
+                price={mainPricing?.price || ''}
+                url={`https://andorinha.roilabs.com.br/servicos/${service.slug}`}
             />
-            <SchemaFAQPage faqs={service.faqItems} />
 
             <main>
                 <ServiceHero
                     title={service.title}
-                    subtitle={service.subtitle}
+                    subtitle={service.category}
                     description={service.description}
-                    price={service.price}
-                    duration={service.duration}
-                    breadcrumb={service.breadcrumb}
+                    price={mainPricing?.price || ''}
+                    duration={service.deliveryTime}
+                    breadcrumb={service.category}
                 />
 
-                <ServiceIncluded items={service.includedItems} />
+                <ServiceIncluded items={service.includes} />
 
                 <ServiceProcess
                     title="Processo de Trabalho"
                     subtitle="Como entregamos resultados"
-                    steps={service.processSteps}
+                    steps={service.process}
                 />
 
-                <ServicePricing tiers={service.pricingTiers} />
+                <ServicePricing tiers={service.pricing} />
 
-                <ServiceFAQ items={service.faqItems} />
-
-                <ServiceCTA title={service.cta.title} subtitle={service.cta.subtitle} />
+                <ServiceCTA title={`Interessado em ${service.title}?`} subtitle="Entre em contato conosco" />
             </main>
         </>
     );

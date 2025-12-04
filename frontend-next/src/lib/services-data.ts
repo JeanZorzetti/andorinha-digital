@@ -1,101 +1,83 @@
 import prisma from './prisma';
 import { unstable_cache } from 'next/cache';
 
-export interface ServiceSeo {
-    title: string;
-    description: string;
-    keywords: string;
-    image: string;
-}
-
-export interface ServiceSchema {
-    name: string;
-    description: string;
-    price: string;
-}
-
 export interface ServiceProcessStep {
-    iconName?: string; // Stored in DB
     title: string;
     description: string;
-    duration: string;
-}
-
-// Interface for the raw data from DB
-interface ServiceProcessStepRaw {
-    iconName?: string;
-    title: string;
-    description: string;
-    duration: string;
+    icon?: string;
+    duration?: string;
 }
 
 export interface ServicePricingTier {
     name: string;
     price: string;
-    duration: string;
-    description: string;
-    badge: string;
-    highlighted?: boolean;
+    period?: string;
     features: string[];
-}
-
-export interface ServiceFaqItem {
-    question: string;
-    answer: string;
-}
-
-export interface ServiceCta {
-    title: string;
-    subtitle: string;
-    description?: string;
+    highlighted?: boolean;
+    cta?: string;
 }
 
 export interface ServiceData {
     id: string;
+    slug: string;
     title: string;
-    subtitle: string;
     description: string;
-    price: string;
-    duration: string;
-    breadcrumb: string;
-    seo: ServiceSeo;
-    schema: ServiceSchema;
-    includedItems: string[];
-    processSteps: ServiceProcessStep[];
-    pricingTiers: ServicePricingTier[];
-    faqItems: ServiceFaqItem[];
-    cta: ServiceCta;
+    content: string | null;
+    image: string;
+    gallery: string[];
+    category: string;
+    tags: string[];
+    pricing: ServicePricingTier[];
+    process: ServiceProcessStep[];
+    deliveryTime: string;
+    includes: string[];
+    excludes: string[];
+    requirements: string[];
+    status: string;
+    featured: boolean;
+    metaTitle: string | null;
+    metaDescription: string | null;
+    metaKeywords: string[];
+    createdAt: Date;
+    updatedAt: Date;
+    publishedAt: Date | null;
 }
 
 export const getServiceData = unstable_cache(
-    async (id: string): Promise<ServiceData | undefined> => {
+    async (slug: string): Promise<ServiceData | undefined> => {
         const service = await prisma.service.findUnique({
-            where: { id },
+            where: {
+                slug,
+                status: 'PUBLISHED'
+            },
         });
 
         if (!service) return undefined;
 
-        // Cast JSON fields to their respective interfaces with safety checks
-        const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
-
-        // Map raw steps to public interface (no hydration needed for icons now)
-        const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
-            ? rawProcessSteps.map(step => ({
-                iconName: step.iconName,
-                title: step.title,
-                description: step.description,
-                duration: step.duration
-            }))
-            : [];
-
         return {
-            ...service,
-            seo: (service.seo as unknown as ServiceSeo) || {},
-            schema: (service.schema as unknown as ServiceSchema) || {},
-            processSteps: processSteps,
-            pricingTiers: (service.pricingTiers as unknown as ServicePricingTier[]) || [],
-            faqItems: (service.faqItems as unknown as ServiceFaqItem[]) || [],
-            cta: (service.cta as unknown as ServiceCta) || { title: '', subtitle: '' },
+            id: service.id,
+            slug: service.slug,
+            title: service.title,
+            description: service.description,
+            content: service.content,
+            image: service.image,
+            gallery: service.gallery,
+            category: service.category,
+            tags: service.tags,
+            pricing: service.pricing as ServicePricingTier[],
+            process: service.process as ServiceProcessStep[],
+            deliveryTime: service.deliveryTime,
+            includes: service.includes,
+            excludes: service.excludes,
+            requirements: service.requirements,
+            status: service.status,
+            featured: service.featured,
+            metaTitle: service.metaTitle,
+            metaDescription: service.metaDescription,
+            metaKeywords: service.metaKeywords,
+            createdAt: service.createdAt,
+            updatedAt: service.updatedAt,
+            publishedAt: service.publishedAt,
         };
     },
     ['service-data'],
@@ -105,33 +87,35 @@ export const getServiceData = unstable_cache(
 export const getAllServices = unstable_cache(
     async (): Promise<ServiceData[]> => {
         const services = await prisma.service.findMany({
+            where: { status: 'PUBLISHED' },
             orderBy: { createdAt: 'desc' },
         });
 
-        return services.map(service => {
-            // Cast JSON fields to their respective interfaces with safety checks
-            const rawProcessSteps = (service.processSteps as unknown as ServiceProcessStepRaw[]) || [];
-
-            // Map raw steps to public interface
-            const processSteps: ServiceProcessStep[] = Array.isArray(rawProcessSteps)
-                ? rawProcessSteps.map(step => ({
-                    iconName: step.iconName,
-                    title: step.title,
-                    description: step.description,
-                    duration: step.duration
-                }))
-                : [];
-
-            return {
-                ...service,
-                seo: (service.seo as unknown as ServiceSeo) || {},
-                schema: (service.schema as unknown as ServiceSchema) || {},
-                processSteps: processSteps,
-                pricingTiers: (service.pricingTiers as unknown as ServicePricingTier[]) || [],
-                faqItems: (service.faqItems as unknown as ServiceFaqItem[]) || [],
-                cta: (service.cta as unknown as ServiceCta) || { title: '', subtitle: '' },
-            };
-        });
+        return services.map(service => ({
+            id: service.id,
+            slug: service.slug,
+            title: service.title,
+            description: service.description,
+            content: service.content,
+            image: service.image,
+            gallery: service.gallery,
+            category: service.category,
+            tags: service.tags,
+            pricing: service.pricing as ServicePricingTier[],
+            process: service.process as ServiceProcessStep[],
+            deliveryTime: service.deliveryTime,
+            includes: service.includes,
+            excludes: service.excludes,
+            requirements: service.requirements,
+            status: service.status,
+            featured: service.featured,
+            metaTitle: service.metaTitle,
+            metaDescription: service.metaDescription,
+            metaKeywords: service.metaKeywords,
+            createdAt: service.createdAt,
+            updatedAt: service.updatedAt,
+            publishedAt: service.publishedAt,
+        }));
     },
     ['all-services'],
     { revalidate: 3600, tags: ['services'] }
