@@ -22,7 +22,9 @@
       "Bash(then echo \"exists\")",
       "Bash(else echo \"not found\")",
       "Bash(fi)",
-      "Bash(if [ -f \"c:\\Users\\jeanz\\Downloads\\andorinha-digital-main\\frontend-next\\src\\app\\robots.ts\" ])"
+      "Bash(if [ -f \"c:\\Users\\jeanz\\Downloads\\andorinha-digital-main\\frontend-next\\src\\app\\robots.ts\" ])",
+      "Bash(npx prisma db push)",
+      "Bash(npx prisma db push:*)"
     ],
     "deny": [],
     "ask": []

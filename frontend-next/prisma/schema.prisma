@@ -165,6 +165,49 @@ model User {
   blogPosts   BlogPost[]  @relation("AuthorPosts")
   caseStudies CaseStudy[] @relation("AuthorCases")
   services    Service[]   @relation("AuthorServices")
+  auditLogs   AuditLog[]  @relation("UserAuditLogs")
 
   @@map("users")
+}
+
+enum AuditAction {
+  CREATE
+  UPDATE
+  DELETE
+  LOGIN
+  LOGOUT
+  PASSWORD_CHANGE
+  ROLE_CHANGE
+  PUBLISH
+  UNPUBLISH
+}
+
+enum AuditResource {
+  USER
+  POST
+  CASE
+  SERVICE
+  MEDIA
+  SETTINGS
+}
+
+model AuditLog {
+  id        String        @id @default(cuid())
+  action    AuditAction
+  resource  AuditResource
+  resourceId String?
+  details   String?       @db.Text
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime      @default(now())
+
+  // Relação com usuário que executou a ação
+  userId    String
+  user      User          @relation("UserAuditLogs", fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("audit_logs")
+  @@index([userId])
+  @@index([action])
+  @@index([resource])
+  @@index([createdAt])
 }
