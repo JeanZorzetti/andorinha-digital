@@ -2691,14 +2691,14 @@ Páginas com metadata completo:
 
 ## Fase 9: Notificações e Webhooks
 
-> **Status:** 🚧 EM ANDAMENTO (0%)
+> **Status:** 🚧 EM ANDAMENTO (20%)
 > **Data de início:** 04 de Dezembro de 2025
 > **Tempo estimado:** 2-3 semanas
 > **Dependências:** Fase 0-8
 
 ### Objetivos da Fase 9
 
-- [ ] Implementar rate limiting para proteção de APIs
+- [x] Implementar rate limiting para proteção de APIs
 - [ ] Criar sistema de notificações por email
 - [ ] Implementar webhooks para integrações externas
 - [ ] Adicionar notificações in-app (opcional)
@@ -2706,27 +2706,52 @@ Páginas com metadata completo:
 - [ ] Criar templates de email responsivos
 - [ ] Implementar sistema de fila de emails (opcional)
 
-### 1. Rate Limiting
+### 1. Rate Limiting ✅
 
 **Objetivo:** Proteger APIs contra abuso e ataques de força bruta
 
-**Implementações Planejadas:**
+**Status:** ✅ CONCLUÍDO
 
-- Middleware de rate limiting usando `@upstash/ratelimit` ou similar
+**Implementações Realizadas:**
 
-- Limites diferenciados por tipo de endpoint:
-  - Login: 5 tentativas por 15 minutos
-  - API pública: 100 requisições por hora
-  - API autenticada: 1000 requisições por hora
-- Headers informativos (X-RateLimit-*)
-- Resposta 429 Too Many Requests com retry-after
-- Whitelist para IPs confiáveis (opcional)
+- ✅ Sistema de rate limiting em memória com singleton
+- ✅ Limpeza automática de entries expirados (1 minuto)
+- ✅ Rate limit presets configuráveis:
+  - AUTH: 5 tentativas por 15 minutos (login protection)
+  - PUBLIC_API: 100 requisições por hora
+  - AUTHENTICATED_API: 1000 requisições por hora
+  - FORM_SUBMIT: 10 por hora
+  - FILE_UPLOAD: 20 por hora
+- ✅ Headers informativos (X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset)
+- ✅ Resposta 429 Too Many Requests com Retry-After header
+- ✅ Integração com Next.js middleware
+- ✅ Proteção de rotas /api/auth/*
+- ✅ Helper functions para identificar requisições por IP
 
-**Arquivos a criar:**
+**Arquivos criados/modificados:**
 
-- `src/lib/rate-limit.ts` - Configuração do rate limiter
+- `src/lib/rate-limit.ts` - Sistema completo de rate limiting
+  - Classe RateLimiter com store em memória
+  - Método check() para validar limites
+  - Cleanup automático de entries expirados
+  - Presets predefinidos para diferentes casos de uso
+  - Helper functions (applyRateLimit, getIdentifier)
 
-- `src/middleware.ts` - Integração com Next.js middleware (atualizar)
+- `src/middleware.ts` - Middleware atualizado
+  - Rate limiting aplicado em rotas /api/auth
+  - Headers informativos adicionados às respostas
+  - Proteção contra brute force em autenticação
+  - Mantém proteção de rotas admin com withAuth
+
+**Características:**
+
+- **Performance:** Armazenamento em memória (Map) para baixa latência
+- **Escalabilidade:** Para produção com múltiplos servidores, migrar para Redis/Upstash
+- **Flexibilidade:** Presets configuráveis por tipo de endpoint
+- **Transparência:** Headers informativos para clientes
+- **Segurança:** Proteção efetiva contra ataques de força bruta
+
+**Build Status:** ✅ Successful (Middleware: 58.1 kB)
 
 ### 2. Sistema de Notificações por Email
 
