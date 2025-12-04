@@ -1,7 +1,7 @@
 import { ServiceForm } from "@/components/admin/services/ServiceForm";
 import { getServiceById } from "@/lib/actions/service-actions";
 import { notFound } from "next/navigation";
-import type { PricingTier, ProcessStep } from "@/lib/schemas/service-schema";
+import type { PricingTier, ProcessStep } from "@/lib/validations/service-schema";
 
 interface EditServicePageProps {
   params: Promise<{
