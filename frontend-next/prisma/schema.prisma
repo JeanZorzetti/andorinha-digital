@@ -105,24 +105,50 @@ model CaseStudy {
 }
 
 model Service {
-  id            String   @id
-  title         String
-  subtitle      String
-  description   String
-  price         String
-  duration      String
-  breadcrumb    String
-  seo           Json
-  schema        Json
-  includedItems String[]
-  processSteps  Json
-  pricingTiers  Json
-  faqItems      Json
-  cta           Json
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  description String
+  content     String?    @db.Text
+  image       String
+  gallery     String[]   @default([])
+  category    String
+  tags        String[]   @default([])
+
+  // Pricing & Process (stored as JSON)
+  pricing Json // Array of PricingTier objects
+  process Json // Array of ProcessStep objects
+
+  // Details
+  deliveryTime String
+  includes     String[]   @default([])
+  excludes     String[]   @default([])
+  requirements String[]   @default([])
+
+  // Status
+  status   PostStatus @default(DRAFT)
+  featured Boolean    @default(false)
+
+  // Author
+  authorId String
+  user     User       @relation("AuthorServices", fields: [authorId], references: [id], onDelete: Cascade)
+
+  // SEO
+  metaTitle       String?
+  metaDescription String?
+  metaKeywords    String[]
+
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  publishedAt DateTime?
 
   @@map("services")
+  @@index([slug])
+  @@index([status])
+  @@index([category])
+  @@index([authorId])
+  @@index([featured])
 }
 
 model User {
@@ -138,6 +164,7 @@ model User {
   // Relações
   blogPosts   BlogPost[]  @relation("AuthorPosts")
   caseStudies CaseStudy[] @relation("AuthorCases")
+  services    Service[]   @relation("AuthorServices")
 
   @@map("users")
 }
