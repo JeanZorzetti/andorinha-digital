@@ -8,7 +8,9 @@ import {
     Briefcase,
     Layers,
     ImageIcon,
+    Settings,
 } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
@@ -22,6 +24,7 @@ interface NavItem {
 
 export default function Sidebar() {
     const pathname = usePathname();
+    const { data: session } = useSession();
     const [counts, setCounts] = useState({
         blog: 0,
         cases: 0,
@@ -68,19 +71,16 @@ export default function Sidebar() {
             href: "/admin/media",
             icon: ImageIcon,
         },
-        // TODO: Implementar Analytics (Fase 5)
-        // {
-        //     title: "Analytics",
-        //     href: "/admin/analytics",
-        //     icon: BarChart3,
-        // },
-        // TODO: Implementar Configurações (Fase 6)
-        // {
-        //     title: "Configurações",
-        //     href: "/admin/settings",
-        //     icon: Settings,
-        // },
     ];
+
+    // Adicionar configurações apenas para ADMIN
+    if (session?.user?.role === "ADMIN") {
+        navItems.push({
+            title: "Configurações",
+            href: "/admin/settings",
+            icon: Settings,
+        });
+    }
 
     return (
         <aside className="hidden md:flex flex-col w-64 bg-card border-r border-border h-screen sticky top-0">

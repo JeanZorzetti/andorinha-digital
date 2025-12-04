@@ -1,0 +1,396 @@
+"use server";
+
+import { revalidateTag, revalidatePath } from "next/cache";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import prisma from "@/lib/prisma";
+import * as bcrypt from "bcryptjs";
+import {
+  createUserSchema,
+  updateUserSchema,
+  changePasswordSchema,
+  type CreateUserData,
+  type UpdateUserData,
+  type ChangePasswordData,
+} from "@/lib/validations/user-schema";
+
+/**
+ * Criar novo usuário
+ */
+export async function createUser(data: CreateUserData) {
+  try {
+    // 1. Autenticação e autorização
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    // Apenas ADMIN pode criar usuários
+    if (session.user.role !== "ADMIN") {
+      return { success: false, error: "Não autorizado" };
+    }
+
+    // 2. Validação
+    const validated = createUserSchema.parse(data);
+
+    // 3. Verificar se email já existe
+    const existingUser = await prisma.user.findUnique({
+      where: { email: validated.email },
+    });
+
+    if (existingUser) {
+      return { success: false, error: "Email já está em uso" };
+    }
+
+    // 4. Hash da senha
+    const hashedPassword = await bcrypt.hash(validated.password, 10);
+
+    // 5. Criar usuário
+    const user = await prisma.user.create({
+      data: {
+        name: validated.name,
+        email: validated.email,
+        password: hashedPassword,
+        role: validated.role,
+        image: validated.image,
+      },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        image: true,
+        createdAt: true,
+      },
+    });
+
+    // 6. Revalidar cache
+    revalidateTag("users");
+    revalidatePath("/admin/settings/users");
+
+    return { success: true, user };
+  } catch (error: unknown) {
+    console.error("Error creating user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao criar usuário",
+    };
+  }
+}
+
+/**
+ * Atualizar usuário
+ */
+export async function updateUser(id: string, data: Partial<UpdateUserData>) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    // Apenas ADMIN pode atualizar outros usuários
+    // Usuários podem atualizar apenas seus próprios dados
+    if (session.user.role !== "ADMIN" && session.user.id !== id) {
+      return { success: false, error: "Não autorizado" };
+    }
+
+    const validated = updateUserSchema.parse({ id, ...data });
+
+    // Se está atualizando senha, fazer hash
+    const updateData: Record<string, unknown> = { ...validated };
+    if (validated.password) {
+      updateData.password = await bcrypt.hash(validated.password, 10);
+    }
+
+    // Remover ID do updateData
+    delete updateData.id;
+
+    // Não permitir usuário não-admin alterar seu próprio role
+    if (session.user.role !== "ADMIN") {
+      delete updateData.role;
+    }
+
+    const user = await prisma.user.update({
+      where: { id },
+      data: updateData,
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        image: true,
+        updatedAt: true,
+      },
+    });
+
+    revalidateTag("users");
+    revalidatePath("/admin/settings/users");
+
+    return { success: true, user };
+  } catch (error: unknown) {
+    console.error("Error updating user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao atualizar usuário",
+    };
+  }
+}
+
+/**
+ * Deletar usuário
+ */
+export async function deleteUser(id: string) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    // Apenas ADMIN pode deletar usuários
+    if (session.user.role !== "ADMIN") {
+      return { success: false, error: "Não autorizado" };
+    }
+
+    // Não permitir deletar a si mesmo
+    if (session.user.id === id) {
+      return {
+        success: false,
+        error: "Você não pode deletar sua própria conta",
+      };
+    }
+
+    await prisma.user.delete({
+      where: { id },
+    });
+
+    revalidateTag("users");
+    revalidatePath("/admin/settings/users");
+
+    return { success: true };
+  } catch (error: unknown) {
+    console.error("Error deleting user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao deletar usuário",
+    };
+  }
+}
+
+/**
+ * Buscar usuário por ID
+ */
+export async function getUserById(id: string) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    const user = await prisma.user.findUnique({
+      where: { id },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+        image: true,
+        createdAt: true,
+        updatedAt: true,
+        _count: {
+          select: {
+            blogPosts: true,
+            caseStudies: true,
+            services: true,
+          },
+        },
+      },
+    });
+
+    if (!user) {
+      return { success: false, error: "Usuário não encontrado" };
+    }
+
+    return { success: true, user };
+  } catch (error: unknown) {
+    console.error("Error fetching user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao buscar usuário",
+    };
+  }
+}
+
+/**
+ * Listar todos os usuários
+ */
+export async function listUsers({
+  page = 1,
+  limit = 10,
+  role,
+  search,
+}: {
+  page?: number;
+  limit?: number;
+  role?: string;
+  search?: string;
+} = {}) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    const skip = (page - 1) * limit;
+
+    const where: Record<string, unknown> = {
+      ...(role && { role }),
+      ...(search && {
+        OR: [
+          { name: { contains: search, mode: "insensitive" } },
+          { email: { contains: search, mode: "insensitive" } },
+        ],
+      }),
+    };
+
+    const [users, total] = await Promise.all([
+      prisma.user.findMany({
+        where,
+        select: {
+          id: true,
+          name: true,
+          email: true,
+          role: true,
+          image: true,
+          createdAt: true,
+          updatedAt: true,
+          _count: {
+            select: {
+              blogPosts: true,
+              caseStudies: true,
+              services: true,
+            },
+          },
+        },
+        orderBy: { createdAt: "desc" },
+        skip,
+        take: limit,
+      }),
+      prisma.user.count({ where }),
+    ]);
+
+    return {
+      success: true,
+      users,
+      pagination: {
+        page,
+        limit,
+        total,
+        totalPages: Math.ceil(total / limit),
+      },
+    };
+  } catch (error: unknown) {
+    console.error("Error listing users:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao listar usuários",
+    };
+  }
+}
+
+/**
+ * Alterar role do usuário
+ */
+export async function changeUserRole(id: string, role: "ADMIN" | "EDITOR" | "USER") {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    // Apenas ADMIN pode alterar roles
+    if (session.user.role !== "ADMIN") {
+      return { success: false, error: "Não autorizado" };
+    }
+
+    // Não permitir alterar o próprio role
+    if (session.user.id === id) {
+      return {
+        success: false,
+        error: "Você não pode alterar seu próprio role",
+      };
+    }
+
+    const user = await prisma.user.update({
+      where: { id },
+      data: { role },
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        role: true,
+      },
+    });
+
+    revalidateTag("users");
+    revalidatePath("/admin/settings/users");
+
+    return { success: true, user };
+  } catch (error: unknown) {
+    console.error("Error changing user role:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao alterar role",
+    };
+  }
+}
+
+/**
+ * Alterar senha (usuário logado)
+ */
+export async function changePassword(data: ChangePasswordData) {
+  try {
+    const session = await getServerSession(authOptions);
+    if (!session?.user?.id) {
+      return { success: false, error: "Não autenticado" };
+    }
+
+    const validated = changePasswordSchema.parse(data);
+
+    // Buscar usuário atual
+    const user = await prisma.user.findUnique({
+      where: { id: session.user.id },
+      select: { password: true },
+    });
+
+    if (!user) {
+      return { success: false, error: "Usuário não encontrado" };
+    }
+
+    // Verificar senha atual
+    const isPasswordValid = await bcrypt.compare(
+      validated.currentPassword,
+      user.password
+    );
+
+    if (!isPasswordValid) {
+      return { success: false, error: "Senha atual incorreta" };
+    }
+
+    // Hash da nova senha
+    const hashedPassword = await bcrypt.hash(validated.newPassword, 10);
+
+    // Atualizar senha
+    await prisma.user.update({
+      where: { id: session.user.id },
+      data: { password: hashedPassword },
+    });
+
+    return { success: true, message: "Senha alterada com sucesso" };
+  } catch (error: unknown) {
+    console.error("Error changing password:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Erro ao alterar senha",
+    };
+  }
+}
