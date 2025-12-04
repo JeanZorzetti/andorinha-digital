@@ -1,14 +1,16 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LucideIcon } from "lucide-react";
+import { FileText, Briefcase, Layers, Eye } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+
+type IconName = "FileText" | "Briefcase" | "Layers" | "Eye";
 
 interface StatsCardProps {
   title: string;
   value: string | number;
   description?: string;
-  icon: LucideIcon;
+  iconName: IconName;
   trend?: {
     value: number;
     label: string;
@@ -16,14 +18,22 @@ interface StatsCardProps {
   iconColor?: string;
 }
 
+const iconMap = {
+  FileText,
+  Briefcase,
+  Layers,
+  Eye,
+};
+
 export function StatsCard({
   title,
   value,
   description,
-  icon: Icon,
+  iconName,
   trend,
   iconColor = "text-primary",
 }: StatsCardProps) {
+  const Icon = iconMap[iconName];
   const trendColor = trend && trend.value > 0 ? "text-green-600" : "text-red-600";
   const trendBg = trend && trend.value > 0 ? "bg-green-100" : "bg-red-100";
 

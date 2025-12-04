@@ -5,7 +5,6 @@ import prisma from "@/lib/prisma";
 import { StatsCard } from "@/components/admin/dashboard/StatsCard";
 import { RecentActivity } from "@/components/admin/dashboard/RecentActivity";
 import { QuickActions } from "@/components/admin/dashboard/QuickActions";
-import { FileText, Briefcase, Layers, Eye } from "lucide-react";
 
 export const dynamic = 'force-dynamic';
 
@@ -120,28 +119,28 @@ export default async function AdminDashboard() {
           title="Posts do Blog"
           value={stats.totalPosts}
           description={`${stats.publishedPosts} publicados`}
-          icon={FileText}
+          iconName="FileText"
           iconColor="text-blue-600"
         />
         <StatsCard
           title="Cases de Sucesso"
           value={stats.totalCases}
           description={`${stats.publishedCases} publicados`}
-          icon={Briefcase}
+          iconName="Briefcase"
           iconColor="text-purple-600"
         />
         <StatsCard
           title="Serviços"
           value={stats.totalServices}
           description={`${stats.publishedServices} publicados`}
-          icon={Layers}
+          iconName="Layers"
           iconColor="text-green-600"
         />
         <StatsCard
           title="Total de Conteúdo"
           value={stats.totalPosts + stats.totalCases + stats.totalServices}
           description="Itens cadastrados"
-          icon={Eye}
+          iconName="Eye"
           iconColor="text-orange-600"
         />
       </div>
