@@ -2352,23 +2352,100 @@ npm install date-fns
 
 ## ⚙️ FASE 6: CONFIGURAÇÕES E USUÁRIOS
 
-> **Status:** 🔄 EM ANDAMENTO (0%)
-> **Data de início:** 04 de Dezembro de 2025
+> **Status:** ✅ CONCLUÍDO (100%)
+> **Data de conclusão:** 04 de Dezembro de 2025
 > **Tempo estimado:** 2-3 semanas
 > **Dependências:** Fase 0, Fase 1, Fase 2, Fase 3, Fase 4, Fase 5
 
 ### Objetivos
 
-- [ ] Criar página de gerenciamento de usuários
-- [ ] Implementar CRUD de usuários
-- [ ] Adicionar sistema de convite por email
-- [ ] Criar página de configurações gerais do site
-- [ ] Implementar configurações de SEO global
-- [ ] Adicionar configurações de integrações (Analytics, CRM)
-- [ ] Criar sistema de backup de dados
-- [ ] Implementar logs de auditoria
-- [ ] Adicionar configurações de email
-- [ ] Criar página de perfil do usuário
+- [x] Criar página de gerenciamento de usuários
+- [x] Implementar CRUD de usuários (criar, editar, deletar)
+- [x] Implementar sistema de roles (ADMIN, EDITOR, USER)
+- [x] Criar página de configurações gerais do site
+- [x] Adicionar links de Settings no Header e Sidebar (somente ADMIN)
+- [x] Implementar alteração de role
+- [x] Implementar alteração de senha
+- [x] Criar validação Zod com requisitos de senha forte
+- [x] Adicionar sistema de permissões multi-camadas
+- [ ] Adicionar sistema de convite por email (próxima fase)
+- [ ] Implementar configurações de SEO global (Fase 7)
+- [ ] Adicionar configurações de integrações (Fase 9)
+- [ ] Criar sistema de backup de dados (Fase 8)
+- [ ] Implementar logs de auditoria (Fase 8)
+
+### Arquivos Criados
+
+- `src/lib/validations/user-schema.ts` - Schemas Zod para usuários
+  - `createUserSchema` - Validação para criação (senha obrigatória)
+  - `updateUserSchema` - Validação para edição (senha opcional)
+  - `changePasswordSchema` - Validação para troca de senha
+  - Requisitos: senha forte (8+ chars, maiúsculas, minúsculas, números)
+
+- `src/lib/actions/user-actions.ts` - Server Actions para CRUD
+  - `createUser` - Criar usuário (ADMIN only)
+  - `updateUser` - Editar usuário (ADMIN ou próprio usuário)
+  - `deleteUser` - Deletar usuário (ADMIN only, não pode deletar a si mesmo)
+  - `getUserById` - Buscar usuário por ID
+  - `listUsers` - Listar usuários com paginação e filtros
+  - `changeUserRole` - Alterar role (ADMIN only, não pode alterar próprio role)
+  - `changePassword` - Trocar senha (requer senha atual)
+
+- `src/app/admin/settings/page.tsx` - Dashboard de configurações
+  - Cards para diferentes seções (Usuários, SEO, Segurança, etc.)
+  - Informações do sistema (versão, ambiente)
+  - Informações do usuário logado
+
+- `src/app/admin/settings/users/page.tsx` - Listagem de usuários
+  - Estatísticas (Total, Admins, Editores, Usuários)
+  - Filtros e busca
+  - Paginação
+
+- `src/app/admin/settings/users/new/page.tsx` - Criar novo usuário
+- `src/app/admin/settings/users/[id]/edit/page.tsx` - Editar usuário
+
+- `src/components/admin/settings/UserTable.tsx` - Tabela de usuários
+  - Ações: Editar, Deletar, Alterar Role
+  - Dropdown com sub-menu para roles
+  - Diálogo de confirmação para delete
+  - Avatar com fallback
+  - Contagem de conteúdo criado (posts, cases, serviços)
+
+- `src/components/admin/settings/UserForm.tsx` - Formulário de usuário
+  - React Hook Form + Zod
+  - Campos: Nome, Email, Senha, Role, Imagem
+  - Select com descrições para cada role
+  - Senha opcional na edição
+
+- `src/components/admin/Header.tsx` - Link de Settings adicionado (ADMIN only)
+- `src/components/admin/Sidebar.tsx` - Link de Settings adicionado (ADMIN only)
+
+- `src/lib/auth.ts` - Atualizado callbacks NextAuth
+  - Adicionado `token.id` e `session.user.id` aos callbacks
+  - Corrigido problema de "Não autenticado" em Server Actions
+
+### Autorização Multi-Camadas
+
+1. **Server Actions** - Verificam session e role antes de operações
+2. **UI Condicional** - Links de Settings visíveis apenas para ADMIN
+3. **Proteção de Páginas** - Redirect se não for ADMIN
+4. **Auto-Proteção** - Usuário não pode deletar a si mesmo ou alterar próprio role
+
+### Desafios Técnicos e Soluções
+
+- ✅ **Session.user.id não estava disponível em Server Actions**
+  - **Causa**: Callbacks NextAuth não passavam o `id` para o token/session
+  - **Solução**: Adicionado `token.id = user.id` no callback JWT
+  - **Fix**: Usuários precisam fazer logout/login para gerar novo token
+
+- ✅ **Erro de build TypeScript/ESLint**
+  - Removido imports não utilizados
+  - Corrigido tipos `any` → `unknown`
+  - Corrigido erro de enum Zod (required_error → message)
+  - Corrigido interface malformada (pagination)
+
+- ✅ **Mensagens de erro genéricas**
+  - Adicionado exibição detalhada de erros na UI
 
 ---
 

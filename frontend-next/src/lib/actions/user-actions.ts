@@ -236,19 +236,8 @@ export async function listUsers({
 } = {}) {
   try {
     const session = await getServerSession(authOptions);
-
-    // Debug logs
-    console.log("=== listUsers Debug ===");
-    console.log("Session:", JSON.stringify(session, null, 2));
-    console.log("Session exists:", !!session);
-    console.log("Session.user exists:", !!session?.user);
-    console.log("Session.user.id:", session?.user?.id);
-    console.log("Session.user.role:", session?.user?.role);
-    console.log("======================");
-
     if (!session?.user?.id) {
-      console.error("❌ listUsers: No session or user ID");
-      return { success: false, error: "Não autenticado - session.user.id não encontrado" };
+      return { success: false, error: "Não autenticado" };
     }
 
     const skip = (page - 1) * limit;
