@@ -171,14 +171,14 @@ export function AuditLogsTable({ page, action, resource, search }: AuditLogsTabl
               />
             </div>
             <Select
-              value={filters.action}
-              onValueChange={(value) => setFilters({ ...filters, action: value })}
+              value={filters.action || "all"}
+              onValueChange={(value) => setFilters({ ...filters, action: value === "all" ? "" : value })}
             >
               <SelectTrigger className="w-full md:w-[180px]">
                 <SelectValue placeholder="Todas as ações" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todas as ações</SelectItem>
+                <SelectItem value="all">Todas as ações</SelectItem>
                 <SelectItem value="CREATE">Criar</SelectItem>
                 <SelectItem value="UPDATE">Atualizar</SelectItem>
                 <SelectItem value="DELETE">Deletar</SelectItem>
@@ -191,14 +191,14 @@ export function AuditLogsTable({ page, action, resource, search }: AuditLogsTabl
               </SelectContent>
             </Select>
             <Select
-              value={filters.resource}
-              onValueChange={(value) => setFilters({ ...filters, resource: value })}
+              value={filters.resource || "all"}
+              onValueChange={(value) => setFilters({ ...filters, resource: value === "all" ? "" : value })}
             >
               <SelectTrigger className="w-full md:w-[180px]">
                 <SelectValue placeholder="Todos os recursos" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">Todos os recursos</SelectItem>
+                <SelectItem value="all">Todos os recursos</SelectItem>
                 <SelectItem value="USER">Usuários</SelectItem>
                 <SelectItem value="POST">Posts</SelectItem>
                 <SelectItem value="CASE">Cases</SelectItem>
