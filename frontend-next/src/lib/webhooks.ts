@@ -25,8 +25,29 @@ interface WebhookPayload {
 /**
  * Gera assinatura HMAC para verificação de autenticidade
  */
-function generateSignature(payload: string, secret: string): string {
+export function generateSignature(payload: string, secret: string): string {
   return crypto.createHmac("sha256", secret).update(payload).digest("hex");
+}
+
+/**
+ * Verifica se a assinatura é válida (timing-safe comparison)
+ */
+export function verifySignature(payload: string, signature: string, secret: string): boolean {
+  try {
+    const expectedSignature = generateSignature(payload, secret);
+
+    // Ensure both buffers have the same length for timingSafeEqual
+    if (signature.length !== expectedSignature.length) {
+      return false;
+    }
+
+    return crypto.timingSafeEqual(
+      Buffer.from(signature),
+      Buffer.from(expectedSignature)
+    );
+  } catch {
+    return false;
+  }
 }
 
 /**
