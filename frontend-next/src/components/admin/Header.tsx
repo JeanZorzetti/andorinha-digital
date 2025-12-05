@@ -2,7 +2,8 @@
 
 import { useSession, signOut } from "next-auth/react";
 import { Button } from "@/components/ui/button";
-import { LogOut, User, Bell, Settings } from "lucide-react";
+import { LogOut, User, Settings } from "lucide-react";
+import { NotificationBell } from "@/components/admin/NotificationBell";
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -28,15 +29,7 @@ export default function Header() {
             {/* Actions */}
             <div className="flex items-center gap-4 ml-auto">
                 {/* Notificações */}
-                <Button variant="ghost" size="icon" className="relative">
-                    <Bell className="w-5 h-5" />
-                    <Badge
-                        variant="destructive"
-                        className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
-                    >
-                        3
-                    </Badge>
-                </Button>
+                <NotificationBell />
 
                 {/* User Menu */}
                 <DropdownMenu>

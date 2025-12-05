@@ -16,6 +16,7 @@ import {
 import { createAuditLog } from "./audit-actions";
 import { EmailHelpers } from "@/lib/email";
 import { WebhookHelpers } from "@/lib/webhooks";
+import { NotificationHelpers } from "./notification-actions";
 
 /**
  * Criar novo usuário
@@ -92,6 +93,11 @@ export async function createUser(data: CreateUserData) {
       role: user.role,
     }).catch((error) => {
       console.error('Failed to dispatch webhook:', error);
+    });
+
+    // 10. Criar notificação de boas-vindas (não bloquear em caso de erro)
+    NotificationHelpers.welcomeUser(user.id, user.name).catch((error) => {
+      console.error('Failed to create welcome notification:', error);
     });
 
     return { success: true, user };
