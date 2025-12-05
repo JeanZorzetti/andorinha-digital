@@ -2691,7 +2691,7 @@ Páginas com metadata completo:
 
 ## Fase 9: Notificações e Webhooks
 
-> **Status:** 🚧 EM ANDAMENTO (50%)
+> **Status:** 🚧 EM ANDAMENTO (80%)
 > **Data de início:** 04 de Dezembro de 2025
 > **Tempo estimado:** 2-3 semanas
 > **Dependências:** Fase 0-8
@@ -2700,11 +2700,12 @@ Páginas com metadata completo:
 
 - [x] Implementar rate limiting para proteção de APIs
 - [x] Criar sistema de notificações por email
-- [ ] Implementar webhooks para integrações externas
+- [x] Implementar webhooks para integrações externas
 - [ ] Adicionar notificações in-app (opcional)
 - [x] Integrar com serviços de email (Resend/SendGrid)
 - [x] Criar templates de email responsivos
 - [ ] Implementar sistema de fila de emails (opcional)
+- [ ] Interface UI para gerenciar webhooks (opcional)
 
 ### 1. Rate Limiting ✅
 
@@ -2838,37 +2839,163 @@ NEXTAUTH_URL=https://andorinha.com.br  # Usado nos links dos emails
 
 **Build Status:** ✅ Successful
 
-### 3. Webhooks para Integrações
+### 3. Webhooks para Integrações ✅
 
 **Objetivo:** Permitir integrações com sistemas externos
 
-**Funcionalidades:**
+**Status:** ✅ CONCLUÍDO
 
-- Webhook quando novo blog post é publicado
+**Implementações Realizadas:**
 
-- Webhook quando novo case é adicionado
-- Webhook para eventos de usuário (opcional)
-- Assinatura de webhooks configurável
-- Retry com backoff exponencial
-- Verificação de assinatura (HMAC)
+- ✅ Schema de banco de dados para webhooks
+- ✅ Sistema completo de dispatch com retry
+- ✅ Verificação de assinatura HMAC SHA-256
+- ✅ Logging de todas as entregas
+- ✅ Fire-and-forget async (não-bloqueante)
+- ✅ Exponential backoff (3 tentativas)
+- ✅ Timeout de 10 segundos por request
+- ✅ Server Actions para CRUD completo
+- ✅ Função de teste de webhook
 
-**Implementações Planejadas:**
+**Database Schema:**
 
-- Tabela `WebhookSubscription` no Prisma
+1. **WebhookEvent Enum** - 7 eventos suportados:
+   - USER_CREATED, USER_UPDATED, USER_DELETED
+   - POST_PUBLISHED, POST_UNPUBLISHED
+   - CASE_CREATED, SERVICE_CREATED
 
-- Sistema de dispatch de webhooks
-- Logs de webhooks enviados
-- Interface admin para gerenciar webhooks
-- Testes de webhook (enviar evento de teste)
+2. **WebhookSubscription Model:**
+   - id, name, url, events[], secret (HMAC)
+   - isActive, description
+   - Relação com logs
 
-**Arquivos a criar:**
+3. **WebhookLog Model:**
+   - id, subscriptionId, event, payload
+   - response, statusCode, success, error
+   - retriesCount, createdAt
+   - Índices para performance
 
-- `prisma/schema.prisma` - Adicionar modelo WebhookSubscription e WebhookLog
+**Sistema de Dispatch (webhooks.ts):**
 
-- `src/lib/webhooks.ts` - Sistema de dispatch de webhooks
-- `src/lib/actions/webhook-actions.ts` - CRUD de webhooks
-- `src/app/admin/settings/webhooks/page.tsx` - Interface de gerenciamento
-- `src/components/admin/settings/WebhookForm.tsx` - Formulário de webhook
+- `dispatchWebhook()` - Core dispatch function
+  - Busca subscriptions ativas para o evento
+  - Gera payload com timestamp
+  - Envia em paralelo para todas as URLs
+  - Log automático de resultados
+
+- `sendWebhookRequest()` - HTTP delivery
+  - HMAC signature no header X-Webhook-Signature
+  - Event type no header X-Webhook-Event
+  - Retry automático em erros 5xx
+  - Exponential backoff: 1s, 2s, 4s
+  - Timeout de 10s por tentativa
+
+- `WebhookHelpers` - Convenience functions:
+  - userCreated, userUpdated, userDeleted
+  - postPublished, postUnpublished
+  - caseCreated, serviceCreated
+
+**Server Actions (webhook-actions.ts):**
+
+- `createWebhook` - Criar subscription
+  - Validação de URL
+  - Geração automática de secret
+  - Retorna secret para configuração
+
+- `updateWebhook` - Atualizar subscription
+  - Modificar URL, eventos, status
+  - Validação de dados
+
+- `deleteWebhook` - Remover subscription
+  - Cascade delete de logs
+
+- `listWebhooks` - Listar todas
+  - Incluindo contagem de logs
+
+- `getWebhook` - Buscar por ID
+  - Com últimos 20 logs
+
+- `listWebhookLogs` - Logs paginados
+  - Filtro por subscription
+  - 50 por página
+
+- `testWebhook` - Enviar evento de teste
+  - Payload de exemplo
+  - Log do resultado
+
+- `regenerateWebhookSecret` - Novo secret
+  - Para rotação de credenciais
+
+**Integrações Realizadas:**
+
+- ✅ USER_CREATED em createUser
+- ✅ USER_UPDATED em updateUser
+- ✅ USER_DELETED em deleteUser
+
+**Payload Format:**
+
+```json
+{
+  "event": "USER_CREATED",
+  "timestamp": "2025-12-04T...",
+  "data": {
+    "userId": "...",
+    "name": "...",
+    "email": "...",
+    "role": "..."
+  }
+}
+```
+
+**Headers Enviados:**
+
+```http
+Content-Type: application/json
+X-Webhook-Signature: <hmac-sha256-hex>
+X-Webhook-Event: <event-type>
+User-Agent: Andorinha-Webhooks/1.0
+```
+
+**Características:**
+
+- **Security:** HMAC SHA-256 para verificar autenticidade
+- **Reliability:** Retry automático com backoff exponencial
+- **Performance:** Fire-and-forget não bloqueia operações
+- **Observability:** Log completo de todas as entregas
+- **Flexibility:** Subscriptions configuráveis por evento
+- **Debuggability:** Função de teste integrada
+
+**Arquivos criados:**
+
+- `src/lib/webhooks.ts` (250+ linhas)
+  - Sistema completo de dispatch
+  - Retry logic com exponential backoff
+  - HMAC signature generation
+  - Helper functions para eventos
+
+- `src/lib/actions/webhook-actions.ts` (350+ linhas)
+  - CRUD completo de subscriptions
+  - Gerenciamento de logs
+  - Teste de webhooks
+  - Regeneração de secrets
+
+- `prisma/schema.prisma` - Atualizado
+  - WebhookEvent enum
+  - WebhookSubscription model
+  - WebhookLog model
+
+**Arquivos modificados:**
+
+- `src/lib/actions/user-actions.ts`
+  - Dispatch de USER_CREATED, USER_UPDATED, USER_DELETED
+
+**Build Status:** ✅ Successful
+
+**Próximos Passos (Opcional):**
+
+- Interface UI para gerenciar webhooks via admin panel
+- Integração em blog-actions e case-actions
+- Retry queue para falhas persistentes
 
 ### 4. Notificações In-App (Opcional)
 
