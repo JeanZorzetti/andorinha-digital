@@ -1,0 +1,730 @@
+# Roadmap CRM - Painel Administrativo (/admin)
+
+Este roadmap detalha o desenvolvimento completo do painel administrativo da Andorinha Digital, incluindo gestão de conteúdo, usuários, analytics, e automações.
+
+---
+
+## 📊 Visão Geral do Projeto
+
+**Objetivo:** Criar um painel administrativo completo e intuitivo para gerenciar todos os aspectos da plataforma Andorinha Digital.
+
+**Stack Técnica:**
+- Next.js 15 (App Router)
+- TypeScript
+- Prisma ORM + PostgreSQL
+- NextAuth.js (autenticação)
+- Tailwind CSS + shadcn/ui
+- Server Actions
+- Vercel (deploy)
+
+**URL Base:** `/admin/*`
+
+---
+
+## Fase 0: Fundação e Autenticação ✅ **COMPLETO (100%)**
+
+### Objetivos
+Estabelecer a base de autenticação e estrutura do admin.
+
+### Implementações Concluídas
+
+#### ✅ Sistema de Autenticação
+- [x] NextAuth.js configurado com Credentials Provider
+- [x] Página de login customizada (`/app/page.tsx`)
+- [x] Middleware de proteção de rotas (`/admin/*`)
+- [x] Session management com JWT
+- [x] Role-based access control (ADMIN, EDITOR, USER)
+- [x] Password hashing com bcrypt
+- [x] Rate limiting no login (5 tentativas/15min)
+
+#### ✅ Layout do Admin
+- [x] Layout responsivo com sidebar
+- [x] Header com user menu e notifications bell
+- [x] Sidebar com navegação principal
+- [x] Mobile menu (hamburger)
+- [x] Breadcrumbs navigation
+- [x] Footer com informações
+
+#### ✅ Dashboard Principal
+- [x] Página `/admin/dashboard`
+- [x] Cards de métricas (Users, Posts, Cases, Services)
+- [x] Gráficos de analytics (Recharts)
+- [x] Tabela de atividades recentes
+- [x] Quick actions
+- [x] Real-time data com Server Components
+
+---
+
+## Fase 1: Gestão de Usuários ✅ **COMPLETO (100%)**
+
+### Objetivos
+Sistema completo de gerenciamento de usuários com CRUD, roles e permissões.
+
+### Implementações Concluídas
+
+#### ✅ CRUD de Usuários
+- [x] Listagem de usuários (`/admin/settings/users`)
+- [x] Tabela com @tanstack/react-table
+- [x] Paginação server-side
+- [x] Busca por nome/email
+- [x] Filtros por role
+- [x] Ordenação por colunas
+
+#### ✅ Formulários de Usuário
+- [x] Modal de criação de usuário
+- [x] Modal de edição de usuário
+- [x] Validação com Zod
+- [x] React Hook Form integration
+- [x] Upload de avatar (opcional)
+- [x] Geração de senha temporária
+- [x] Email de boas-vindas automático
+
+#### ✅ Ações em Usuários
+- [x] Alterar role (ADMIN, EDITOR, USER)
+- [x] Resetar senha
+- [x] Desativar/ativar usuário
+- [x] Deletar usuário (com confirmação)
+- [x] Ver histórico de atividades
+
+#### ✅ Perfil do Usuário
+- [x] Página de perfil (`/admin/profile`)
+- [x] Editar informações pessoais
+- [x] Alterar senha
+- [x] Upload de avatar
+- [x] Preferências de notificações
+
+**Arquivos Criados:**
+- `src/app/admin/settings/users/page.tsx`
+- `src/components/admin/users/UserTable.tsx`
+- `src/components/admin/users/UserForm.tsx`
+- `src/lib/actions/user-actions.ts`
+- `src/lib/validations/user-schema.ts`
+
+---
+
+## Fase 2: Gestão de Blog ✅ **COMPLETO (100%)**
+
+### Objetivos
+Sistema completo de gerenciamento de posts com editor rico e SEO.
+
+### Implementações Concluídas
+
+#### ✅ CRUD de Posts
+- [x] Listagem de posts (`/admin/content/posts`)
+- [x] Tabela com filtros (status, categoria, autor)
+- [x] Busca full-text
+- [x] Ordenação por data/views
+- [x] Ações em lote (publish, archive, delete)
+
+#### ✅ Editor de Posts
+- [x] Editor rico com TipTap (`/admin/content/posts/new`)
+- [x] Formatação de texto (bold, italic, links, etc.)
+- [x] Inserção de imagens via UploadThing
+- [x] Código com syntax highlighting
+- [x] Tabelas, listas, blockquotes
+- [x] Undo/redo
+
+#### ✅ Metadados e SEO
+- [x] Título, slug automático
+- [x] Excerpt (resumo)
+- [x] Cover image upload
+- [x] Categorias e tags
+- [x] Meta title, description, keywords
+- [x] Preview de SEO
+
+#### ✅ Workflow de Publicação
+- [x] Status: DRAFT, PUBLISHED, ARCHIVED
+- [x] Agendamento de publicação (publishedAt)
+- [x] Preview antes de publicar
+- [x] Notificação ao publicar
+- [x] Webhook dispatch (POST_PUBLISHED)
+- [x] Email para assinantes (opcional)
+
+#### ✅ Analytics de Posts
+- [x] Contador de visualizações
+- [x] Tempo médio de leitura
+- [x] Posts mais populares
+- [x] Estatísticas por categoria
+
+**Arquivos Criados:**
+- `src/app/admin/content/posts/page.tsx`
+- `src/app/admin/content/posts/new/page.tsx`
+- `src/app/admin/content/posts/[id]/edit/page.tsx`
+- `src/components/admin/posts/PostTable.tsx`
+- `src/components/admin/posts/PostEditor.tsx`
+- `src/lib/actions/post-actions.ts`
+- `src/lib/validations/post-schema.ts`
+
+---
+
+## Fase 3: Gestão de Cases ✅ **COMPLETO (100%)**
+
+### Objetivos
+Sistema de gerenciamento de estudos de caso/portfólio.
+
+### Implementações Concluídas
+
+#### ✅ CRUD de Cases
+- [x] Listagem de cases (`/admin/content/cases`)
+- [x] Tabela com filtros (status, indústria, featured)
+- [x] Busca por cliente/título
+- [x] Ordenação customizável
+
+#### ✅ Editor de Cases
+- [x] Formulário completo de case study
+- [x] Informações do cliente
+- [x] Challenge, Solution, Results
+- [x] Métricas de sucesso (JSON)
+- [x] Testimonial integrado
+- [x] Gallery de imagens
+- [x] Tags de tecnologias
+- [x] Deliverables list
+
+#### ✅ Features Especiais
+- [x] Featured cases (destaque na home)
+- [x] Filtro por indústria
+- [x] Timeline de projeto
+- [x] Investment/budget tracking
+- [x] Status tracking
+
+**Arquivos Criados:**
+- `src/app/admin/content/cases/page.tsx`
+- `src/app/admin/content/cases/new/page.tsx`
+- `src/app/admin/content/cases/[id]/edit/page.tsx`
+- `src/components/admin/cases/CaseTable.tsx`
+- `src/components/admin/cases/CaseForm.tsx`
+- `src/lib/actions/case-actions.ts`
+- `src/lib/validations/case-schema.ts`
+
+---
+
+## Fase 4: Gestão de Serviços ✅ **COMPLETO (100%)**
+
+### Objetivos
+Sistema de gerenciamento de serviços oferecidos.
+
+### Implementações Concluídas
+
+#### ✅ CRUD de Serviços
+- [x] Listagem de serviços (`/admin/content/services`)
+- [x] Tabela com filtros (status, categoria, featured)
+- [x] Busca por título/descrição
+- [x] Ordenação
+
+#### ✅ Editor de Serviços
+- [x] Informações básicas (título, descrição, imagem)
+- [x] Pricing tiers (múltiplos planos)
+- [x] Process steps (passo a passo)
+- [x] Delivery time estimation
+- [x] Includes/excludes lists
+- [x] Requirements list
+- [x] Gallery de exemplos
+
+#### ✅ Pricing Management
+- [x] Múltiplos tiers de preço
+- [x] Features por tier
+- [x] Preços mensais/anuais
+- [x] Custom pricing (sob consulta)
+- [x] Destacar tier recomendado
+
+**Arquivos Criados:**
+- `src/app/admin/content/services/page.tsx`
+- `src/app/admin/content/services/new/page.tsx`
+- `src/app/admin/content/services/[id]/edit/page.tsx`
+- `src/components/admin/services/ServiceTable.tsx`
+- `src/components/admin/services/ServiceForm.tsx`
+- `src/lib/actions/service-actions.ts`
+- `src/lib/validations/service-schema.ts`
+
+---
+
+## Fase 5: Media Library 🚧 **EM ANDAMENTO (60%)**
+
+### Objetivos
+Gerenciamento centralizado de arquivos e imagens.
+
+### Implementações Concluídas
+- [x] Integração com UploadThing
+- [x] Upload de imagens nos formulários
+- [x] Preview de imagens
+- [x] Delete de arquivos
+
+### Implementações Pendentes
+- [ ] Página dedicada de media library (`/admin/media`)
+- [ ] Grid de visualização de arquivos
+- [ ] Filtros por tipo (imagem, vídeo, documento)
+- [ ] Busca de arquivos
+- [ ] Organização em pastas/álbuns
+- [ ] Informações de arquivo (tamanho, dimensões, data)
+- [ ] Edição básica de imagens (crop, resize)
+- [ ] Bulk upload
+- [ ] Bulk delete
+- [ ] CDN optimization
+- [ ] Lazy loading
+- [ ] Alt text management para SEO
+
+**Arquivos a Criar:**
+- `src/app/admin/media/page.tsx`
+- `src/components/admin/media/MediaGrid.tsx`
+- `src/components/admin/media/FileUploader.tsx`
+- `src/lib/actions/media-actions.ts`
+
+---
+
+## Fase 6: Analytics e Relatórios 🚧 **EM ANDAMENTO (40%)**
+
+### Objetivos
+Dashboard de analytics e geração de relatórios.
+
+### Implementações Concluídas
+- [x] Dashboard com métricas básicas
+- [x] Gráficos com Recharts
+- [x] Contador de views em posts
+- [x] Tabela de atividades recentes
+
+### Implementações Pendentes
+- [ ] Integração com Google Analytics
+- [ ] Integração com Vercel Analytics (completa)
+- [ ] Analytics de tráfego (pageviews, sessions, bounce rate)
+- [ ] Analytics de conversão
+- [ ] Funil de vendas
+- [ ] Origem de tráfego (referrers)
+- [ ] Dispositivos e browsers
+- [ ] Localização geográfica
+- [ ] Eventos customizados
+- [ ] Relatórios agendados por email
+- [ ] Exportação de dados (CSV, PDF)
+- [ ] Comparação de períodos
+- [ ] Real-time analytics dashboard
+
+**Arquivos a Criar:**
+- `src/app/admin/analytics/page.tsx`
+- `src/app/admin/analytics/traffic/page.tsx`
+- `src/app/admin/analytics/conversions/page.tsx`
+- `src/components/admin/analytics/TrafficChart.tsx`
+- `src/components/admin/analytics/ConversionFunnel.tsx`
+- `src/lib/actions/analytics-actions.ts`
+
+---
+
+## Fase 7: SEO e Marketing 🚧 **EM ANDAMENTO (50%)**
+
+### Objetivos
+Ferramentas de SEO e marketing digital.
+
+### Implementações Concluídas
+- [x] Campos de SEO em todos os content types
+- [x] Meta title, description, keywords
+- [x] Slugs automáticos
+- [x] Sitemap automático (`/sitemap.xml`)
+- [x] Robots.txt
+
+### Implementações Pendentes
+- [ ] Página de configuração SEO (`/admin/seo`)
+- [ ] SEO Score calculator
+- [ ] Preview de SERP (Google search result)
+- [ ] Preview de social media (OG tags)
+- [ ] Sitemap management
+- [ ] Redirect management (301, 302)
+- [ ] Broken links checker
+- [ ] Schema.org markup generator
+- [ ] Meta tags bulk editor
+- [ ] Keyword density analyzer
+- [ ] Newsletter management
+- [ ] Email templates editor
+- [ ] Subscriber list management
+- [ ] Campaign tracking (UTM parameters)
+
+**Arquivos a Criar:**
+- `src/app/admin/seo/page.tsx`
+- `src/app/admin/seo/redirects/page.tsx`
+- `src/app/admin/marketing/newsletter/page.tsx`
+- `src/components/admin/seo/SEOPreview.tsx`
+- `src/components/admin/seo/RedirectForm.tsx`
+- `src/lib/actions/seo-actions.ts`
+
+---
+
+## Fase 8: Configurações do Sistema ✅ **COMPLETO (80%)**
+
+### Objetivos
+Configurações gerais da plataforma.
+
+### Implementações Concluídas
+- [x] Gestão de usuários (`/admin/settings/users`)
+- [x] Audit logs (`/admin/settings/audit-logs`)
+- [x] Webhooks management (`/admin/settings/webhooks`)
+- [x] Perfil do usuário (`/admin/profile`)
+
+### Implementações Pendentes
+- [ ] Configurações gerais (`/admin/settings/general`)
+  - [ ] Nome do site
+  - [ ] Logo e favicon
+  - [ ] Informações de contato
+  - [ ] Timezone
+  - [ ] Idioma padrão
+  - [ ] Formato de data/hora
+- [ ] Configurações de email
+  - [ ] SMTP settings
+  - [ ] Email templates
+  - [ ] Test email sender
+- [ ] Configurações de notificações
+  - [ ] Email notifications on/off
+  - [ ] In-app notifications preferences
+  - [ ] Webhook notifications
+- [ ] API Settings
+  - [ ] API keys management
+  - [ ] Rate limiting config
+  - [ ] CORS settings
+- [ ] Backup & Restore
+  - [ ] Automated backup schedule
+  - [ ] Manual backup trigger
+  - [ ] Restore from backup
+  - [ ] Backup history
+
+**Arquivos a Criar:**
+- `src/app/admin/settings/general/page.tsx`
+- `src/app/admin/settings/email/page.tsx`
+- `src/app/admin/settings/api/page.tsx`
+- `src/app/admin/settings/backup/page.tsx`
+- `src/components/admin/settings/GeneralSettings.tsx`
+
+---
+
+## Fase 9: Notificações e Webhooks ✅ **COMPLETO (100%)**
+
+### Objetivos
+Sistema de notificações e integração via webhooks.
+
+### Implementações Concluídas
+
+#### ✅ Notificações In-App
+- [x] Model Notification no Prisma
+- [x] Server Actions para CRUD de notificações
+- [x] NotificationBell component no header
+- [x] Dropdown com lista de notificações
+- [x] Badge com contador de não lidas
+- [x] Polling automático (30s)
+- [x] Marcar como lida
+- [x] Deletar notificação
+- [x] Link para ação (opcional)
+- [x] Tipos: INFO, SUCCESS, WARNING, ERROR
+
+#### ✅ Sistema de Webhooks
+- [x] Model WebhookSubscription e WebhookLog
+- [x] CRUD de webhooks
+- [x] Eventos suportados:
+  - USER_CREATED, USER_UPDATED, USER_DELETED
+  - POST_PUBLISHED, POST_UNPUBLISHED
+  - CASE_CREATED, SERVICE_CREATED
+- [x] HMAC SHA-256 signatures
+- [x] Retry logic com exponential backoff
+- [x] Webhook logs com payload/response
+- [x] Test webhook functionality
+- [x] Secret regeneration
+- [x] Interface UI completa (`/admin/settings/webhooks`)
+
+#### ✅ Email Notifications
+- [x] Integração com Resend API
+- [x] Templates de email (welcome, password reset, etc.)
+- [x] HTML + plain text versions
+- [x] Email helpers para eventos comuns
+
+**Arquivos Criados:**
+- `src/lib/webhooks.ts`
+- `src/lib/actions/webhook-actions.ts`
+- `src/lib/actions/notification-actions.ts`
+- `src/components/admin/NotificationBell.tsx`
+- `src/app/admin/settings/webhooks/page.tsx`
+- `src/components/admin/settings/WebhookForm.tsx`
+- `src/components/admin/settings/WebhookTable.tsx`
+
+---
+
+## Fase 10: Otimizações e Testes 🚧 **EM ANDAMENTO (30%)**
+
+### Objetivos
+Testes automatizados e otimizações de performance.
+
+### Implementações Concluídas
+
+#### ✅ Testes Automatizados
+- [x] Vitest configurado
+- [x] Playwright configurado
+- [x] 36 testes unitários (rate-limit, webhooks, email)
+- [x] 19 testes E2E (auth, user management)
+- [x] Coverage reporting (V8)
+- [x] Test fixtures e mock data
+- [x] CI-ready test scripts
+
+### Implementações Pendentes
+- [ ] Aumentar coverage para 70%+
+- [ ] Testes de componentes React
+- [ ] Testes de Server Actions
+- [ ] Integration tests
+- [ ] Performance optimization
+  - [ ] Image optimization
+  - [ ] Code splitting
+  - [ ] Bundle size analysis
+  - [ ] Database query optimization
+  - [ ] Cache strategies
+- [ ] Acessibilidade
+  - [ ] WCAG 2.1 AA compliance
+  - [ ] Keyboard navigation
+  - [ ] Screen reader testing
+  - [ ] ARIA labels
+- [ ] Documentação
+  - [ ] README completo
+  - [ ] API documentation
+  - [ ] Component Storybook
+  - [ ] Deployment guide
+- [ ] CI/CD
+  - [ ] GitHub Actions workflow
+  - [ ] Automated testing em PRs
+  - [ ] Preview deployments
+  - [ ] Database migrations automáticas
+
+**Arquivos Criados:**
+- `vitest.config.ts`
+- `playwright.config.ts`
+- `tests/setup.ts`
+- `tests/unit/lib/*.test.ts`
+- `tests/e2e/*.spec.ts`
+- `tests/README.md`
+
+---
+
+## Fase 11: Features Avançadas ⏳ **PLANEJADO (0%)**
+
+### Objetivos
+Funcionalidades avançadas e integrações.
+
+### Implementações Planejadas
+
+#### 📋 CRM Básico
+- [ ] Lead management
+- [ ] Contact forms tracking
+- [ ] Lead scoring
+- [ ] Pipeline de vendas
+- [ ] Tarefas e follow-ups
+- [ ] Integração com Calendly
+- [ ] Email templates para leads
+
+#### 📧 Email Marketing
+- [ ] Newsletter builder (drag & drop)
+- [ ] Segmentação de audiência
+- [ ] Automação de emails
+- [ ] A/B testing
+- [ ] Analytics de emails (open rate, click rate)
+- [ ] Unsubscribe management
+
+#### 🔔 Notificações Avançadas
+- [ ] Push notifications (PWA)
+- [ ] WebSocket para real-time
+- [ ] SMS notifications (Twilio)
+- [ ] Slack integration
+- [ ] Discord webhooks
+
+#### 🤖 Automações
+- [ ] Zapier integration
+- [ ] Make (Integromat) webhooks
+- [ ] Automated workflows
+- [ ] Conditional logic
+- [ ] Scheduled tasks
+
+#### 📱 Mobile App (Opcional)
+- [ ] React Native admin app
+- [ ] Push notifications
+- [ ] Offline mode
+- [ ] Quick actions
+
+#### 🔐 Segurança Avançada
+- [ ] Two-factor authentication (2FA)
+- [ ] OAuth providers (Google, GitHub)
+- [ ] IP whitelist
+- [ ] Session management avançado
+- [ ] Security audit logs
+- [ ] Compliance tools (GDPR, LGPD)
+
+#### 🌐 Multilingual
+- [ ] i18n setup (next-intl)
+- [ ] Tradução de conteúdo
+- [ ] Interface em PT-BR e EN
+- [ ] SEO para múltiplos idiomas
+
+---
+
+## 📊 Resumo de Progresso Geral
+
+| Fase | Status | Progresso | Prioridade |
+|------|--------|-----------|------------|
+| 0. Fundação | ✅ Completo | 100% | Alta |
+| 1. Usuários | ✅ Completo | 100% | Alta |
+| 2. Blog | ✅ Completo | 100% | Alta |
+| 3. Cases | ✅ Completo | 100% | Alta |
+| 4. Serviços | ✅ Completo | 100% | Alta |
+| 5. Media Library | 🚧 Andamento | 60% | Média |
+| 6. Analytics | 🚧 Andamento | 40% | Alta |
+| 7. SEO/Marketing | 🚧 Andamento | 50% | Média |
+| 8. Configurações | 🚧 Andamento | 80% | Média |
+| 9. Notificações | ✅ Completo | 100% | Alta |
+| 10. Testes | 🚧 Andamento | 30% | Alta |
+| 11. Avançado | ⏳ Planejado | 0% | Baixa |
+
+**Progresso Total: ~75%**
+
+---
+
+## 🎯 Próximas Prioridades
+
+### Curto Prazo (1-2 semanas)
+1. ✅ ~~Completar sistema de testes (Phase 10)~~
+2. 🔄 Finalizar Media Library (Phase 5)
+3. 🔄 Expandir Analytics (Phase 6)
+4. 🔄 Aumentar coverage de testes para 70%
+
+### Médio Prazo (1 mês)
+1. Finalizar ferramentas de SEO (Phase 7)
+2. Completar configurações do sistema (Phase 8)
+3. Implementar CRM básico (Phase 11)
+4. Melhorar performance e acessibilidade
+
+### Longo Prazo (2-3 meses)
+1. Email marketing completo
+2. Automações avançadas
+3. Integrações externas (Zapier, etc.)
+4. Mobile app (se necessário)
+5. Multilingual support
+
+---
+
+## 📈 Métricas de Sucesso
+
+### Performance
+- ✅ Lighthouse Score > 90
+- ✅ First Contentful Paint < 1.5s
+- ✅ Time to Interactive < 3.5s
+- 🔄 Test Coverage > 70%
+
+### Usabilidade
+- ✅ Interface responsiva (mobile, tablet, desktop)
+- ✅ Navegação intuitiva
+- ✅ Feedback visual em todas as ações
+- 🔄 WCAG 2.1 AA compliance
+
+### Segurança
+- ✅ Autenticação robusta
+- ✅ Rate limiting implementado
+- ✅ CSRF protection
+- ✅ SQL injection prevention (Prisma)
+- 🔄 2FA (pendente)
+
+### Escalabilidade
+- ✅ Database indexes otimizados
+- ✅ Server-side pagination
+- ✅ Lazy loading de componentes
+- ✅ Cache strategies (Next.js)
+- 🔄 CDN para assets
+
+---
+
+## 🛠️ Stack Técnica Completa
+
+### Frontend
+- Next.js 15 (App Router)
+- React 19
+- TypeScript 5.7
+- Tailwind CSS 3.4
+- shadcn/ui components
+- Radix UI primitives
+- Framer Motion (animações)
+
+### Backend
+- Next.js Server Actions
+- Prisma ORM 5.22
+- PostgreSQL 15
+- NextAuth.js 4.24
+- Resend (emails)
+- UploadThing (files)
+
+### Ferramentas
+- Vitest + Playwright (testes)
+- ESLint + Prettier (code quality)
+- Zod (validação)
+- React Hook Form
+- TanStack Table
+- Recharts (gráficos)
+- date-fns (datas)
+
+### Deploy & Infra
+- Vercel (hosting)
+- Vercel Postgres (database)
+- Vercel Analytics
+- GitHub (version control)
+- Docker (desenvolvimento local)
+
+---
+
+## 📝 Convenções de Código
+
+### Nomenclatura
+- Components: PascalCase (`UserTable.tsx`)
+- Server Actions: kebab-case files, camelCase functions (`user-actions.ts` → `createUser()`)
+- Types/Interfaces: PascalCase com `I` prefix para interfaces
+- Constants: UPPER_SNAKE_CASE
+- CSS classes: kebab-case (Tailwind)
+
+### Estrutura de Pastas
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── admin/             # Admin pages
+│   ├── api/               # API routes (se necessário)
+│   └── (public)/          # Public pages
+├── components/
+│   ├── admin/             # Admin components
+│   ├── ui/                # shadcn/ui components
+│   └── shared/            # Shared components
+├── lib/
+│   ├── actions/           # Server Actions
+│   ├── validations/       # Zod schemas
+│   ├── utils/             # Utility functions
+│   └── hooks/             # Custom React hooks
+└── types/                 # TypeScript types
+```
+
+### Best Practices
+- ✅ Use Server Components por padrão
+- ✅ Client Components apenas quando necessário ('use client')
+- ✅ Server Actions para mutations
+- ✅ Zod para validação de dados
+- ✅ TypeScript strict mode
+- ✅ Evitar any, usar tipos adequados
+- ✅ Comments apenas quando necessário
+- ✅ Componentização adequada
+- ✅ Reuse de código (DRY)
+- ✅ Error handling consistente
+
+---
+
+## ✅ Conclusão
+
+O painel administrativo da Andorinha Digital está **~75% completo**, com todas as funcionalidades core implementadas e funcionando em produção:
+
+**Destaques:**
+- 🔐 Sistema de autenticação robusto
+- 📝 Gestão completa de conteúdo (Blog, Cases, Services)
+- 👥 Gerenciamento de usuários com roles
+- 🔔 Notificações in-app e webhooks
+- 📊 Dashboard com analytics básico
+- ✅ 55 testes automatizados
+- 🚀 Deploy em produção (Vercel)
+
+**Próximos passos focados em:**
+1. Media Library completa
+2. Analytics avançado
+3. Ferramentas de SEO
+4. Aumentar coverage de testes
+5. Features avançadas (CRM, automações)
+
+O sistema está pronto para uso em produção e recebendo melhorias contínuas! 🎉
