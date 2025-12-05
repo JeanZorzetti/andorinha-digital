@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Globe, Bell, Shield, Database, Mail } from "lucide-react";
+import { Users, Globe, Bell, Shield, Database, Mail, Webhook } from "lucide-react";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
@@ -31,6 +31,14 @@ const settingsCards = [
     iconColor: "text-yellow-600",
     bgColor: "bg-yellow-100",
     disabled: true,
+  },
+  {
+    title: "Webhooks",
+    description: "Gerenciar integrações com sistemas externos via webhooks",
+    icon: Webhook,
+    href: "/admin/settings/webhooks",
+    iconColor: "text-indigo-600",
+    bgColor: "bg-indigo-100",
   },
   {
     title: "Audit Logs",
