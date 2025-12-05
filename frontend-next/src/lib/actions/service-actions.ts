@@ -10,6 +10,7 @@ import {
   type ServiceFormData,
   type UpdateServiceData,
 } from "@/lib/validations/service-schema";
+import { WebhookHelpers } from "@/lib/webhooks";
 
 /**
  * Criar novo serviço
@@ -49,6 +50,17 @@ export async function createService(data: ServiceFormData) {
     revalidateTag("services");
     revalidatePath("/servicos");
     revalidatePath("/admin/services");
+
+    // 6. Disparar webhook se publicado
+    if (validated.status === "PUBLISHED") {
+      WebhookHelpers.serviceCreated({
+        id: service.id,
+        title: service.title,
+        slug: service.slug,
+      }).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
+    }
 
     return { success: true, service };
   } catch (error: unknown) {

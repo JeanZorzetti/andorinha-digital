@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { caseStudySchema, updateCaseStudySchema, type CaseStudyFormData, type UpdateCaseStudyData } from "@/lib/validations/case-schema";
+import { WebhookHelpers } from "@/lib/webhooks";
 
 /**
  * Criar novo case study
@@ -42,6 +43,18 @@ export async function createCaseStudy(data: CaseStudyFormData) {
     revalidatePath("/admin/cases");
     if (validated.status === "PUBLISHED") {
       revalidatePath("/cases");
+    }
+
+    // Disparar webhook se publicado
+    if (validated.status === "PUBLISHED") {
+      WebhookHelpers.caseCreated({
+        id: caseStudy.id,
+        title: caseStudy.title,
+        slug: caseStudy.slug,
+        client: caseStudy.client,
+      }).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
     }
 
     return { success: true, caseStudy };

@@ -7,6 +7,7 @@ import prisma from "@/lib/prisma";
 import { blogPostSchema, updateBlogPostSchema, type BlogPostFormData, type UpdateBlogPostData } from "@/lib/validations/blog-schema";
 import { generateSlug } from "@/lib/utils/slug";
 import { createAuditLog } from "./audit-actions";
+import { WebhookHelpers } from "@/lib/webhooks";
 
 /**
  * Criar novo blog post
@@ -54,6 +55,18 @@ export async function createBlogPost(data: BlogPostFormData) {
       resourceId: post.id,
       details: `${validated.status === "PUBLISHED" ? "Publicado" : "Criado"} post: ${post.title}`,
     });
+
+    // Disparar webhook se publicado
+    if (validated.status === "PUBLISHED") {
+      WebhookHelpers.postPublished({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        author: post.author,
+      }).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
+    }
 
     return { success: true, post };
   } catch (error) {
@@ -118,6 +131,22 @@ export async function updateBlogPost(data: UpdateBlogPostData) {
       resourceId: post.id,
       details: `${wasPublished ? "Publicado" : wasUnpublished ? "Despublicado" : "Atualizado"} post: ${post.title}`,
     });
+
+    // Disparar webhooks
+    if (wasPublished) {
+      WebhookHelpers.postPublished({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        author: post.author,
+      }).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
+    } else if (wasUnpublished) {
+      WebhookHelpers.postUnpublished(post.id, post.title).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
+    }
 
     return { success: true, post };
   } catch (error) {
