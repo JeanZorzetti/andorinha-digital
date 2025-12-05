@@ -160,7 +160,7 @@ export async function trackConversion(data: {
   type: string;
   page: string;
   value?: number;
-  metadata?: Record<string, unknown>;
+  metadata?: unknown;
 }) {
   try {
     await prisma.conversion.create({

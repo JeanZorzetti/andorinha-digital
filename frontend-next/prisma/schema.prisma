@@ -379,3 +379,28 @@ model Conversion {
   @@index([type])
   @@index([createdAt])
 }
+
+// ============================================
+// SEO & REDIRECTS
+// ============================================
+
+enum RedirectType {
+  PERMANENT_301
+  TEMPORARY_302
+}
+
+model Redirect {
+  id          String       @id @default(cuid())
+  source      String       @unique // Source path (e.g., /old-page)
+  destination String       // Destination path (e.g., /new-page)
+  type        RedirectType @default(PERMANENT_301)
+  isActive    Boolean      @default(true)
+  description String?      @db.Text
+  hitCount    Int          @default(0) // Track redirect usage
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@map("redirects")
+  @@index([source])
+  @@index([isActive])
+}

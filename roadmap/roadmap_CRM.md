@@ -370,25 +370,44 @@ Dashboard de analytics e geração de relatórios.
 
 ---
 
-## Fase 7: SEO e Marketing 🚧 **EM ANDAMENTO (50%)**
+## Fase 7: SEO e Marketing 🚧 **EM ANDAMENTO (70%)**
 
 ### Objetivos
 Ferramentas de SEO e marketing digital.
 
 ### Implementações Concluídas
+
+#### ✅ SEO Básico
 - [x] Campos de SEO em todos os content types
 - [x] Meta title, description, keywords
 - [x] Slugs automáticos
 - [x] Sitemap automático (`/sitemap.xml`)
-- [x] Robots.txt
+- [x] Robots.txt configurado
+
+#### ✅ Redirect Management
+- [x] Model Prisma: Redirect (source, destination, type, hitCount)
+- [x] Enum RedirectType: PERMANENT_301, TEMPORARY_302
+- [x] Página `/admin/seo/redirects` completa
+- [x] Server actions para redirects (CRUD completo)
+- [x] Formulário de criação de redirects
+- [x] Tabela com toggle ativo/inativo
+- [x] Contador de acessos (hitCount)
+- [x] Cards de estatísticas (total, ativos, inativos, hits)
+- [x] Validação de paths (source e destination)
+- [x] Suporte para URLs externas
+
+#### ✅ SEO Dashboard
+- [x] Página `/admin/seo` com overview
+- [x] Cards de ferramentas disponíveis
+- [x] Status de SEO atual (sitemap, robots, meta tags)
+- [x] Links para ferramentas (redirects, analytics, sitemap)
+- [x] Roadmap de próximos passos
 
 ### Implementações Pendentes
-- [ ] Página de configuração SEO (`/admin/seo`)
 - [ ] SEO Score calculator
 - [ ] Preview de SERP (Google search result)
 - [ ] Preview de social media (OG tags)
-- [ ] Sitemap management
-- [ ] Redirect management (301, 302)
+- [ ] Sitemap management UI
 - [ ] Broken links checker
 - [ ] Schema.org markup generator
 - [ ] Meta tags bulk editor
@@ -398,12 +417,18 @@ Ferramentas de SEO e marketing digital.
 - [ ] Subscriber list management
 - [ ] Campaign tracking (UTM parameters)
 
-**Arquivos a Criar:**
-- `src/app/admin/seo/page.tsx`
-- `src/app/admin/seo/redirects/page.tsx`
+**Arquivos Criados:**
+- ✅ `prisma/schema.prisma` - Redirect model
+- ✅ `src/lib/actions/redirect-actions.ts` - 9 server actions
+- ✅ `src/app/admin/seo/page.tsx` - SEO dashboard
+- ✅ `src/app/admin/seo/redirects/page.tsx` - Redirects management
+- ✅ `src/components/admin/seo/RedirectForm.tsx` - Create redirect form
+- ✅ `src/components/admin/seo/RedirectsTable.tsx` - Redirects table
+
+**Arquivos Pendentes:**
 - `src/app/admin/marketing/newsletter/page.tsx`
 - `src/components/admin/seo/SEOPreview.tsx`
-- `src/components/admin/seo/RedirectForm.tsx`
+- `src/components/admin/seo/SchemaGenerator.tsx`
 - `src/lib/actions/seo-actions.ts`
 
 ---
@@ -628,13 +653,13 @@ Funcionalidades avançadas e integrações.
 | 4. Serviços | ✅ Completo | 100% | Alta |
 | 5. Media Library | ✅ Completo | 100% | Média |
 | 6. Analytics | 🚧 Andamento | 85% | Alta |
-| 7. SEO/Marketing | 🚧 Andamento | 50% | Média |
+| 7. SEO/Marketing | 🚧 Andamento | 70% | Média |
 | 8. Configurações | 🚧 Andamento | 80% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~82%**
+**Progresso Total: ~84%**
 
 ---
 
