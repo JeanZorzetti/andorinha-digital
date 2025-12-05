@@ -167,6 +167,7 @@ model User {
   services      Service[]      @relation("AuthorServices")
   auditLogs     AuditLog[]     @relation("UserAuditLogs")
   notifications Notification[] @relation("UserNotifications")
+  media         Media[]        @relation("UserMedia")
 
   @@map("users")
 }
@@ -290,5 +291,46 @@ model Notification {
   @@map("notifications")
   @@index([userId])
   @@index([read])
+  @@index([createdAt])
+}
+
+// ============================================
+// MEDIA LIBRARY
+// ============================================
+
+enum MediaType {
+  IMAGE
+  PDF
+  VIDEO
+  DOCUMENT
+  OTHER
+}
+
+model Media {
+  id          String    @id @default(cuid())
+  name        String
+  url         String
+  key         String    @unique // UploadThing file key
+  type        MediaType
+  mimeType    String
+  size        Int       // Size in bytes
+  width       Int?      // For images
+  height      Int?      // For images
+  alt         String?   // Alt text for SEO
+  description String?   @db.Text
+  folder      String?   // Optional folder/album organization
+
+  // Uploader info
+  uploadedById String
+  uploadedBy   User   @relation("UserMedia", fields: [uploadedById], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("media")
+  @@index([uploadedById])
+  @@index([type])
+  @@index([folder])
   @@index([createdAt])
 }
