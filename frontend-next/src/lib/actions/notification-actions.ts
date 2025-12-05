@@ -188,54 +188,53 @@ export async function deleteNotification(id: string) {
 /**
  * Helpers para criar notificações específicas
  */
-export const NotificationHelpers = {
-  /**
-   * Notificação de boas-vindas
-   */
-  welcomeUser: async (userId: string, userName: string) => {
-    return createNotification({
-      userId,
-      type: "SUCCESS",
-      title: "Bem-vindo!",
-      message: `Olá ${userName}! Sua conta foi criada com sucesso. Explore o painel administrativo e comece a gerenciar seu conteúdo.`,
-    });
-  },
 
-  /**
-   * Notificação de publicação de post
-   */
-  postPublished: async (userId: string, postTitle: string, postSlug: string) => {
-    return createNotification({
-      userId,
-      type: "SUCCESS",
-      title: "Post Publicado",
-      message: `Seu post "${postTitle}" foi publicado com sucesso!`,
-      link: `/blog/${postSlug}`,
-    });
-  },
+/**
+ * Notificação de boas-vindas
+ */
+export async function notifyWelcomeUser(userId: string, userName: string) {
+  return createNotification({
+    userId,
+    type: "SUCCESS",
+    title: "Bem-vindo!",
+    message: `Olá ${userName}! Sua conta foi criada com sucesso. Explore o painel administrativo e comece a gerenciar seu conteúdo.`,
+  });
+}
 
-  /**
-   * Notificação de erro genérico
-   */
-  errorNotification: async (userId: string, title: string, message: string) => {
-    return createNotification({
-      userId,
-      type: "ERROR",
-      title,
-      message,
-    });
-  },
+/**
+ * Notificação de publicação de post
+ */
+export async function notifyPostPublished(userId: string, postTitle: string, postSlug: string) {
+  return createNotification({
+    userId,
+    type: "SUCCESS",
+    title: "Post Publicado",
+    message: `Seu post "${postTitle}" foi publicado com sucesso!`,
+    link: `/blog/${postSlug}`,
+  });
+}
 
-  /**
-   * Notificação de webhook falhado
-   */
-  webhookFailed: async (userId: string, webhookName: string) => {
-    return createNotification({
-      userId,
-      type: "WARNING",
-      title: "Webhook Falhado",
-      message: `O webhook "${webhookName}" falhou ao entregar uma notificação. Verifique os logs para mais detalhes.`,
-      link: "/admin/settings/webhooks",
-    });
-  },
-};
+/**
+ * Notificação de erro genérico
+ */
+export async function notifyError(userId: string, title: string, message: string) {
+  return createNotification({
+    userId,
+    type: "ERROR",
+    title,
+    message,
+  });
+}
+
+/**
+ * Notificação de webhook falhado
+ */
+export async function notifyWebhookFailed(userId: string, webhookName: string) {
+  return createNotification({
+    userId,
+    type: "WARNING",
+    title: "Webhook Falhado",
+    message: `O webhook "${webhookName}" falhou ao entregar uma notificação. Verifique os logs para mais detalhes.`,
+    link: "/admin/settings/webhooks",
+  });
+}

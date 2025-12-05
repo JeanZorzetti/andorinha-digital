@@ -80,7 +80,7 @@ export function WebhookForm({ webhook }: WebhookFormProps) {
     defaultValues: {
       name: webhook?.name || "",
       url: webhook?.url || "",
-      events: webhook?.events || [],
+      events: (webhook?.events as Array<"USER_CREATED" | "USER_UPDATED" | "USER_DELETED" | "POST_PUBLISHED" | "POST_UNPUBLISHED" | "CASE_CREATED" | "SERVICE_CREATED">) || [],
       description: webhook?.description || "",
     },
   });
