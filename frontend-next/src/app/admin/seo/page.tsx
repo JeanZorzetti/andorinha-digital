@@ -8,6 +8,8 @@ import {
   Search,
   TrendingUp,
   ExternalLink,
+  Eye,
+  Code,
 } from "lucide-react";
 
 export const metadata = {
@@ -37,13 +39,22 @@ export default function SEOPage() {
       external: true,
     },
     {
-      title: "Meta Tags",
-      description: "Configurar meta tags padrão e OG tags",
-      icon: Search,
-      href: "/admin/seo/meta-tags",
+      title: "SEO Preview & Tools",
+      description: "Preview de SERP, OG tags e Schema.org generator",
+      icon: Eye,
+      href: "/admin/seo/tools",
       color: "text-purple-600",
       bgColor: "bg-purple-50",
-      available: false,
+      available: true,
+    },
+    {
+      title: "Schema Generator",
+      description: "Gerar markup Schema.org para SEO estruturado",
+      icon: Code,
+      href: "/admin/seo/tools?tab=schema",
+      color: "text-indigo-600",
+      bgColor: "bg-indigo-50",
+      available: true,
     },
     {
       title: "Analytics",
