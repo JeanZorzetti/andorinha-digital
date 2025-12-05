@@ -2691,9 +2691,9 @@ Páginas com metadata completo:
 
 ## Fase 9: Notificações e Webhooks
 
-> **Status:** 🚧 EM ANDAMENTO (80%)
+> **Status:** ✅ CONCLUÍDO (100%)
 > **Data de início:** 04 de Dezembro de 2025
-> **Tempo estimado:** 2-3 semanas
+> **Data de conclusão:** 04 de Dezembro de 2025
 > **Dependências:** Fase 0-8
 
 ### Objetivos da Fase 9
@@ -2931,6 +2931,10 @@ NEXTAUTH_URL=https://andorinha.com.br  # Usado nos links dos emails
 - ✅ USER_CREATED em createUser
 - ✅ USER_UPDATED em updateUser
 - ✅ USER_DELETED em deleteUser
+- ✅ POST_PUBLISHED em createBlogPost e updateBlogPost
+- ✅ POST_UNPUBLISHED em updateBlogPost
+- ✅ CASE_CREATED em createCaseStudy
+- ✅ SERVICE_CREATED em createService
 
 **Payload Format:**
 
@@ -2989,13 +2993,22 @@ User-Agent: Andorinha-Webhooks/1.0
 - `src/lib/actions/user-actions.ts`
   - Dispatch de USER_CREATED, USER_UPDATED, USER_DELETED
 
+- `src/lib/actions/blog-actions.ts`
+  - Dispatch de POST_PUBLISHED e POST_UNPUBLISHED
+
+- `src/lib/actions/case-actions.ts`
+  - Dispatch de CASE_CREATED
+
+- `src/lib/actions/service-actions.ts`
+  - Dispatch de SERVICE_CREATED
+
 **Build Status:** ✅ Successful
 
-**Próximos Passos (Opcional):**
+**Próximos Passos (Opcional - Fase 10):**
 
 - Interface UI para gerenciar webhooks via admin panel
-- Integração em blog-actions e case-actions
 - Retry queue para falhas persistentes
+- Dashboard de monitoramento de webhooks
 
 ### 4. Notificações In-App (Opcional)
 
