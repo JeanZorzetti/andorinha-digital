@@ -72,8 +72,9 @@ async function MediaStats() {
 export default async function MediaPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined };
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const params = await searchParams;
   const foldersResult = await getFolders();
   const folders = foldersResult.success ? foldersResult.folders : [];
 
@@ -117,7 +118,7 @@ export default async function MediaPage({
           </div>
         }
       >
-        <MediaGrid searchParams={searchParams} />
+        <MediaGrid searchParams={params} />
       </Suspense>
     </div>
   );

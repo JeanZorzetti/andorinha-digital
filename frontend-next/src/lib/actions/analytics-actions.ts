@@ -3,7 +3,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { endOfDay, startOfDay, subDays, subMonths } from "date-fns";
+import { endOfDay, startOfDay, subDays } from "date-fns";
 
 export async function getAnalyticsSummary(days = 30) {
   try {
@@ -45,7 +45,7 @@ export async function getAnalyticsSummary(days = 30) {
         topPages: topPages.map((p) => ({ path: p.path, views: p._count })),
       },
     };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Erro ao buscar analytics" };
   }
 }
@@ -76,7 +76,7 @@ export async function getTrafficByDay(days = 30) {
     })).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
     return { success: true, data };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Erro ao buscar tráfego" };
   }
 }
@@ -103,7 +103,7 @@ export async function getDeviceStats(days = 30) {
         count: d._count,
       })),
     };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Erro ao buscar estatísticas de dispositivos" };
   }
 }
@@ -132,7 +132,7 @@ export async function getConversionStats(days = 30) {
         totalValue: c._sum.value || 0,
       })),
     };
-  } catch (error) {
+  } catch {
     return { success: false, error: "Erro ao buscar conversões" };
   }
 }
@@ -151,7 +151,7 @@ export async function trackPageView(data: {
       },
     });
     return { success: true };
-  } catch (error) {
+  } catch {
     return { success: false };
   }
 }
@@ -160,19 +160,19 @@ export async function trackConversion(data: {
   type: string;
   page: string;
   value?: number;
-  metadata?: any;
+  metadata?: Record<string, unknown>;
 }) {
   try {
     await prisma.conversion.create({
       data: {
-        type: data.type as any,
+        type: data.type as "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER",
         page: data.page,
         value: data.value,
-        metadata: data.metadata,
+        ...(data.metadata && { metadata: data.metadata }),
       },
     });
     return { success: true };
-  } catch (error) {
+  } catch {
     return { success: false };
   }
 }

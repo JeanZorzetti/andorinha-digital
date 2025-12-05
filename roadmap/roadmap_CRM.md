@@ -300,7 +300,7 @@ Gerenciamento centralizado de arquivos e imagens.
 
 ---
 
-## Fase 6: Analytics e Relatórios 🚧 **EM ANDAMENTO (70%)**
+## Fase 6: Analytics e Relatórios 🚧 **EM ANDAMENTO (85%)**
 
 ### Objetivos
 Dashboard de analytics e geração de relatórios.
@@ -312,8 +312,8 @@ Dashboard de analytics e geração de relatórios.
 - [x] Models Prisma: PageView, Conversion
 - [x] Enums: ConversionType (CONTACT_FORM, SERVICE_REQUEST, etc)
 - [x] Índices otimizados (path, createdAt, type, device)
-- [x] Gráficos com Recharts
 - [x] Tabela de atividades recentes
+- [x] Chart colors no design system
 
 #### ✅ Server Actions
 - [x] `getAnalyticsSummary()` - Resumo geral (views, visitors, conversions)
@@ -328,11 +328,20 @@ Dashboard de analytics e geração de relatórios.
 - [x] Tracking de pageviews no banco
 - [x] Tracking de conversões no banco
 - [x] Contador de views em posts
+- [x] Recharts configurado e funcionando
+
+#### ✅ Frontend Analytics Dashboard
+- [x] Página `/admin/analytics` completa
+- [x] Cards de métricas (views, visitors, conversions, taxa)
+- [x] TrafficChart - Gráfico de linha com tráfego diário
+- [x] DeviceChart - Gráfico de pizza com dispositivos
+- [x] ConversionStats - Gráfico de barras com conversões
+- [x] TopPages - Lista de páginas mais visitadas
+- [x] Tabs navegáveis (Tráfego, Dispositivos, Conversões)
+- [x] Loading states e Suspense boundaries
+- [x] Build passando sem erros
 
 ### Implementações Pendentes
-- [ ] Página dedicada `/admin/analytics`
-- [ ] Traffic charts interativos
-- [ ] Conversion funnel visualization
 - [ ] Integração com Google Analytics API
 - [ ] Origem de tráfego (referrers)
 - [ ] Localização geográfica (GeoIP)
@@ -340,18 +349,24 @@ Dashboard de analytics e geração de relatórios.
 - [ ] Relatórios agendados por email
 - [ ] Exportação de dados (CSV, PDF)
 - [ ] Comparação de períodos (date range picker)
+- [ ] Filtros avançados
 
 **Arquivos Criados:**
 - ✅ `prisma/schema.prisma` - PageView e Conversion models
 - ✅ `src/lib/actions/analytics-actions.ts` - 6 server actions
 - ✅ `src/app/admin/page.tsx` - Dashboard existente
+- ✅ `src/app/admin/analytics/page.tsx` - Analytics dashboard completo
+- ✅ `src/components/admin/analytics/TrafficChart.tsx` - Gráfico de tráfego
+- ✅ `src/components/admin/analytics/DeviceChart.tsx` - Gráfico de dispositivos
+- ✅ `src/components/admin/analytics/ConversionStats.tsx` - Stats de conversões
+- ✅ `src/components/admin/analytics/TopPages.tsx` - Lista de top páginas
+- ✅ `src/components/ui/tabs.tsx` - Componente de tabs (shadcn)
+- ✅ `src/components/ui/alert.tsx` - Componente de alert (shadcn)
+- ✅ `src/styles/globals.css` - Chart colors adicionadas
 
 **Arquivos Pendentes:**
-- `src/app/admin/analytics/page.tsx`
-- `src/app/admin/analytics/traffic/page.tsx`
-- `src/app/admin/analytics/conversions/page.tsx`
-- `src/components/admin/analytics/TrafficChart.tsx`
-- `src/components/admin/analytics/ConversionFunnel.tsx`
+- `src/app/admin/analytics/traffic/page.tsx` (página detalhada)
+- `src/app/admin/analytics/conversions/page.tsx` (página detalhada)
 
 ---
 
@@ -612,14 +627,14 @@ Funcionalidades avançadas e integrações.
 | 3. Cases | ✅ Completo | 100% | Alta |
 | 4. Serviços | ✅ Completo | 100% | Alta |
 | 5. Media Library | ✅ Completo | 100% | Média |
-| 6. Analytics | 🚧 Andamento | 70% | Alta |
+| 6. Analytics | 🚧 Andamento | 85% | Alta |
 | 7. SEO/Marketing | 🚧 Andamento | 50% | Média |
 | 8. Configurações | 🚧 Andamento | 80% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~81%**
+**Progresso Total: ~82%**
 
 ---
 

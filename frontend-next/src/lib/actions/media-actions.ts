@@ -84,7 +84,7 @@ export async function listMedia({
     const skip = (page - 1) * limit;
 
     // Build where clause
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (type) {
       where.type = type;

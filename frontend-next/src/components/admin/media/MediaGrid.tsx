@@ -5,9 +5,18 @@ import { listMedia } from "@/lib/actions/media-actions";
 import { MediaCard } from "./MediaCard";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Loader2 } from "lucide-react";
+import { Media } from "@prisma/client";
 
-export function MediaGrid({ searchParams }: { searchParams: any }) {
-  const [media, setMedia] = useState<any[]>([]);
+type MediaWithUploader = Media & {
+  uploadedBy: {
+    id: string;
+    name: string;
+    email: string;
+  };
+};
+
+export function MediaGrid({ searchParams }: { searchParams: Record<string, string | string[] | undefined> }) {
+  const [media, setMedia] = useState<MediaWithUploader[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -15,9 +24,9 @@ export function MediaGrid({ searchParams }: { searchParams: any }) {
       const result = await listMedia({
         page: 1,
         limit: 24,
-        type: searchParams.type,
-        folder: searchParams.folder,
-        search: searchParams.search,
+        type: searchParams.type as "IMAGE" | "PDF" | "VIDEO" | "DOCUMENT" | "OTHER" | undefined,
+        folder: typeof searchParams.folder === "string" ? searchParams.folder : undefined,
+        search: typeof searchParams.search === "string" ? searchParams.search : undefined,
       });
       
       if (result.success && result.media) {

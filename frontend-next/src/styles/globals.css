@@ -109,6 +109,13 @@
 
     --radius: 0.5rem;
 
+    /* Chart Colors */
+    --chart-1: 18 100% 60%; /* Laranja */
+    --chart-2: 197 88% 74%; /* Azul Claro */
+    --chart-3: 210 48% 43%; /* Azul Médio */
+    --chart-4: 227 89% 24%; /* Azul Escuro */
+    --chart-5: 30 80% 80%; /* Pêssego */
+
     /* Gradientes Oficiais */
     --gradient-hero: linear-gradient(135deg, hsl(227 100% 9%), hsl(227 89% 24%), hsl(210 48% 43%));
     --gradient-cta: linear-gradient(135deg, hsl(18 100% 60%), hsl(18 100% 50%));
