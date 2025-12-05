@@ -211,3 +211,53 @@ model AuditLog {
   @@index([resource])
   @@index([createdAt])
 }
+
+enum WebhookEvent {
+  USER_CREATED
+  USER_UPDATED
+  USER_DELETED
+  POST_PUBLISHED
+  POST_UNPUBLISHED
+  CASE_CREATED
+  SERVICE_CREATED
+}
+
+model WebhookSubscription {
+  id          String        @id @default(cuid())
+  name        String
+  url         String
+  events      WebhookEvent[]
+  secret      String        // HMAC secret para verificação de assinatura
+  isActive    Boolean       @default(true)
+  description String?       @db.Text
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relação com logs
+  logs        WebhookLog[]  @relation("SubscriptionLogs")
+
+  @@map("webhook_subscriptions")
+  @@index([isActive])
+}
+
+model WebhookLog {
+  id             String              @id @default(cuid())
+  subscriptionId String
+  event          WebhookEvent
+  payload        String              @db.Text // JSON do payload enviado
+  response       String?             @db.Text // Resposta do servidor
+  statusCode     Int?                // HTTP status code
+  success        Boolean
+  error          String?             @db.Text
+  retriesCount   Int                 @default(0)
+  createdAt      DateTime            @default(now())
+
+  // Relação com subscription
+  subscription   WebhookSubscription @relation("SubscriptionLogs", fields: [subscriptionId], references: [id], onDelete: Cascade)
+
+  @@map("webhook_logs")
+  @@index([subscriptionId])
+  @@index([event])
+  @@index([success])
+  @@index([createdAt])
+}

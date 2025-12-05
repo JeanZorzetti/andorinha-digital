@@ -15,6 +15,7 @@ import {
 } from "@/lib/validations/user-schema";
 import { createAuditLog } from "./audit-actions";
 import { EmailHelpers } from "@/lib/email";
+import { WebhookHelpers } from "@/lib/webhooks";
 
 /**
  * Criar novo usuário
@@ -81,6 +82,16 @@ export async function createUser(data: CreateUserData) {
     // 8. Enviar email de boas-vindas (não bloquear em caso de erro)
     EmailHelpers.sendWelcomeEmail(user.email, user.name).catch((error) => {
       console.error('Failed to send welcome email:', error);
+    });
+
+    // 9. Disparar webhook de USER_CREATED (não bloquear em caso de erro)
+    WebhookHelpers.userCreated({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    }).catch((error) => {
+      console.error('Failed to dispatch webhook:', error);
     });
 
     return { success: true, user };
@@ -150,6 +161,16 @@ export async function updateUser(id: string, data: Partial<UpdateUserData>) {
       details: `Atualizado usuário ${user.name}: ${changedFields.join(", ")}${validated.password ? ", senha" : ""}`,
     });
 
+    // Disparar webhook de USER_UPDATED (não bloquear)
+    WebhookHelpers.userUpdated({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+    }).catch((error) => {
+      console.error('Failed to dispatch webhook:', error);
+    });
+
     return { success: true, user };
   } catch (error: unknown) {
     console.error("Error updating user:", error);
@@ -203,6 +224,13 @@ export async function deleteUser(id: string) {
       resourceId: id,
       details: `Deletado usuário ${userToDelete?.name} (${userToDelete?.email})`,
     });
+
+    // Disparar webhook de USER_DELETED (não bloquear)
+    if (userToDelete) {
+      WebhookHelpers.userDeleted(id, userToDelete.email).catch((error) => {
+        console.error('Failed to dispatch webhook:', error);
+      });
+    }
 
     return { success: true };
   } catch (error: unknown) {
