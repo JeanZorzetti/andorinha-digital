@@ -334,3 +334,48 @@ model Media {
   @@index([folder])
   @@index([createdAt])
 }
+
+// ============================================
+// ANALYTICS & TRACKING
+// ============================================
+
+model PageView {
+  id          String   @id @default(cuid())
+  path        String
+  referrer    String?
+  userAgent   String?
+  ipAddress   String?
+  country     String?
+  device      String?  // mobile, desktop, tablet
+  browser     String?
+  os          String?
+  createdAt   DateTime @default(now())
+
+  @@map("page_views")
+  @@index([path])
+  @@index([createdAt])
+  @@index([country])
+  @@index([device])
+}
+
+enum ConversionType {
+  CONTACT_FORM
+  SERVICE_REQUEST
+  NEWSLETTER_SIGNUP
+  CALENDLY_BOOKING
+  DOWNLOAD
+  OTHER
+}
+
+model Conversion {
+  id        String         @id @default(cuid())
+  type      ConversionType
+  page      String
+  value     Float?         // Optional monetary value
+  metadata  Json?          // Additional data
+  createdAt DateTime       @default(now())
+
+  @@map("conversions")
+  @@index([type])
+  @@index([createdAt])
+}

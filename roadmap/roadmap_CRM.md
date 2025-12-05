@@ -300,39 +300,58 @@ Gerenciamento centralizado de arquivos e imagens.
 
 ---
 
-## Fase 6: Analytics e Relatórios 🚧 **EM ANDAMENTO (40%)**
+## Fase 6: Analytics e Relatórios 🚧 **EM ANDAMENTO (70%)**
 
 ### Objetivos
 Dashboard de analytics e geração de relatórios.
 
 ### Implementações Concluídas
-- [x] Dashboard com métricas básicas
+
+#### ✅ Infraestrutura
+- [x] Dashboard admin com métricas básicas
+- [x] Models Prisma: PageView, Conversion
+- [x] Enums: ConversionType (CONTACT_FORM, SERVICE_REQUEST, etc)
+- [x] Índices otimizados (path, createdAt, type, device)
 - [x] Gráficos com Recharts
-- [x] Contador de views em posts
 - [x] Tabela de atividades recentes
 
+#### ✅ Server Actions
+- [x] `getAnalyticsSummary()` - Resumo geral (views, visitors, conversions)
+- [x] `getTrafficByDay()` - Tráfego diário agrupado
+- [x] `getDeviceStats()` - Estatísticas por dispositivo
+- [x] `getConversionStats()` - Estatísticas de conversão
+- [x] `trackPageView()` - Tracking de visualizações
+- [x] `trackConversion()` - Tracking de conversões
+
+#### ✅ Integração
+- [x] Vercel Analytics SDK instalado (@vercel/analytics v1.6.1)
+- [x] Tracking de pageviews no banco
+- [x] Tracking de conversões no banco
+- [x] Contador de views em posts
+
 ### Implementações Pendentes
-- [ ] Integração com Google Analytics
-- [ ] Integração com Vercel Analytics (completa)
-- [ ] Analytics de tráfego (pageviews, sessions, bounce rate)
-- [ ] Analytics de conversão
-- [ ] Funil de vendas
+- [ ] Página dedicada `/admin/analytics`
+- [ ] Traffic charts interativos
+- [ ] Conversion funnel visualization
+- [ ] Integração com Google Analytics API
 - [ ] Origem de tráfego (referrers)
-- [ ] Dispositivos e browsers
-- [ ] Localização geográfica
-- [ ] Eventos customizados
+- [ ] Localização geográfica (GeoIP)
+- [ ] Real-time analytics dashboard
 - [ ] Relatórios agendados por email
 - [ ] Exportação de dados (CSV, PDF)
-- [ ] Comparação de períodos
-- [ ] Real-time analytics dashboard
+- [ ] Comparação de períodos (date range picker)
 
-**Arquivos a Criar:**
+**Arquivos Criados:**
+- ✅ `prisma/schema.prisma` - PageView e Conversion models
+- ✅ `src/lib/actions/analytics-actions.ts` - 6 server actions
+- ✅ `src/app/admin/page.tsx` - Dashboard existente
+
+**Arquivos Pendentes:**
 - `src/app/admin/analytics/page.tsx`
 - `src/app/admin/analytics/traffic/page.tsx`
 - `src/app/admin/analytics/conversions/page.tsx`
 - `src/components/admin/analytics/TrafficChart.tsx`
 - `src/components/admin/analytics/ConversionFunnel.tsx`
-- `src/lib/actions/analytics-actions.ts`
 
 ---
 
@@ -593,14 +612,14 @@ Funcionalidades avançadas e integrações.
 | 3. Cases | ✅ Completo | 100% | Alta |
 | 4. Serviços | ✅ Completo | 100% | Alta |
 | 5. Media Library | ✅ Completo | 100% | Média |
-| 6. Analytics | 🚧 Andamento | 40% | Alta |
+| 6. Analytics | 🚧 Andamento | 70% | Alta |
 | 7. SEO/Marketing | 🚧 Andamento | 50% | Média |
 | 8. Configurações | 🚧 Andamento | 80% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~78%**
+**Progresso Total: ~81%**
 
 ---
 
