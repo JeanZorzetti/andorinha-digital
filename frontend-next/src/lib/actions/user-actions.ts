@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag, revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -69,7 +69,7 @@ export async function createUser(data: CreateUserData) {
     });
 
     // 6. Revalidar cache
-    revalidateTag("users");
+    
     revalidatePath("/admin/settings/users");
 
     // 7. Registrar no audit log
@@ -155,7 +155,7 @@ export async function updateUser(id: string, data: Partial<UpdateUserData>) {
       },
     });
 
-    revalidateTag("users");
+    
     revalidatePath("/admin/settings/users");
 
     // Registrar no audit log
@@ -220,7 +220,7 @@ export async function deleteUser(id: string) {
       where: { id },
     });
 
-    revalidateTag("users");
+    
     revalidatePath("/admin/settings/users");
 
     // Registrar no audit log
@@ -409,7 +409,7 @@ export async function changeUserRole(id: string, role: "ADMIN" | "EDITOR" | "USE
       },
     });
 
-    revalidateTag("users");
+    
     revalidatePath("/admin/settings/users");
 
     // Registrar no audit log

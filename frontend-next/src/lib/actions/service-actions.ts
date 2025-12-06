@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag, revalidatePath } from "next/cache";
+import { revalidatePath } from "next/cache";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -47,7 +47,7 @@ export async function createService(data: ServiceFormData) {
     });
 
     // 5. Revalidar cache
-    revalidateTag("services");
+    
     revalidatePath("/servicos");
     revalidatePath("/admin/services");
 
@@ -104,7 +104,7 @@ export async function updateService(data: UpdateServiceData) {
       },
     });
 
-    revalidateTag("services");
+    
     revalidatePath(`/servicos/${service.slug}`);
     revalidatePath("/admin/services");
 
@@ -130,7 +130,7 @@ export async function deleteService(id: string) {
       where: { id },
     });
 
-    revalidateTag("services");
+    
     revalidatePath("/servicos");
     revalidatePath("/admin/services");
 
@@ -171,7 +171,7 @@ export async function togglePublishService(id: string) {
       },
     });
 
-    revalidateTag("services");
+    
     revalidatePath(`/servicos/${service.slug}`);
     revalidatePath("/admin/services");
 
@@ -209,7 +209,7 @@ export async function toggleFeaturedService(id: string) {
       },
     });
 
-    revalidateTag("services");
+    
     revalidatePath("/admin/services");
 
     return { success: true, featured: updated.featured };
