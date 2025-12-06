@@ -650,14 +650,14 @@ Testes automatizados, documentação e CI/CD.
 
 ---
 
-## Fase 11: Features Avançadas 🚧 **EM PROGRESSO (30%)**
+## Fase 11: Features Avançadas 🚧 **EM PROGRESSO (45%)**
 
 ### Objetivos
 Funcionalidades avançadas e integrações, iniciando pelo CRM básico.
 
 ### Implementações em Andamento
 
-#### 📋 CRM Básico (60% completo)
+#### 📋 CRM Básico (75% completo)
 
 - [x] **Database Schema**: Modelos Prisma para Lead, Task, Activity
 - [x] **Lead Management**: CRUD completo com server actions
@@ -665,9 +665,9 @@ Funcionalidades avançadas e integrações, iniciando pelo CRM básico.
 - [x] **Lead Table**: Listagem com filtros (status, prioridade, busca)
 - [x] **Lead Stats**: Dashboard com métricas e taxa de conversão
 - [x] **New Lead Dialog**: Formulário completo com validação
+- [x] **Lead Detail Page**: Visualização completa com todas informações
+- [x] **Edit Lead Dialog**: Edição completa de leads
 - [x] **Testes**: 19 testes para LeadStats (100% coverage)
-- [ ] Lead detail page (visualização completa)
-- [ ] Edit lead functionality
 - [ ] Lead assignment (atribuir leads a usuários)
 - [ ] Contact forms tracking (captura de leads)
 - [ ] Pipeline de vendas (visualização por estágio)
@@ -682,17 +682,20 @@ Funcionalidades avançadas e integrações, iniciando pelo CRM básico.
 - `src/lib/validations/lead-schema.ts`
 - `src/lib/actions/lead-actions.ts`
 - `src/app/admin/crm/leads/page.tsx`
+- `src/app/admin/crm/leads/[id]/page.tsx` ✨
 - `src/components/admin/crm/LeadsTable.tsx`
 - `src/components/admin/crm/LeadStats.tsx`
+- `src/components/admin/crm/LeadDetailClient.tsx` ✨
 - `src/components/admin/crm/NewLeadDialog.tsx`
+- `src/components/admin/crm/EditLeadDialog.tsx` ✨
 - `tests/unit/components/LeadStats.test.tsx`
 
 **Próximos Passos (CRM):**
 
-1. Lead detail page com todas as informações
-2. Edit lead dialog
-3. Task management integrado
-4. Activity tracking automático
+1. Lead assignment (atribuir leads a usuários)
+2. Task management (criar/editar tarefas vinculadas)
+3. Activity tracking (log automático de ações)
+4. Activity timeline no detail page
 5. Lead capture forms públicos
 
 #### 📧 Email Marketing
@@ -754,9 +757,9 @@ Funcionalidades avançadas e integrações, iniciando pelo CRM básico.
 | 8. Configurações | ✅ Completo | 100% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | ✅ Completo | 100% | Alta |
-| 11. Avançado | 🚧 Em Progresso | 30% | Média |
+| 11. Avançado | 🚧 Em Progresso | 45% | Média |
 
-**Progresso Total: ~92%**
+**Progresso Total: ~93%**
 
 ---
 
@@ -895,7 +898,7 @@ src/
 
 ## ✅ Conclusão
 
-O painel administrativo da Andorinha Digital está **~92% completo**, com todas as funcionalidades core implementadas, testadas e em produção:
+O painel administrativo da Andorinha Digital está **~93% completo**, com todas as funcionalidades core implementadas, testadas e em produção:
 
 **Destaques:**
 - 🔐 Sistema de autenticação robusto
@@ -903,7 +906,7 @@ O painel administrativo da Andorinha Digital está **~92% completo**, com todas 
 - 👥 Gerenciamento de usuários com roles
 - 🔔 Notificações in-app e webhooks
 - 📊 Dashboard com analytics básico
-- 💼 **CRM em desenvolvimento (Lead management ativo)**
+- 💼 **CRM Lead Management completo** (CRUD, detail, edit)
 - ✅ **210 testes automatizados (72.49% coverage)** 🎯
 - 📚 **Documentação completa de testes**
 - 🤖 **CI/CD automatizado (GitHub Actions)**
@@ -911,8 +914,8 @@ O painel administrativo da Andorinha Digital está **~92% completo**, com todas 
 
 **Próximos passos focados em:**
 
-1. ✅ ~~CRM básico iniciado~~ - Lead management operacional
-2. Completar CRM (detail pages, edit, tasks)
+1. ✅ ~~CRM Lead Management~~ - Completo com detail page e edição!
+2. CRM avançado (tasks, activities, pipeline)
 3. Analytics avançado
 4. Performance optimization
 5. Acessibilidade (WCAG 2.1 AA)
