@@ -9,6 +9,7 @@ import {
     Layers,
     ImageIcon,
     Settings,
+    Users,
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
@@ -47,6 +48,11 @@ export default function Sidebar() {
             title: "Dashboard",
             href: "/admin",
             icon: LayoutDashboard,
+        },
+        {
+            title: "CRM - Leads",
+            href: "/admin/crm/leads",
+            icon: Users,
         },
         {
             title: "Blog Posts",
