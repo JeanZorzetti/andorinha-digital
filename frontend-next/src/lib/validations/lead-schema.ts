@@ -27,10 +27,10 @@ export const leadSourceEnum = z.enum([
 
 export const leadPriorityEnum = z.enum(["LOW", "MEDIUM", "HIGH", "URGENT"]);
 
-// Lead creation schema
+// Lead creation schema - campos flexíveis para permitir criação rápida
 export const createLeadSchema = z.object({
-  name: z.string().min(2, "Nome deve ter no mínimo 2 caracteres"),
-  email: z.string().email("Email inválido"),
+  name: z.string().min(1, "Nome é obrigatório").optional(),
+  email: z.string().email("Email inválido").optional().or(z.literal("")),
   phone: z.string().optional(),
   company: z.string().optional(),
   position: z.string().optional(),
@@ -38,7 +38,17 @@ export const createLeadSchema = z.object({
   status: leadStatusEnum.default("NEW"),
   source: leadSourceEnum.default("WEBSITE"),
   priority: leadPriorityEnum.default("MEDIUM"),
-  budget: z.number().positive().optional(),
+  budget: z.preprocess(
+    (val) => {
+      // Converte string vazia ou undefined para undefined
+      if (val === "" || val === null || val === undefined) return undefined;
+      // Converte para número
+      const num = Number(val);
+      // Retorna undefined se for NaN
+      return isNaN(num) ? undefined : num;
+    },
+    z.number().positive().optional()
+  ),
   timeline: z.string().optional(),
   notes: z.string().optional(),
   tags: z.array(z.string()).default([]),
@@ -56,7 +66,14 @@ export const updateLeadSchema = z.object({
   status: leadStatusEnum.optional(),
   source: leadSourceEnum.optional(),
   priority: leadPriorityEnum.optional(),
-  budget: z.number().positive().optional(),
+  budget: z.preprocess(
+    (val) => {
+      if (val === "" || val === null || val === undefined) return undefined;
+      const num = Number(val);
+      return isNaN(num) ? undefined : num;
+    },
+    z.number().positive().optional()
+  ),
   timeline: z.string().optional(),
   notes: z.string().optional(),
   tags: z.array(z.string()).optional(),
