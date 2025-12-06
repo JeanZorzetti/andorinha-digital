@@ -30,10 +30,19 @@ export async function createLead(data: CreateLeadInput) {
     // Calculate initial score based on provided data
     const initialScore = calculateLeadScore(validatedData);
 
+    // Remove undefined/empty fields for Prisma
+    const cleanData: any = {};
+    Object.keys(validatedData).forEach((key) => {
+      const value = (validatedData as any)[key];
+      if (value !== undefined && value !== null && value !== "") {
+        cleanData[key] = value;
+      }
+    });
+
     // Create lead
     const lead = await prisma.lead.create({
       data: {
-        ...validatedData,
+        ...cleanData,
         score: initialScore,
       },
       include: {
@@ -250,10 +259,19 @@ export async function updateLead(id: string, data: UpdateLeadInput) {
       };
     }
 
+    // Remove undefined/empty fields for Prisma
+    const cleanData: any = {};
+    Object.keys(validatedData).forEach((key) => {
+      const value = (validatedData as any)[key];
+      if (value !== undefined && value !== null && value !== "") {
+        cleanData[key] = value;
+      }
+    });
+
     // Update lead
     const lead = await prisma.lead.update({
       where: { id },
-      data: validatedData,
+      data: cleanData,
       include: {
         assignee: {
           select: {
