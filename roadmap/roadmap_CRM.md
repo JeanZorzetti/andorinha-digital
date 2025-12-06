@@ -434,7 +434,7 @@ Ferramentas de SEO e marketing digital.
 
 ---
 
-## Fase 8: Configurações do Sistema ✅ **COMPLETO (80%)**
+## Fase 8: Configurações do Sistema 🚧 **EM ANDAMENTO (85%)**
 
 ### Objetivos
 Configurações gerais da plataforma.
@@ -444,15 +444,20 @@ Configurações gerais da plataforma.
 - [x] Audit logs (`/admin/settings/audit-logs`)
 - [x] Webhooks management (`/admin/settings/webhooks`)
 - [x] Perfil do usuário (`/admin/profile`)
+- [x] Configurações gerais (`/admin/settings/general`)
+  - [x] Nome do site
+  - [x] Logo e favicon
+  - [x] Informações de contato
+  - [x] Timezone
+  - [x] Idioma padrão
+  - [x] Formato de data/hora
+  - [x] Redes sociais
+  - [x] SEO defaults
+  - [x] Analytics tracking IDs
+  - [x] Modo de manutenção
 
 ### Implementações Pendentes
-- [ ] Configurações gerais (`/admin/settings/general`)
-  - [ ] Nome do site
-  - [ ] Logo e favicon
-  - [ ] Informações de contato
-  - [ ] Timezone
-  - [ ] Idioma padrão
-  - [ ] Formato de data/hora
+
 - [ ] Configurações de email
   - [ ] SMTP settings
   - [ ] Email templates
@@ -471,12 +476,19 @@ Configurações gerais da plataforma.
   - [ ] Restore from backup
   - [ ] Backup history
 
-**Arquivos a Criar:**
-- `src/app/admin/settings/general/page.tsx`
+**Arquivos Criados:**
+
+- ✅ `prisma/schema.prisma` - SiteSettings model
+- ✅ `src/lib/actions/settings-actions.ts` - 3 server actions
+- ✅ `src/lib/validations/settings-schema.ts` - Zod schema
+- ✅ `src/app/admin/settings/general/page.tsx` - General settings page
+- ✅ `src/components/admin/settings/GeneralSettingsForm.tsx` - Settings form with tabs
+
+**Arquivos Pendentes:**
+
 - `src/app/admin/settings/email/page.tsx`
 - `src/app/admin/settings/api/page.tsx`
 - `src/app/admin/settings/backup/page.tsx`
-- `src/components/admin/settings/GeneralSettings.tsx`
 
 ---
 
@@ -655,12 +667,12 @@ Funcionalidades avançadas e integrações.
 | 5. Media Library | ✅ Completo | 100% | Média |
 | 6. Analytics | ✅ Completo | 100% | Alta |
 | 7. SEO/Marketing | ✅ Completo | 100% | Média |
-| 8. Configurações | 🚧 Andamento | 80% | Média |
+| 8. Configurações | 🚧 Andamento | 85% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~88%**
+**Progresso Total: ~89%**
 
 ---
 

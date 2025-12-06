@@ -404,3 +404,55 @@ model Redirect {
   @@index([source])
   @@index([isActive])
 }
+
+// Site Settings - Configurações gerais do site
+model SiteSettings {
+  id String @id @default("singleton") // Singleton pattern - apenas um registro
+
+  // Informações Básicas
+  siteName        String  @default("Andorinha Digital")
+  siteDescription String? @db.Text
+  siteUrl         String  @default("https://andorinha.digital")
+  contactEmail    String  @default("contato@andorinha.digital")
+  supportEmail    String?
+  phone           String?
+
+  // Logo e Branding
+  logo      String? // URL da logo
+  favicon   String? // URL do favicon
+  ogImage   String? // Open Graph default image
+  
+  // Localização
+  timezone     String @default("America/Sao_Paulo")
+  language     String @default("pt-BR")
+  dateFormat   String @default("dd/MM/yyyy")
+  timeFormat   String @default("HH:mm")
+  
+  // Redes Sociais
+  facebookUrl  String?
+  instagramUrl String?
+  linkedinUrl  String?
+  twitterUrl   String?
+  youtubeUrl   String?
+  
+  // SEO Defaults
+  defaultMetaTitle       String?
+  defaultMetaDescription String? @db.Text
+  defaultMetaKeywords    String[] @default([])
+  
+  // Analytics & Tracking
+  googleAnalyticsId String?
+  facebookPixelId   String?
+  googleTagManager  String?
+  clarityId         String?
+  
+  // Manutenção
+  maintenanceMode    Boolean @default(false)
+  maintenanceMessage String? @db.Text
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("site_settings")
+}

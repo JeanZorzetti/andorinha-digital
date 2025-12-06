@@ -28,7 +28,10 @@
       "Bash(npx playwright install chromium)",
       "Bash(npm test:*)",
       "Bash(npm run test:coverage:*)",
-      "Bash(npx next build:*)"
+      "Bash(npx next build:*)",
+      "Bash(npm update:*)",
+      "Bash(grep:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []
