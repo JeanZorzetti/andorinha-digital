@@ -3,6 +3,7 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 import { endOfDay, startOfDay, subDays } from "date-fns";
 
 export async function getAnalyticsSummary(days = 30) {
@@ -160,25 +161,17 @@ export async function trackConversion(data: {
   type: string;
   page: string;
   value?: number;
-  metadata?: unknown;
+  metadata?: Prisma.JsonValue;
 }) {
   try {
-    const createData: {
-      type: "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER";
-      page: string;
-      value?: number;
-      metadata?: unknown;
-    } = {
-      type: data.type as "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER",
-      page: data.page,
-      value: data.value,
-    };
-
-    if (data.metadata) {
-      createData.metadata = data.metadata;
-    }
-
-    await prisma.conversion.create({ data: createData });
+    await prisma.conversion.create({
+      data: {
+        type: data.type as "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER",
+        page: data.page,
+        value: data.value,
+        metadata: data.metadata ?? Prisma.JsonNull,
+      },
+    });
     return { success: true };
   } catch {
     return { success: false };
