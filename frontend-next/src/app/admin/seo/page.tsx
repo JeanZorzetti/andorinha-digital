@@ -5,7 +5,6 @@ import {
   ArrowRight,
   FileText,
   Link as LinkIcon,
-  Search,
   TrendingUp,
   ExternalLink,
   Eye,

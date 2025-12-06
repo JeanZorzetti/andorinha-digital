@@ -6,8 +6,8 @@ import { TrafficChart } from "@/components/admin/analytics/TrafficChart";
 import { DeviceChart } from "@/components/admin/analytics/DeviceChart";
 import { ConversionStats } from "@/components/admin/analytics/ConversionStats";
 import { TopPages } from "@/components/admin/analytics/TopPages";
-import { BarChart3, TrendingUp, Users, Target, FileDown } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { AnalyticsFilters } from "@/components/admin/analytics/AnalyticsFilters";
+import { BarChart3, TrendingUp, Users, Target } from "lucide-react";
 
 export const metadata = {
   title: "Analytics | Admin",
@@ -139,19 +139,14 @@ export default async function AnalyticsPage({
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
-          <p className="text-muted-foreground mt-2">
-            Métricas de tráfego, conversões e comportamento de usuários
-          </p>
-        </div>
-
-        <Button variant="outline" className="gap-2">
-          <FileDown className="h-4 w-4" />
-          Exportar
-        </Button>
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">Analytics</h1>
+        <p className="text-muted-foreground mt-2">
+          Métricas de tráfego, conversões e comportamento de usuários
+        </p>
       </div>
+
+      <AnalyticsFilters />
 
       <Suspense
         fallback={
