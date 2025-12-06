@@ -163,14 +163,22 @@ export async function trackConversion(data: {
   metadata?: unknown;
 }) {
   try {
-    await prisma.conversion.create({
-      data: {
-        type: data.type as "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER",
-        page: data.page,
-        value: data.value,
-        ...(data.metadata && { metadata: data.metadata }),
-      },
-    });
+    const createData: {
+      type: "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER";
+      page: string;
+      value?: number;
+      metadata?: unknown;
+    } = {
+      type: data.type as "CONTACT_FORM" | "SERVICE_REQUEST" | "NEWSLETTER_SIGNUP" | "CALENDLY_BOOKING" | "DOWNLOAD" | "OTHER",
+      page: data.page,
+      value: data.value,
+    };
+
+    if (data.metadata) {
+      createData.metadata = data.metadata;
+    }
+
+    await prisma.conversion.create({ data: createData });
     return { success: true };
   } catch {
     return { success: false };
