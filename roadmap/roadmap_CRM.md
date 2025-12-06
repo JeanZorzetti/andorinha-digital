@@ -434,7 +434,7 @@ Ferramentas de SEO e marketing digital.
 
 ---
 
-## Fase 8: Configurações do Sistema 🚧 **EM ANDAMENTO (92%)**
+## Fase 8: Configurações do Sistema 🚧 **EM ANDAMENTO (98%)**
 
 ### Objetivos
 Configurações gerais da plataforma.
@@ -463,13 +463,21 @@ Configurações gerais da plataforma.
   - [x] Template types (WELCOME, PASSWORD_RESET, CONTACT_FORM, NEWSLETTER, NOTIFICATION, CUSTOM)
   - [x] Template variables documentation
   - [x] Active/inactive toggle per template
+- [x] API Settings (`/admin/settings/api`)
+  - [x] Rate limiting configuration (requests/minute, requests/hour)
+  - [x] CORS settings (allowed origins, methods, headers)
+  - [x] API security (require API key, header name, request logging)
+  - [x] API keys management CRUD
+  - [x] API key generation with secure hashing (SHA-256)
+  - [x] API key scopes and permissions
+  - [x] Custom rate limiting per key
+  - [x] API key expiration
+  - [x] Usage tracking (last used, usage count)
+  - [x] Regenerate API key
+  - [x] API key verification helper
 
 ### Implementações Pendentes
 
-- [ ] API Settings
-  - [ ] API keys management
-  - [ ] Rate limiting config
-  - [ ] CORS settings
 - [ ] Backup & Restore
   - [ ] Automated backup schedule
   - [ ] Manual backup trigger
@@ -478,7 +486,7 @@ Configurações gerais da plataforma.
 
 **Arquivos Criados:**
 
-- ✅ `prisma/schema.prisma` - SiteSettings, EmailSettings, EmailTemplate models
+- ✅ `prisma/schema.prisma` - SiteSettings, EmailSettings, EmailTemplate, ApiSettings, ApiKey models
 - ✅ `src/lib/actions/settings-actions.ts` - 3 server actions
 - ✅ `src/lib/validations/settings-schema.ts` - Zod schema
 - ✅ `src/app/admin/settings/general/page.tsx` - General settings page
@@ -489,10 +497,15 @@ Configurações gerais da plataforma.
 - ✅ `src/components/admin/settings/EmailSettingsForm.tsx` - SMTP settings form
 - ✅ `src/components/admin/settings/EmailTemplatesList.tsx` - Templates list
 - ✅ `src/components/admin/settings/EmailTemplateDialog.tsx` - Template create/edit dialog
+- ✅ `src/lib/actions/api-actions.ts` - 8 API server actions + verifyApiKey helper
+- ✅ `src/lib/validations/api-schema.ts` - API Zod schemas
+- ✅ `src/app/admin/settings/api/page.tsx` - API settings page
+- ✅ `src/components/admin/settings/ApiSettingsForm.tsx` - Rate limiting & CORS form
+- ✅ `src/components/admin/settings/ApiKeysList.tsx` - API keys list
+- ✅ `src/components/admin/settings/ApiKeyDialog.tsx` - API key create/edit dialog
 
 **Arquivos Pendentes:**
 
-- `src/app/admin/settings/api/page.tsx`
 - `src/app/admin/settings/backup/page.tsx`
 
 ---
@@ -672,12 +685,12 @@ Funcionalidades avançadas e integrações.
 | 5. Media Library | ✅ Completo | 100% | Média |
 | 6. Analytics | ✅ Completo | 100% | Alta |
 | 7. SEO/Marketing | ✅ Completo | 100% | Média |
-| 8. Configurações | 🚧 Andamento | 92% | Média |
+| 8. Configurações | 🚧 Andamento | 98% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~90%**
+**Progresso Total: ~91%**
 
 ---
 

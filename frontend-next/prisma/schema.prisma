@@ -168,6 +168,7 @@ model User {
   auditLogs     AuditLog[]     @relation("UserAuditLogs")
   notifications Notification[] @relation("UserNotifications")
   media         Media[]        @relation("UserMedia")
+  apiKeys       ApiKey[]       @relation("UserApiKeys")
 
   @@map("users")
 }
@@ -512,4 +513,68 @@ model EmailTemplate {
 
   @@unique([type])
   @@map("email_templates")
+}
+
+// API Settings - Configurações de API e segurança
+model ApiSettings {
+  id String @id @default("singleton") // Singleton pattern
+
+  // Rate Limiting
+  enableRateLimiting Boolean @default(true)
+  requestsPerMinute  Int     @default(60)
+  requestsPerHour    Int     @default(1000)
+
+  // CORS Settings
+  enableCors      Boolean  @default(true)
+  allowedOrigins  String[] @default(["*"])
+  allowedMethods  String[] @default(["GET", "POST", "PUT", "DELETE", "PATCH"])
+  allowedHeaders  String[] @default(["Content-Type", "Authorization"])
+  allowCredentials Boolean @default(true)
+
+  // API Security
+  requireApiKey        Boolean @default(false)
+  apiKeyHeaderName     String  @default("X-API-Key")
+  enableRequestLogging Boolean @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("api_settings")
+}
+
+model ApiKey {
+  id          String   @id @default(cuid())
+  name        String
+  key         String   @unique // Generated API key (hashed)
+  description String?  @db.Text
+
+  // Permissions & Scope
+  scopes      String[] @default([]) // e.g., ["read:posts", "write:posts"]
+  isActive    Boolean  @default(true)
+
+  // Rate Limiting (override global settings)
+  customRateLimit    Boolean? @default(false)
+  requestsPerMinute  Int?
+  requestsPerHour    Int?
+
+  // Usage tracking
+  lastUsedAt  DateTime?
+  usageCount  Int       @default(0)
+
+  // Expiration
+  expiresAt   DateTime?
+
+  // Owner
+  createdBy   String
+  user        User      @relation("UserApiKeys", fields: [createdBy], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("api_keys")
+  @@index([createdBy])
+  @@index([isActive])
+  @@index([key])
 }
