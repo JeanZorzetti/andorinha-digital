@@ -100,42 +100,24 @@ export default async function SettingsPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {settingsCards.map((card) => {
           const Icon = card.icon;
-          const isDisabled = card.disabled;
 
-          const cardContent = (
-            <Card
-              className={`h-full transition-all ${
-                isDisabled
-                  ? "opacity-60 cursor-not-allowed"
-                  : "hover:shadow-lg cursor-pointer hover:border-primary/50"
-              }`}
-            >
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className={`p-3 rounded-lg ${card.bgColor}`}>
-                    <Icon className={`h-6 w-6 ${card.iconColor}`} />
-                  </div>
-                  <div className="flex-1">
-                    <CardTitle className="text-lg">{card.title}</CardTitle>
-                    <CardDescription className="mt-2">
-                      {card.description}
-                    </CardDescription>
-                    {isDisabled && (
-                      <p className="text-xs text-muted-foreground mt-2 italic">
-                        Em breve
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </CardHeader>
-            </Card>
-          );
-
-          return isDisabled ? (
-            <div key={card.title}>{cardContent}</div>
-          ) : (
+          return (
             <Link key={card.title} href={card.href}>
-              {cardContent}
+              <Card className="h-full transition-all hover:shadow-lg cursor-pointer hover:border-primary/50">
+                <CardHeader>
+                  <div className="flex items-start gap-4">
+                    <div className={`p-3 rounded-lg ${card.bgColor}`}>
+                      <Icon className={`h-6 w-6 ${card.iconColor}`} />
+                    </div>
+                    <div className="flex-1">
+                      <CardTitle className="text-lg">{card.title}</CardTitle>
+                      <CardDescription className="mt-2">
+                        {card.description}
+                      </CardDescription>
+                    </div>
+                  </div>
+                </CardHeader>
+              </Card>
             </Link>
           );
         })}
