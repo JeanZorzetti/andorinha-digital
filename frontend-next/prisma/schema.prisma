@@ -169,6 +169,7 @@ model User {
   notifications Notification[] @relation("UserNotifications")
   media         Media[]        @relation("UserMedia")
   apiKeys       ApiKey[]       @relation("UserApiKeys")
+  backups       Backup[]       @relation("UserBackups")
 
   @@map("users")
 }
@@ -577,4 +578,77 @@ model ApiKey {
   @@index([createdBy])
   @@index([isActive])
   @@index([key])
+}
+
+// Backup Settings - Configurações de backup automático
+model BackupSettings {
+  id String @id @default("singleton") // Singleton pattern
+
+  // Automated Backup Schedule
+  enableAutomatedBackup Boolean @default(false)
+  backupFrequency       String  @default("daily") // daily, weekly, monthly
+  backupTime            String  @default("02:00") // HH:mm format
+  backupRetentionDays   Int     @default(30)
+
+  // Backup Storage
+  backupPath      String  @default("./backups")
+  maxBackupSize   Int     @default(1000) // MB
+  compressBackups Boolean @default(true)
+
+  // Email Notifications
+  notifyOnBackup        Boolean @default(true)
+  notificationEmail     String?
+  notifyOnBackupFailure Boolean @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("backup_settings")
+}
+
+enum BackupStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+  FAILED
+}
+
+enum BackupType {
+  MANUAL
+  SCHEDULED
+  ON_DEMAND
+}
+
+model Backup {
+  id          String       @id @default(cuid())
+  filename    String
+  filepath    String
+  size        Int // bytes
+  type        BackupType   @default(MANUAL)
+  status      BackupStatus @default(PENDING)
+
+  // Backup content details
+  includesDatabase Boolean @default(true)
+  includesMedia    Boolean @default(true)
+  includesConfig   Boolean @default(true)
+
+  // Execution details
+  startedAt    DateTime?
+  completedAt  DateTime?
+  error        String?  @db.Text
+
+  // Creator
+  createdBy String
+  user      User   @relation("UserBackups", fields: [createdBy], references: [id], onDelete: Cascade)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("backups")
+  @@index([createdBy])
+  @@index([status])
+  @@index([type])
+  @@index([createdAt])
 }

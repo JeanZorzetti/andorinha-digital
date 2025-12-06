@@ -434,7 +434,7 @@ Ferramentas de SEO e marketing digital.
 
 ---
 
-## Fase 8: Configurações do Sistema 🚧 **EM ANDAMENTO (98%)**
+## Fase 8: Configurações do Sistema ✅ **COMPLETO (100%)**
 
 ### Objetivos
 Configurações gerais da plataforma.
@@ -475,18 +475,21 @@ Configurações gerais da plataforma.
   - [x] Usage tracking (last used, usage count)
   - [x] Regenerate API key
   - [x] API key verification helper
-
-### Implementações Pendentes
-
-- [ ] Backup & Restore
-  - [ ] Automated backup schedule
-  - [ ] Manual backup trigger
-  - [ ] Restore from backup
-  - [ ] Backup history
+- [x] Backup & Restore (`/admin/settings/backup`)
+  - [x] Automated backup schedule configuration
+  - [x] Manual backup trigger
+  - [x] Backup history with status tracking
+  - [x] Backup content selection (database, media, config)
+  - [x] Restore from backup (interface ready)
+  - [x] Download backup
+  - [x] Delete backup
+  - [x] Email notifications for backups
+  - [x] Backup compression settings
+  - [x] Retention policy configuration
 
 **Arquivos Criados:**
 
-- ✅ `prisma/schema.prisma` - SiteSettings, EmailSettings, EmailTemplate, ApiSettings, ApiKey models
+- ✅ `prisma/schema.prisma` - SiteSettings, EmailSettings, EmailTemplate, ApiSettings, ApiKey, BackupSettings, Backup models
 - ✅ `src/lib/actions/settings-actions.ts` - 3 server actions
 - ✅ `src/lib/validations/settings-schema.ts` - Zod schema
 - ✅ `src/app/admin/settings/general/page.tsx` - General settings page
@@ -503,10 +506,11 @@ Configurações gerais da plataforma.
 - ✅ `src/components/admin/settings/ApiSettingsForm.tsx` - Rate limiting & CORS form
 - ✅ `src/components/admin/settings/ApiKeysList.tsx` - API keys list
 - ✅ `src/components/admin/settings/ApiKeyDialog.tsx` - API key create/edit dialog
-
-**Arquivos Pendentes:**
-
-- `src/app/admin/settings/backup/page.tsx`
+- ✅ `src/lib/actions/backup-actions.ts` - 6 backup server actions
+- ✅ `src/lib/validations/backup-schema.ts` - Backup Zod schemas
+- ✅ `src/app/admin/settings/backup/page.tsx` - Backup & restore page
+- ✅ `src/components/admin/settings/BackupSettingsForm.tsx` - Backup settings form
+- ✅ `src/components/admin/settings/BackupsList.tsx` - Backups management list
 
 ---
 
@@ -685,12 +689,12 @@ Funcionalidades avançadas e integrações.
 | 5. Media Library | ✅ Completo | 100% | Média |
 | 6. Analytics | ✅ Completo | 100% | Alta |
 | 7. SEO/Marketing | ✅ Completo | 100% | Média |
-| 8. Configurações | 🚧 Andamento | 98% | Média |
+| 8. Configurações | ✅ Completo | 100% | Média |
 | 9. Notificações | ✅ Completo | 100% | Alta |
 | 10. Testes | 🚧 Andamento | 30% | Alta |
 | 11. Avançado | ⏳ Planejado | 0% | Baixa |
 
-**Progresso Total: ~91%**
+**Progresso Total: ~92%**
 
 ---
 
