@@ -456,3 +456,60 @@ model SiteSettings {
 
   @@map("site_settings")
 }
+
+// Email Settings - Configurações de email e SMTP
+model EmailSettings {
+  id String @id @default("singleton") // Singleton pattern
+
+  // SMTP Configuration
+  smtpHost     String  @default("")
+  smtpPort     Int     @default(587)
+  smtpUser     String  @default("")
+  smtpPassword String  @default("") // Should be encrypted in production
+  smtpSecure   Boolean @default(true)
+  smtpFrom     String  @default("")
+  smtpFromName String  @default("Andorinha Digital")
+
+  // Email Preferences
+  enableEmailNotifications Boolean @default(true)
+  enableWelcomeEmail       Boolean @default(true)
+  enablePasswordReset      Boolean @default(true)
+  enableContactFormEmail   Boolean @default(true)
+  enableNewsletterEmail    Boolean @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("email_settings")
+}
+
+enum EmailTemplateType {
+  WELCOME
+  PASSWORD_RESET
+  CONTACT_FORM
+  NEWSLETTER
+  NOTIFICATION
+  CUSTOM
+}
+
+model EmailTemplate {
+  id      String            @id @default(cuid())
+  name    String
+  type    EmailTemplateType
+  subject String
+  body    String            @db.Text
+
+  // Template variables documentation
+  variables String[] @default([])
+
+  // Status
+  isActive Boolean @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([type])
+  @@map("email_templates")
+}
