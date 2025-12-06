@@ -1,11 +1,19 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Globe, Bell, Shield, Database, Mail, Webhook } from "lucide-react";
+import { Users, Globe, Shield, Database, Mail, Webhook, Plug, Settings } from "lucide-react";
 import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 const settingsCards = [
+  {
+    title: "Configurações Gerais",
+    description: "Configurações básicas do site e sistema",
+    icon: Settings,
+    href: "/admin/settings/general",
+    iconColor: "text-gray-600",
+    bgColor: "bg-gray-100",
+  },
   {
     title: "Gerenciar Usuários",
     description: "Adicionar, editar e remover usuários do sistema",
@@ -18,19 +26,17 @@ const settingsCards = [
     title: "SEO Global",
     description: "Configurações de SEO do site (meta tags, sitemap)",
     icon: Globe,
-    href: "/admin/settings/seo",
+    href: "/admin/seo",
     iconColor: "text-green-600",
     bgColor: "bg-green-100",
-    disabled: true,
   },
   {
-    title: "Notificações",
+    title: "Email & Notificações",
     description: "Configurar notificações por email e webhooks",
-    icon: Bell,
-    href: "/admin/settings/notifications",
+    icon: Mail,
+    href: "/admin/settings/email",
     iconColor: "text-yellow-600",
     bgColor: "bg-yellow-100",
-    disabled: true,
   },
   {
     title: "Webhooks",
@@ -55,16 +61,14 @@ const settingsCards = [
     href: "/admin/settings/backup",
     iconColor: "text-purple-600",
     bgColor: "bg-purple-100",
-    disabled: true,
   },
   {
-    title: "Integrações",
-    description: "Configurar integrações com CRM, Analytics, etc",
-    icon: Mail,
-    href: "/admin/settings/integrations",
+    title: "API Keys",
+    description: "Gerenciar chaves de API e integrações externas",
+    icon: Plug,
+    href: "/admin/settings/api",
     iconColor: "text-orange-600",
     bgColor: "bg-orange-100",
-    disabled: true,
   },
 ];
 
